@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const scssSharedLoaders = [{ // defining array of css loaders here to avoid duplication below
 		loader: MiniCssExtractPlugin.loader,
@@ -123,10 +124,20 @@ module.exports = {
 	      // both options are optional
 	      filename: "css/styles.css",
 	      chunkFilename: "[id].css",
-	    })
+	    }),
+        new CopyWebpackPlugin([
+            {
+                from: '-/**/*.*',
+                context: 'src'
+            },{
+                from: 'assets/**/*.*',
+                context: 'src'
+            }
+        ])
     ],
   	output: {
     	filename: '[name].js',
-    	path: path.resolve(__dirname, 'dist')
+    	path: path.resolve(__dirname, 'dist'),
+        publicPath: '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
   	}
 };
