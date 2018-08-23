@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
 
 const scssSharedLoaders = [{ // defining array of css loaders here to avoid duplication below
 		loader: MiniCssExtractPlugin.loader,
@@ -133,7 +134,13 @@ module.exports = {
                 from: 'assets/**/*.*',
                 context: 'src'
             }
-        ])
+        ]),
+        new PrerenderSPAPlugin({
+          // Required - The path to the webpack-outputted app to prerender.
+          staticDir: path.join(__dirname, 'dist'),
+          // Required - Routes to render.
+          routes: ['/'],
+        })
     ],
   	output: {
     	filename: '[name].js',
