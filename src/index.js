@@ -1,2 +1,2 @@
-import FishNetwork from './fishnetwork-app.js';
-FishNetwork.controller.init();    
+import TestApp from './test-app.js';
+TestApp.init();    
