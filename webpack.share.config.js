@@ -132,6 +132,10 @@ module.exports = {
                 context: 'src'
             },{
                 from: 'assets/**/*.*',
+                exclude: 'assets/Pew/css/',
+                context: 'src'
+            },{
+                from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content,path){
                   return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/$1');
