@@ -132,7 +132,11 @@ module.exports = {
                 context: 'src'
             },{
                 from: 'assets/**/*.*',
-                context: 'src'
+                context: 'src',
+                transform(content,path){
+                  return content.toString().replace(/url\("\/([^/])/g, 'url("$1');
+                  //console.log(content);
+                }
             }
         ]),
        /*new PrerenderSPAPlugin({
