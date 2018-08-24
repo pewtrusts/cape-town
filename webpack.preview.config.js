@@ -5,7 +5,8 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-//const PrerenderSPAPlugin = require('prerender-spa-plugin');
+
+const previewSubfolder = 'template100';
 
 const scssSharedLoaders = [{ // defining array of css loaders here to avoid duplication below
 		loader: MiniCssExtractPlugin.loader,
@@ -138,8 +139,7 @@ module.exports = {
                 from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content,path){
-                  return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/$1');
-                  //console.log(content);
+                  return content.toString().replace(/url\("\/([^/])/g, 'url("/' + previewSubfolder + '/$1');
                 }
             }
         ]),
@@ -152,7 +152,7 @@ module.exports = {
     ],
   	output: {
     	filename: '[name].js',
-    	path: path.resolve(__dirname, 'preview'),
+    	path: path.resolve(__dirname, previewSubfolder),
        // publicPath: '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
   	}
 };

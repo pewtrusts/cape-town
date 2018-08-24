@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.build.config.js",
     "start": "webpack-dev-server --open",
-    "share": "webpack --config webpack.share.config.js"
+    "preview": "webpack --config webpack.preview.config.js"
   },
   "keywords": [],
   "author": "",
