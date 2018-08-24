@@ -40,7 +40,7 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         modules: true,
-                        localIdentName: '[path]local]', // in dev mode hash not necessary to brak caches but incuding path
+                        localIdentName: '[path][local]', // in dev mode hash not necessary to brak caches but incuding path
                                                            // should avoid collisions of classes with same names
                         sourceMap: true
                     }
