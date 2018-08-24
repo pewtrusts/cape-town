@@ -134,7 +134,7 @@ module.exports = {
                 from: 'assets/**/*.*',
                 context: 'src',
                 transform(content,path){
-                  return content.toString().replace(/url\("\/([^/])/g, 'url("$1');
+                  return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/$1');
                   //console.log(content);
                 }
             }
