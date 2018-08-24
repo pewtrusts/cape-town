@@ -118,7 +118,7 @@ module.exports = {
     	new HtmlWebpackPlugin({
     		title: 'title title title',
     		//inject: false,
-		    template: './src/interactive-100-preview.html',
+		    template: './src/interactive-100.html',
 		}),
      	new MiniCssExtractPlugin({
 	      // Options similar to the same options in webpackOptions.output
