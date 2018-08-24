@@ -97,6 +97,10 @@ module.exports = {
                     outputPath: 'images/',
                 }
             },
+            {
+                test: /\.md$/,
+                use: ['html-loader', 'markdown-loader']
+            }
             
         ]
    },
