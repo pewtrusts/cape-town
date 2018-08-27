@@ -1,23 +1,25 @@
 import MapView from './views/map/map.js';
 import TextView from './views/text/text.js';
-import SelectorsView from './views/selectors/selectors.js';
+import SelectionView from './views/selection/selection.js';
 
-const views = {
-	map: new MapView(),
-	text: new TextView(),
-	selectors: new SelectorsView()
-};
+const views = [ 
+	new MapView(),
+	new TextView(),
+	new SelectionView(),
+];
 
 const TestApp = {
 	prerender(){
 		var app = document.querySelector('#pew-app');
-		app.appendChild(views.map.el);
-		app.appendChild(views.text.el);
-		app.appendChild(views.selectors.el);
+		views.forEach(view => {
+			app.appendChild(view.el);
+		});
 		app.classList.add('rendered');
 	},
 	init(){
-		console.log('Init!');
+		views.forEach(view => {
+			view.init();
+		});
 	}
 }
 
