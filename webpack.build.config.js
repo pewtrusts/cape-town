@@ -97,6 +97,10 @@ module.exports = {
                     //publicPath: '/shale-v0/dist/images/' USE publicPath if the public URL to '/' is not '/'
                 }
             },
+            {
+                test: /\.md$/,
+                use: ['html-loader', 'markdown-loader']
+            }
      	]
    },
     optimization: {
