@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
 
 const previewSubfolder = 'cape-town';
 
@@ -104,7 +104,7 @@ module.exports = {
             }
      	]
    },
-    optimization: {
+    /*optimization: {
       minimizer: [
         new UglifyJSPlugin({
           uglifyOptions: {
@@ -117,7 +117,7 @@ module.exports = {
           },
         }),
       ],
-    },
+    },*/
     plugins: [
     	new CleanWebpackPlugin([previewSubfolder], { root: path.join(__dirname, '../../preview/')}),
     	new HtmlWebpackPlugin({
@@ -143,16 +143,16 @@ module.exports = {
                 from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content,path){
-                  return content.toString().replace(/url\("\/([^/])/g, 'url("/' + previewSubfolder + '/$1');
+                  return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/' + previewSubfolder + '/$1');
                 }
             }
         ]),
-       /*new PrerenderSPAPlugin({
+       new PrerenderSPAPlugin({
           // Required - The path to the webpack-outputted app to prerender.
-          staticDir: path.join(__dirname, 'dist'),
+          staticDir: path.join(__dirname, '../../preview/' + previewSubfolder),
           // Required - Routes to render.
           routes: ['/'],
-        })*/
+        })
     ],
   	output: {
     	filename: '[name].js',
