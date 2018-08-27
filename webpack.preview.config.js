@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const previewSubfolder = 'template100';
+const previewSubfolder = 'cape-town';
 
 const scssSharedLoaders = [{ // defining array of css loaders here to avoid duplication below
 		loader: MiniCssExtractPlugin.loader,
@@ -98,6 +98,10 @@ module.exports = {
                     //publicPath: '/shale-v0/dist/images/' USE publicPath if the public URL to '/' is not '/'
                 }
             },
+            {
+                test: /\.md$/,
+                use: ['html-loader', 'markdown-loader']
+            }
      	]
    },
     optimization: {
@@ -115,7 +119,7 @@ module.exports = {
       ],
     },
     plugins: [
-    	new CleanWebpackPlugin(['preview']),
+    	new CleanWebpackPlugin([previewSubfolder], { root: path.join(__dirname, '../../preview/')}),
     	new HtmlWebpackPlugin({
     		title: 'title title title',
     		//inject: false,
@@ -152,7 +156,7 @@ module.exports = {
     ],
   	output: {
     	filename: '[name].js',
-    	path: path.resolve(__dirname, previewSubfolder),
+    	path: path.join(__dirname, '../../preview/' + previewSubfolder),
        // publicPath: '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
   	}
 };
