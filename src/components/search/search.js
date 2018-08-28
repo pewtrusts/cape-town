@@ -2,12 +2,11 @@ import s from './styles.scss';
 import $d from '@Helpers/dom-helpers.js';
 import main from '@Project/css/main.scss';
 
-export default function SearchBar(id = 'pct-search'){
-	this.id = id;
-	this.el = this.prerender();
-}
-
-SearchBar.prototype = {
+export default class SearchBar {
+	constructor(id = 'pct-search'){
+		this.id = id;
+		this.el = this.prerender();
+	}
 	prerender(){
 		var existing = $d.q('div#' + this.id);
 		if ( existing ) {
@@ -40,12 +39,8 @@ SearchBar.prototype = {
 		div.appendChild(searchCont);
 		div.appendChild(clear);
 		return div;
-	},
+	}
 	init(){
 		console.log('init');
-		//this.el.addEventListener('click', this.clickHandler);
-	}/*,
-	clickHandler(e){
-		//console.log(e.target.value)
-	}*/
-};
+	}
+}

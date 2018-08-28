@@ -1,11 +1,10 @@
 import s from './styles.scss';
 import text from './text.md';
 
-export default function TextView(){
-	this.el = this.prerender();
-}
-
-TextView.prototype = {
+export default class TextView{
+	constructor(){
+		this.el = this.prerender();
+	}
 	prerender(){
 		var existing = document.querySelector('#pct-text');
 		if ( existing ) {
@@ -16,7 +15,7 @@ TextView.prototype = {
 		div.className = s.textBlock;
 		div.innerHTML = text;
 		return div;
-	},
+	}
 	init(){
 		console.log('Init text');
 	}

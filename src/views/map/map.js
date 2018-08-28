@@ -1,12 +1,10 @@
 import s from './styles.scss';
 import main from '@Project/css/main.scss';
 
-export default function MapView(){
-	this.el = this.prerender();
-
-}
-
-MapView.prototype = {
+export default class MapView {
+	constructor(){
+		this.el = this.prerender();
+	}
 	prerender(){
 		var existing = document.querySelector('#map');
 		if ( existing ) {
@@ -18,7 +16,7 @@ MapView.prototype = {
 		map.classList.add(s.mapContainer);
 		map.classList.add(main.wireframe);
 		return map;
-	},
+	}
 	init(){
 		console.log('Init map');
 	}

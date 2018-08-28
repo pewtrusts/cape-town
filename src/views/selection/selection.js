@@ -1,16 +1,15 @@
 import treaties from '@Project/data/treaties.json';
 import main from '@Project/css/main.scss';
-import btn from '@Project/components/select-button/select-button.js';
+import Button from '!!@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
 
-export default function Selection(){
-	this.buttons = treaties.map(treaty => new btn(treaty));
-	this.searchBar = new SearchBar();
-	this.el = this.prerender();
-}
-
-Selection.prototype = {
+export default class Selection {
+	constructor(){
+		this.buttons = treaties.map(treaty => new Button(treaty));
+		this.searchBar = new SearchBar();
+		this.el = this.prerender();
+	}
 	prerender(){
 		var existing = $d.q('#selection-view');
 		if ( existing ) {
@@ -30,9 +29,10 @@ Selection.prototype = {
 		div.appendChild(btnContainer);
 		div.appendChild(this.searchBar.el);
 		return div;
-	},
+	}
 	init(){
 		console.log('Init selection-view');
+		console.log(this.buttons);
 		this.buttons.forEach(btn => {
 			btn.init();
 		});
