@@ -63,8 +63,13 @@ module.exports = {
             },*/
             {
                   test: /\.js$/,
-                  exclude: /node_modules/,
-                  use: ['babel-loader', 'eslint-loader'] // lints the es6 code then transpiles it into es5
+                  exclude: [/node_modules/, /src\/index\.js/],
+                  use: ['eslint-loader'] // lints the es6 
+            },
+            {
+                  test: /src\/index\.js$/,
+                  exclude: [/node_modules/,'/src/index.js'],
+                  use: ['babel-loader','eslint-loader'] // lints the es6 and then transpiles
             },
             {
                 test: /\.csv$/, //converts csv files into json, treats as javascript
