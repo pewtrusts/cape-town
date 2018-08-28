@@ -1,13 +1,12 @@
 import s from './styles.scss';
-import main from './../../css/main.scss';
-import $d from './../../../helpers/dom-helpers.js';
+import main from '@Project/css/main.scss';
+import $d from '@Helpers/dom-helpers.js';
 
-export default function SelectButton(treaty){
-	console.log(treaty);
-	this.el = this.prerender(treaty);
-}
-
-SelectButton.prototype = {
+export default class SelectButton {
+	constructor(treaty){
+		console.log(treaty);
+		this.el = this.prerender(treaty);
+	}
 	prerender(treaty){
 		var existing = $d.q('button#' + treaty.key);
 		if ( existing ) {
@@ -17,11 +16,11 @@ SelectButton.prototype = {
 		btn.setAttribute('value', treaty.key);
 		btn.innerHTML = treaty.name;
 		return btn;
-	},
+	}
 	init(){
 		this.el.addEventListener('click', this.clickHandler);
-	},
+	}
 	clickHandler(e){
 		console.log(e.target.value)
 	}
-};
+}

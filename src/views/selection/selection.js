@@ -1,8 +1,8 @@
-import treaties from './../../data/treaties.json';
-import main from './../../css/main.scss';
-import btn from './../../components/select-button/select-button.js';
-import $d from './../../../helpers/dom-helpers.js';
-import SearchBar from './../../components/search/search.js';
+import treaties from '@Project/data/treaties.json';
+import main from '@Project/css/main.scss';
+import btn from '@Project/components/select-button/select-button.js';
+import $d from '@Helpers/dom-helpers.js';
+import SearchBar from '@Project/components/search/search.js';
 
 export default function Selection(){
 	this.buttons = treaties.map(treaty => new btn(treaty));

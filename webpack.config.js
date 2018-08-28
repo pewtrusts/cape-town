@@ -131,5 +131,12 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
+    },
+    resolve: {
+        alias: {
+            "@UI": path.join(__dirname, '../../UI/'),
+            "@Project": path.join(__dirname, 'src'),
+            "@Helpers": path.join(__dirname, '../../helpers/'),
+        }
     }
 };

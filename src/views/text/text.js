@@ -1,5 +1,4 @@
 import s from './styles.scss';
-//import main from './../../css/main.scss';
 import text from './text.md';
 
 export default function TextView(){

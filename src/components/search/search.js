@@ -1,6 +1,6 @@
 import s from './styles.scss';
-import $d from './../../../helpers/dom-helpers.js';
-import main from './../../css/main.scss';
+import $d from '@Helpers/dom-helpers.js';
+import main from '@Project/css/main.scss';
 
 export default function SearchBar(id = 'pct-search'){
 	this.id = id;

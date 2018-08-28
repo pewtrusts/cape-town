@@ -1,5 +1,5 @@
 import s from './styles.scss';
-import main from './../../css/main.scss';
+import main from '@Project/css/main.scss';
 
 export default function MapView(){
 	this.el = this.prerender();

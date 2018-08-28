@@ -150,5 +150,12 @@ module.exports = {
     	filename: '[name].js',
     	path: path.resolve(__dirname, 'dist'),
         publicPath: '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
-  	}
+  	},
+    resolve: {
+        alias: {
+            "@UI": path.join(__dirname, '../../UI/'),
+            "@Project": path.join(__dirname, 'src'),
+            "@Helpers": path.join(__dirname, '../../helpers/'),
+        }
+    }
 };
