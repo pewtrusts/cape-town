@@ -1,23 +1,27 @@
 import s from './styles.scss';
 import $d from '@Helpers/dom-helpers.js';
 import main from '@Project/css/main.scss';
+import Element from '@UI/element/element.js';
+import { TextInput } from '@UI/inputs/inputs.js';
 
-export default class SearchBar {
-	constructor(id = 'pct-search'){
-		this.id = id;
-		this.el = this.prerender();
+export default class SearchBar extends Element {
+
+	constructor(){
+		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`);
 	}
+	
 	prerender(){
-		var existing = $d.q('div#' + this.id);
-		if ( existing ) {
-			return existing;
-		}
+		
+		this.input = new TextInput(`input.${main.grow}`);
+
 		//container
-		var div = $d.c(`div#${this.id}.${s.searchDiv}.${main.flex}.${main.sb}`);
+		var div = super.prerender();
+		if ( this.prerendered ) {
+			return div;
+		}
 		
 		////search and submit container
 		var searchCont = $d.c(`div.${s.searchContainer}.${main.flex}.${main.sb}.${main.grow}`);
-		
 		//////search
 		var search = $d.c(`input.${main.grow}`);
 		search.setAttribute('type', 'text');

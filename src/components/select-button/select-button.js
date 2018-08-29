@@ -4,7 +4,6 @@ import { Button } from '@UI/buttons/buttons.js';
 
 export default class SelectButton extends Button {
 	prerender(){
-        console.log(Button);
 		var btn = super.prerender();
 		if ( this.prerendered ) {
 			return btn;

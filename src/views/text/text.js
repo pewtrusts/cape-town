@@ -1,22 +1,15 @@
 import s from './styles.scss';
 import text from './text.md';
+import Element from '@UI/element/element.js';
 
-export default class TextView{
-	constructor(){
-		this.el = this.prerender();
-	}
+export default class TextView extends Element {
 	prerender(){
-		var existing = document.querySelector('#pct-text');
-		if ( existing ) {
-			return existing;
+		var div = super.prerender();
+		if ( this.prerendered ) {
+			return div;
 		}
-		var div = document.createElement('div');
-		div.setAttribute('id', 'pct-text');
 		div.className = s.textBlock;
 		div.innerHTML = text;
 		return div;
-	}
-	init(){
-		console.log('Init text');
 	}
 }

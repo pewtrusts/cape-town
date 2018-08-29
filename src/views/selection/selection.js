@@ -3,26 +3,23 @@ import main from '@Project/css/main.scss';
 import Button from '@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
+import Element from '@UI/element/element.js';
 
-export default class Selection {
-	constructor(model){
-		console.log(model);
-		this.model = model;
-		this.searchBar = new SearchBar();
-		this.buttons = model.treaties.map(treaty => new Button(treaty));
-		this.el = this.prerender();
-	}
+export default class Selection extends Element {
 	prerender(){
-		var existing = $d.q('#selection-view');
-		if ( existing ) {
-			return existing;
+		this.searchBar = new SearchBar();
+		this.buttons = this.model.treaties.map(treaty => new Button(treaty));
+		
+		//container
+		var div = super.prerender();
+		if ( this.prerendered ) {
+			return div;
 		}
-		var div = $d.c('div');
-		div.setAttribute('id','selection-view');
-
-		var btnContainer = $d.c('div');
-		btnContainer.classList.add(main.flex);
-		btnContainer.classList.add(main.sb);
+		
+		//// button container
+		var btnContainer = $d.c('div.' + main.flex + '.' + main.sb);
+		
+		//////buttons
 		this.buttons.forEach(btn => {
 			btnContainer.appendChild(btn.el);
 		});

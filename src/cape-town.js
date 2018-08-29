@@ -17,9 +17,9 @@ const model = {
 };
 
 const views = [ 
-	new MapView(model),
-	new TextView(model),
-	new SelectionView(model),
+	new MapView('div#pct-map'),
+	new TextView('div#pct-text'),
+	new SelectionView('div#selection-view', model),
 	new TileView(model)
 ];
 
