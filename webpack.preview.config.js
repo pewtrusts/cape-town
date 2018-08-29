@@ -61,14 +61,9 @@ module.exports = {
 					},
 					...scssSharedLoaders.slice(1)]
 	        },
-          {
+           {
                   test: /\.js$/,
-                  exclude: [/node_modules/, /src\/index\.js/],
-                  use: ['eslint-loader'] // lints the es6 
-            },
-            {
-                  test: /src\/index\.js$/,
-                  exclude: [/node_modules/,'/src/index.js'],
+                  exclude: /node_modules/,
                   use: ['babel-loader','eslint-loader'] // lints the es6 and then transpiles
             },
             {
