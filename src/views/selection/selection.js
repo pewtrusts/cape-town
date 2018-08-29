@@ -1,13 +1,15 @@
-import treaties from '@Project/data/treaties.json';
+//import treaties from '@Project/data/treaties.json';
 import main from '@Project/css/main.scss';
-import Button from '!!@Project/components/select-button/select-button.js';
+import Button from '@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
 
 export default class Selection {
-	constructor(){
-		this.buttons = treaties.map(treaty => new Button(treaty));
+	constructor(model){
+		console.log(model);
+		this.model = model;
 		this.searchBar = new SearchBar();
+		this.buttons = model.treaties.map(treaty => new Button(treaty));
 		this.el = this.prerender();
 	}
 	prerender(){

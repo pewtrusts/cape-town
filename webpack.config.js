@@ -77,7 +77,8 @@ module.exports = {
                 options: {
                     dynamicTyping: true,
                     header: true,
-                    skipEmptyLines: true
+                    skipEmptyLines: true,
+                    trimHeaders: true,
                 }
             },
            {

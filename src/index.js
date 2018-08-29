@@ -1,4 +1,7 @@
+/* exported StringHelpers */
+import { StringHelpers } from '@Helpers/string-helpers.js';
 import CapeTown from './cape-town.js';
+console.log(StringHelpers);
 const app = document.querySelector('#pew-app');
 const prerenderScript = document.querySelector('#prerender-script');
 if ( !app.classList.contains('rendered') ){

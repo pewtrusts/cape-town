@@ -1,0 +1,11 @@
+@import '@Project/css/_variables.scss';
+$dimensions: 195px;
+$margin: 2px;
+.countryTile {
+    width: $dimensions;
+    height: $dimensions;
+    margin-right: $margin;
+    margin-bottom: $margin;
+    flex-grow: 1;
+
+}
