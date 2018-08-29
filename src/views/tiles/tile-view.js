@@ -20,7 +20,7 @@ export default class TileView {
 		cont.setAttribute('id', 'pct-tiles-cont');
 		cont.classList.add(main.wireframe);
 		cont.classList.add(main.flex);
-		//cont.classList.add(main.sb);
+		cont.classList.add(main.sb);
 		cont.classList.add(main.wrap);
 		
 		////tiles
