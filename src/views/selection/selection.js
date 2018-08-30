@@ -7,6 +7,10 @@ import Element from '@UI/element/element.js';
 
 export default class Selection extends Element {
 	prerender(){
+		/* any child elements that need initialization such as eventListeners
+			need to instantiated as properties of `this` so that their methods
+			can be accessed */
+
 		this.searchBar = new SearchBar();
 		this.buttons = this.model.treaties.map(treaty => new Button(treaty));
 		
@@ -31,7 +35,6 @@ export default class Selection extends Element {
 	}
 	init(){
 		console.log('Init selection-view');
-		console.log(this.buttons);
 		this.buttons.forEach(btn => {
 			btn.init();
 		});
