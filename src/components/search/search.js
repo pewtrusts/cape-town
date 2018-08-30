@@ -3,6 +3,7 @@ import $d from '@Helpers/dom-helpers.js';
 import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
 import { TextInput } from '@UI/inputs/inputs.js';
+import { Button, SubmitButton } from '@UI/buttons/buttons.js';
 
 export default class SearchBar extends Element {
 
@@ -12,7 +13,11 @@ export default class SearchBar extends Element {
 	
 	prerender(){
 		
-		this.input = new TextInput(`input.${main.grow}`);
+		this.willInitialize = [
+			new TextInput(`input.${main.grow}`),
+			new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
+			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
+		];
 
 		//container
 		var div = super.prerender();
@@ -22,29 +27,30 @@ export default class SearchBar extends Element {
 		
 		////search and submit container
 		var searchCont = $d.c(`div.${s.searchContainer}.${main.flex}.${main.sb}.${main.grow}`);
-		//////search
-		var search = $d.c(`input.${main.grow}`);
-		search.setAttribute('type', 'text');
-
+		
 		
 		//////submit
-		var submit = $d.c(`button.${s.submitSearch}.${main.pctBtn}`);
-		submit.setAttribute('type','submit');
+		//var submit = $d.c(`button.${s.submitSearch}.${main.pctBtn}`);
+		//submit.setAttribute('type','submit');
 		
 		////clear button
-		var clear = $d.c(`button.${s.clearSearch}.${main.pctBtn}`);
-		clear.setAttribute('type','button');
-		clear.innerHTML = 'Clear';
+		
 
 
 
-		searchCont.appendChild(search);
-		searchCont.appendChild(submit);
+		searchCont.appendChild(this.willInitialize[0].el);
+		searchCont.appendChild(this.willInitialize[1].el);
 		div.appendChild(searchCont);
-		div.appendChild(clear);
+		div.appendChild(this.willInitialize[2].el);
 		return div;
 	}
 	init(){
 		console.log('init');
+		//this.submit.init();
+		//this.clearButton.init();
+		this.willInitialize.forEach(each => {
+			each.init();
+		});
+
 	}
 }

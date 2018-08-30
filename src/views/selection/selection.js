@@ -10,9 +10,14 @@ export default class Selection extends Element {
 		/* any child elements that need initialization such as eventListeners
 			need to instantiated as properties of `this` so that their methods
 			can be accessed */
-
-		this.searchBar = new SearchBar();
 		this.buttons = this.model.treaties.map(treaty => new Button(treaty));
+		this.willInitialize = [
+			new SearchBar(),	
+			...this.buttons
+		];	
+		console.log(this.willInitialize[1]);
+		//this.searchBar = new SearchBar();
+		//this.buttons = this.model.treaties.map(treaty => new Button(treaty));
 		
 		//container
 		var div = super.prerender();
@@ -30,13 +35,17 @@ export default class Selection extends Element {
 
 
 		div.appendChild(btnContainer);
-		div.appendChild(this.searchBar.el);
+		div.appendChild(this.willInitialize[0].el);
 		return div;
 	}
 	init(){
 		console.log('Init selection-view');
-		this.buttons.forEach(btn => {
+		/*this.buttons.forEach(btn => {
 			btn.init();
+		});
+		this.searchBar.init();*/
+		this.willInitialize.forEach(each => {
+			each.init();
 		});
 	}
 }
