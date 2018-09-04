@@ -4,6 +4,8 @@ import Button from '@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
 import Element from '@UI/element/element.js';
+import s from './styles.scss';
+import Ratified from '@Project/components/ratified/'
 
 export default class Selection extends Element {
 	prerender(){
@@ -11,39 +13,43 @@ export default class Selection extends Element {
 			need to instantiated as properties of `this` so that their methods
 			can be accessed */
 		this.buttons = this.model.treaties.map(treaty => new Button(treaty));
+		this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}.${main.wireframe}`, treaty));
 		this.willInitialize = [
-			new SearchBar(),	
+			new SearchBar(),
+			...this.ratified,	
 			...this.buttons
 		];	
-		console.log(this.willInitialize[1]);
-		//this.searchBar = new SearchBar();
-		//this.buttons = this.model.treaties.map(treaty => new Button(treaty));
-		
+		console.log(this.ratified);
 		//container
 		var div = super.prerender();
 		if ( this.prerendered ) {
 			return div;
 		}
 		
-		//// button container
-		var btnContainer = $d.c('div.' + main.flex + '.' + main.sb);
+		//searchbar
+		div.appendChild(this.willInitialize[0].el);
 		
-		//////buttons
-		this.buttons.forEach(btn => {
-			btnContainer.appendChild(btn.el);
+		// button container
+		var btnContainer = $d.c('div.' + main.flex + '.' + main.sb + '.' + main.wrap);
+
+		//// button groups
+		this.buttons.forEach((btn,i) => {
+			var btnGroup = $d.c('div.' + s.buttonGroup);
+			// buttons
+			btnGroup.appendChild(btn.el);
+			// ratified
+			btnGroup.appendChild(this.ratified[i].el)
+
+			btnContainer.appendChild(btnGroup);
 		});
 
-
 		div.appendChild(btnContainer);
-		div.appendChild(this.willInitialize[0].el);
+		
 		return div;
 	}
 	init(){
 		console.log('Init selection-view');
-		/*this.buttons.forEach(btn => {
-			btn.init();
-		});
-		this.searchBar.init();*/
+		
 		this.willInitialize.forEach(each => {
 			each.init();
 		});
