@@ -24,7 +24,8 @@ const scssSharedLoaders = [{ // defining array of css loaders here to avoid dupl
 
 module.exports = {
 	entry: {
-      	'js/index': './src/index.js'
+      	'js/index': './src/index.js',
+        'js/webAnimation': './src/web-animations.min.js'
     },
     devtool: 'inline-source-map', // may be too slow an option; set to another if so
     mode: 'production',
@@ -63,7 +64,7 @@ module.exports = {
 	        },
            {
                   test: /\.js$/,
-                  exclude: /node_modules/,
+                  exclude: [/node_modules/,/\.min\./],
                   use: ['babel-loader','eslint-loader'] // lints the es6 and then transpiles
             },
             {
@@ -125,6 +126,7 @@ module.exports = {
     		title: 'title title title',
     		//inject: false,
 		    template: './src/interactive-100.html',
+        excludeChunks: [ 'js/webAnimation' ]
 		}),
      	new MiniCssExtractPlugin({
 	      // Options similar to the same options in webpackOptions.output
