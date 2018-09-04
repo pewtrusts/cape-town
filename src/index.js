@@ -1,7 +1,14 @@
-/* exported StringHelpers */
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "StringHelpers" }]*/
 import { StringHelpers } from '@Helpers/string-helpers.js';
 import CapeTown from './cape-town.js';
-console.log(StringHelpers);
+
+// polyfills
+if ( Element.prototype.animate === undefined ){
+    let scriptElement = document.createElement('script');
+    scriptElement.async = false;
+    scriptElement.src = 'js/webAnimation.js';
+    document.head.appendChild(scriptElement);
+}
 const app = document.querySelector('#pew-app');
 const prerenderScript = document.querySelector('#prerender-script');
 if ( !app.classList.contains('rendered') ){
