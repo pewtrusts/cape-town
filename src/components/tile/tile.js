@@ -32,7 +32,7 @@ export default class CountryTile {
     }
     getPosition(position){
         this[position] = this.el.getBoundingClientRect();
-        if ( position === 'last'){
+        if ( position === 'last' && Element.prototype.animate !== undefined ){
             this.deltaX = this.first.left - this.last.left;
             this.deltaY = this.first.top - this.last.top;
             this.el.animate([{
