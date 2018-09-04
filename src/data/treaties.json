@@ -1,14 +1,17 @@
 [
 	{
 		"key": "psma",
-		"name": "The Port State Measures Agreement"
+		"name": "The Port State Measures Agreement",
+		"status": "In Force"
 	},
 	{
 		"key": "capetown",
-		"name": "The Cape Town Agreement"
+		"name": "The Cape Town Agreement",
+		"status": "Not In Force"
 	},
 	{
 		"key": "ilo",
-		"name": "ILO Work in Fishing Convention"
+		"name": "ILO Work in Fishing Convention",
+		"status": "In Force"
 	}
 ]

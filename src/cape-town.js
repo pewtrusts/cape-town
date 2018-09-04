@@ -1,6 +1,3 @@
-//utils
-import * as d3 from 'd3-collection';
-
 //data
 import treaties from '@Project/data/treaties.json';
 import countries from '@Project/data/countries.csv';
@@ -13,7 +10,7 @@ import TileView from './views/tiles/tile-view.js';
 
 const model = {
 	treaties,
-	countries: d3.nest().key(d => d.name).entries(countries),
+	countries
 };
 
 const views = [ 

@@ -1,3 +1,6 @@
+//utils
+import * as d3 from 'd3-collection';
+
 import main from '@Project/css/main.scss';
 import $d from '@Helpers/dom-helpers.js';
 //import s from './styles.scss';
@@ -6,7 +9,7 @@ import CountryTile from '@Project/components/tile/tile.js';
 export default class TileView {
 	constructor(model){
 		this.model = model;
-		this.tiles = model.countries.map(country => new CountryTile(country));
+		this.tiles = d3.nest().key(d => d.name).entries(model.countries).map(country => new CountryTile(country));
 		this.el = this.prerender();
 	}
 	prerender(){
