@@ -9,7 +9,7 @@ import CountryTile from '@Project/components/tile/tile.js';
 export default class TileView {
 	constructor(model){
 		this.model = model;
-		this.tiles = d3.nest().key(d => d.name).entries(model.countries).map(country => new CountryTile(country));
+		this.tiles = d3.nest().key(d => d.name).entries(model.countries).map((country, index, array) => new CountryTile(country, index, array));
 		this.el = this.prerender();
 	}
 	prerender(){
@@ -37,5 +37,23 @@ export default class TileView {
 	}
 	init(){
 		console.log('Init tiles');
+		this.tiles.forEach(each => {
+			each.init();
+		});
+		this.el.addEventListener('click', () => {
+			this.update.call(this);
+		});
+	}
+	update(){
+		console.log('update');
+		this.tiles.forEach(each => {
+			each.getPosition('first');
+		});
+		this.tiles.forEach(each => {
+			each.changePosition();
+		});
+		this.tiles.forEach(each => {
+			each.getPosition('last');
+		});
 	}
 }
