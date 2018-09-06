@@ -14,11 +14,11 @@ export default class CountryTile {
         var opacity = 0.1 + step * index;
 
         /* end*/
-        var existing = $d.q('#' + this.country.key.cleanString() + '-tile');
+        var existing = $d.q('#' + this.country.key + '-tile');
         if ( existing ) {
             return existing;
         }
-		var tile = $d.c(`div#${this.country.key.cleanString()}-tile.${s.countryTile}`);
+		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}`);
 		tile.classList.add(main.wireframe); // TO DO : some of main.css should be up the tree in UI
         /* testing */
         tile.style.order = Math.floor(Math.random() * 100);

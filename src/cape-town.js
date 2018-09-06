@@ -1,6 +1,6 @@
 //data
 import treaties from '@Project/data/treaties.json';
-import countries from '@Project/data/countries.csv';
+import countries from '@Project/data/countries_new.csv';
 
 //views
 import MapView from './views/map/map.js';

@@ -22,7 +22,8 @@ const scssSharedLoaders = [{ // defining array of css loaders here to avoid dupl
 module.exports = {
     entry: {
         'js/index': './src/index.js',
-        'js/webAnimation': './src/web-animations.min.js'
+        'js/webAnimation': './src/web-animations.min.js',
+        'js/fetchPolyfill': './src/fetch-polyfill.min.js'
     },
     devtool: 'inline-source-map', // may be too slow an option; set to another if so
     devServer: {
@@ -117,7 +118,7 @@ module.exports = {
             title: 'title title title',
             //inject: false,
             template: './src/interactive-100.html',
-            excludeChunks: [ 'js/webAnimation' ]
+            excludeChunks: [ 'js/webAnimation', 'js/fetchPolyfill' ]
         }),
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
