@@ -4,7 +4,7 @@ import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
 
-const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
+const dataPath = 'data/world-topo-flipped.json'; // path to dat file relative to index.html
 
 export default class MapView extends Element {
     prerender(){
