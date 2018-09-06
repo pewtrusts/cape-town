@@ -132,7 +132,11 @@ module.exports = {
             },{
                 from: 'assets/**/*.*',
                 context: 'src'
+            },{
+                from: 'data/**/*.*',
+                context: 'src'
             }
+
         ]),
         new webpack.HotModuleReplacementPlugin()
     ],
