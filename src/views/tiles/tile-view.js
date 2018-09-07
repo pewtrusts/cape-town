@@ -9,7 +9,7 @@ import CountryTile from '@Project/components/tile/tile.js';
 export default class TileView {
 	constructor(model){
 		this.model = model;
-		this.tiles = d3.nest().key(d => d.country_iso3).entries(model.countries).map((country, index, array) => new CountryTile(country, index, array));
+		this.tiles = d3.nest().key(d => d.iso_a3).entries(model.countries).map((country, index, array) => new CountryTile(country, index, array));
 		this.el = this.prerender();
 		console.log(this.tiles);
 	}

@@ -1,6 +1,7 @@
 //data
 import treaties from '@Project/data/treaties.json';
 import countries from '@Project/data/countries_new.csv';
+import countryCodes from '@Project/data/country-codes.json';
 
 //views
 import MapView from './views/map/map.js';
@@ -10,12 +11,13 @@ import TileView from './views/tiles/tile-view.js';
 
 const model = {
 	treaties,
-	countries
+	countries,
+	countryCodes
 };
 
 const views = [ 
 	new TextView('div#pct-text'),
-	new MapView('div#pct-map'),
+	new MapView('div#pct-map',model),
 	new SelectionView('div#selection-view', model),
 	new TileView(model)
 ];

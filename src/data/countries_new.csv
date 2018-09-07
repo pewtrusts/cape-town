@@ -1,4 +1,4 @@
-country_iso3,treaty_id,ratified_date,note
+iso_a3,treaty_id,ratified_date,note
 AFG,cta,,
 ALB,cta,12/25/2010,5 vessels
 DZA,cta,, In progress
