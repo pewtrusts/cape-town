@@ -1,0 +1,135 @@
+@import '../../css/variables.scss';
+
+$cta: $map_medium_blue;
+$ilo: $map_dark_blue;
+$psma: $map_light_blue;
+$multiple: $map_gold;
+$deselected: $medium_gray;
+
+/* Highcharts overrides */
+#pct-map {
+    .highcharts-background {
+        fill: $light_gray;
+    }
+    path {
+        transition: fill 0.3s linear, stroke 0.3s linear;
+        &:hover {
+            //opacity:1;
+            stroke: #000;
+        }
+        &.highcharts-point-hover {
+            fill-opacity: 1;
+        }
+        // onload colors
+        &.none {
+            fill: #fff;
+        }
+        &.cta {
+            fill: $cta;
+        }
+        &.ilo {
+            fill: $ilo;
+        }
+        &.psma {
+            fill: $psma;
+        }
+        &.cta-ilo {
+            fill: $multiple;
+        }
+        &.cta-psma {
+            fill: $multiple;
+        }
+        &.ilo-psma {
+            fill: $multiple;
+        }
+        &.cta-ilo-psma {
+            fill: $multiple;
+        }
+    }
+    &.deselect-cta {
+        .cta {
+            fill: $deselected;
+        }
+        .cta-ilo {
+            fill: $ilo;
+        }
+        .cta-psma {
+            fill: $psma;
+        }
+    }
+    &.deselect-ilo {
+        .ilo {
+            fill: $deselected;
+        }
+        .cta-ilo {
+            fill: $cta;
+        }
+        .ilo-psma {
+            fill: $psma;
+        }
+    }
+    &.deselect-psma {
+        .psma {
+            fill: $deselected;
+        }
+        .cta-psma {
+            fill: $cta;
+        }
+        .ilo-psma {
+            fill: $ilo;
+        }
+    }
+    &.deselect-cta.deselect-ilo {
+        .cta-ilo {
+            fill: $deselected;
+        }
+        .cta-ilo-psma {
+            fill: $psma;
+        }
+    }
+    &.deselect-cta.deselect-psma {
+        .cta-psma {
+            fill: $deselected;
+        }
+        .cta-ilo-psma {
+            fill: $ilo;
+        }
+    }
+    &.deselect-ilo.deselect-psma {
+        .ilo-psma {
+            fill: $deselected;
+        }
+        .cta-ilo-psma {
+            fill: $cta;
+        }
+    }
+    &.deselect-cta.deselect-ilo.deselect-psma {
+        path {
+            fill: $deselected;
+        }
+    }
+}
+
+/*.psma {
+    .disable-psma & {
+        fill: $medium_gray;
+    }
+}
+.highcharts-color-2 {
+    fill: $map_medium_blue;
+}
+.highcharts-color-3 {
+    fill: $ilo;
+}
+.highcharts-color-4 {
+    fill: $multiple;
+}
+.highcharts-color-5 {
+    fill: $multiple;
+}
+.highcharts-color-6 {
+    fill: $map_gold;
+}
+.cta-ilo-psma {
+    fill: $map_gold;
+}*/

@@ -1,7 +1,11 @@
 /* global Highcharts */
+
 import * as d3 from 'd3-collection';
 
 import s from './styles.scss';
+import './map-overrides.scss'; // '-override' is excluded from modularized css renaming
+                                             // so that the imported class match the ones on the external
+                                             // resource being overridden
 //import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
@@ -54,22 +58,22 @@ export default class MapView extends Element {
             d.value = ratified.length === 0 ? 'none' : ratified.join('-');
             return d;
         });
-        var valueDictionary = { // convert string values into arbitrary numbers
+       /*var valueDictionary = { // convert string values into arbitrary numbers
             'none':0,
-            'cta':1,
-            'ilo':2,
-            'psma':3,
+            'psma':1,
+            'cta':2,
+            'ilo':3,
             'cta-ilo':4,
             'cta-psma':5,
             'ilo-psma':6,
             'cta-ilo-psma':7            
-        };
+        };*/
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
             var className = joinData.find(d => d.key === f.id) && joinData.find(d => d.key === f.id).value || 'none';                                                                                       // that have iso_a3 codes
             return {
                 iso_a3: f.id,
                 name: this.model.countryCodes[f.id],
-                value: valueDictionary[className],
+                value: className,
                 className 
             };
         });
