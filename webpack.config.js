@@ -35,7 +35,7 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                //exclude: /main\.scss/,
+                exclude: /override/,
                 use: [{
                     loader: 'style-loader'
                 },{
@@ -49,9 +49,8 @@ module.exports = {
                 },
                 ...scssSharedLoaders.slice(1)]
             }, // any scss files to be excluded from renaming the classes
-            /*{
-                test: /main\.scss/, // the html refering to classes in main.scss is hard-coded in the index.ejs template
-                                    // and therefore these styles should not be renamed bc the html would no longer match
+            {
+                test: /override/, // these styles should not be renamed bc the html would no longer match
                 use: [scssSharedLoaders[0],
                     {
                         loader: 'css-loader',
@@ -62,7 +61,7 @@ module.exports = {
                         }
                     },
                     ...scssSharedLoaders.slice(1)]
-            },*/
+            },
             /*{
                   test: /\.js$/,
                   exclude: [/node_modules/, /src\/index\.js/],
