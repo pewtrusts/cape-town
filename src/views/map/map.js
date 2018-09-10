@@ -2,7 +2,7 @@
 import * as d3 from 'd3-collection';
 
 import s from './styles.scss';
-import main from '@Project/css/main.scss';
+//import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
 import testData from '@Project/data/test-data.json';
@@ -19,7 +19,6 @@ export default class MapView extends Element {
         }
         map.innerHTML = 'map';
         map.classList.add(s.mapContainer);
-        map.classList.add(main.wireframe);
         return map;
     }
     init(){
@@ -112,7 +111,7 @@ export default class MapView extends Element {
         Highcharts.mapChart(this.el.id, {
             chart: {
                 map: this.geoJSON,
-                borderWidth: 1
+                borderWidth: 0
             },
             colorAxis: {
                 dataClassColor: 'category',
