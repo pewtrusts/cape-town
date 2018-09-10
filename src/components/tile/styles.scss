@@ -8,11 +8,38 @@ $margin: 2px;
     margin-right: $margin;
     margin-bottom: $margin;
     flex-grow: 1;
+    position: relative;
     @media screen and (max-width: 825px) {
         max-width: calc(33%);
     }
     @media screen and (max-width: 628px) {
         max-width: none;
+    }
+
+    
+    &.None {
+        background-color: $medium_gray;
+    }
+    &.cta {
+        background-color: $map_medium_blue;
+    }
+    &.ilo {
+        background-color: $map_dark_blue;
+    }
+    &.psma {
+        background-color: $map_light_blue;
+    }
+    &.cta-ilo {
+        background-color: $map_gold;
+    }
+    &.cta-psma {
+        background-color: $map_gold;
+    }
+    &.ilo-psma {
+        background-color: $map_gold;
+    }
+    &.cta-ilo-psma {
+        background-color: $map_gold;
     }
 
 }

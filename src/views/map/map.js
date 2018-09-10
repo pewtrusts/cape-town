@@ -1,6 +1,6 @@
 /* global Highcharts */
 
-import * as d3 from 'd3-collection';
+//import * as d3 from 'd3-collection';
 import PS from 'pubsub-setter';
 
 import s from './styles.scss';
@@ -53,21 +53,9 @@ export default class MapView extends Element {
         this.el.classList.toggle('deselect-' + treaty);
     }
     initializeMap(){
-        // take the csv data and nest it by country so each country is one object with an array of values
-        var joinData = d3.nest().key(d => d.iso_a3).entries(this.model.countries).map(d => {
-            var ratified = [];
-            d.values.sort((a,b) => a.treaty_id < b.treaty_id ? -1 : a.treaty_id > b.treaty_id ? 1 : a.treaty_id >= b.treaty_id ? 0 : NaN).forEach(v => { // sort fn from d3.ascending()
-                if (v.ratified_date !== '' ){
-                    ratified.push(v.treaty_id);
-                }
-            })
-            // add className property to each country that corresponds to which treaties it is party to, or "none"
-            d.value = ratified.length === 0 ? 'None' : ratified.join('-');
-            return d;
-        });
-      
+
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
-            var className = joinData.find(d => d.key === f.id) && joinData.find(d => d.key === f.id).value || 'None';                                                                                       // that have iso_a3 codes
+            var className = this.model.joinData.find(d => d.key === f.id) && this.model.joinData.find(d => d.key === f.id).value || 'None';                                                                                       // that have iso_a3 codes
             return {
                 iso_a3: f.id,
                 name: this.model.countryCodes[f.id],
