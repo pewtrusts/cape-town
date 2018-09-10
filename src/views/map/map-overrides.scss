@@ -21,7 +21,7 @@ $deselected: $medium_gray;
             fill-opacity: 1;
         }
         // onload colors
-        &.none {
+        &.None {
             fill: #fff;
         }
         &.cta {
@@ -106,6 +106,15 @@ $deselected: $medium_gray;
     &.deselect-cta.deselect-ilo.deselect-psma {
         path {
             fill: $deselected;
+        }
+    }
+
+    .highcharts-tooltip {
+        fill: #fff;
+        stroke: #000;
+        path {
+            fill-opacity: .95;
+            fill:#fff;
         }
     }
 }

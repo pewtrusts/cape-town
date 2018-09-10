@@ -9,7 +9,6 @@ import './map-overrides.scss'; // '-override' is excluded from modularized css r
 //import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
-import testData from '@Project/data/test-data.json';
 
 
 const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
@@ -43,9 +42,6 @@ export default class MapView extends Element {
         this.initializeMap()
     }
     initializeMap(){
-        console.log(testData);
-        console.log(this.geoJSON);
-        //console.log(d3.nest().key(d => d.iso_a3).entries(this.model.countries));
         // take the csv data and nest it by country so each country is one object with an array of values
         var joinData = d3.nest().key(d => d.iso_a3).entries(this.model.countries).map(d => {
             var ratified = [];
@@ -55,98 +51,45 @@ export default class MapView extends Element {
                 }
             })
             // add className property to each country that corresponds to which treaties it is party to, or "none"
-            d.value = ratified.length === 0 ? 'none' : ratified.join('-');
+            d.value = ratified.length === 0 ? 'None' : ratified.join('-');
             return d;
         });
-       /*var valueDictionary = { // convert string values into arbitrary numbers
-            'none':0,
-            'psma':1,
-            'cta':2,
-            'ilo':3,
-            'cta-ilo':4,
-            'cta-psma':5,
-            'ilo-psma':6,
-            'cta-ilo-psma':7            
-        };*/
+      
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
-            var className = joinData.find(d => d.key === f.id) && joinData.find(d => d.key === f.id).value || 'none';                                                                                       // that have iso_a3 codes
+            var className = joinData.find(d => d.key === f.id) && joinData.find(d => d.key === f.id).value || 'None';                                                                                       // that have iso_a3 codes
             return {
                 iso_a3: f.id,
                 name: this.model.countryCodes[f.id],
-                value: className,
-                className 
+                value: 2,
+                className,
+                classArray: className.split('-')
             };
         });
-        //console.log(joinData);
         console.log(allCountriesData);
-/*
-        var nestedByClassName = d3.nest().key(d => d.className).entries(joinData);
-        console.log(nestedByClassName);
-        var series = nestedByClassName.map(s => {
-            var data = s.values.map(v => {
-                return {
-                    iso_a3: v.key,
-                    name: this.model.countryCodes[v.key],
-                    value: s.key === 'none' ? 'None': s.key.split('-').map(abbr => this.model.treaties.find(t => t.key === abbr).name).join(' | ')
-                };
-            });
-            var features = data.map(country => this.geoJSON.features.find(f => f.id === country.iso_a3));
-            console.log(features);
-            console.log(data);
-            return {
-                className: s.key,
-                joinBy: 'iso_a3',
-                name: s.key,
-                shadow: false,
-                //mapData: {type: "FeatureCollection", features: data.map(country => this.geoJSON.features.find(f => f.id === country.iso_a3))},
-                //mapData: this.geoJSON,
-                data: s.values.map(v => {
-                    console.log(s.key.split('-'));
-                    return {
-                        iso_a3: v.key,
-                        name: this.model.countryCodes[v.key],
-                        value: s.key === 'none' ? 'None': s.key.split('-').map(abbr => this.model.treaties.find(t => t.key === abbr).name).join(' | ')
-                    };
-                })
-            };
-        });
-        console.log(series);
-        console.log(nestedByClassName);*/
+
+        // the tooltip formatter below needs access to this.model but also needs to call a function
+        // with the datum as `this`. the IIFE below generates the necessary function with closure
+        // over this.model
+        var returnFormatter = (function(treaties){
+            function Formatter(){
+                var agreementsString = this.point.className === 'None' ? 'None' : this.point.classArray.map(c => treaties.find(t => t.key === c).name).join('<br />');
+                setTimeout(() => {
+                    document.querySelector('.highcharts-tooltip').classList.add(this.point.className);
+                });
+                return `
+                    <b>${this.point.name}</b><br />
+                    ${agreementsString}
+                `;
+            }
+            return Formatter;
+        })(this.model.treaties);
         Highcharts.mapChart(this.el.id, {
             chart: {
                 map: this.geoJSON,
-                borderWidth: 0
             },
-            colorAxis: {
-                dataClassColor: 'category',
-                dataClasses: [{
-                    to: 1 //0
-                }, {
-                    from: 1, //1
-                    to: 2
-                }, {
-                    from: 2,
-                    to: 3
-                }, {
-                    from: 3,
-                    to: 4
-                }, {
-                    from: 4,
-                    to: 5
-                }, {
-                    from: 5,
-                    to: 6
-                }, {
-                    from: 6
-                }]
-            },
-            colors: ['#ffffff', '#031eff', '#000b66',
-                '#007fff', '#ff8d27', '#ff8d27', '#ff8d27'],
-           
             title: {
                 text: ''
             },
-
             mapNavigation: {
                 enabled: true
             },
@@ -154,40 +97,20 @@ export default class MapView extends Element {
             legend: {
                 title: {
                     text: 'Individuals per km²',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                    }
                 },
-                align: 'left',
-                verticalAlign: 'bottom',
-                floating: true,
-                layout: 'vertical',
                 valueDecimals: 0,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)',
-                symbolRadius: 0,
-                symbolHeight: 14,
                 enabled: false
             },
 
-            
            tooltip: {
-                formatter: function(){
-                    console.log(this);
-                    return this.point.value;
-                }
+                formatter: returnFormatter
            },
 
             series: [{
                 data: allCountriesData,
                 joinBy: ['iso_a3'],
-                //animation: true,
-                name: 'Population density',
-                states: {
-                    hover: {
-                        color: '#a4edba'
-                    } 
-                },
-                shadow: false
+                name: 'International agreements'
+                
             }]
         });
     }
