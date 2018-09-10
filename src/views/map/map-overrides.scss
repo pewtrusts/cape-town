@@ -104,7 +104,7 @@ $deselected: $medium_gray;
         }
     }
     &.deselect-cta.deselect-ilo.deselect-psma {
-        path {
+        path.highcharts-point:not(.None) {
             fill: $deselected;
         }
     }

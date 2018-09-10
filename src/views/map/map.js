@@ -1,6 +1,7 @@
 /* global Highcharts */
 
 import * as d3 from 'd3-collection';
+import PS from 'pubsub-setter';
 
 import s from './styles.scss';
 import './map-overrides.scss'; // '-override' is excluded from modularized css renaming
@@ -25,6 +26,11 @@ export default class MapView extends Element {
         return map;
     }
     init(){
+        PS.setSubs([
+            ['deselected', (msg,data) => {
+                this.updateMap.call(this,msg,data);
+            }]
+        ]);
         console.log('map view initialized');
         this.getTopoJSON();
     }
@@ -40,6 +46,11 @@ export default class MapView extends Element {
     convertToGeoJSON(topo){
         this.geoJSON = topojson.feature(topo, topo.objects.world);
         this.initializeMap()
+    }
+    updateMap(msg,data) {
+        console.log(msg,data, this);
+        var treaty = msg.split('.')[1];
+        this.el.classList.toggle('deselect-' + treaty);
     }
     initializeMap(){
         // take the csv data and nest it by country so each country is one object with an array of values
