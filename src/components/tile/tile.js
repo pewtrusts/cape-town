@@ -44,10 +44,18 @@ export default class CountryTile {
                 });
         }
     }
-    changePosition(msg,data){
-        //var treaty = msg.split('.')[1];
+    changePosition(msg,data){ // this.country.value is '-' joined string of the agreements the country is party to
         console.log(this,msg,data);
-        this.el.style.order = Math.floor(Math.random() * 100);
+        var shouldReorder = data.reduce((acc,cur) => {
+            if ( this.country.value.indexOf(cur) !== -1 ){ // ie the current treaty key IS in the value string
+                acc = false;
+            }
+            return acc;
+        }, true);
+        console.log(shouldReorder)
+        if ( shouldReorder ) {
+            this.el.style.order = 999;
+        }
     }
 
 }

@@ -12,14 +12,24 @@ export default class SelectButton extends Button {
 		btn.classList.add(s.selectButton, main.pctBtn, s[this.model.key]); // TO DO : some of main.css should be up the tree in UI
 		return btn;
 	}
-    init(){
+    init(treaties){
+        console.log(treaties);
         super.init()
-        this.el.addEventListener('click', this.clickEventHandler);
+        this.el.addEventListener('click', e => {
+            this.clickEventHandler.call(e.target, treaties);
+        });
     }
-    clickEventHandler(){
+    clickEventHandler(treaties){
         var currentState = S.getState('deselected.' + this.value);
-        console.log(currentState);
         S.setState('deselected.' + this.value, !currentState );
+        var selected = treaties.reduce((acc,cur) => { // pass in all treaties to get order so that order is not hard coded but infered from data
+            if ( !S.getState('deselected.' + cur.key) ) {
+                acc.push(cur.key);
+                return acc
+            }
+            return acc;
+        },[]).sort();
+        S.setState('selected', selected);
         this.classList.toggle(s.deselected);
     }
 }

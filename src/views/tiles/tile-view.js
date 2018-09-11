@@ -1,6 +1,5 @@
 //utils
 import PS from 'pubsub-setter';
-import { stateModule as S } from 'stateful-dead';
 //import * as d3 from 'd3-collection';
 
 import main from '@Project/css/main.scss';
@@ -40,7 +39,7 @@ export default class TileView {
     }
     init(){
         PS.setSubs([
-            ['deselected', (msg,data) => {
+            ['selected', (msg,data) => {
                 this.update.call(this,msg,data);
             }]
         ]);
@@ -58,7 +57,6 @@ export default class TileView {
         this.tiles.forEach(each => {
             each.getPosition('first');
         });
-        S.logState();
         this.tiles.forEach(each => {
             each.changePosition(msg,data);
         });

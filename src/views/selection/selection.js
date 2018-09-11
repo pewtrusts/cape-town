@@ -51,7 +51,11 @@ export default class Selection extends Element {
 		console.log('Init selection-view');
 		
 		this.willInitialize.forEach(each => {
-			each.init();
+			if (each instanceof Button) {
+				each.init(this.model.treaties);
+			} else {
+				each.init();
+			}
 		});
 	}
 }
