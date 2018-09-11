@@ -4,7 +4,7 @@ import PS from 'pubsub-setter';
 
 import main from '@Project/css/main.scss';
 import $d from '@Helpers/dom-helpers.js';
-//import s from './styles.scss';
+import tileStyles from '@Project/components/tile/styles.scss';
 import CountryTile from '@Project/components/tile/tile.js';
 
 export default class TileView {
@@ -25,7 +25,7 @@ export default class TileView {
         cont.setAttribute('id', 'pct-tiles-cont');
         cont.classList.add(main.wireframe);
         cont.classList.add(main.flex);
-        cont.classList.add(main.sb);
+        //cont.classList.add(main.sb);
         cont.classList.add(main.wrap);
         
         ////tiles
@@ -51,17 +51,36 @@ export default class TileView {
             this.update.call(this);
         });*/
     }
-    update(msg,data){ // !!!!!TO DO HERE: use state to inform logic. desellected tiles
-                      // should get order of 999; reselected should get data-originalIndex
+    update(msg,data){ 
         console.log('update', msg, data);
-        this.tiles.forEach(each => {
-            each.getPosition('first');
+        this.tiles.forEach(tile => {
+            tile.shouldDisappear = data.reduce((acc,cur) => {
+                if ( tile.country.value.indexOf(cur) !== -1 ){ // ie the current treaty key IS in the value string
+                    acc = false;
+                }
+                return acc;
+            }, true);
+            if ( tile.shouldDisappear ) {
+                tile.el.classList.add(tileStyles.shouldDisappear);
+            } else {
+                tile.el.classList.remove(tileStyles.shouldDisappear);
+            }
         });
-        this.tiles.forEach(each => {
-            each.changePosition(msg,data);
-        });
-        this.tiles.forEach(each => {
-            each.getPosition('last');
-        });
+        //setTimeout(() => { // separate FLIP steps out to do one at a times
+            this.tiles.forEach((each) => {
+                each.getPosition('first'); //Flip
+            });
+            this.tiles.forEach((each) => {
+                each.changePosition(msg,data); //Last
+            });
+            this.tiles.forEach((each) => {
+                each.getPosition('last');
+                each.invertPosition();
+            });
+            this.tiles.forEach((each) => {
+                each.animatePosition();
+            });
+
+    //    },300);
     }
 }

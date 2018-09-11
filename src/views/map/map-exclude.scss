@@ -26,24 +26,31 @@ $deselected: $medium_gray;
         }
         &.cta {
             fill: $cta;
+            will-change:fill;
         }
         &.ilo {
             fill: $ilo;
+            will-change:fill;
         }
         &.psma {
             fill: $psma;
+            will-change:fill;
         }
         &.cta-ilo {
             fill: $multiple;
+            will-change:fill;
         }
         &.cta-psma {
             fill: $multiple;
+            will-change:fill;
         }
         &.ilo-psma {
             fill: $multiple;
+            will-change:fill;
         }
         &.cta-ilo-psma {
             fill: $multiple;
+            will-change:fill;
         }
     }
     .deselect-cta & {

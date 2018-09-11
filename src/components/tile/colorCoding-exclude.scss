@@ -8,7 +8,7 @@ $deselected: $medium_gray;
 
     
 #pct-tiles-cont > div {
-
+    
     &.None {
         background-color: $deselected;
     }
@@ -33,7 +33,6 @@ $deselected: $medium_gray;
     &.cta-ilo-psma {
         background-color: $multiple;
     }
-
     .deselect-cta & {
         &.cta {
             background-color: $deselected;
