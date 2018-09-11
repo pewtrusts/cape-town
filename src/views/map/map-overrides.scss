@@ -46,7 +46,7 @@ $deselected: $medium_gray;
             fill: $multiple;
         }
     }
-    &.deselect-cta {
+    .deselect-cta & {
         .cta {
             fill: $deselected;
         }
@@ -57,7 +57,7 @@ $deselected: $medium_gray;
             fill: $psma;
         }
     }
-    &.deselect-ilo {
+    .deselect-ilo & {
         .ilo {
             fill: $deselected;
         }
@@ -68,7 +68,7 @@ $deselected: $medium_gray;
             fill: $psma;
         }
     }
-    &.deselect-psma {
+    .deselect-psma & {
         .psma {
             fill: $deselected;
         }
@@ -79,7 +79,7 @@ $deselected: $medium_gray;
             fill: $ilo;
         }
     }
-    &.deselect-cta.deselect-ilo {
+    .deselect-cta.deselect-ilo & {
         .cta-ilo {
             fill: $deselected;
         }
@@ -87,7 +87,7 @@ $deselected: $medium_gray;
             fill: $psma;
         }
     }
-    &.deselect-cta.deselect-psma {
+    .deselect-cta.deselect-psma & {
         .cta-psma {
             fill: $deselected;
         }
@@ -95,7 +95,7 @@ $deselected: $medium_gray;
             fill: $ilo;
         }
     }
-    &.deselect-ilo.deselect-psma {
+    .deselect-ilo.deselect-psma & {
         .ilo-psma {
             fill: $deselected;
         }
@@ -103,7 +103,7 @@ $deselected: $medium_gray;
             fill: $cta;
         }
     }
-    &.deselect-cta.deselect-ilo.deselect-psma {
+    .deselect-cta.deselect-ilo.deselect-psma & {
         path.highcharts-point:not(.None) {
             fill: $deselected;
         }

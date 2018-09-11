@@ -50,7 +50,8 @@ export default class MapView extends Element {
     updateMap(msg,data) {
         console.log(msg,data, this);
         var treaty = msg.split('.')[1];
-        this.el.classList.toggle('deselect-' + treaty);
+        this.el.parentNode.classList.toggle('deselect-' + treaty); // change classes on parentNode, ie, app root 
+                                                                   // so that other views can react to same change 
     }
     initializeMap(){
 
