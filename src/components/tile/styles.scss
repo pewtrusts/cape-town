@@ -1,6 +1,7 @@
 @import '@Project/css/_variables.scss';
 $dimensions: 195px;
 $margin: 2px;
+
 .countryTile {
     //max-width: 260px;
     width: $dimensions;
@@ -15,31 +16,4 @@ $margin: 2px;
     @media screen and (max-width: 628px) {
         max-width: none;
     }
-
-    
-    &.None {
-        background-color: $medium_gray;
-    }
-    &.cta {
-        background-color: $map_medium_blue;
-    }
-    &.ilo {
-        background-color: $map_dark_blue;
-    }
-    &.psma {
-        background-color: $map_light_blue;
-    }
-    &.cta-ilo {
-        background-color: $map_gold;
-    }
-    &.cta-psma {
-        background-color: $map_gold;
-    }
-    &.ilo-psma {
-        background-color: $map_gold;
-    }
-    &.cta-ilo-psma {
-        background-color: $map_gold;
-    }
-
 }

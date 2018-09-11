@@ -4,7 +4,7 @@
 import PS from 'pubsub-setter';
 
 import s from './styles.scss';
-import './map-overrides.scss'; // '-override' is excluded from modularized css renaming
+import './map-exclude.scss'; // '-exclude' is excluded from modularized css renaming
                                              // so that the imported class match the ones on the external
                                              // resource being overridden
 //import main from '@Project/css/main.scss';

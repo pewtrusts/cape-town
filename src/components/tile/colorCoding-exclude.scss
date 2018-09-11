@@ -1,0 +1,97 @@
+@import '@Project/css/_variables.scss';
+
+$cta: $map_medium_blue;
+$ilo: $map_dark_blue;
+$psma: $map_light_blue;
+$multiple: $map_gold;
+$deselected: $medium_gray;
+
+    
+#pct-tiles-cont > div {
+
+    &.None {
+        background-color: $deselected;
+    }
+    &.cta {
+        background-color: $cta;
+    }
+    &.ilo {
+        background-color: $ilo;
+    }
+    &.psma {
+        background-color: $psma;
+    }
+    &.cta-ilo {
+        background-color: $multiple;
+    }
+    &.cta-psma {
+        background-color: $multiple;
+    }
+    &.ilo-psma {
+        background-color: $multiple;
+    }
+    &.cta-ilo-psma {
+        background-color: $multiple;
+    }
+
+    .deselect-cta & {
+        .cta {
+            background-color: $deselected;
+        }
+        .cta-ilo {
+            background-color: $ilo;
+        }
+        .cta-psma {
+            background-color: $psma;
+        }
+    }
+    .deselect-ilo & {
+        .ilo {
+            background-color: $deselected;
+        }
+        .cta-ilo {
+            background-color: $cta;
+        }
+        .ilo-psma {
+            background-color: $psma;
+        }
+    }
+    .deselect-psma & {
+        .psma {
+            background-color: $deselected;
+        }
+        .cta-psma {
+            background-color: $cta;
+        }
+        .ilo-psma {
+            background-color: $ilo;
+        }
+    }
+    .deselect-cta.deselect-ilo & {
+        .cta-ilo {
+            background-color: $deselected;
+        }
+        .cta-ilo-psma {
+            background-color: $psma;
+        }
+    }
+    .deselect-cta.deselect-psma & {
+        .cta-psma {
+            background-color: $deselected;
+        }
+        .cta-ilo-psma {
+            background-color: $ilo;
+        }
+    }
+    .deselect-ilo.deselect-psma & {
+        .ilo-psma {
+            background-color: $deselected;
+        }
+        .cta-ilo-psma {
+            background-color: $cta;
+        }
+    }
+    .deselect-cta.deselect-ilo.deselect-psma & {
+        background-color: $deselected;
+    }
+}

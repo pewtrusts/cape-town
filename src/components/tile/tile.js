@@ -1,5 +1,6 @@
 import $d from '@Helpers/dom-helpers.js';
 import s from './styles.scss';
+import './colorCoding-exclude.scss';
 
 export default class CountryTile {
     constructor(country, index){
@@ -13,7 +14,7 @@ export default class CountryTile {
         if ( existing ) {
             return existing;
         }
-		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${s[this.country.value]}`);
+		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
 		//tile.classList.add(main.wireframe); // TO DO : some of main.css should be up the tree in UI
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;

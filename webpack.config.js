@@ -35,7 +35,7 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                exclude: /override/,
+                exclude: /exclude/,
                 use: [{
                     loader: 'style-loader'
                 },{
@@ -50,7 +50,7 @@ module.exports = {
                 ...scssSharedLoaders.slice(1)]
             }, // any scss files to be excluded from renaming the classes
             {
-                test: /override/, // these styles should not be renamed bc the html would no longer match
+                test: /exclude\.scss/, // these styles should not be renamed bc the html would no longer match
                 use: [scssSharedLoaders[0],
                     {
                         loader: 'css-loader',
