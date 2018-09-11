@@ -35,59 +35,59 @@ $deselected: $medium_gray;
     }
 
     .deselect-cta & {
-        .cta {
+        &.cta {
             background-color: $deselected;
         }
-        .cta-ilo {
+        &.cta-ilo {
             background-color: $ilo;
         }
-        .cta-psma {
+        &.cta-psma {
             background-color: $psma;
         }
     }
     .deselect-ilo & {
-        .ilo {
+        &.ilo {
             background-color: $deselected;
         }
-        .cta-ilo {
+        &.cta-ilo {
             background-color: $cta;
         }
-        .ilo-psma {
+        &.ilo-psma {
             background-color: $psma;
         }
     }
     .deselect-psma & {
-        .psma {
+        &.psma {
             background-color: $deselected;
         }
-        .cta-psma {
+        &.cta-psma {
             background-color: $cta;
         }
-        .ilo-psma {
+        &.ilo-psma {
             background-color: $ilo;
         }
     }
     .deselect-cta.deselect-ilo & {
-        .cta-ilo {
+        &.cta-ilo {
             background-color: $deselected;
         }
-        .cta-ilo-psma {
+        &.cta-ilo-psma {
             background-color: $psma;
         }
     }
     .deselect-cta.deselect-psma & {
-        .cta-psma {
+        &.cta-psma {
             background-color: $deselected;
         }
-        .cta-ilo-psma {
+        &.cta-ilo-psma {
             background-color: $ilo;
         }
     }
     .deselect-ilo.deselect-psma & {
-        .ilo-psma {
+        &.ilo-psma {
             background-color: $deselected;
         }
-        .cta-ilo-psma {
+        &.cta-ilo-psma {
             background-color: $cta;
         }
     }
