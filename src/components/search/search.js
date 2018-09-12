@@ -7,19 +7,25 @@ import { Button, SubmitButton } from '@UI/buttons/buttons.js';
 
 export default class SearchBar extends Element {
 
-	constructor(countryCodes){
+	constructor(model){
 		//console.log(countryCodes);
-		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`, countryCodes);
+		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`, model);
 	}
 	
 	prerender(){
-		var countryCodesArray = [];
-		for ( var key in this.model) {
-			if ( this.model.hasOwnProperty(key) ){
-				countryCodesArray.push({value: key, name: this.model[key]});
+		var partyArray = []; // array of countries that are part to at least one agreemet
+		var nonpartyArray = []; // array of couhntries that are not part
+		for ( var key in this.model.countryCodes) {
+			let isParty = ( this.model.countriesNested.find(d => d.key === key) !== undefined ); // true iif country in list of all countries is aso in list of party countries
+			if ( this.model.countryCodes.hasOwnProperty(key) ){
+				if ( isParty) {
+					partyArray.push({value: key, name: this.model.countryCodes[key], isParty});  
+				} else {
+					nonpartyArray.push({value: key, name: this.model.countryCodes[key], isParty});
+				}
 			}
 		}
-		console.log(countryCodesArray);
+		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.willInitialize = [
 			new Multiselect(`select.${main.grow}`, countryCodesArray),
 			new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),

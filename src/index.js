@@ -1,6 +1,7 @@
 /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "StringHelpers" }]*/
 import { StringHelpers } from '@Helpers/string-helpers.js';
 import CapeTown from './cape-town.js';
+import './arrayFrom.js';
 
 const app = document.querySelector('#pew-app');
 const prerenderScript = document.querySelector('#prerender-script');

@@ -3,8 +3,20 @@ import { Mobius1Selectr } from '@UI/inputs/inputs.js';
 //import main from '@Project/css/main.scss';
 
 export default class Multiselect extends Mobius1Selectr {
-	
-	init(){
-		console.log('init Multiselect');
-	}
+    prerender(){
+        var selector = super.prerender();
+        if ( this.prerendered ) {
+            return selector;
+        }
+        console.log(selector.options);
+        Array.from(selector.options).forEach(option => {
+            if ( !option.pctModel.isParty ){
+                option.style.display = 'none';
+            }
+        });
+        return selector;
+    }
+    init(){
+        console.log('init Multiselect');
+    }
 }
