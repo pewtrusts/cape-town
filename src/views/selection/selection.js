@@ -15,7 +15,7 @@ export default class Selection extends Element {
 		this.buttons = this.model.treaties.map(treaty => new Button(treaty));
 		this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}.${main.wireframe}`, treaty));
 		this.willInitialize = [
-			new SearchBar(),
+			new SearchBar(this.model.countryCodes),
 			...this.ratified,	
 			...this.buttons
 		];	

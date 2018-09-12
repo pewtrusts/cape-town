@@ -2,19 +2,26 @@ import s from './styles.scss';
 import $d from '@Helpers/dom-helpers.js';
 import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
-import { TextInput } from '@UI/inputs/inputs.js';
+import Multiselect from './multiselect.js';
 import { Button, SubmitButton } from '@UI/buttons/buttons.js';
 
 export default class SearchBar extends Element {
 
-	constructor(){
-		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`);
+	constructor(countryCodes){
+		//console.log(countryCodes);
+		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`, countryCodes);
 	}
 	
 	prerender(){
-		
+		var countryCodesArray = [];
+		for ( var key in this.model) {
+			if ( this.model.hasOwnProperty(key) ){
+				countryCodesArray.push({value: key, name: this.model[key]});
+			}
+		}
+		console.log(countryCodesArray);
 		this.willInitialize = [
-			new TextInput(`input.${main.grow}`),
+			new Multiselect(`select.${main.grow}`, countryCodesArray),
 			new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
