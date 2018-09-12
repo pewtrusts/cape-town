@@ -3,8 +3,9 @@ import s from './styles.scss';
 import './colorCoding-exclude.scss';
 
 export default class CountryTile {
-    constructor(country, index){
+    constructor(country, index, parent){
         console.log(country);
+        this.parent = parent;
         this.country = country;
         this.el = this.prerender(index);
         console.log(country);
@@ -15,23 +16,22 @@ export default class CountryTile {
             return existing;
         }
 		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
-		//tile.classList.add(main.wireframe); // TO DO : some of main.css should be up the tree in UI
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;
 		return tile;
 	}
     init(){
         console.log('initialize tile', this.el);
-        //this.update()
     }
     getPosition(position){ 
         this[position] = this.el.getBoundingClientRect();
     }
-    changePosition(msg,data){ // this.country.value is '-' joined string of the agreements the country is party to
-        console.log(this,msg,data);
-        
+    changePosition(msg,data,index){ // this.country.value is '-' joined string of the agreements the country is party to
+        if ( index === 0 ) {
+            this.parent.endOrder = 200;
+        }
         if ( this.shouldDisappear ) {
-            this.el.style.order = 999;
+            this.el.style.order = this.parent.endOrder++;
         } else {
             this.el.style.order = this.el.getAttribute('data-originalIndex'); // using getAttribute bs IE10 doesn't support dataset
         }
@@ -42,20 +42,35 @@ export default class CountryTile {
         this.el.style.transformOrigin = 'top left';
         this.el.style.transform = `translate(${this.deltaX}px, ${this.deltaY}px)`;
     }
-    animatePosition(){
-        
+    animatePosition(index, length){
+
+        var factor = 1; // factor by which to speed down the animations . > 1 slower < 1 faster.
+        this.el.style.zIndex = length - index;
         this.moveTiles = this.el.animate([{
               transformOrigin: 'top left',
               transform: `
-                translate(${this.deltaX}px, ${this.deltaY}px)
+                translate(${this.deltaX}px, ${this.deltaY}px) rotate(2deg)
               `
             }, {
               transformOrigin: 'top left',
               transform: 'none'
             }], {
-              duration: 200,
-              easing: 'ease-out'
+              duration: 200 * factor,
+              easing: 'ease-out',
+              delay: 50 * index * factor
             });
+        this.moveTiles.onfinish = () => {
+            this.el.style.transform = 'none';
+           // this.el.classList.remove(s.animating);
+            if ( index === length - 1){ // ie is the last tile
+                console.log('last animation finished', this);
+                this.parent.tiles.forEach(each => {
+                    each.el.style.zIndex = 'auto';
+                });
+                this.parent.tiles.sort((a,b) => parseInt(a.el.style.order) < parseInt(b.el.style.order) ? -1 : parseInt(a.el.style.order) > parseInt(b.el.style.order) ? 1 : parseInt(a.el.style.order) >= parseInt(b.el.style.order) ? 0 : NaN);
+                console.log(this.parent.tiles);
+            }
+        };
     }
 
 }

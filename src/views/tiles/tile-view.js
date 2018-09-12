@@ -4,13 +4,13 @@ import PS from 'pubsub-setter';
 
 import main from '@Project/css/main.scss';
 import $d from '@Helpers/dom-helpers.js';
-import tileStyles from '@Project/components/tile/styles.scss';
+//import tileStyles from '@Project/components/tile/styles.scss';
 import CountryTile from '@Project/components/tile/tile.js';
 
 export default class TileView {
     constructor(model){
         this.model = model;
-        this.tiles = model.joinData.map((country, index, array) => new CountryTile(country, index, array));
+        this.tiles = model.joinData.map((country, index) => new CountryTile(country, index, this));
         this.el = this.prerender();
         console.log(this.tiles);
     }
@@ -60,27 +60,27 @@ export default class TileView {
                 }
                 return acc;
             }, true);
-            if ( tile.shouldDisappear ) {
+           /* if ( tile.shouldDisappear ) {
                 tile.el.classList.add(tileStyles.shouldDisappear);
             } else {
                 tile.el.classList.remove(tileStyles.shouldDisappear);
-            }
+            }*/
         });
-        //setTimeout(() => { // separate FLIP steps out to do one at a times
+        setTimeout(() => { // separate FLIP steps out to do one at a times
             this.tiles.forEach((each) => {
                 each.getPosition('first'); //Flip
             });
-            this.tiles.forEach((each) => {
-                each.changePosition(msg,data); //Last
+            this.tiles.forEach((each,i) => {
+                each.changePosition(msg,data,i); //Last
             });
             this.tiles.forEach((each) => {
                 each.getPosition('last');
                 each.invertPosition();
             });
-            this.tiles.forEach((each) => {
-                each.animatePosition();
+            this.tiles.forEach((each,i,array) => {
+                each.animatePosition(i,array.length);
             });
 
-    //    },300);
+        },500);
     }
 }

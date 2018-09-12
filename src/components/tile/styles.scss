@@ -9,7 +9,7 @@ $margin: 2px;
     margin-right: $margin;
     margin-bottom: $margin;
     position: relative;
-    transition: background-color 0.3s linear, opacity 0.7s ease-in-out 1s;
+    transition: background-color 0.3s linear, opacity 0.3s linear;
     opacity: 1;
     will-change: background-color;
     @media screen and (max-width: 825px) {
@@ -26,10 +26,10 @@ $margin: 2px;
         height: 100%;
         opacity: 0;
         box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
     }
-    &.shouldReorder {
-        z-index:2;
+    &.animating {
+        //z-index:2;
         box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.42);
         &::after {
             opacity: 1;

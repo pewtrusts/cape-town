@@ -57,7 +57,7 @@ $deselected: $medium_gray;
     }
     .deselect-psma & {
         &.psma {
-            background-color: $deselected;
+           background-color: $deselected;
         }
         &.cta-psma {
             background-color: $cta;
