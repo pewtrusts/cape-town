@@ -27,7 +27,13 @@ export default class SearchBar extends Element {
 		}
 		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.willInitialize = [
-			new Multiselect(`select.${main.grow}`, countryCodesArray),
+			new Multiselect(`select.${main.grow}`, countryCodesArray, {
+				multiple: true,
+				clearable: true,
+				renderOption: function(option){
+					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
+				}
+			}),
 			new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
