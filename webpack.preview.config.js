@@ -49,7 +49,7 @@ module.exports = {
 					...scssSharedLoaders.slice(1)]
 	        }, */{
 	        	test: /\.scss$/, 
-	        					
+  					exclude: /exclude/,
 	         	use: [scssSharedLoaders[0], //MiniCssExtractPlugin
 	         		{
 						loader: 'css-loader',
@@ -63,6 +63,19 @@ module.exports = {
 					},
 					...scssSharedLoaders.slice(1)]
 	        },
+          {
+                test: /exclude\.scss/, // these styles should not be renamed bc the html would no longer match
+                use: [scssSharedLoaders[0],
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            minimize: true,
+                            importLoaders: 1        
+                        }
+                    },
+                    ...scssSharedLoaders.slice(1)]
+            },
            {
                   test: /\.js$/,
                   exclude: [/node_modules/,/\.min\./],
