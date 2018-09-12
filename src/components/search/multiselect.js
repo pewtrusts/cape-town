@@ -16,7 +16,4 @@ export default class Multiselect extends Mobius1Selectr {
         });
         return selector;
     }
-    init(){
-        console.log('init Multiselect');
-    }
 }
