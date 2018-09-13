@@ -28,7 +28,7 @@ export default class CountryTile {
 		return tile;
 	}
     getImage(){
-        return import('@Project/assets/BIH.svg').then(({default: svg}) => {
+        return import('@Project/assets/' + this.country.key + '.svg').then(({default: svg}) => {
             return svg;
         }).catch(error => 'Error');
     }
