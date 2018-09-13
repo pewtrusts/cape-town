@@ -38,4 +38,14 @@ $margin: 2px;
     &.shouldDisappear {
         opacity: 0;
     }
+    div.tileName {
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        padding:5px;    
+
+    }
 }

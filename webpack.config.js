@@ -97,12 +97,14 @@ module.exports = {
                 // SVGs under limit converted to data url. svg-url-loader converts to utf-8 instead of hex, shorter for human-readable code.
                 // above the limit falls back to file-loader to emit file as specified in options (options are passed to file-loader)
                 test: /\.svg$/,
-                loader: 'svg-url-loader',
-                options: {
-                    limit: 10 * 1024,
-                    name: '[name].[ext]',
-                    outputPath: 'images/',
-                }
+                use: [{
+                    loader: 'svg-url-loader',
+                    options: {
+                        limit: 10 * 1024,
+                        name: '[name].[ext]',
+                        outputPath: 'images/',
+                    }
+                }]
             },
             {
                 test: /\.md$/,

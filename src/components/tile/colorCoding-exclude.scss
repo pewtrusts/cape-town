@@ -8,89 +8,137 @@ $deselected: $medium_gray;
 
     
 #pct-tiles-cont > div {
-    
+    background-color: $light_gray;
     &.None {
-        background-color: $deselected;
+        > div {
+            background-color: $deselected;
+        }
     }
     &.cta {
-        background-color: $cta;
+        > div {
+            background-color: $cta;
+        }
     }
     &.ilo {
-        background-color: $ilo;
+        > div {
+            background-color: $ilo;
+        }
     }
     &.psma {
-        background-color: $psma;
+        > div {
+            background-color: $psma;
+        }
     }
     &.cta-ilo {
-        background-color: $multiple;
+        > div {
+            background-color: $multiple;
+        }
     }
     &.cta-psma {
-        background-color: $multiple;
+        > div {
+            background-color: $multiple;
+        }
     }
     &.ilo-psma {
-        background-color: $multiple;
+        > div {
+            background-color: $multiple;
+        }
     }
     &.cta-ilo-psma {
-        background-color: $multiple;
+        > div {
+            background-color: $multiple;
+        }
     }
     .deselect-cta & {
         &.cta {
-            background-color: $deselected;
+            > div {
+                background-color: $deselected;
+            }
         }
         &.cta-ilo {
-            background-color: $ilo;
+            > div {
+                background-color: $ilo;
+            }
         }
         &.cta-psma {
-            background-color: $psma;
+            > div {
+                background-color: $psma;
+            }
         }
     }
     .deselect-ilo & {
         &.ilo {
-            background-color: $deselected;
+            > div {
+                background-color: $deselected;
+            }
         }
         &.cta-ilo {
-            background-color: $cta;
+            > div {
+                background-color: $cta;
+            }
         }
         &.ilo-psma {
-            background-color: $psma;
+            > div {
+                background-color: $psma;
+            }
         }
     }
     .deselect-psma & {
         &.psma {
-           background-color: $deselected;
+           > div {
+               background-color: $deselected;
+           }
         }
         &.cta-psma {
-            background-color: $cta;
+            > div {
+                background-color: $cta;
+            }
         }
         &.ilo-psma {
-            background-color: $ilo;
+            > div {
+                background-color: $ilo;
+            }
         }
     }
     .deselect-cta.deselect-ilo & {
         &.cta-ilo {
-            background-color: $deselected;
+            > div {
+                background-color: $deselected;
+            }
         }
         &.cta-ilo-psma {
-            background-color: $psma;
+            > div {
+                background-color: $psma;
+            }
         }
     }
     .deselect-cta.deselect-psma & {
         &.cta-psma {
-            background-color: $deselected;
+            > div {
+                background-color: $deselected;
+            }
         }
         &.cta-ilo-psma {
-            background-color: $ilo;
+            > div {
+                background-color: $ilo;
+            }
         }
     }
     .deselect-ilo.deselect-psma & {
         &.ilo-psma {
-            background-color: $deselected;
+            > div {
+                background-color: $deselected;
+            }
         }
         &.cta-ilo-psma {
-            background-color: $cta;
+            > div {
+                background-color: $cta;
+            }
         }
     }
     .deselect-cta.deselect-ilo.deselect-psma & {
-        background-color: $deselected;
+        > div {
+            background-color: $deselected;
+        }
     }
 }

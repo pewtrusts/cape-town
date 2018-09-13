@@ -18,8 +18,17 @@ export default class CountryTile {
 		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;
+        tile.innerHTML = `
+            <div class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
+        `;
+        tile.style.backgroundImage = getBackgroundImage();
 		return tile;
 	}
+    getBackgroundImage(){
+        return import(`@Project/assets/ALB.svg`).then(({default: svg}) => {
+            return svg;
+        }).catch(error => 'An error occurred while loading the component');
+    }
     init(){
         console.log('initialize tile', this.el);
     }
