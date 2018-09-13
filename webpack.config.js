@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const DynamicImport = require('babel-plugin-syntax-dynamic-import');
 
 const scssSharedLoaders = [{ // defining array of css loaders here to avoid duplication below
         loader: MiniCssExtractPlugin.loader,
@@ -70,7 +71,16 @@ module.exports = {
             {
                   test: /\.js$/,
                   exclude: [/node_modules/,/\.min\./],
-                  use: ['babel-loader','eslint-loader'] // lints the es6 and then transpiles
+                  use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                          plugins: [DynamicImport]
+                        }
+                    }/*,
+                    {
+                        loader: 'eslint-loader'
+                    }*/]
             },
             {
                 test: /\.csv$/, //converts csv files into json, treats as javascript
@@ -88,23 +98,24 @@ module.exports = {
                 test: /\.(png|jp(e?)g|gif)$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 10 * 1024,
+                    limit: 10,
                     name: '[name].[ext]',
                     outputPath: 'images/',
                 }
             },
             {
-                // SVGs under limit converted to data url. svg-url-loader converts to utf-8 instead of hex, shorter for human-readable code.
-                // above the limit falls back to file-loader to emit file as specified in options (options are passed to file-loader)
                 test: /\.svg$/,
-                use: [{
-                    loader: 'svg-url-loader',
-                    options: {
-                        limit: 10 * 1024,
-                        name: '[name].[ext]',
-                        outputPath: 'images/',
+                use: [
+                    {
+                        loader: 'svg-inline-loader',
+                        options: {
+                            removeSVGTagAttrs: false
+                        }
+                    },
+                    {
+                        loader: 'svgo-loader'
                     }
-                }]
+                ]
             },
             {
                 test: /\.md$/,

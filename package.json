@@ -15,6 +15,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
@@ -37,6 +38,10 @@
     "sass-loader": "^7.0.1",
     "stateful-dead": "^0.1.5",
     "style-loader": "^0.20.3",
+    "svg-inline-loader": "^0.8.0",
+    "svg-url-loader": "^2.3.2",
+    "svgo": "^1.0.5",
+    "svgo-loader": "^2.2.0",
     "topojson-client": "^3.0.0",
     "web-animations-js": "^2.3.1",
     "webpack": "^4.5.0",
