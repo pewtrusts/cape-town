@@ -12,6 +12,9 @@ $margin: 2px;
     transition: background-color 0.3s linear, opacity 0.3s linear;
     opacity: 1;
     will-change: background-color;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     @media screen and (max-width: 825px) {
         max-width: calc(33%);
     }
@@ -47,5 +50,9 @@ $margin: 2px;
         font-weight: bold;
         padding:5px;    
 
+    }
+    svg {
+        bottom: 15px;
+        position: relative;
     }
 }

@@ -1,6 +1,7 @@
 import $d from '@Helpers/dom-helpers.js';
 import s from './styles.scss';
 import './colorCoding-exclude.scss';
+//import testsvg from 'svgo-loader!@Project/assets/ALB.svg';
 
 export default class CountryTile {
     constructor(country, index, parent){
@@ -21,13 +22,15 @@ export default class CountryTile {
         tile.innerHTML = `
             <div class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
         `;
-        tile.style.backgroundImage = getBackgroundImage();
+        this.getImage().then(v => {
+            tile.insertAdjacentHTML('afterbegin',v);
+        });
 		return tile;
 	}
-    getBackgroundImage(){
-        return import(`@Project/assets/ALB.svg`).then(({default: svg}) => {
+    getImage(){
+        return import('@Project/assets/ALB.svg').then(({default: svg}) => {
             return svg;
-        }).catch(error => 'An error occurred while loading the component');
+        }).catch(error => 'Error');
     }
     init(){
         console.log('initialize tile', this.el);
