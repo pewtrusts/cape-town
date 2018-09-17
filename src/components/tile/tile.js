@@ -21,7 +21,10 @@ export default class CountryTile {
         tile.style.order = index;
         var countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
             var match = this.country.values.find(d => d.treaty_id === cur.key);
-            var info = match ? 'Ratified on ' + match.ratified_date : 'Not ratified';
+            var info = match && cur.key ===  'cta' ? 'Ratified on ' + match.ratified_date + ' with ' + match.note + '.':
+                 match && cur.key === 'psma' && this.parent.model.EUCountries.indexOf(match.iso_a3) !== -1 ? 'Ratified by the EU on ' +  match.ratified_date + ( match.note !== '' ? '; in respect of overseas territories on ' + match.note : '' ) + '.' :
+                 match ? 'Ratified on ' + match.ratified_date + '.': 
+                 'Not ratified.';
             return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
         },'');
         tile.innerHTML = `

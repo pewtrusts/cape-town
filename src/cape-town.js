@@ -5,16 +5,18 @@ import * as d3 from 'd3-collection';
 import treaties from '@Project/data/treaties.json';
 import countries from '@Project/data/countries_new.csv';
 import countryCodes from '@Project/data/country-codes.json';
+import EUCountries from '@Project/data/eu-countries.json';
 
 //views
 import MapView from './views/map/map.js';
 import TextView from './views/text/text.js';
 import SelectionView from './views/selection/selection.js';
 import TileView from './views/tiles/tile-view.js';
-
+console.log(EUCountries);
 const model = {
 	treaties,
 	countries,
+    EUCountries,
 	countryCodes,
 	// take the csv data and nest it by country so each country is one object with an array of values
 	countriesNested: d3.nest().key(d => d.iso_a3).entries(countries),

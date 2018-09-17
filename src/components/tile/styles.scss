@@ -1,14 +1,15 @@
 @import '@Project/css/_variables.scss';
 $dimensions: 195;
-$margin: 2px;
-$title_height: 30px;
+$margin: 2;
+$title_height: 30;
+$slide_transition: transform 0.3s ease-in-out 0.3s;
 
 .countryTile {
     //max-width: 260px;
     width: #{$dimensions}px;
     height: #{$dimensions}px;
-    margin-right: $margin;
-    margin-bottom: $margin;
+    margin-right: #{$margin}px;
+    margin-bottom: #{$margin}px;
     position: relative;
     transition: background-color 0.3s linear, opacity 0.3s linear;
     opacity: 1;
@@ -21,25 +22,31 @@ $title_height: 30px;
         align-items: center;
         width: 100%;
         height: #{$dimensions}px;
-        transition: transform 0.3s ease-in-out;
+        transition: $slide_transition;
     }
     .countryInfo {
         width: 100%;
-        height: #{$dimensions}px;
-        transition: transform 0.3s ease-in-out;
+        height: #{$dimensions - $title_height - $margin}px;
+        transition: $slide_transition;
         color:#fff;
-        padding: 10px 10px $title_height;
+        padding: 10px;
         display:flex;
         flex-direction: column;
         justify-content: space-between;
+        overflow-y: auto;
         p {
             line-height: 100%;
             margin-bottom: 0.5em;
+            font-size: 0.9em;
+            letter-spacing: .5px;
+            &:last-child {
+                margin-bottom: 1em;
+            }
         }
     }
     &:hover, &.selected {
         .svgWrapper, .countryInfo {
-            transform: translateY(-100%);
+            transform: translateY(-#{$dimensions - 1}px);
         }
     }
     @media screen and (max-width: 825px) {
@@ -74,7 +81,7 @@ $title_height: 30px;
         color: #fff;
         text-align: center;
         width: 100%;
-        height: $title_height;
+        height: #{$title_height}px;
         font-weight: bold;
         padding:5px;
         z-index: 2;    
