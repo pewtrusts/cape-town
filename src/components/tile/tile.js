@@ -19,11 +19,21 @@ export default class CountryTile {
 		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;
+        var countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
+            var match = this.country.values.find(d => d.treaty_id === cur.key);
+            var info = match ? 'Ratified on ' + match.ratified_date : 'Not ratified';
+            return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
+        },'');
         tile.innerHTML = `
             <div class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
+            <div class="${s.svgWrapper}">
+            </div>
+            <div class="${s.countryInfo} country-info">
+                ${countryInfoText}
+            </div>
         `;
         this.getImage().then(v => {
-            tile.insertAdjacentHTML('afterbegin',v);
+            tile.querySelector(`.${s.svgWrapper}`).insertAdjacentHTML('afterbegin',v);
         });
 		return tile;
 	}
@@ -34,6 +44,9 @@ export default class CountryTile {
     }
     init(){
         console.log('initialize tile', this.el);
+        this.el.addEventListener('click', function(){
+            this.classList.toggle(s.selected);
+        });
     }
     getPosition(position){ 
         this[position] = this.el.getBoundingClientRect();

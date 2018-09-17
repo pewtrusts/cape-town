@@ -13,7 +13,7 @@ $deselected: $medium_gray;
         path {
             fill: $deselected;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $deselected;
         }
     }
@@ -21,7 +21,7 @@ $deselected: $medium_gray;
         path {
             fill: $cta;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $cta;
         }
     }
@@ -29,7 +29,7 @@ $deselected: $medium_gray;
         path {
             fill: $ilo;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $ilo;
         }
     }
@@ -37,7 +37,7 @@ $deselected: $medium_gray;
         path {
             fill: $psma;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $psma;
         }
     }
@@ -45,7 +45,7 @@ $deselected: $medium_gray;
         path {
             fill: $multiple;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $multiple;
         }
     }
@@ -53,7 +53,7 @@ $deselected: $medium_gray;
         path {
             fill: $multiple;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $multiple;
         }
     }
@@ -61,7 +61,7 @@ $deselected: $medium_gray;
         path {
             fill: $multiple;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $multiple;
         }
     }
@@ -69,7 +69,7 @@ $deselected: $medium_gray;
         path {
             fill: $multiple;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $multiple;
         }
     }
@@ -78,7 +78,7 @@ $deselected: $medium_gray;
             path {
                 fill: $deselected;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $deselected;
             }
         }
@@ -86,7 +86,7 @@ $deselected: $medium_gray;
             path {
                 fill: $ilo;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $ilo;
             }
         }
@@ -94,7 +94,7 @@ $deselected: $medium_gray;
             path {
                 fill: $psma;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $psma;
             }
         }
@@ -104,7 +104,7 @@ $deselected: $medium_gray;
             path {
                 fill: $deselected;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $deselected;
             }
         }
@@ -112,7 +112,7 @@ $deselected: $medium_gray;
             path {
                 fill: $cta;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $cta;
             }
         }
@@ -120,7 +120,7 @@ $deselected: $medium_gray;
             path {
                 fill: $psma;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $psma;
             }
         }
@@ -130,7 +130,7 @@ $deselected: $medium_gray;
            path {
             fill: $deselected;
            }
-           > div {
+           > div:first-child, div.country-info {
                background-color: $deselected;
            }
         }
@@ -138,7 +138,7 @@ $deselected: $medium_gray;
             path {
                 fill: $cta;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $cta;
             }
         }
@@ -146,7 +146,7 @@ $deselected: $medium_gray;
             path {
                 fill: $ilo;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $ilo;
             }
         }
@@ -156,7 +156,7 @@ $deselected: $medium_gray;
             path {
                 fill: $deselected;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $deselected;
             }
         }
@@ -164,7 +164,7 @@ $deselected: $medium_gray;
             path {
                 fill: $psma;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $psma;
             }
         }
@@ -174,7 +174,7 @@ $deselected: $medium_gray;
             path {
                 fill: $deselected;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $deselected;
             }
         }
@@ -182,7 +182,7 @@ $deselected: $medium_gray;
             path {
                 fill: $ilo;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $ilo;
             }
         }
@@ -192,7 +192,7 @@ $deselected: $medium_gray;
             path {
                 fill: $deselected;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $deselected;
             }
         }
@@ -200,7 +200,7 @@ $deselected: $medium_gray;
             path {
                 fill: $cta;
             }
-            > div {
+            > div:first-child, div.country-info {
                 background-color: $cta;
             }
         }
@@ -209,7 +209,7 @@ $deselected: $medium_gray;
         path {
             fill: $deselected;
         }
-        > div {
+        > div:first-child, div.country-info {
             background-color: $deselected;
         }
     }

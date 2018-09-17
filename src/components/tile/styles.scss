@@ -1,20 +1,47 @@
 @import '@Project/css/_variables.scss';
-$dimensions: 195px;
+$dimensions: 195;
 $margin: 2px;
+$title_height: 30px;
 
 .countryTile {
     //max-width: 260px;
-    width: $dimensions;
-    height: $dimensions;
+    width: #{$dimensions}px;
+    height: #{$dimensions}px;
     margin-right: $margin;
     margin-bottom: $margin;
     position: relative;
     transition: background-color 0.3s linear, opacity 0.3s linear;
     opacity: 1;
     will-change: background-color;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+    cursor:pointer;
+    .svgWrapper {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: #{$dimensions}px;
+        transition: transform 0.3s ease-in-out;
+    }
+    .countryInfo {
+        width: 100%;
+        height: #{$dimensions}px;
+        transition: transform 0.3s ease-in-out;
+        color:#fff;
+        padding: 10px 10px $title_height;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p {
+            line-height: 100%;
+            margin-bottom: 0.5em;
+        }
+    }
+    &:hover, &.selected {
+        .svgWrapper, .countryInfo {
+            transform: translateY(-100%);
+        }
+    }
     @media screen and (max-width: 825px) {
         max-width: calc(33%);
     }
@@ -47,8 +74,10 @@ $margin: 2px;
         color: #fff;
         text-align: center;
         width: 100%;
+        height: $title_height;
         font-weight: bold;
-        padding:5px;    
+        padding:5px;
+        z-index: 2;    
 
     }
     svg {
@@ -59,4 +88,5 @@ $margin: 2px;
         will-change: fill;
         transition: fill 0.3s linear;
     }
+    
 }
