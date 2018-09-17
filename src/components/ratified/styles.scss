@@ -1,9 +1,18 @@
+@import '../../css/variables.scss';
+
+$cta: $map_medium_blue;
+$ilo: $map_dark_blue;
+$psma: $map_light_blue;
+$multiple: $map_gold;
+$deselected: $medium_gray;
+
 .ratifiedView {
   max-width: 260px;
   height: 70px;
   margin: 48px auto;
   display: flex;
   align-items: center;
+  border: 1px solid $deselected;
   > div {
     width: 50%;
     height: 70px;
@@ -12,10 +21,54 @@
     align-items: center;
     padding-top: 13px;
     &:first-child {
-        border-right: 1px solid magenta;
+        border-right: 1px solid $deselected;
     }
     > span {
         font-weight: bold;
     }
   }
+  &.cta {
+    border-color: $cta;
+    > div:first-child {
+        border-right-color: $cta;
+    }
+    .numberRatified, .treatyStatus {
+      color: $cta;
+      &.invert {
+        color: #fff;
+        background-color: $cta;
+        padding: 0 3px;
+      }
+    }
+  }
+  &.ilo {
+    border-color: $ilo;
+    > div:first-child {
+        border-right-color: $ilo;
+    }
+    .numberRatified, .treatyStatus {
+      color: $ilo;
+      &.invert {
+        color: #fff;
+        background-color: $ilo;
+        padding: 0 3px;
+      }
+    }
+  }
+  &.psma {
+    border-color: $psma;
+    > div:first-child {
+        border-right-color: $psma;
+    }
+    .numberRatified, .treatyStatus {
+      color: $psma;
+      &.invert {
+        color: #fff;
+        background-color: $psma;
+        padding: 0 3px;
+      }
+    }
+  }
+
+  
 }

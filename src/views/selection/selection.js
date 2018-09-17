@@ -13,7 +13,7 @@ export default class Selection extends Element {
 			need to instantiated as properties of `this` so that their methods
 			can be accessed */
 		this.buttons = this.model.treaties.map(treaty => new Button(treaty));
-		this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}.${main.wireframe}`, treaty));
+		this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}`, treaty, this));
 		this.willInitialize = [
 			new SearchBar(this.model),
 			...this.ratified,	
