@@ -1,33 +1,30 @@
-name,treaty
-Afghanistan,capetown
-Albania,capetown
-Algeria,capetown
-Andorra,capetown
-Andorra,psma
-Angola,psma
-Anguilla,psma
-Antigua & Barbuda,psma
-Argentina,ilo
-Armenia,ilo
-Australia,capetown
-Australia,psma
-Austria,capetown
-Austria,psma
-Austria,ilo
-Azerbaijan,psma
-Bahamas,capetown
-Bahamas,psma
-Bahamas,ilo
-Bahrain,psma
-Bangladesh,capetown
-Bangladesh,psma
-Barbados,capetown
-Barbados,psma
-Barbados,ilo
-Belarus,ilo
-Belgium,capetown
-Belgium,psma
-Belize,capetown
-Belize,psma
-Belize,ilo
-Bolivia,capetown
+iso_a3,treaty_id,ratified_date,note
+ALB,cta,12/25/2010,5 vessels
+AGO,cta,12/25/2010,5 vessels
+AGO,psma,,
+DNK,psma,12/25/2010,
+ARG,ilo,12/25/2010,
+COG,ilo,12/25/2010,
+AUS,cta,12/25/2010,5 vessels
+AUS,psma,, In progress
+ISL,cta,12/25/2010,5 vessels
+ISL,psma,12/25/2010,
+ISL,ilo,12/25/2010,
+BHS,cta,12/25/2010,5 vessels
+BHS,psma,12/25/2010,
+BHS,ilo,12/25/2010,
+IDN,cta,12/25/2010,5 vessels
+IDN,psma,,
+BRB,cta,12/25/2010,5 vessels
+BRB,psma,12/25/2010,
+BRB,ilo,12/25/2010,
+BEL,cta,12/25/2010,5 vessels
+BEL,psma,,
+MRT,cta,12/25/2010,
+MRT,psma,,
+MRT,ilo,12/25/2010,
+KNA,cta,12/25/2010,5 vessels,
+USA,psma,02/26/2016,
+ZAF,psma,02/26/2016,
+ZAF,cta,08/19/2016,151 vessels,
+ZAF,ilo, 06/20/2013,
