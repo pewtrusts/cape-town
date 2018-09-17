@@ -4,12 +4,11 @@ import './colorCoding-exclude.scss';
 //import testsvg from 'svgo-loader!@Project/assets/ALB.svg';
 
 export default class CountryTile {
-    constructor(country, index, parent){
-        console.log(country);
+    constructor(country, index, parent, isPushed = false){
         this.parent = parent;
         this.country = country;
+        this.isPushed = isPushed;
         this.el = this.prerender(index);
-        console.log(country);
     }
 	prerender(index){
         var existing = $d.q('#' + this.country.key + '-tile');
@@ -41,7 +40,9 @@ export default class CountryTile {
 		return tile;
 	}
     getImage(){
-        return import('@Project/assets/' + this.country.key + '.svg').then(({default: svg}) => {
+        console.log(this.isPushed);
+        var key = this.isPushed ? 'globe' : this.country.key;
+        return import('@Project/assets/' + key + '.svg').then(({default: svg}) => {
             return svg;
         }).catch(error => 'Error:' + error);
     }

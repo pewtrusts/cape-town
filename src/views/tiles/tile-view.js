@@ -62,7 +62,15 @@ export default class TileView {
         }
     }
     searchCountries(msg,data){
-        var matches = this.tiles.filter(t => data.indexOf(t.country.key) !== -1 );
+        var newMatch = null;
+        if ( data.length !== 0 ){ // newMatch should be undefined only if data is not zero and there's still no match
+            newMatch = this.tiles.find(t => data[data.length - 1] === t.country.key);
+        }
+        console.log(newMatch);
+        if ( newMatch === undefined ){
+            this.tiles.push(new CountryTile({key: data[data.length - 1], values: [], value: "None"}, this.tiles.length, this, true));
+            this.el.appendChild(this.tiles[this.tiles.length - 1].el);
+        }
         this.tiles.filter(t => data.indexOf(t.country.key) !== -1 ).forEach((filtered,i) => {
             filtered.showOnSearch(data, i);
         });
