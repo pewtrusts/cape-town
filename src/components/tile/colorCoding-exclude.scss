@@ -10,57 +10,90 @@ $deselected: $medium_gray;
 #pct-tiles-cont > div {
     background-color: $light_gray;
     &.None {
+        path {
+            fill: $deselected;
+        }
         > div {
             background-color: $deselected;
         }
     }
     &.cta {
+        path {
+            fill: $cta;
+        }
         > div {
             background-color: $cta;
         }
     }
     &.ilo {
+        path {
+            fill: $ilo;
+        }
         > div {
             background-color: $ilo;
         }
     }
     &.psma {
+        path {
+            fill: $psma;
+        }
         > div {
             background-color: $psma;
         }
     }
     &.cta-ilo {
+        path {
+            fill: $multiple;
+        }
         > div {
             background-color: $multiple;
         }
     }
     &.cta-psma {
+        path {
+            fill: $multiple;
+        }
         > div {
             background-color: $multiple;
         }
     }
     &.ilo-psma {
+        path {
+            fill: $multiple;
+        }
         > div {
             background-color: $multiple;
         }
     }
     &.cta-ilo-psma {
+        path {
+            fill: $multiple;
+        }
         > div {
             background-color: $multiple;
         }
     }
     .deselect-cta & {
         &.cta {
+            path {
+                fill: $deselected;
+            }
             > div {
                 background-color: $deselected;
             }
         }
         &.cta-ilo {
+            path {
+                fill: $ilo;
+            }
             > div {
                 background-color: $ilo;
             }
         }
         &.cta-psma {
+            path {
+                fill: $psma;
+            }
             > div {
                 background-color: $psma;
             }
@@ -68,16 +101,25 @@ $deselected: $medium_gray;
     }
     .deselect-ilo & {
         &.ilo {
+            path {
+                fill: $deselected;
+            }
             > div {
                 background-color: $deselected;
             }
         }
         &.cta-ilo {
+            path {
+                fill: $cta;
+            }
             > div {
                 background-color: $cta;
             }
         }
         &.ilo-psma {
+            path {
+                fill: $psma;
+            }
             > div {
                 background-color: $psma;
             }
@@ -85,16 +127,25 @@ $deselected: $medium_gray;
     }
     .deselect-psma & {
         &.psma {
+           path {
+            fill: $deselected;
+           }
            > div {
                background-color: $deselected;
            }
         }
         &.cta-psma {
+            path {
+                fill: $cta;
+            }
             > div {
                 background-color: $cta;
             }
         }
         &.ilo-psma {
+            path {
+                fill: $ilo;
+            }
             > div {
                 background-color: $ilo;
             }
@@ -102,11 +153,17 @@ $deselected: $medium_gray;
     }
     .deselect-cta.deselect-ilo & {
         &.cta-ilo {
+            path {
+                fill: $deselected;
+            }
             > div {
                 background-color: $deselected;
             }
         }
         &.cta-ilo-psma {
+            path {
+                fill: $psma;
+            }
             > div {
                 background-color: $psma;
             }
@@ -114,11 +171,17 @@ $deselected: $medium_gray;
     }
     .deselect-cta.deselect-psma & {
         &.cta-psma {
+            path {
+                fill: $deselected;
+            }
             > div {
                 background-color: $deselected;
             }
         }
         &.cta-ilo-psma {
+            path {
+                fill: $ilo;
+            }
             > div {
                 background-color: $ilo;
             }
@@ -126,17 +189,26 @@ $deselected: $medium_gray;
     }
     .deselect-ilo.deselect-psma & {
         &.ilo-psma {
+            path {
+                fill: $deselected;
+            }
             > div {
                 background-color: $deselected;
             }
         }
         &.cta-ilo-psma {
+            path {
+                fill: $cta;
+            }
             > div {
                 background-color: $cta;
             }
         }
     }
     .deselect-cta.deselect-ilo.deselect-psma & {
+        path {
+            fill: $deselected;
+        }
         > div {
             background-color: $deselected;
         }

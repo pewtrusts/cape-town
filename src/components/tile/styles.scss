@@ -55,4 +55,8 @@ $margin: 2px;
         bottom: 15px;
         position: relative;
     }
+    path {
+        will-change: fill;
+        transition: fill 0.3s linear;
+    }
 }

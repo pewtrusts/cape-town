@@ -45,7 +45,8 @@ export default class CountryTile {
         if ( this.shouldDisappear ) {
             this.el.style.order = this.parent.endOrder++;
         } else {
-            this.el.style.order = this.el.getAttribute('data-originalIndex'); // using getAttribute bs IE10 doesn't support dataset
+            let original = this.el.getAttribute('data-originalIndex');
+            this.el.style.order = original; // using getAttribute bs IE10 doesn't support dataset
         }
     }
     invertPosition(){
@@ -55,14 +56,14 @@ export default class CountryTile {
         this.el.style.transform = `translate(${this.deltaX}px, ${this.deltaY}px)`;
     }
     animatePosition(index, length){
-
+        console.log(this.deltaX,this.deltaY, this);
         var factor = 1; // factor by which to speed down the animations . > 1 slower < 1 faster.
         this.el.style.zIndex = length - index;
-        this.moveTiles = this.el.animate([{
+            this.moveTiles = this.el.animate([{
               transformOrigin: 'top left',
-              transform: `
-                translate(${this.deltaX}px, ${this.deltaY}px) rotate(2deg)
-              `
+              transform: ( this.deltaY === 0 && this.deltaX === 0 ) ?
+                `translate(${this.deltaX}px, ${this.deltaY}px)` :
+                `translate(${this.deltaX}px, ${this.deltaY}px) rotate(5deg)` 
             }, {
               transformOrigin: 'top left',
               transform: 'none'
@@ -70,7 +71,7 @@ export default class CountryTile {
               duration: 200 * factor,
               easing: 'ease-out',
               delay: 50 * index * factor
-            });
+                });
         this.moveTiles.onfinish = () => {
             this.el.style.transform = 'none';
            // this.el.classList.remove(s.animating);
