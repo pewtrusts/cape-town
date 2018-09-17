@@ -43,7 +43,7 @@ export default class CountryTile {
     getImage(){
         return import('@Project/assets/' + this.country.key + '.svg').then(({default: svg}) => {
             return svg;
-        }).catch(error => 'Error');
+        }).catch(error => 'Error:' + error);
     }
     init(){
         console.log('initialize tile', this.el);
@@ -100,6 +100,19 @@ export default class CountryTile {
                 console.log(this.parent.tiles);
             }
         };
+    }
+    showOnSearch(data, index){
+        console.log(data.length);
+        if ( data.length > 0 && index === 0){ // index === 0 sothe classList is called only once, on the first tile passed to this fn
+            this.parent.el.classList.add(s.searchActive);
+        }
+        this.el.classList.add(s.showOnSearch);
+    }
+    hideOnSearch(data, index){
+        if ( data.length === 0 && index === 0){
+            this.parent.el.classList.remove(s.searchActive);
+        }
+        this.el.classList.remove(s.showOnSearch);
     }
 
 }

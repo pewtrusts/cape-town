@@ -30,6 +30,7 @@ export default class SearchBar extends Element {
 			new Multiselect(`select.${main.grow}`, countryCodesArray, {
 				multiple: true,
 				clearable: true,
+				defaultSelected: false,
 				renderOption: function(option){
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
 				}

@@ -1,5 +1,6 @@
 import { Mobius1Selectr } from '@UI/inputs/inputs.js';
 import './styles-exclude.scss';
+import { stateModule as S } from 'stateful-dead';
 //import $d from '@Helpers/dom-helpers.js';
 //import main from '@Project/css/main.scss';
 
@@ -24,7 +25,8 @@ export default class Multiselect extends Mobius1Selectr {
         super.init();
         console.log(this.Selectr.container);
         this.Selectr.on('selectr.change', function(){
-            console.log('selectr change');
+            console.log('selectr change', this.selectedValues.slice(1));
+            S.setState('searchCountries', this.selectedValues.slice(1));
         });
         this.Selectr.on('selectr.open', function(){
             setTimeout(() => { // timeout gives API timeto create the <li>s that this needs to search through

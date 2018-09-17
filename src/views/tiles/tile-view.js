@@ -40,6 +40,9 @@ export default class TileView {
         PS.setSubs([
             ['selected', (msg,data) => {
                 this.update.call(this,msg,data);
+            }],
+            ['searchCountries', (msg,data) => {
+               this.update.call(this,msg,data); 
             }]
         ]);
         console.log('Init tiles');
@@ -50,8 +53,24 @@ export default class TileView {
             this.update.call(this);
         });*/
     }
-    update(msg,data){ 
-        console.log('update', msg, data);
+    update(msg,data){
+        if ( msg === 'selected') {
+            this.swapPositions.call(this,msg,data);
+        }
+        if ( msg === 'searchCountries' ){
+            this.searchCountries.call(this,msg,data);
+        }
+    }
+    searchCountries(msg,data){
+        var matches = this.tiles.filter(t => data.indexOf(t.country.key) !== -1 );
+        this.tiles.filter(t => data.indexOf(t.country.key) !== -1 ).forEach((filtered,i) => {
+            filtered.showOnSearch(data, i);
+        });
+        this.tiles.filter(t => data.indexOf(t.country.key) === -1 ).forEach((filtered,i) => {
+            filtered.hideOnSearch(data,i);
+        });
+    }
+    swapPositions(msg,data){ 
         this.tiles.forEach(tile => {
             tile.shouldDisappear = data.reduce((acc,cur) => {
                 if ( tile.country.value.indexOf(cur) !== -1 ){ // ie the current treaty key IS in the value string

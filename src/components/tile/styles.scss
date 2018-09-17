@@ -95,5 +95,10 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         will-change: fill;
         transition: fill 0.3s linear;
     }
-    
+    .searchActive & {
+        display: none;
+        &.showOnSearch {
+            display: block;
+        }
+    }
 }
