@@ -77,10 +77,10 @@ module.exports = {
                         options: {
                           plugins: [DynamicImport]
                         }
-                    }/*,
+                    },
                     {
                         loader: 'eslint-loader'
-                    }*/]
+                    }]
             },
             {
                 test: /\.csv$/, //converts csv files into json, treats as javascript
