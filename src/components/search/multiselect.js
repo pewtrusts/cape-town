@@ -1,4 +1,5 @@
 import { Mobius1Selectr } from '@UI/inputs/inputs.js';
+import PS from 'pubsub-setter';
 import './styles-exclude.scss';
 import { stateModule as S } from 'stateful-dead';
 //import $d from '@Helpers/dom-helpers.js';
@@ -23,7 +24,11 @@ export default class Multiselect extends Mobius1Selectr {
     }
     init(){
         super.init();
-        console.log(this.Selectr.container);
+        PS.setSubs([
+            ['clickCountries', (msg,data) => {
+                this.setValues.call(this,msg,data);
+            }]
+        ]);
         this.Selectr.on('selectr.change', function(){
             console.log('selectr change', this.selectedValues.slice(1));
             S.setState('searchCountries', this.selectedValues.slice(1));
@@ -37,5 +42,9 @@ export default class Multiselect extends Mobius1Selectr {
                 });
             });
         });
+    }
+    setValues(msg,data){
+        console.log(data);
+        this.Selectr.setValue(data);
     }
 }         

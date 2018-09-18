@@ -65,9 +65,6 @@ export default class SearchBar extends Element {
 		return div;
 	}
 	init(){
-		console.log('init');
-		//this.submit.init();
-		//this.clearButton.init();
 		this.willInitialize.forEach(each => {
 			each.init();
 		});

@@ -2,6 +2,7 @@
 
 //import * as d3 from 'd3-collection';
 import PS from 'pubsub-setter';
+import { stateModule as S } from 'stateful-dead';
 
 import s from './styles.scss';
 import './map-exclude.scss'; // '-exclude' is excluded from modularized css renaming
@@ -129,9 +130,15 @@ export default class MapView extends Element {
            },
 
             series: [{
+               // clickedPoints: [],
                 data: allCountriesData,
                 joinBy: ['iso_a3'],
-                name: 'International agreements'
+                name: 'International agreements',
+                events: {
+                    click: (e) => {
+                        S.setState('clickCountries', e.point.iso_a3);
+                    }
+                }
                 
             }]
         });

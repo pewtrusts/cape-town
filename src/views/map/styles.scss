@@ -11,15 +11,13 @@
         border: 1px solid magenta;
         path:global(.None).matchesSearch {
             fill: $medium_gray !important;
-            stroke: #fff;
+            stroke: #fff
         }
-        path:not(.matchesSearch) {
-            fill: #fff !important;
+        path:not(.matchesSearch):not(:global(.None)):not(:hover) {
+            fill: $light_gray !important;
         }
     }
-}
-g.cta-ilo {
-    path {
-        fill: magenta;
+    path:not(:global(.None)) {
+        cursor: pointer;
     }
 }
