@@ -31,6 +31,7 @@ export default class SearchBar extends Element {
 				multiple: true,
 				clearable: true,
 				defaultSelected: false,
+				placeholder: 'Search for a country',
 				renderOption: function(option){
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
 				}

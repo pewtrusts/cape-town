@@ -1,3 +1,4 @@
+@import '@Project/css/_variables.scss';
 .searchDiv {
     margin: 24px 0;
 }
@@ -6,6 +7,30 @@
     input {
         margin-right: 1px;
         height: 50px;
+    }
+    :global(.selectr-container){
+        margin-right: 4px;
+        &:global(.open) {
+             box-shadow: 1px 2px 2px rgba(0,0,0,0.5);   
+        }
+    }
+    :global(.selectr-selected) {
+        border: none;
+        border-radius: 0;
+        background-color: $light_gray;
+    }
+    :global(.selectr-input) {
+        box-sizing: border-box;
+    }
+    :global(.selectr-options-container) {
+        background-color: $light_gray;
+        border:none;
+        box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+    }
+    :global(.selectr-tag){
+        background: none;
+        color:#000;
+        font-size: 12px;
     }
 }
 .clearSearch {
