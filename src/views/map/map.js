@@ -29,6 +29,9 @@ export default class MapView extends Element {
         PS.setSubs([
             ['deselected', (msg,data) => {
                 this.updateMap.call(this,msg,data);
+            }],
+            ['searchCountries', (msg,data) => {
+               this.updateMap.call(this,msg,data); 
             }]
         ]);
         console.log('map view initialized');
@@ -48,20 +51,38 @@ export default class MapView extends Element {
         this.initializeMap()
     }
     updateMap(msg,data) {
-        console.log(msg,data, this);
-        var treaty = msg.split('.')[1];
-        this.el.parentNode.classList.toggle('deselect-' + treaty); // change classes on parentNode, ie, app root 
-                                                                   // so that other views can react to same change 
+        if ( msg.split('.')[0] === 'deselected' ){
+            let treaty = msg.split('.')[1];
+            this.el.parentNode.classList.toggle('deselect-' + treaty); // change classes on parentNode, ie, app root 
+                                                                       // so that other views can react to same change 
+        } 
+        if ( msg === 'searchCountries'){
+            console.log('searchCountries update map', data);
+            if ( data.length !== 0 ) { // ie search is active, not an empty array
+                this.Highmap.container.parentNode.classList.add(s.searchActive);
+                this.Highmap.series[0].data.forEach(country => {
+                    if ( data.indexOf(country.iso_a3) !== -1 ){ // ie country code is in the search array
+                        country.graphic.element.classList.add(s.matchesSearch);
+                    } else {
+                        country.graphic.element.classList.remove(s.matchesSearch);
+                    }
+                });
+            } else {
+                this.Highmap.container.parentNode.classList.remove(s.searchActive);
+            }
+        }
+                                                                   
     }
     initializeMap(){
 
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
-            var className = this.model.joinData.find(d => d.key === f.id) && this.model.joinData.find(d => d.key === f.id).value || 'None';                                                                                       // that have iso_a3 codes
+            var match = this.model.joinData.find(d => d.key === f.id);
+            var className = match && match.value || 'None';                                                                                       // that have iso_a3 codes
             return {
                 iso_a3: f.id,
                 name: this.model.countryCodes[f.id],
                 value: 2,
-                className,
+                className: className,
                 classArray: className.split('-')
             };
         });
@@ -83,7 +104,8 @@ export default class MapView extends Element {
             }
             return Formatter;
         })(this.model.treaties);
-        Highcharts.mapChart(this.el.id, {
+        
+        this.Highmap = new Highcharts.Map(this.el.id, {
             chart: {
                 map: this.geoJSON,
             },
@@ -113,5 +135,6 @@ export default class MapView extends Element {
                 
             }]
         });
+        console.log(this.Highmap);
     }
 }
