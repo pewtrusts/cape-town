@@ -44,10 +44,15 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             }
         }
     }
-    &:hover, &.selected {
-        .svgWrapper, .countryInfo {
-            transform: translateY(-#{$dimensions - 1}px);
+    &:not(.noHover) {
+        &:hover, &.selected {
+            .svgWrapper, .countryInfo {
+                transform: translateY(-#{$dimensions - 1}px);
+            }
         }
+    }
+    &.noHover:not(.showOnSearch) {
+        display: none;
     }
     @media screen and (max-width: 825px) {
         max-width: calc(33%);
@@ -100,5 +105,11 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         &.showOnSearch {
             display: block;
         }
+    }
+    > p.noAgreements {
+        position: absolute;
+        color: $dark_gray;
+        width: 100%;
+        text-align: center;
     }
 }

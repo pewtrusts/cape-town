@@ -10,7 +10,7 @@ export default class CountryTile {
         this.isPushed = isPushed;
         this.el = this.prerender(index);
     }
-	prerender(index){
+    prerender(index){
         var existing = $d.q('#' + this.country.key + '-tile');
         if ( existing ) {
             return existing;
@@ -18,16 +18,24 @@ export default class CountryTile {
 		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;
-        var countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
-            var match = this.country.values.find(d => d.treaty_id === cur.key);
-            var info = match && cur.key ===  'cta' ? 'Ratified on ' + match.ratified_date + ' with ' + match.note + '.':
-                 match && cur.key === 'psma' && this.parent.model.EUCountries.indexOf(match.iso_a3) !== -1 ? 'Ratified by the EU on ' +  match.ratified_date + ( match.note !== '' ? '; in respect of overseas territories on ' + match.note : '' ) + '.' :
-                 match ? 'Ratified on ' + match.ratified_date + '.': 
-                 'Not ratified.';
-            return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
-        },'');
+        console.log(this);
+        var countryInfoText;
+        if ( this.country.value !== 'None' ){
+            countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
+                var match = this.country.values.find(d => d.treaty_id === cur.key);
+                var info = match && cur.key ===  'cta' ? 'Ratified on ' + match.ratified_date + ' with ' + match.note + '.':
+                     match && cur.key === 'psma' && this.parent.model.EUCountries.indexOf(match.iso_a3) !== -1 ? 'Ratified by the EU on ' +  match.ratified_date + ( match.note !== '' ? '; in respect of overseas territories on ' + match.note : '' ) + '.' :
+                     match ? 'Ratified on ' + match.ratified_date + '.': 
+                     'Not ratified.';
+                return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
+            },'');
+        } else {
+            tile.classList.add(s.noHover);
+            countryInfoText = '<p class="' + s.noAgreements +'">No agreements  ratified</p>';
+        }
         tile.innerHTML = `
             <div class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
+                ${ this.country.value === 'None' ? countryInfoText : ''}
             <div class="${s.svgWrapper}">
             </div>
             <div class="${s.countryInfo} country-info">
@@ -39,6 +47,20 @@ export default class CountryTile {
         });
 		return tile;
 	}
+    set isVisible(bool){
+        if ( typeof bool !== 'boolean' ) {
+            throw 'isVisible property must be true or false';
+        }
+        if ( bool ) {
+            this.el.classList.add(s.showOnSearch);
+        } else {
+            this.el.classList.remove(s.showOnSearch);
+        }
+        this._isVisible = bool;
+    }
+    get isVisible(){
+        return this._isVisible;
+    }
     getImage(){
         console.log(this.isPushed);
         var key = this.isPushed ? 'globe' : this.country.key;
@@ -47,6 +69,7 @@ export default class CountryTile {
         }).catch(error => 'Error:' + error);
     }
     init(){
+        this.isVisible = true;
         console.log('initialize tile', this.el);
         this.el.addEventListener('click', function(){
             this.classList.toggle(s.selected);
@@ -59,7 +82,7 @@ export default class CountryTile {
         if ( index === 0 ) {
             this.parent.endOrder = 200;
         }
-        if ( this.shouldDisappear ) {
+        if ( this.shouldGoToEnd ) {
             this.el.style.order = this.parent.endOrder++;
         } else {
             let original = this.el.getAttribute('data-originalIndex');
@@ -74,7 +97,8 @@ export default class CountryTile {
     }
     animatePosition(index, length){
         console.log(this.deltaX,this.deltaY, this);
-        var factor = 1; // factor by which to speed down the animations . > 1 slower < 1 faster.
+        var delay = 250; // time in ms it should take for transitions to have begun
+        var duration = 750; // time in ms it should take to complete all transitions
         this.el.style.zIndex = length - index;
             this.moveTiles = this.el.animate([{
               transformOrigin: 'top left',
@@ -85,9 +109,9 @@ export default class CountryTile {
               transformOrigin: 'top left',
               transform: 'none'
             }], {
-              duration: 200 * factor,
+              duration: duration - ( ( delay / length ) * index ),
               easing: 'ease-out',
-              delay: 50 * index * factor
+              delay: ( delay / length ) * index
                 });
         this.moveTiles.onfinish = () => {
             this.el.style.transform = 'none';
@@ -107,13 +131,15 @@ export default class CountryTile {
         if ( data.length > 0 && index === 0){ // index === 0 sothe classList is called only once, on the first tile passed to this fn
             this.parent.el.classList.add(s.searchActive);
         }
-        this.el.classList.add(s.showOnSearch);
+        this.isVisible = true;
+       // this.el.classList.add(s.showOnSearch);
     }
     hideOnSearch(data, index){
         if ( data.length === 0 && index === 0){
             this.parent.el.classList.remove(s.searchActive);
         }
-        this.el.classList.remove(s.showOnSearch);
+        this.isVisible = false;
+       // this.el.classList.remove(s.showOnSearch);
     }
 
 }

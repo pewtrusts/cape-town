@@ -62,8 +62,10 @@ export default class TileView {
         }
     }
     searchCountries(msg,data){
+        console.log('searchCountries',msg,data);
         var newMatch = null;
         if ( data.length !== 0 ){ // newMatch should be undefined only if data is not zero and there's still no match
+                                  // this means there is no match because the requested country is not yet in the tiles  
             newMatch = this.tiles.find(t => data[data.length - 1] === t.country.key);
         }
         console.log(newMatch);
@@ -80,30 +82,27 @@ export default class TileView {
     }
     swapPositions(msg,data){ 
         this.tiles.forEach(tile => {
-            tile.shouldDisappear = data.reduce((acc,cur) => {
+            tile.shouldGoToEnd = data.reduce((acc,cur) => {
                 if ( tile.country.value.indexOf(cur) !== -1 ){ // ie the current treaty key IS in the value string
                     acc = false;
                 }
                 return acc;
             }, true);
-           /* if ( tile.shouldDisappear ) {
-                tile.el.classList.add(tileStyles.shouldDisappear);
-            } else {
-                tile.el.classList.remove(tileStyles.shouldDisappear);
-            }*/
         });
+        var visibleTiles = this.tiles.filter(tile => tile.isVisible);
+        console.log(this.tiles);
         setTimeout(() => { // separate FLIP steps out to do one at a times
-            this.tiles.forEach((each) => {
+            visibleTiles.forEach((each) => {
                 each.getPosition('first'); //Flip
             });
-            this.tiles.forEach((each,i) => {
+            visibleTiles.forEach((each,i) => {
                 each.changePosition(msg,data,i); //Last
             });
-            this.tiles.forEach((each) => {
+            visibleTiles.forEach((each) => {
                 each.getPosition('last');
                 each.invertPosition();
             });
-            this.tiles.forEach((each,i,array) => {
+            visibleTiles.forEach((each,i,array) => {
                 each.animatePosition(i,array.length);
             });
 
