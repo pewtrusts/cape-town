@@ -70,15 +70,22 @@ export default class TileView {
         }
         console.log(newMatch);
         if ( newMatch === undefined ){
-            this.tiles.push(new CountryTile({key: data[data.length - 1], values: [], value: "None"}, this.tiles.length, this, true));
-            this.el.appendChild(this.tiles[this.tiles.length - 1].el);
+            let newCountry = new CountryTile({key: data[data.length - 1], values: [], value: "None"}, this.tiles.length, this, true); 
+            this.tiles.push(newCountry);
+            this.el.appendChild(newCountry.el);
         }
-        this.tiles.filter(t => data.indexOf(t.country.key) !== -1 ).forEach((filtered,i) => {
-            filtered.showOnSearch(data, i);
-        });
-        this.tiles.filter(t => data.indexOf(t.country.key) === -1 ).forEach((filtered,i) => {
-            filtered.hideOnSearch(data,i);
-        });
+        if ( data.length === 0 ){ // ie search array from multiselect is cleared
+            this.tiles.forEach((t,i) => {
+                t.showOnSearch(data, i); // all should be made visible
+            });
+        } else {
+            this.tiles.filter(t => data.indexOf(t.country.key) !== -1 ).forEach((filtered,i) => {
+                filtered.showOnSearch(data, i);
+            });
+            this.tiles.filter(t => data.indexOf(t.country.key) === -1 ).forEach((filtered) => {
+                filtered.hideOnSearch();
+            });
+        }
     }
     swapPositions(msg,data){ 
         this.tiles.forEach(tile => {

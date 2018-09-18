@@ -62,7 +62,6 @@ export default class CountryTile {
         return this._isVisible;
     }
     getImage(){
-        console.log(this.isPushed);
         var key = this.isPushed ? 'globe' : this.country.key;
         return import('@Project/assets/' + key + '.svg').then(({default: svg}) => {
             return svg;
@@ -128,18 +127,20 @@ export default class CountryTile {
     }
     showOnSearch(data, index){
         console.log(data.length);
-        if ( data.length > 0 && index === 0){ // index === 0 sothe classList is called only once, on the first tile passed to this fn
+        if ( data.length > 0 && index === 0){ // this will be true when search is not empty and only matching countries shoud show; index === 0 sothe classList is called only once, on the first tile passed to this fn
             this.parent.el.classList.add(s.searchActive);
-        }
-        this.isVisible = true;
-       // this.el.classList.add(s.showOnSearch);
-    }
-    hideOnSearch(data, index){
-        if ( data.length === 0 && index === 0){
+        } else if ( index === 0 ){ // this will be true when search array is empty ie reset so that all **original** countries should show
             this.parent.el.classList.remove(s.searchActive);
         }
+        if ( data.length === 0 ) {
+            this.isVisible = !this.isPushed; // ie if search array is empty, cleared, only original countries should be made visible
+        } else {
+            this.isVisible = true; // else all matching countries should be visible
+        }
+       // this.el.classList.add(s.showOnSearch);
+    }
+    hideOnSearch(){
         this.isVisible = false;
-       // this.el.classList.remove(s.showOnSearch);
     }
 
 }
