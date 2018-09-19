@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const DynamicImport = require('babel-plugin-syntax-dynamic-import');
 
 const previewSubfolder = 'cape-town';
 
@@ -79,7 +80,16 @@ module.exports = {
            {
                   test: /\.js$/,
                   exclude: [/node_modules/,/\.min\./],
-                  use: ['babel-loader','eslint-loader'] // lints the es6 and then transpiles
+                  use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                          plugins: [DynamicImport]
+                        }
+                    },
+                    {
+                        loader: 'eslint-loader'
+                    }]
             },
             {
                 test: /\.csv$/,
@@ -103,16 +113,18 @@ module.exports = {
                 }
             },
             {
-                // SVGs under limit converted to data url. svg-url-loader converts to utf-8 instead of hex, shorter for human-readable code.
-                // above the limit falls back to file-loader to emit file as specified in options (options are passed to file-loader)
                 test: /\.svg$/,
-                loader: 'svg-url-loader',
-                options: {
-                    limit: 10 * 1024,
-                    name: '[name].[ext]?[hash]', //hash for cache busting
-                    outputPath: 'images/',
-                    //publicPath: '/shale-v0/dist/images/' USE publicPath if the public URL to '/' is not '/'
-                }
+                use: [
+                    {
+                        loader: 'svg-inline-loader',
+                        options: {
+                            removeSVGTagAttrs: false
+                        }
+                    },
+                    {
+                        loader: 'svgo-loader'
+                    }
+                ]
             },
             {
                 test: /\.md$/,
