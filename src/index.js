@@ -18,7 +18,7 @@ if ( prerenderScript !== null ){ // html for build process includes spript#prere
     scriptElement.src = 'js/webAnimation.js';
     document.head.appendChild(scriptElement);
 }
-console.log(window.fetch === undefined);
+
 if ( window.fetch === undefined ){
     let scriptElement = document.createElement('script');
     scriptElement.async = false;

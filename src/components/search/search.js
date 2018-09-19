@@ -7,8 +7,8 @@ import { Button, SubmitButton } from '@UI/buttons/buttons.js';
 
 export default class SearchBar extends Element {
 
-	constructor(model){
-		//console.log(countryCodes);
+	constructor(model){ // full app model from selection.js
+		// calls the class Element's constructor which includes making this.el the result of this.prerender()
 		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`, model);
 	}
 	
@@ -26,13 +26,14 @@ export default class SearchBar extends Element {
 			}
 		}
 		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
-		this.willInitialize = [
+		this.children = [
 			new Multiselect(`select.${main.grow}`, countryCodesArray, {
 				multiple: true,
 				clearable: true,
 				defaultSelected: false,
 				placeholder: 'Search for a country',
 				renderOption: function(option){
+					console.log(option);
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
 				}
 			}),
@@ -43,31 +44,27 @@ export default class SearchBar extends Element {
 		//container
 		var div = super.prerender();
 		if ( this.prerendered ) {
-			return div;
+			return div; // if prerendered wil already have this stuff below
 		}
 		
-		////search and submit container
+		//if not prerndered:
+
+		//search and submit container
 		var searchCont = $d.c(`div.${s.searchContainer}.${main.flex}.${main.sb}.${main.grow}`);
 		
-		
-		//////submit
-		//var submit = $d.c(`button.${s.submitSearch}.${main.pctBtn}`);
-		//submit.setAttribute('type','submit');
-		
-		////clear button
-		
-
-
-
-		searchCont.appendChild(this.willInitialize[0].el);
-		searchCont.appendChild(this.willInitialize[1].el);
+			// multiselect
+			searchCont.appendChild(this.children[0].el);
+			// submit button
+			searchCont.appendChild(this.children[1].el);
 		div.appendChild(searchCont);
-		div.appendChild(this.willInitialize[2].el);
+
+		//clear button
+		div.appendChild(this.children[2].el);
 		return div;
 	}
 	init(){
-		this.willInitialize.forEach(each => {
-			console.log(each);
+		this.children.forEach(each => {
+			
 			each.init();
 		});
 

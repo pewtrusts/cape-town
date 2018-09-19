@@ -13,7 +13,7 @@ export default class SelectButton extends Button {
 		return btn;
 	}
     init(treaties){
-        console.log(treaties);
+        
         super.init()
         this.el.addEventListener('click', e => {
             this.clickEventHandler.call(e.target, treaties);

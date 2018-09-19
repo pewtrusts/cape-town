@@ -6,12 +6,19 @@ import { stateModule as S } from 'stateful-dead';
 //import main from '@Project/css/main.scss';
 
 export default class Multiselect extends Mobius1Selectr {
+    // param1 = selector `select.${main.grow}`;
+    // param2 = countryCodesArray of data for all countries
+    // param3 = config object for Mobius1Slectr
+    
+    // does not specify constructor, the Mobius1Selectr constructor does its thing, including
+    // assigning DOM element to this.el
+
     prerender(){
         var selector = super.prerender();
         if ( this.prerendered ) {
             return selector;
         }
-        console.log(selector.options);
+        
         Array.from(selector.options).forEach(option => { // this will hide the options in the original select element
                                                          // that are not party to at least one agreement, but the Selectr
                                                          // transforms the original and shows them again. init() method
@@ -23,7 +30,7 @@ export default class Multiselect extends Mobius1Selectr {
         return selector;
     }
     init(){
-        super.init();
+        super.init(); //calls init() method from class Mobius1Selector which initiates the multiselect on this.el
         PS.setSubs([
             ['clickCountries', (msg,data) => {
                 this.setValues.call(this,msg,data);
@@ -32,7 +39,7 @@ export default class Multiselect extends Mobius1Selectr {
         ]);
         function selectrOnChange(Selectr){
             this.addTagEvents();
-            console.log(this, Selectr);
+            
             console.log('selectr change', Selectr.selectedValues.slice(1));
             S.setState('searchCountries', Selectr.selectedValues.slice(1));
         }
@@ -41,9 +48,9 @@ export default class Multiselect extends Mobius1Selectr {
         });
         this.Selectr.on('selectr.open', function(){
             setTimeout(() => { // timeout gives API timeto create the <li>s that this needs to search through
-                console.log(this.tree);
+                
                 this.tree.querySelectorAll('span.isParty-false').forEach(span => {
-                    console.log(span);
+                    
                     span.parentNode.classList.add('hideOption'); // hides the Selectr options that should have been hidden; ie are not party to an agreement
                 });
             });
@@ -73,7 +80,7 @@ export default class Multiselect extends Mobius1Selectr {
         });
     }
     setValues(msg,data){
-        console.log(data);
+        
         this.Selectr.setValue(data);
     }
 }         

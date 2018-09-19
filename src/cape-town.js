@@ -12,7 +12,7 @@ import MapView from './views/map/map.js';
 import TextView from './views/text/text.js';
 import SelectionView from './views/selection/selection.js';
 import TileView from './views/tiles/tile-view.js';
-console.log(EUCountries);
+
 const model = {
 	treaties,
 	countries,
@@ -34,8 +34,8 @@ const model = {
     })
 };
 
-console.log(model);
-const views = [ 
+
+const views = [                             
 	new TextView('div#pct-text'),
 	new MapView('div#pct-map',model),
 	new SelectionView('div#selection-view', model),
@@ -50,9 +50,10 @@ const TestApp = {
 		});
 		app.classList.add('rendered');
 	},
-	init(){
+	init(){                                // STEP ONE:  index.js calls this init()
 		views.forEach(view => {
-			view.init();
+			view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
+                                             // that their init() methods have closure over. each view' init() method is called.
 		});
 	}
 }

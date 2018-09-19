@@ -18,7 +18,7 @@ export default class CountryTile {
 		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;
-        console.log(this);
+        
         var countryInfoText;
         if ( this.country.value !== 'None' ){
             countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
@@ -69,7 +69,7 @@ export default class CountryTile {
     }
     init(){
         this.isVisible = true;
-        console.log('initialize tile', this.el);
+        
         this.el.addEventListener('click', function(){
             this.classList.toggle(s.selected);
         });
@@ -95,7 +95,7 @@ export default class CountryTile {
         this.el.style.transform = `translate(${this.deltaX}px, ${this.deltaY}px)`;
     }
     animatePosition(index, length){
-        console.log(this.deltaX,this.deltaY, this);
+        
         var delay = 250; // time in ms it should take for transitions to have begun
         var duration = 750; // time in ms it should take to complete all transitions
         this.el.style.zIndex = length - index;
@@ -116,17 +116,17 @@ export default class CountryTile {
             this.el.style.transform = 'none';
            // this.el.classList.remove(s.animating);
             if ( index === length - 1){ // ie is the last tile
-                console.log('last animation finished', this);
+                
                 this.parent.tiles.forEach(each => {
                     each.el.style.zIndex = 'auto';
                 });
                 this.parent.tiles.sort((a,b) => parseInt(a.el.style.order) < parseInt(b.el.style.order) ? -1 : parseInt(a.el.style.order) > parseInt(b.el.style.order) ? 1 : parseInt(a.el.style.order) >= parseInt(b.el.style.order) ? 0 : NaN);
-                console.log(this.parent.tiles);
+                
             }
         };
     }
     showOnSearch(data, index){
-        console.log(data.length);
+        
         if ( data.length > 0 && index === 0){ // this will be true when search is not empty and only matching countries shoud show; index === 0 sothe classList is called only once, on the first tile passed to this fn
             this.parent.el.classList.add(s.searchActive);
         } else if ( index === 0 ){ // this will be true when search array is empty ie reset so that all **original** countries should show

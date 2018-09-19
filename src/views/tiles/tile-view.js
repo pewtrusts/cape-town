@@ -12,7 +12,7 @@ export default class TileView {
         this.model = model;
         this.tiles = model.joinData.map((country, index) => new CountryTile(country, index, this));
         this.el = this.prerender();
-        console.log(this.tiles);
+        
     }
     prerender(){
         var existing = $d.q('#pct-tiles-cont');
@@ -45,7 +45,7 @@ export default class TileView {
                this.update.call(this,msg,data); 
             }]
         ]);
-        console.log('Init tiles');
+        
         this.tiles.forEach(each => {
             each.init();
         });
@@ -62,13 +62,13 @@ export default class TileView {
         }
     }
     searchCountries(msg,data){
-        console.log('searchCountries',msg,data);
+        
         var newMatch = null;
         if ( data.length !== 0 ){ // newMatch should be undefined only if data is not zero and there's still no match
                                   // this means there is no match because the requested country is not yet in the tiles  
             newMatch = this.tiles.find(t => data[data.length - 1] === t.country.key);
         }
-        console.log(newMatch);
+        
         if ( newMatch === undefined ){
             let newCountry = new CountryTile({key: data[data.length - 1], values: [], value: "None"}, this.tiles.length, this, true); 
             this.tiles.push(newCountry);
@@ -97,7 +97,7 @@ export default class TileView {
             }, true);
         });
         var visibleTiles = this.tiles.filter(tile => tile.isVisible);
-        console.log(this.tiles);
+        
         setTimeout(() => { // separate FLIP steps out to do one at a times
             visibleTiles.forEach((each) => {
                 each.getPosition('first'); //Flip

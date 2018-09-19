@@ -35,8 +35,9 @@ export default class MapView extends Element {
                this.updateMap.call(this,msg,data); 
             }]
         ]);
-        console.log('map view initialized');
-        this.getTopoJSON();
+        
+        this.getTopoJSON(); // the chain leading to initialization of the map starts here. by the time init() is called
+                            // the map container exists as this.el
     }
     getTopoJSON(){
         fetch(dataPath)
@@ -44,12 +45,12 @@ export default class MapView extends Element {
                 return response.json();
             })
             .then(topo => {
-                this.convertToGeoJSON(topo);
+                this.convertToGeoJSON(topo); // chain continues
             });
     }
     convertToGeoJSON(topo){
         this.geoJSON = topojson.feature(topo, topo.objects.world);
-        this.initializeMap()
+        this.initializeMap(); // chain continues
     }
     updateMap(msg,data) {
         if ( msg.split('.')[0] === 'deselected' ){
@@ -58,7 +59,7 @@ export default class MapView extends Element {
                                                                        // so that other views can react to same change 
         } 
         if ( msg === 'searchCountries'){
-            console.log('searchCountries update map', data);
+            
             if ( data.length !== 0 ) { // ie search is active, not an empty array
                 this.Highmap.container.parentNode.classList.add(s.searchActive);
                 this.Highmap.series[0].data.forEach(country => {
@@ -74,7 +75,7 @@ export default class MapView extends Element {
         }
                                                                    
     }
-    initializeMap(){
+    initializeMap(){ 
 
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
             var match = this.model.joinData.find(d => d.key === f.id);
@@ -87,7 +88,7 @@ export default class MapView extends Element {
                 classArray: className.split('-')
             };
         });
-        console.log(allCountriesData);
+        
 
         // the tooltip formatter below needs access to this.model but also needs to call a function
         // with the datum as `this`. the IIFE below generates the necessary function with closure
@@ -142,6 +143,6 @@ export default class MapView extends Element {
                 
             }]
         });
-        console.log(this.Highmap);
+        
     }
 }
