@@ -27,11 +27,17 @@ export default class Multiselect extends Mobius1Selectr {
         PS.setSubs([
             ['clickCountries', (msg,data) => {
                 this.setValues.call(this,msg,data);
+                this.addTagEvents();
             }]
         ]);
-        this.Selectr.on('selectr.change', function(){
-            console.log('selectr change', this.selectedValues.slice(1));
-            S.setState('searchCountries', this.selectedValues.slice(1));
+        function selectrOnChange(Selectr){
+            this.addTagEvents();
+            console.log(this, Selectr);
+            console.log('selectr change', Selectr.selectedValues.slice(1));
+            S.setState('searchCountries', Selectr.selectedValues.slice(1));
+        }
+        this.Selectr.on('selectr.change', () => {
+            selectrOnChange.call(this, this.Selectr);
         });
         this.Selectr.on('selectr.open', function(){
             setTimeout(() => { // timeout gives API timeto create the <li>s that this needs to search through
@@ -40,6 +46,29 @@ export default class Multiselect extends Mobius1Selectr {
                     console.log(span);
                     span.parentNode.classList.add('hideOption'); // hides the Selectr options that should have been hidden; ie are not party to an agreement
                 });
+            });
+        });
+    }
+    addTagEvents(){
+        var cont = document.querySelector('.selectr-options-container');
+        console.log(document.querySelectorAll('button.selectr-tag-remove'));
+        /* the third-party Selectr is allowing a click on a tag to bubble up to the search bar itself,
+        which then opens or closes the dropdown. until / unless that code is brought in local, there is
+        no access to the event. the tags themselves in the DOM have no attribute refering to the country
+        so the only way to work around is to allow the third-part code to do its thing and then undo it */
+        document.querySelectorAll('button.selectr-tag-remove').forEach(button => {
+            button.addEventListener('click', () => {
+                if ( !this.Selectr.opened ){
+                    cont.style.display = 'none';
+                    setTimeout(() => {
+                        this.Selectr.close();
+                        cont.style.display = 'block';
+                    });
+                } else {
+                    setTimeout(() => {
+                        this.Selectr.open();
+                    });
+                }
             });
         });
     }

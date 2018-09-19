@@ -8,7 +8,6 @@
         overflow: visible;
     }
     &.searchActive {
-        border: 1px solid magenta;
         path:global(.None).matchesSearch {
             fill: $medium_gray !important;
             stroke: #fff

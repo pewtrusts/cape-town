@@ -67,6 +67,7 @@ export default class SearchBar extends Element {
 	}
 	init(){
 		this.willInitialize.forEach(each => {
+			console.log(each);
 			each.init();
 		});
 
