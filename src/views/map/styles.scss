@@ -19,4 +19,12 @@
     path:not(:global(.None)) {
         cursor: pointer;
     }
+    :global(.highcharts-button-box){
+        fill: #fff;
+    }
+    :global(.highcharts-map-navigation) {
+        text {
+            transform: translate(3px, 0);
+        }
+    }
 }

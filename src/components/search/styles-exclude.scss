@@ -1,5 +1,6 @@
+@import '@Project/css/_variables.scss';
 .selectr-input-container:not(.active){ // hides options except when input container is active, ie, user is searching
     & ~ .selectr-options li.hideOption { // general sibling selector ~
-        display:none !important;
+        color: $medium_gray;
     }
 }

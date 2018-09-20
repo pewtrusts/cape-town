@@ -137,7 +137,8 @@ export default class MapView extends Element {
                 name: 'International agreements',
                 events: {
                     click: (e) => {
-                        S.setState('clickCountries', e.point.iso_a3);
+                        console.log(e); // using timestamp make each event unique so that clicking the same country twice results in a new setState
+                        S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
                     }
                 }
                 

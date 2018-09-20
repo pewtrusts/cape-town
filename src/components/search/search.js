@@ -5,7 +5,7 @@ import main from '@Project/css/main.scss';
 import Element from  '@UI/element/element.js';
 import { Dropdown } from '@UI/inputs/inputs.js';
 import Multiselect from './multiselect.js';
-import { Button, SubmitButton } from '@UI/buttons/buttons.js';
+import { Button } from '@UI/buttons/buttons.js';
 
 
 export default class SearchBar extends Element {
@@ -31,7 +31,7 @@ export default class SearchBar extends Element {
 		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
-			new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
+			//new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
 
@@ -48,12 +48,11 @@ export default class SearchBar extends Element {
 		
 			// multiselect
 			searchCont.appendChild(this.children[0].el);
-			// submit button
-			searchCont.appendChild(this.children[1].el);
+			
 		div.appendChild(searchCont);
 
 		//clear button
-		div.appendChild(this.children[2].el);
+		div.appendChild(this.children[1].el);
 
 
 		return div;
@@ -65,14 +64,17 @@ export default class SearchBar extends Element {
 		if ( this.prerendered || process.env.NODE_ENV === 'development' ){
 			this.Selectr = new Multiselect(this.children[0].el, {
 				multiple: true,
-				clearable: true,
+				clearable: false,
 				defaultSelected: false,
-				placeholder: 'Search for a country',
+				placeholder: 'Select or search for countries',
 				renderOption: function(option){
 					console.log(option);
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
 				}
 			});
 		}
+		$d.q(`button.${s.clearSearch}`).addEventListener('click', () => {
+			this.Selectr.Selectr.clear();
+		});
 	}
 }
