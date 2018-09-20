@@ -17,5 +17,24 @@ export default class TextView extends Element {
 	}
 
     // capetown.js calls init(), which in this case is a Super, a method of Element. it does nothing
-    // when init() is called, the TextView object and its properties already exist. this.el is the DOM element
+    set isOpen(value){
+        if ( value ){
+            this.el.querySelector('.expand-text').classList.add(s.expanded);
+            this.el.querySelector('a.read-more').innerHTML = 'Read less &rarr;';
+        } else {
+            this.el.querySelector('.expand-text').classList.remove(s.expanded);
+            this.el.querySelector('a.read-more').innerHTML = 'Read more &rarr;';
+        }
+        this._isOpen = value;
+
+    }
+    get isOpen(){
+        return this._isOpen;
+    }
+    init(){
+        this.isOpen = false;
+        this.el.querySelector('a.read-more').addEventListener('click', () => {
+            this.isOpen = !this.isOpen;
+        });
+    }
 }

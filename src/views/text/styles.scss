@@ -2,4 +2,15 @@
 	h2 {
 		text-align: center;
 	}
+    :global(.expand-text) {
+        position: absolute;
+        background-color: #fff;
+        opacity: 0;
+        transition: opacity 0.3s linear;
+        z-index: 2;
+        pointer-events: none;
+        &.expanded {
+            opacity: 0.9;
+        }
+    }
 }

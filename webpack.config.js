@@ -120,7 +120,13 @@ module.exports = {
             },
             {
                 test: /\.md$/,
-                use: ['html-loader', 'markdown-loader']
+                use: ['html-loader', {
+                    loader: 'markdown-loader',
+                    options: {
+                        //gfm: true,
+                        smartypants: true
+                    }
+                }]
             }
             
         ]
