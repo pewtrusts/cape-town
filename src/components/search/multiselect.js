@@ -18,39 +18,43 @@ export default class Multiselect extends Mobius1Selectr {
         if ( this.prerendered ) {
             return selector;
         }
-        
-        Array.from(selector.options).forEach(option => { // this will hide the options in the original select element
-                                                         // that are not party to at least one agreement, but the Selectr
-                                                         // transforms the original and shows them again. init() method
-                                                         // below finds what should be hidden and hides them
-            if ( !option.pctModel.isParty ){
-                option.style.display = 'none';
-            }
-        });
         return selector;
     }
     init(){
         super.init(); //calls init() method from class Mobius1Selector which initiates the multiselect on this.el
+
+        Array.from(this.el.options).forEach(option => {  // this will hide the options in the original select element
+                                                         // that are not party to at least one agreement, but the Selectr
+                                                         // transforms the original and shows them again. init() method
+                                                         // below finds what should be hidden and hides them. this task
+                                                         // needs to be done as part of init() to work with prerendered
+                                                         // build
+            if ( !option.pctModel.isParty ){
+                option.style.display = 'none';
+            }
+        });
+        
         PS.setSubs([
             ['clickCountries', (msg,data) => {
                 this.setValues.call(this,msg,data);
                 this.addTagEvents();
             }]
         ]);
+        
         function selectrOnChange(Selectr){
             this.addTagEvents();
             
             console.log('selectr change', Selectr.selectedValues.slice(1));
             S.setState('searchCountries', Selectr.selectedValues.slice(1));
         }
+        
         this.Selectr.on('selectr.change', () => {
             selectrOnChange.call(this, this.Selectr);
         });
+        
         this.Selectr.on('selectr.open', function(){
             setTimeout(() => { // timeout gives API timeto create the <li>s that this needs to search through
-                
                 this.tree.querySelectorAll('span.isParty-false').forEach(span => {
-                    
                     span.parentNode.classList.add('hideOption'); // hides the Selectr options that should have been hidden; ie are not party to an agreement
                 });
             });
