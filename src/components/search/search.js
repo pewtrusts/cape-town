@@ -1,9 +1,12 @@
+/* global process */
 import s from './styles.scss';
 import $d from '@Helpers/dom-helpers.js';
 import main from '@Project/css/main.scss';
-import Element from '@UI/element/element.js';
+import Element from  '@UI/element/element.js';
+import { Dropdown } from '@UI/inputs/inputs.js';
 import Multiselect from './multiselect.js';
 import { Button, SubmitButton } from '@UI/buttons/buttons.js';
+
 
 export default class SearchBar extends Element {
 
@@ -27,16 +30,7 @@ export default class SearchBar extends Element {
 		}
 		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
-			new Multiselect(`select.${main.grow}`, countryCodesArray, {
-				multiple: true,
-				clearable: true,
-				defaultSelected: false,
-				placeholder: 'Search for a country',
-				renderOption: function(option){
-					console.log(option);
-					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
-				}
-			}),
+			new Dropdown(`select.${main.grow}`, countryCodesArray),
 			new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
@@ -60,13 +54,25 @@ export default class SearchBar extends Element {
 
 		//clear button
 		div.appendChild(this.children[2].el);
+
+
 		return div;
 	}
 	init(){
 		this.children.forEach(each => {
-			
 			each.init();
 		});
-
+		if ( this.prerendered || process.env.NODE_ENV === 'development' ){
+			this.Selectr = new Multiselect(this.children[0].el, {
+				multiple: true,
+				clearable: true,
+				defaultSelected: false,
+				placeholder: 'Search for a country',
+				renderOption: function(option){
+					console.log(option);
+					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
+				}
+			});
+		}
 	}
 }

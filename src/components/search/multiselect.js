@@ -13,14 +13,7 @@ export default class Multiselect extends Mobius1Selectr {
     // does not specify constructor, the Mobius1Selectr constructor does its thing, including
     // assigning DOM element to this.el
 
-    prerender(){
-        var selector = super.prerender();
-        if ( this.prerendered ) {
-            return selector;
-        }
-        return selector;
-    }
-    init(){
+   init(){
         super.init(); //calls init() method from class Mobius1Selector which initiates the multiselect on this.el
 
         Array.from(this.el.options).forEach(option => {  // this will hide the options in the original select element

@@ -33,6 +33,7 @@ module.exports = {
     },
     mode: 'development',
     module: {
+        
         rules: [
             {
                 test: /\.scss$/,
@@ -151,7 +152,10 @@ module.exports = {
             }
 
         ]),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: 'development'
+        })
     ],
     output: {
         filename: '[name].js',
