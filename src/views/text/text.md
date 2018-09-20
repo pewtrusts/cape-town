@@ -1,4 +1,4 @@
-## Ending Illegal Fishing Project
+## Three Treaties to End Illegal Fishing
 
 To support efforts to end illegal fishing, The Pew Charitable Trusts advocates for the harmonized implementation of three international agreements that seek to make it more difficult for unscrupulous operators to exploit gaps in national and regional fishing regulations.
 
@@ -10,5 +10,5 @@ The U.N. Food and Agriculture Organization’s Port State Measures Agreement (PS
 
 All three U.N. agencies have recognized the benefits of the aforementioned instruments in tackling illegal, unreported, and unregulated fishing and associated social issues. 
 
-The maps below show which nations have ratified each treaty. Select a country from the list below to learn more.
+The map below shows which nations have ratified each treaty. Select countries from the list below to learn more.
 </div>
