@@ -3,7 +3,7 @@ import * as d3 from 'd3-collection';
 
 //data
 import treaties from '@Project/data/treaties.json';
-import countries from '@Project/data/countries_new.csv';
+import countries from '@Project/data/countries.csv';
 import countryCodes from '@Project/data/country-codes.json';
 import EUCountries from '@Project/data/eu-countries.json';
 

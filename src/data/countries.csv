@@ -1,30 +1,80 @@
 iso_a3,treaty_id,ratified_date,note
-ALB,cta,12/25/2010,5 vessels
-AGO,cta,12/25/2010,5 vessels
-AGO,psma,,
-DNK,psma,12/25/2010,
-ARG,ilo,12/25/2010,
-COG,ilo,12/25/2010,
-AUS,cta,12/25/2010,5 vessels
-AUS,psma,, In progress
-ISL,cta,12/25/2010,5 vessels
-ISL,psma,12/25/2010,
-ISL,ilo,12/25/2010,
-BHS,cta,12/25/2010,5 vessels
-BHS,psma,12/25/2010,
-BHS,ilo,12/25/2010,
-IDN,cta,12/25/2010,5 vessels
-IDN,psma,,
-BRB,cta,12/25/2010,5 vessels
-BRB,psma,12/25/2010,
-BRB,ilo,12/25/2010,
-BEL,cta,12/25/2010,5 vessels
-BEL,psma,,
-MRT,cta,12/25/2010,
-MRT,psma,,
-MRT,ilo,12/25/2010,
-KNA,cta,12/25/2010,5 vessels,
-USA,psma,02/26/2016,
-ZAF,psma,02/26/2016,
-ZAF,cta,08/19/2016,151 vessels,
-ZAF,ilo, 06/20/2013,
+ALB,psma,4/7/2017,
+AGO,ilo,10/11/2016,
+ARG,ilo,9/15/2011,
+AUS,psma,7/20/2015,
+BHS,psma,10/7/2016,
+BRB,psma,2/2/2016,
+BEL,cta,5/10/2018,33 vessels
+BEL,psma,7/7/2011,
+BIH,ilo,2/4/2010,
+CPV,psma,6/23/2016,
+CHL,psma,8/28/2012,
+COG,cta,5/28/2015,23 vessels
+COG,ilo,5/14/2014,
+CRI,psma,12/4/2015,
+CUB,psma,3/25/2016,
+DJI,psma,11/27/2017,
+DNK,cta,8/6/2015,101 vessels
+DNK,psma,7/7/2011,11/28/16
+DMA,psma,5/6/2016,
+EST,psma,7/7/2011,
+EST,ilo,5/3/2016,
+FRA,psma,7/7/2011,7/11/16
+FRA,cta,2/23/2018,103 vessels
+FRA,ilo,10/28/2015,
+GAB,psma,11/15/2013,
+GMB,psma,7/29/2016,
+DEU,cta,7/5/2016,39 vessels
+DEU,psma,7/7/2011,
+GHA,psma,11/29/2016,
+GRD,psma,6/17/2017,
+GNQ,psma,6/3/2016,
+GUF,psma,3/7/2016,
+ISL,psma,6/16/2015,
+ISL,cta,7/15/2013,175 vessels
+IDN,psma,6/23/2016,
+JPN,psma,5/17/2017,
+KEN,psma,8/23/2017,
+LTU,psma,7/7/2011,
+LTU,ilo,11/16/2016,
+MDG,psma,3/27/2017,
+MDV,psma,3/16/2017,
+MRT,psma,1/23/2017,
+MUS,psma,8/31/2015,
+MNE,psma,5/17/2017,
+MAR,ilo,5/16/2013,
+MOZ,psma,8/19/2014,
+MMR,psma,11/22/2010,
+NAM,psma,7/18/2017,
+NLD,psma,7/7/2011,
+NLD,cta,5/7/2014,153 vessels
+NZL,psma,2/21/2014,
+NOR,psma,7/20/2011,
+NOR,cta,11/26/2013,242 vessels
+NOR,ilo,1/8/2016,
+OMN,psma,8/1/2013,
+PLW,psma,11/30/2015,
+PAN,psma,11/21/2016,
+PER,psma,9/27/2017,
+PHL,psma,5/26/2018,
+KOR,psma,1/14/2016,
+KNA,psma,12/9/2015,
+KNA,cta,12/1/2017,0 vessels
+VCT,psma,6/23/2016,
+STP,psma,11/22/2016,
+SEN,psma,3/23/2017,
+SYC,psma,6/19/2013,
+SOM,psma,11/9/2015,
+ZAF,psma,2/16/2016,
+ZAF,cta,8/19/2016,151 vessels
+ZAF,ilo,6/20/2013,
+LKA,psma,1/20/2011,
+SDN,psma,5/12/2016,
+THA,psma,5/6/2016,
+TGO,psma,12/2/2016,
+TON,psma,5/6/2016,
+TUR,psma,3/30/2018,
+USA,psma,2/26/2016,
+URY,psma,2/28/2013,
+VUT,psma,5/6/2016,
