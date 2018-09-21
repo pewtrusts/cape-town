@@ -24,17 +24,14 @@ module.exports = env => { // module.exports is function now to pass in env varia
     return {
         entry: {
             'js/index': './src/index.js',
-            'js/webAnimation': './src/web-animations.min.js',
-            'js/fetchPolyfill': './src/fetch-polyfill.min.js'
         },
-        devtool: 'inline-source-map', // may be too slow an option; set to another if so
+        devtool: 'eval-source-map',
         devServer: {
             contentBase: './dist',
             hot: true
         },
         mode: 'development',
         module: {
-            
             rules: [
                 {
                     test: /\.scss$/,
@@ -65,11 +62,6 @@ module.exports = env => { // module.exports is function now to pass in env varia
                         },
                         ...scssSharedLoaders.slice(1)]
                 },
-                /*{
-                      test: /\.js$/,
-                      exclude: [/node_modules/, /src\/index\.js/],
-                      use: ['eslint-loader'] // lints the es6 
-                },*/
                 {
                       test: /\.js$/,
                       exclude: [/node_modules/,/\.min\./],
@@ -84,32 +76,13 @@ module.exports = env => { // module.exports is function now to pass in env varia
                             loader: 'eslint-loader'
                         }]
                 },
-               /* {
-                    test: /\.csv$/, //converts csv files into json, treats as javascript
-                   // exclude: /runtime/,
-                    loader: 'csv-loader',
-                    options: {
-                        dynamicTyping: true,
-                        header: true,
-                        skipEmptyLines: true,
-                        trimHeaders: true,
-                    }
-                },*/
-                 {
+                {
                     test: /\.csv$/,
                     loader: 'file-loader',
                     options: {
                         name: 'data/[name].[ext]', // no hashing bc content editors might upload csv without going through build process
                     }
                 },
-               /* {
-                    test: /runtime/, 
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        context: 'data'
-                    }
-                },*/
                {
                     // images under limit converted to data url. above the limit falls back to file-loader to emit file
                     // as specified in options (options are passed to file-loader)
@@ -140,7 +113,6 @@ module.exports = env => { // module.exports is function now to pass in env varia
                     use: ['html-loader', {
                         loader: 'markdown-loader',
                         options: {
-                            //gfm: true,
                             smartypants: true
                         }
                     }]
@@ -152,9 +124,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
             new CleanWebpackPlugin(['dist']),
             new HtmlWebpackPlugin({
                 title: 'title title title',
-                //inject: false,
                 template: './src/interactive-100.html',
-                excludeChunks: [ 'js/webAnimation', 'js/fetchPolyfill' ]
             }),
             new MiniCssExtractPlugin({
               // Options similar to the same options in webpackOptions.output
