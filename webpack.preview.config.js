@@ -93,11 +93,9 @@ module.exports = {
             },
             {
                 test: /\.csv$/,
-                loader: 'csv-loader',
+                loader: 'file-loader',
                 options: {
-                    dynamicTyping: true,
-                    header: true,
-                    skipEmptyLines: true
+                    name: 'data/[name].[ext]',
                 }
             },
             {
@@ -167,16 +165,14 @@ module.exports = {
             },{
                 from: 'assets/**/*.*',
                 exclude: 'assets/Pew/css/',
-                context: 'src'
+                context: 'src',
+                ignore: ['assets/countries/*.*']
             },{
                 from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content,path){
                   return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/' + previewSubfolder + '/$1');
                 }
-            },{
-                from: 'data/**/*.*',
-                context: 'src'
             }
         ]),
        new PrerenderSPAPlugin({

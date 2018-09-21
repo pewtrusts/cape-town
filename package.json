@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.build.config.js",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open --env development",
     "preview": "webpack --config webpack.preview.config.js"
   },
   "keywords": [],
@@ -33,6 +33,7 @@
     "markdown-loader": "^4.0.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.3",
+    "papaparse": "^4.6.0",
     "postcss-loader": "^2.1.3",
     "prerender-spa-plugin": "^3.3.0",
     "pubsub-setter": "^1.0.2",
