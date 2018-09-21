@@ -3,17 +3,16 @@
 //import * as d3 from 'd3-collection';
 import PS from 'pubsub-setter';
 import { stateModule as S } from 'stateful-dead';
-
 import s from './styles.scss';
 import './map-exclude.scss'; // '-exclude' is excluded from modularized css renaming
                                              // so that the imported class match the ones on the external
                                              // resource being overridden
-//import main from '@Project/css/main.scss';
 import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
+import worldTopo from '@Project/data/worldtopo.json';
 
 
-const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
+//const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
 
 export default class MapView extends Element {
 
@@ -36,10 +35,10 @@ export default class MapView extends Element {
             }]
         ]);
         
-        this.getTopoJSON(); // the chain leading to initialization of the map starts here. by the time init() is called
-                            // the map container exists as this.el
+        this.convertToGeoJSON(); // the chain leading to initialization of the map starts here. by the time init() is called
+                                 // the map container exists as this.el
     }
-    getTopoJSON(){
+   /* getTopoJSON(){
         fetch(dataPath)
             .then(function(response){
                 return response.json();
@@ -47,9 +46,9 @@ export default class MapView extends Element {
             .then(topo => {
                 this.convertToGeoJSON(topo); // chain continues
             });
-    }
-    convertToGeoJSON(topo){
-        this.geoJSON = topojson.feature(topo, topo.objects.world);
+    }*/
+    convertToGeoJSON(){
+        this.geoJSON = topojson.feature(worldTopo, worldTopo.objects.world);
         this.initializeMap(); // chain continues
     }
     updateMap(msg,data) {
