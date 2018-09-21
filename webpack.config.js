@@ -151,7 +151,8 @@ module.exports = {
                 context: 'src'
             },{
                 from: 'assets/**/*.*',
-                context: 'src'
+                context: 'src',
+                ignore: ['assets/countries/*.*']
             },{
                 from: 'data/**/*.*',
                 context: 'src'
