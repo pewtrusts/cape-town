@@ -5,9 +5,9 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.build.config.js",
-    "start": "webpack-dev-server --open --env development",
-    "preview": "webpack --config webpack.preview.config.js"
+    "build": "webpack --config webpack.build.js --env production",
+    "start": "webpack-dev-server --open --config webpack.dev.js --env development",
+    "preview": "webpack --config webpack.preview.js --env preview"
   },
   "keywords": [],
   "author": "",
