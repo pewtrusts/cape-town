@@ -16,7 +16,7 @@ export default class RatifiedView extends Element {
                         </div>
                         <div>
                             <span class="${s.treatyStatus}${this.model.status === 'Not In Force' ? ' ' + s.invert : '' }">${this.model.status}</span>
-                            Status
+                            <span class="${s.statusLabel}">Status</span>
                         </div>
                         `;
 		return div;

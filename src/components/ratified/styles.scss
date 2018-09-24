@@ -7,6 +7,7 @@ $multiple: $map_gold;
 $deselected: $medium_gray;
 
 .ratifiedView {
+  width: 100%;
   max-width: 260px;
   height: 70px;
   margin: 48px auto;
@@ -25,6 +26,7 @@ $deselected: $medium_gray;
     }
     > span {
         font-weight: bold;
+        text-align:center;
     }
   }
   &.cta {
@@ -35,9 +37,9 @@ $deselected: $medium_gray;
     .numberRatified, .treatyStatus {
       color: $cta;
       &.invert {
-        color: #fff;
-        background-color: $cta;
-        padding: 0 3px;
+        color: #ff0000;
+        //background-color: $psma;
+        //padding: 0 3px;
       }
     }
   }
@@ -49,9 +51,9 @@ $deselected: $medium_gray;
     .numberRatified, .treatyStatus {
       color: $ilo;
       &.invert {
-        color: #fff;
-        background-color: $ilo;
-        padding: 0 3px;
+        color: #ff0000;
+        //background-color: $psma;
+        //padding: 0 3px;
       }
     }
   }
@@ -61,14 +63,29 @@ $deselected: $medium_gray;
         border-right-color: $psma;
     }
     .numberRatified, .treatyStatus {
+      text-align: center;
       color: $psma;
       &.invert {
-        color: #fff;
-        background-color: $psma;
-        padding: 0 3px;
+        color: #ff0000;
+        //background-color: $psma;
+        //padding: 0 3px;
       }
     }
   }
+  @media screen and (max-width: 628px){
+    width: 120px;
+    margin-top: 0 !important;
+    margin-bottom: 0;
+    margin-right: 0;
+    height: 50px;
+    > div {
+      height: 50px;
+      font-size: 0.8em;
+      .statusLabel {
+        display: none;
 
+      }
+    }
+  }
   
 }

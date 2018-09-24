@@ -9,150 +9,141 @@ $deselected: $medium_gray;
     
 #pct-tiles-cont > div {
     background-color: $light_gray;
+    color: #000;
     &.None {
-        path {
-            fill: $deselected;
-        }
         > div:first-child, div.country-info {
-            background-color: $deselected;
+            border-left: 10px solid $deselected;
         }
     }
     &.cta {
-        path {
-            fill: $cta;
-        }
         > div:first-child, div.country-info {
-            background-color: $cta;
+            border-left: 10px solid $cta;
         }
     }
     &.ilo {
-        path {
-            fill: $ilo;
-        }
         > div:first-child, div.country-info {
-            background-color: $ilo;
+            border-left: 10px solid $ilo;
         }
     }
     &.psma {
-        path {
-            fill: $psma;
-        }
         > div:first-child, div.country-info {
-            background-color: $psma;
+            border-left: 10px solid $psma;
         }
     }
     &.cta-ilo {
-        path {
-            fill: $multiple;
-        }
         > div:first-child, div.country-info {
-            background-color: $multiple;
+            border-left: 10px solid $multiple;
         }
     }
     &.cta-psma {
-        path {
-            fill: $multiple;
-        }
         > div:first-child, div.country-info {
-            background-color: $multiple;
+            border-left: 10px solid $multiple;
         }
     }
     &.ilo-psma {
-        path {
-            fill: $multiple;
-        }
         > div:first-child, div.country-info {
-            background-color: $multiple;
+            border-left: 10px solid $multiple;
         }
     }
     &.cta-ilo-psma {
-        path {
-            fill: $multiple;
-        }
         > div:first-child, div.country-info {
-            background-color: $multiple;
+            border-left: 10px solid $multiple;
         }
     }
     .deselect-cta & {
         &.cta {
-            path {
-                fill: $deselected;
-            }
             > div:first-child, div.country-info {
-                background-color: $deselected;
+                border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo {
-            path {
-                fill: $ilo;
-            }
             > div:first-child, div.country-info {
-                background-color: $ilo;
+                border-left: 10px solid $ilo;
             }
         }
         &.cta-psma {
-            path {
-                fill: $psma;
-            }
             > div:first-child, div.country-info {
-                background-color: $psma;
+                border-left: 10px solid $psma;
             }
         }
     }
     .deselect-ilo & {
         &.ilo {
-            path {
-                fill: $deselected;
-            }
             > div:first-child, div.country-info {
-                background-color: $deselected;
+                border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo {
-            path {
-                fill: $cta;
-            }
             > div:first-child, div.country-info {
-                background-color: $cta;
+                border-left: 10px solid $cta;
             }
         }
         &.ilo-psma {
-            path {
-                fill: $psma;
-            }
             > div:first-child, div.country-info {
-                background-color: $psma;
+                border-left: 10px solid $psma;
             }
         }
     }
     .deselect-psma & {
         &.psma {
-           path {
-            fill: $deselected;
-           }
            > div:first-child, div.country-info {
-               background-color: $deselected;
+               border-left: 10px solid $deselected;
            }
         }
         &.cta-psma {
-            path {
-                fill: $cta;
-            }
             > div:first-child, div.country-info {
-                background-color: $cta;
+                border-left: 10px solid $cta;
             }
         }
         &.ilo-psma {
-            path {
-                fill: $ilo;
-            }
             > div:first-child, div.country-info {
-                background-color: $ilo;
+                border-left: 10px solid $ilo;
             }
         }
     }
     .deselect-cta.deselect-ilo & {
         &.cta-ilo {
+            > div:first-child, div.country-info {
+                border-left: 10px solid $deselected;
+            }
+        }
+        &.cta-ilo-psma {
+            > div:first-child, div.country-info {
+                border-left: 10px solid $psma;
+            }
+        }
+    }
+    .deselect-cta.deselect-psma & {
+        &.cta-psma {
+            > div:first-child, div.country-info {
+                border-left: 10px solid $deselected;
+            }
+        }
+        &.cta-ilo-psma {
+            > div:first-child, div.country-info {
+                border-left: 10px solid $ilo;
+            }
+        }
+    }
+    .deselect-ilo.deselect-psma & {
+        &.ilo-psma {
+            > div:first-child, div.country-info {
+                border-left: 10px solid $deselected;
+            }
+        }
+        &.cta-ilo-psma {
+            > div:first-child, div.country-info {
+                border-left: 10px solid $cta;
+            }
+        }
+    }
+    .deselect-cta.deselect-ilo.deselect-psma & {
+        > div:first-child, div.country-info {
+            border-left: 10px solid $deselected;
+        }
+    }
+    @media screen and (min-width: 629px) {
+        &.None {
             path {
                 fill: $deselected;
             }
@@ -160,7 +151,24 @@ $deselected: $medium_gray;
                 background-color: $deselected;
             }
         }
-        &.cta-ilo-psma {
+
+        &.cta {
+            path {
+                fill: $cta;
+            }
+            > div:first-child, div.country-info {
+                background-color: $cta;
+            }
+        }
+        &.ilo {
+            path {
+                fill: $ilo;
+            }
+            > div:first-child, div.country-info {
+                background-color: $ilo;
+            }
+        }
+        &.psma {
             path {
                 fill: $psma;
             }
@@ -168,49 +176,177 @@ $deselected: $medium_gray;
                 background-color: $psma;
             }
         }
-    }
-    .deselect-cta.deselect-psma & {
+        &.cta-ilo {
+            path {
+                fill: $multiple;
+            }
+            > div:first-child, div.country-info {
+                background-color: $multiple;
+            }
+        }
         &.cta-psma {
             path {
-                fill: $deselected;
+                fill: $multiple;
             }
             > div:first-child, div.country-info {
-                background-color: $deselected;
+                background-color: $multiple;
             }
         }
-        &.cta-ilo-psma {
-            path {
-                fill: $ilo;
-            }
-            > div:first-child, div.country-info {
-                background-color: $ilo;
-            }
-        }
-    }
-    .deselect-ilo.deselect-psma & {
         &.ilo-psma {
             path {
+                fill: $multiple;
+            }
+            > div:first-child, div.country-info {
+                background-color: $multiple;
+            }
+        }
+        &.cta-ilo-psma {
+            path {
+                fill: $multiple;
+            }
+            > div:first-child, div.country-info {
+                background-color: $multiple;
+            }
+        }
+        .deselect-cta & {
+            &.cta {
+                path {
+                    fill: $deselected;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $deselected;
+                }
+            }
+            &.cta-ilo {
+                path {
+                    fill: $ilo;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $ilo;
+                }
+            }
+            &.cta-psma {
+                path {
+                    fill: $psma;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $psma;
+                }
+            }
+        }
+        .deselect-ilo & {
+            &.ilo {
+                path {
+                    fill: $deselected;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $deselected;
+                }
+            }
+            &.cta-ilo {
+                path {
+                    fill: $cta;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $cta;
+                }
+            }
+            &.ilo-psma {
+                path {
+                    fill: $psma;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $psma;
+                }
+            }
+        }
+        .deselect-psma & {
+            &.psma {
+               path {
+                fill: $deselected;
+               }
+               > div:first-child, div.country-info {
+                   background-color: $deselected;
+               }
+            }
+            &.cta-psma {
+                path {
+                    fill: $cta;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $cta;
+                }
+            }
+            &.ilo-psma {
+                path {
+                    fill: $ilo;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $ilo;
+                }
+            }
+        }
+        .deselect-cta.deselect-ilo & {
+            &.cta-ilo {
+                path {
+                    fill: $deselected;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $deselected;
+                }
+            }
+            &.cta-ilo-psma {
+                path {
+                    fill: $psma;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $psma;
+                }
+            }
+        }
+        .deselect-cta.deselect-psma & {
+            &.cta-psma {
+                path {
+                    fill: $deselected;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $deselected;
+                }
+            }
+            &.cta-ilo-psma {
+                path {
+                    fill: $ilo;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $ilo;
+                }
+            }
+        }
+        .deselect-ilo.deselect-psma & {
+            &.ilo-psma {
+                path {
+                    fill: $deselected;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $deselected;
+                }
+            }
+            &.cta-ilo-psma {
+                path {
+                    fill: $cta;
+                }
+                > div:first-child, div.country-info {
+                    background-color: $cta;
+                }
+            }
+        }
+        .deselect-cta.deselect-ilo.deselect-psma & {
+            path {
                 fill: $deselected;
             }
             > div:first-child, div.country-info {
                 background-color: $deselected;
             }
-        }
-        &.cta-ilo-psma {
-            path {
-                fill: $cta;
-            }
-            > div:first-child, div.country-info {
-                background-color: $cta;
-            }
-        }
-    }
-    .deselect-cta.deselect-ilo.deselect-psma & {
-        path {
-            fill: $deselected;
-        }
-        > div:first-child, div.country-info {
-            background-color: $deselected;
         }
     }
 }
