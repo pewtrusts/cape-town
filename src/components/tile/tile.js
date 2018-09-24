@@ -63,7 +63,7 @@ export default class CountryTile {
     }
     getImage(){
         var key = this.isPushed ? 'globe' : this.country.key;
-        return import('@Project/assets/countries/' + key + '.svg').then(({default: svg}) => {
+        return import(/* webpackChunkName: "svgs/[request]" */ '@Project/assets/countries/' + key + '.svg').then(({default: svg}) => {
             return svg;
         }).catch(error => 'Error:' + error);
     }
