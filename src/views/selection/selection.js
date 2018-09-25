@@ -15,10 +15,11 @@ export default class Selection extends Element {
             can be accessed */
         this.buttons = this.model.treaties.map(treaty => new Button(treaty));
         this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}`, treaty, this));
+        this.searchBar = new SearchBar(this.model);
         this.children = [
-            new SearchBar(this.model),
             ...this.ratified,    
-            ...this.buttons
+            ...this.buttons,
+            this.searchBar
         ];    
         
         //container
@@ -29,8 +30,7 @@ export default class Selection extends Element {
         
         // if NOT prerendered:
 
-        //searchbar
-        div.appendChild(this.children[0].el); 
+        
         
         // button container
         var btnContainer = $d.c('div.' + main.flex + '.' + main.sb + '.' + main.wrap);
@@ -47,6 +47,9 @@ export default class Selection extends Element {
         });
 
         div.appendChild(btnContainer);
+
+        //searchbar
+        div.appendChild(this.searchBar.el); 
         
         return div;
     }

@@ -1,10 +1,11 @@
 @import '@Project/css/_variables.scss';
 .searchDiv {
-    margin: 24px 0;
+    margin: 0 0 24px;;
 }
 .searchContainer {
-    margin-right: 12px;
-    max-width: 78.85%;
+    //margin-right: 12px;
+    max-width: 81%;
+    margin-right: 9px;;
     input {
         margin-right: 1px;
         height: 50px;
@@ -73,10 +74,7 @@
     }
 }
 .clearSearch {
-    width: 20%;
-}
-.submitSearch {
-    width: 50px;
+    width: 19%;
 }
 
 // multiselect
