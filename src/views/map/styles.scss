@@ -27,4 +27,7 @@
             transform: translate(3px, 0);
         }
     }
+    @media screen and (max-width: 628px) {
+        display: none;
+    }
 }

@@ -5,6 +5,7 @@ $title_height: 30;
 $slide_transition: transform 0.3s ease-in-out 0.3s;
 
 .countryTile {
+    --slideTransition: transform 0.2s ease-in-out;
     //max-width: 260px;
     width: 100%;
     height: 30px;
@@ -17,6 +18,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     will-change: background-color;
     overflow: hidden;
     cursor:pointer;
+    transform: translateX(0);
     .svgWrapper {
         display:none;
         justify-content: center;
@@ -24,6 +26,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         width: 100%;
         height: #{$dimensions}px;
         transition: $slide_transition;
+        transition: var(--slideTransition);
     }
     .countryInfo {
         width: 100%;
@@ -31,13 +34,17 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         //height: 223px;
         //padding-bottom: 100%;
         transition: $slide_transition;
+        transition: var(--slideTransition);
         color:#000;
         padding: 10px 5px 5px 6px;
         display:flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        //justify-content: space-between;
+        transform: translateX(100%);
+        padding-left: 16px;
+        background-color: $light_gray;
         overflow-x: auto;
+        z-index: 3;
         p {
             line-height: 100%;
             margin-bottom: 0.5em;
@@ -50,9 +57,12 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         }
     }
     &:not(.noHover) {
-        &:hover, &.selected {
-            .svgWrapper, .countryInfo {
-                transform: translateY(-100%) translateY(#{ 0 - $title_height - 1 }px);
+        &.selected {
+            .tileName {
+                transform: translateX(-100%);
+            }
+            .countryInfo {
+                transform: translateX(0);
             }
         }
     }
@@ -88,7 +98,9 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         height: #{$title_height}px;
         font-weight: bold;
         padding:5px;
-        z-index: 2; 
+        z-index: 2;
+        transition: $slide_transition;
+        transition: var(--slideTransition);
         @media screen and (min-width: 629px) {
             color: #fff;
         }   
@@ -115,6 +127,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         text-align: center;
     }
     @media screen and (min-width: 629px) {
+        --slideTransition: transform 0.3s ease-in-out 0.3s;
         width: calc(32vw - 13px);
         height: 0;
         padding-bottom: calc(32vw - 13px);
@@ -129,10 +142,18 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             padding: 10px;
             flex-direction: column;
             height: calc(32vw - #{13 + $title_height}px);  
-            overflow-y: auto;  
+            overflow-y: auto;
+            transform: translateX(0);  
         }
         .svgWrapper {
             height: calc(32vw - 13px);
+        }
+        &:not(.noHover) {
+            &:hover, &.selected {
+                .svgWrapper, .countryInfo {
+                    transform: translateY(-100%) translateY(#{ 0 - $title_height - 1 }px);
+                }
+            }
         }
     }
     @media screen and (min-width: 850px) {

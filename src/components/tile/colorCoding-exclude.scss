@@ -11,134 +11,134 @@ $deselected: $medium_gray;
     background-color: $light_gray;
     color: #000;
     &.None {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $deselected;
         }
     }
     &.cta {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $cta;
         }
     }
     &.ilo {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $ilo;
         }
     }
     &.psma {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $psma;
         }
     }
     &.cta-ilo {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $multiple;
         }
     }
     &.cta-psma {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $multiple;
         }
     }
     &.ilo-psma {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $multiple;
         }
     }
     &.cta-ilo-psma {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $multiple;
         }
     }
     .deselect-cta & {
         &.cta {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $ilo;
             }
         }
         &.cta-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $psma;
             }
         }
     }
     .deselect-ilo & {
         &.ilo {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $cta;
             }
         }
         &.ilo-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $psma;
             }
         }
     }
     .deselect-psma & {
         &.psma {
-           > div:first-child, div.country-info {
+           > div:first-child {
                border-left: 10px solid $deselected;
            }
         }
         &.cta-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $cta;
             }
         }
         &.ilo-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $ilo;
             }
         }
     }
     .deselect-cta.deselect-ilo & {
         &.cta-ilo {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $psma;
             }
         }
     }
     .deselect-cta.deselect-psma & {
         &.cta-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $ilo;
             }
         }
     }
     .deselect-ilo.deselect-psma & {
         &.ilo-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
         &.cta-ilo-psma {
-            > div:first-child, div.country-info {
+            > div:first-child {
                 border-left: 10px solid $cta;
             }
         }
     }
     .deselect-cta.deselect-ilo.deselect-psma & {
-        > div:first-child, div.country-info {
+        > div:first-child {
             border-left: 10px solid $deselected;
         }
     }

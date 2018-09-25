@@ -11,6 +11,13 @@
         pointer-events: none;
         &.expanded {
             opacity: 0.9;
+            @media screen and (max-width: 628px) {
+                opacity: 1;
+                pointer-events: all;
+                height: 80vw;
+                overflow-y: auto;
+                box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+             }
         }
     }
 }
