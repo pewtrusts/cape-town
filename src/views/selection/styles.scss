@@ -1,13 +1,39 @@
-.buttonGroup {
-    width:32.5%;
-    display: flex;
-    flex-direction: column;
-    @media screen and (max-width: 628px){
-        width: 100%;
-        flex-direction: row;
-        margin-bottom: 1em;
-        > div {
-            margin-top: 24px;
+@import '../../css/variables.scss';
+.buttonGroupContainer {
+    position: relative;
+    .buttonGroup {
+        width:32.5%;
+        display: flex;
+        flex-direction: column;
+        &:last-child button {
+    
+            &::after {
+                content: '';
+                width: 20px;
+                height: 20px;
+                background-color: $map_gold;
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 60px;
+            }
+            &::before {
+                content: '= more than one agreement';
+                position: absolute;
+                left: 0;
+                top: 60px;
+                color: #000;
+                padding-left: 25px;
+            }
+
+        } 
+        @media screen and (max-width: 628px){
+            width: 100%;
+            flex-direction: row;
+            margin-bottom: 1em;
+            > div {
+                margin-top: 24px;
+            }
         }
     }
 }

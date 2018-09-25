@@ -33,7 +33,7 @@ export default class Selection extends Element {
         
         
         // button container
-        var btnContainer = $d.c('div.' + main.flex + '.' + main.sb + '.' + main.wrap);
+        var btnContainer = $d.c('div.' + main.flex + '.' + main.sb + '.' + main.wrap + '.' + s.buttonGroupContainer);
 
         //// button groups
         this.buttons.forEach((btn,i) => {
