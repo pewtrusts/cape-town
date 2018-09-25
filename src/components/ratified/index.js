@@ -12,11 +12,11 @@ export default class RatifiedView extends Element {
         div.innerHTML = `
                         <div>
                             <span class="${s.numberRatified}">${this.parent.model.treatiesNested.find(d => d.key === this.model.key).values.length}</span>
-                            Ratified
+                            <span>Ratified</span>
                         </div>
-                        <div>
-                            <span class="${s.treatyStatus}${this.model.status === 'Not In Force' ? ' ' + s.invert : '' }">${this.model.status}</span>
-                            <span class="${s.statusLabel}">Status</span>
+                        <div class="${this.model.status === 'Not In Force' ? ' ' + s.invert : '' }">
+                            <span class="${s.treatyStatus}">${this.model.status}</span>
+                            <span>Status</span>
                         </div>
                         `;
 		return div;

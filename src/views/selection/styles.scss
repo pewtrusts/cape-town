@@ -15,15 +15,22 @@
                 display: block;
                 position: absolute;
                 left: 0;
-                top: 60px;
+                top: 285px; 
+                @media screen and (min-width: 629px) {
+                    top: 60px;
+                }
             }
             &::before {
-                content: '= more than one agreement';
+                content: '= party to more than one agreement';
                 position: absolute;
                 left: 0;
-                top: 60px;
                 color: #000;
                 padding-left: 25px;
+                top: 285px; 
+                font-weight: normal;
+                @media screen and (min-width: 629px) {
+                    top: 60px;
+                }
             }
 
         } 
@@ -31,9 +38,13 @@
             width: 100%;
             flex-direction: row;
             margin-bottom: 1em;
+            flex-wrap:wrap;
             > div {
                 margin-top: 24px;
             }
         }
+    }
+    @media screen and (max-width: 628px) {
+    margin-bottom: 50px;
     }
 }

@@ -16,11 +16,21 @@ $deselected: $medium_gray;
   border: 1px solid $deselected;
   > div {
     width: 50%;
-    height: 70px;
+    height: 68px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 13px;
+    &.invert {
+      color: #fff;
+      background-color: $dark_gray;
+      > span:first-child {
+        font-weight: normal;
+      }
+      .treatyStatus {
+        color: #fff;
+      }
+    }
     &:first-child {
         border-right: 1px solid $deselected;
     }
@@ -31,62 +41,64 @@ $deselected: $medium_gray;
   }
   &.cta {
     border-color: $cta;
-    > div:first-child {
+    > div {
+      &:first-child {
         border-right-color: $cta;
+      }
     }
     .numberRatified, .treatyStatus {
       color: $cta;
-      &.invert {
-        color: #ff0000;
-        //background-color: $psma;
-        //padding: 0 3px;
-      }
     }
   }
   &.ilo {
     border-color: $ilo;
-    > div:first-child {
+    > div {
+      &:first-child {
         border-right-color: $ilo;
+      }
     }
     .numberRatified, .treatyStatus {
       color: $ilo;
-      &.invert {
-        color: #ff0000;
-        //background-color: $psma;
-        //padding: 0 3px;
-      }
     }
   }
   &.psma {
     border-color: $psma;
-    > div:first-child {
+    > div {
+      &:first-child {
         border-right-color: $psma;
+      }
     }
     .numberRatified, .treatyStatus {
-      text-align: center;
       color: $psma;
-      &.invert {
-        color: #ff0000;
-        //background-color: $psma;
-        //padding: 0 3px;
-      }
     }
   }
   @media screen and (max-width: 628px){
-    width: 120px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     margin-top: 0 !important;
-    margin-bottom: 0;
-    margin-right: 0;
-    height: 50px;
-    border-color: transparent !important;
+    height: 30px;
+    //border-color: transparent !important;
     > div {
-      border-color: transparent !important;
-      height: 50px;
+      //border-color: transparent !important;
+     
+      height: 28px;
       font-size: 0.8em;
-      .statusLabel {
-        display: none;
+      flex-direction: row;
+      padding: 0 10px;
 
+      //justify-content: space-around;
+      > span {
+        width: 40%;
+        &:first-child {
+          width: 60%
+        }
       }
+      span:first-child {
+        order: 2;
+      }
+
+      
     }
   }
   
