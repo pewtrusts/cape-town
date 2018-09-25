@@ -78,7 +78,9 @@ $deselected: $medium_gray;
     margin-bottom: 0;
     margin-right: 0;
     height: 50px;
+    border-color: transparent !important;
     > div {
+      border-color: transparent !important;
       height: 50px;
       font-size: 0.8em;
       .statusLabel {
