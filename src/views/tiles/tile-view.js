@@ -113,6 +113,6 @@ export default class TileView {
                 each.animatePosition(i,array.length);
             });
 
-        },500);
+        },250);
     }
 }

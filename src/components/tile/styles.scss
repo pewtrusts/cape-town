@@ -13,7 +13,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     //margin-right: 1%;
     margin-bottom: 1%;
     position: relative;
-    transition: background-color 0.3s linear, opacity 0.3s linear;
+    transition: background-color 0.2s linear, opacity 0.2s linear;
     opacity: 1;
     will-change: background-color;
     overflow: hidden;
@@ -44,12 +44,14 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         padding-left: 16px;
         background-color: $light_gray;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         z-index: 3;
         p {
             line-height: 100%;
             margin-bottom: 0.5em;
+            margin-right: 0.5em;
             font-size: 0.9em;
-            letter-spacing: .5px;
+            letter-spacing: 0;
             &:last-child {
                 margin-bottom: 1em;
             }
@@ -141,9 +143,14 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             color:#fff;
             padding: 10px;
             flex-direction: column;
+            justify-content: space-between;
             height: calc(32vw - #{13 + $title_height}px);  
             overflow-y: auto;
-            transform: translateX(0);  
+            transform: translateX(0);
+            p {
+                letter-spacing: 0.5px;
+                margin-right: 0;
+            }  
         }
         .svgWrapper {
             height: calc(32vw - 13px);
@@ -152,6 +159,9 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             &:hover, &.selected {
                 .svgWrapper, .countryInfo {
                     transform: translateY(-100%) translateY(#{ 0 - $title_height - 1 }px);
+                }
+                .tileName {
+                    transform: translateX(0);
                 }
             }
         }

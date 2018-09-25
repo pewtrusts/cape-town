@@ -96,8 +96,8 @@ export default class CountryTile {
     }
     animatePosition(index, length){
         
-        var delay = 250; // time in ms it should take for transitions to have begun
-        var duration = 750; // time in ms it should take to complete all transitions
+        var delay = document.documentElement.clientWidth > 628 ? 200 : 100; // time in ms it should take for transitions to have begun
+        var duration = document.documentElement.clientWidth > 628 ? 500 : 250; // time in ms it should take to complete all transitions
         this.el.style.zIndex = length - index;
             this.moveTiles = this.el.animate([{
               transformOrigin: 'top left',
