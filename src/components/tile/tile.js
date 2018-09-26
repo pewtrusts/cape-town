@@ -34,7 +34,7 @@ export default class CountryTile {
             countryInfoText = '<p class="' + s.noAgreements +'">No agreements  ratified</p>';
         }
         tile.innerHTML = `
-            <div class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
+            <div title="${this.parent.model.countryCodes[this.country.key]}" class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
                 ${ this.country.value === 'None' ? countryInfoText : ''}
             <div class="${s.svgWrapper}">
             </div>

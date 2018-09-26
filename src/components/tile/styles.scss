@@ -103,6 +103,9 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         z-index: 2;
         transition: $slide_transition;
         transition: var(--slideTransition);
+        text-overflow: ellipsis;
+        overflow:hidden;
+        white-space: nowrap;
         @media screen and (min-width: 629px) {
             color: #fff;
         }   
