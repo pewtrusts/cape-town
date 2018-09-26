@@ -32,7 +32,7 @@ $deselected: $medium_gray;
             fill: $c188;
             will-change:fill;
         }
-        &.psma, &.EU {
+        &.psma {
             fill: $psma;
             will-change:fill;
         }
@@ -40,15 +40,15 @@ $deselected: $medium_gray;
             fill: $multiple;
             will-change:fill;
         }
-        &.cta-psma, &.cta.EU {
+        &.cta-psma {
             fill: $multiple;
             will-change:fill;
         }
-        &.c188-psma, &.c188.EU {
+        &.c188-psma {
             fill: $multiple;
             will-change:fill;
         }
-        &.c188-cta-psma, &.c188-cta.EU {
+        &.c188-cta-psma {
             fill: $multiple;
             will-change:fill;
         }
@@ -60,7 +60,7 @@ $deselected: $medium_gray;
         .c188-cta {
             fill: $c188;
         }
-        .cta-psma, .cta.EU {
+        .cta-psma {
             fill: $psma;
         }
     }
@@ -71,18 +71,18 @@ $deselected: $medium_gray;
         .c188-cta {
             fill: $cta;
         }
-        .c188-psma, .c188.EU {
+        .c188-psma {
             fill: $psma;
         }
     }
     .deselect-psma & {
-        .psma, .EU.None {
+        .psma {
             fill: $deselected;
         }
-        .cta-psma, .cta.EU {
+        .cta-psma {
             fill: $cta;
         }
-        .c188-psma, .c188.EU {
+        .c188-psma {
             fill: $c188;
         }
     }
@@ -90,28 +90,28 @@ $deselected: $medium_gray;
         .c188-cta {
             fill: $deselected;
         }
-        .c188-cta-psma, .c188-cta.EU {
+        .c188-cta-psma {
             fill: $psma;
         }
     }
     .deselect-cta.deselect-psma & {
-        .cta-psma, .cta.EU {
+        .cta-psma {
             fill: $deselected;
         }
-        .c188-cta-psma, .c188-cta.EU {
+        .c188-cta-psma {
             fill: $c188;
         }
     }
     .deselect-c188.deselect-psma & {
-        .c188-psma, .c188.EU {
+        .c188-psma {
             fill: $deselected;
         }
-        .c188-cta-psma, .c188-cta.EU {
+        .c188-cta-psma {
             fill: $cta;
         }
     }
     .deselect-cta.deselect-c188.deselect-psma & {
-        path.highcharts-point:not(.None), path.highcharts-point.EU {
+        path.highcharts-point:not(.None) {
             fill: $deselected;
         }
     }
@@ -146,6 +146,6 @@ $deselected: $medium_gray;
 .highcharts-color-6 {
     fill: $map_gold;
 }
-.c188-cta-psma, .c188-cta.EU {
+.c188-cta-psma {
     fill: $map_gold;
 }*/

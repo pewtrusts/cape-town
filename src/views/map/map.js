@@ -26,7 +26,6 @@ export default class MapView extends Element {
         return map;
     }
     init(){
-        console.log(this);
         PS.setSubs([
             ['deselected', (msg,data) => {
                 this.updateMap.call(this,msg,data);
@@ -63,7 +62,7 @@ export default class MapView extends Element {
             if ( data.length !== 0 ) { // ie search is active, not an empty array
                 this.Highmap.container.parentNode.classList.add(s.searchActive);
                 this.Highmap.series[0].data.forEach(country => {
-                    if ( data.indexOf(country.iso_a3) !== -1 || ( this.model.EUCountries.indexOf(country.iso_a3) !== -1 && data.indexOf('EU') !== -1 ) ){ // ie country code is in the search array
+                    if ( data.indexOf(country.iso_a3) !== -1 ){ // ie country code is in the search array
                         country.graphic.element.classList.add(s.matchesSearch);
                     } else {
                         country.graphic.element.classList.remove(s.matchesSearch);
@@ -76,7 +75,7 @@ export default class MapView extends Element {
                                                                    
     }
     initializeMap(){ 
-        //this.isEUMember = this.model.EUCountries.indexOf(country.iso_a3) !== -1;
+
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
             var match = this.model.joinData.find(d => d.key === f.id);
             var className = match && match.value || 'None';                                                                                       // that have iso_a3 codes
@@ -84,7 +83,7 @@ export default class MapView extends Element {
                 iso_a3: f.id,
                 name: this.model.countryCodes[f.id],
                 value: 2,
-                className: this.model.EUCountries.indexOf(f.id) !== -1 ? className + ' EU' : className,// + this.model.EUCountries.indexOf(f.id) !== -1 ? ' EU' : '',
+                className: className,
                 classArray: className.split('-')
             };
         });
@@ -95,7 +94,7 @@ export default class MapView extends Element {
         // over this.model
         var returnFormatter = (function(treaties){
             function Formatter(){
-                var agreementsString = this.point.className.indexOf('None') !== -1 && this.point.className.indexOf('EU') === -1 ? 'None' : this.point.className.indexOf('None') !== -1 ? '(EU) ' + treaties.find(t => t.key === 'psma').name : this.point.classArray.map(c => treaties.find(t => t.key === c).name).join('<br />');
+                var agreementsString = this.point.className === 'None' ? 'None' : this.point.classArray.map(c => treaties.find(t => t.key === c).name).join('<br />');
                 setTimeout(() => {
                     document.querySelector('.highcharts-tooltip').classList.add(this.point.className);
                 });
