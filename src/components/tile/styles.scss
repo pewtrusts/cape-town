@@ -133,6 +133,10 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     }
     @media screen and (min-width: 629px) {
         --slideTransition: transform 0.3s ease-in-out 0.3s;
+        margin-right: 12px;
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
         width: calc(32vw - 13px);
         height: 0;
         padding-bottom: calc(32vw - 13px);
@@ -171,6 +175,13 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     }
     @media screen and (min-width: 850px) {
         width: calc(24vw - 9px);
+        margin-right: 9px;
+        &:nth-of-type(3n) {
+            margin-right: 9px;
+        }
+        &:nth-of-type(4n) {
+            margin-right: 0;
+        }
         height: 0;
         padding-bottom: calc(24vw - 9px);
         .countryInfo {
@@ -182,6 +193,16 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     }
     @media screen and (min-width: 990px) {
         width: 19%;
+        margin-right: 12px;
+        &:nth-of-type(3n) {
+            margin-right: 12px;
+        }
+        &:nth-of-type(4n) {
+            margin-right: 12px;
+        }
+        &:nth-of-type(5n) {
+            margin-right: 0;
+        }
         height: 0;
         padding-bottom: 19%;
         .countryInfo {
