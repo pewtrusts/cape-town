@@ -14,6 +14,9 @@ import TextView from './views/text/text.js';
 import SelectionView from './views/selection/selection.js';
 import TileView from './views/tiles/tile-view.js';
 
+// app prototype
+import PCTApp from '@App';
+
 const model = {
     treaties,
     //countries,
@@ -83,7 +86,7 @@ function getRuntimeData(){
     });
 }
 
-const TestApp = {
+class CapeTown extends PCTApp {
     prerender(){
         getRuntimeData().then(() => {
             var app = document.querySelector('#pew-app');
@@ -92,9 +95,9 @@ const TestApp = {
             });
             app.classList.add('rendered');
         });
-    },
+    }
     init(){
-   
+        super.init();
         getRuntimeData().then(() => {
             views.forEach(view => {
                 view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
@@ -105,4 +108,4 @@ const TestApp = {
 }
 
 
-export default TestApp;
+export default CapeTown;

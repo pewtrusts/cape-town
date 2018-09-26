@@ -3,10 +3,12 @@ import { StringHelpers } from '@Helpers/string-helpers.js';
 import CapeTown from './cape-town.js';
 import './arrayFrom.js';
 
-const app = document.querySelector('#pew-app');
+const App = new CapeTown();
+
+const appContainer = document.querySelector('#pew-app');
 const prerenderScript = document.querySelector('#prerender-script');
-if ( !app.classList.contains('rendered') ){
-	CapeTown.prerender();
+if ( !appContainer.classList.contains('rendered') ){
+	App.prerender();
 }
 if ( prerenderScript !== null ){ // html for build process includes spript#prerender-script that should be removed on build
 	prerenderScript.parentNode.removeChild(prerenderScript);
@@ -27,4 +29,4 @@ if ( window.fetch === undefined ){
 }
 */
 //end polyfills
-CapeTown.init();
+App.init();
