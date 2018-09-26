@@ -30,6 +30,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     overflow: hidden;
     cursor:pointer;
     transform: translateX(0);
+    //box-sizing:content-box;
     .svgWrapper {
         display:none;
         justify-content: center;
@@ -145,9 +146,9 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     @media screen and (min-width: 629px) {
         --slideTransition: transform 0.3s ease-in-out 0.3s;
         margin-right: 12px;
-        width: calc(32% - 3px); // 3 column
+        width: calc(32vw - 13px); // 3 column
         height: 0;
-        padding-bottom: calc(32% - 3px);
+        padding-bottom: calc(32vw - 13px);
         div.tileName {
             text-align: center;
         }
@@ -159,7 +160,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             padding: 10px;
             flex-direction: column;
             justify-content: space-between;
-            height: calc(32% - #{3 + $title_height}px);  
+            height: calc(32vw - #{13 + $title_height}px);  
             overflow-y: hidden;
             transform: translateX(0);
             p {
@@ -168,7 +169,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             }  
         }
         .svgWrapper {
-            height: calc(32% - 3px);
+            height: calc(32vw - 13px);
         }
         &:not(.noHover) {
             &:hover, &.selected {
@@ -182,27 +183,27 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         }
     }
     @media screen and (min-width: 850px) {
-        width: calc(24% - 3px); // 4 column
+        width: calc(24vw - 7px;); // 4 column
         margin-right: 9px;
         height: 0;
-        padding-bottom: calc(24% - 3px);
+        padding-bottom: calc(24vw - 7px);
         .countryInfo {
-            height: calc(24% - #{3 + $title_height}px);    
+            height: calc(24vw - #{7 + $title_height}px);    
         }
         .svgWrapper {
-            height: calc(24% - 3px);
+            height: calc(24vw - 7px);
         }
     }
     @media screen and (min-width: 990px) {
         width: calc(19% - 3px); // 5 column
         margin-right: 12px;
         height: 0;
-        padding-bottom: 19%;
+        padding-bottom: calc(19% - 3px);
         .countryInfo {
-            height: calc(24% - #{3 + $title_height}px); 
+            height: #{188 - $title_height}px; 
         }
         .svgWrapper {
-            height: #{188}px;
+            height: 188px;
         }
     }
 }
