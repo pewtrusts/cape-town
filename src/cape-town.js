@@ -19,23 +19,8 @@ import PCTApp from '@App';
 
 const model = {
     treaties,
-    //countries,
     EUCountries,
     countryCodes,
-    // take the csv data and nest it by country so each country is one object with an array of values
-    countriesNested: d3.nest().key(d => d.iso_a3).entries(countries),
-    treatiesNested: d3.nest().key(d => d.treaty_id).entries(countries),
-    joinData: d3.nest().key(d => d.iso_a3).entries(countries).map(d => {
-        var ratified = [];
-        d.values.sort((a,b) => a.treaty_id < b.treaty_id ? -1 : a.treaty_id > b.treaty_id ? 1 : a.treaty_id >= b.treaty_id ? 0 : NaN).forEach(v => { // sort fn from d3.ascending()
-            if (v.ratified_date !== '' ){
-                ratified.push(v.treaty_id);
-            }
-        })
-        // add className property to each country that corresponds to which treaties it is party to, or "none"
-        d.value = ratified.length === 0 ? 'None' : ratified.join('-');
-        return d;
-    })
 };
 
 
@@ -63,8 +48,8 @@ function getRuntimeData(){
                         if (v.ratified_date !== '' ){
                             ratified.push(v.treaty_id);
                         }
-                    })
-                    // add className property to each country that corresponds to which treaties it is party to, or "none"
+                    });
+                                        // add className property to each country that corresponds to which treaties it is party to, or "none"
                     d.value = ratified.length === 0 ? 'None' : ratified.join('-');
                     return d;
                 });

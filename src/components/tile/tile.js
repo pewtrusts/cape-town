@@ -23,6 +23,9 @@ export default class CountryTile {
         console.log(this.parent);
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1; 
+        if (isEUMember){
+            tile.classList.add('EU');
+        }
         if ( this.country.value !== 'None' ){
             if ( this.country.key == 'EU'){
                 countryInfoText = `<p><b>${EUDatum.treaty_id.toUpperCase()}:</b> Ratified on ${EUDatum.ratified_date}`;
