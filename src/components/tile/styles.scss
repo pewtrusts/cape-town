@@ -3,7 +3,18 @@ $dimensions: 195;
 $margin: 2;
 $title_height: 30;
 $slide_transition: transform 0.3s ease-in-out 0.3s;
-
+.tilesContainer {
+    width: 100%;                           // 1 column
+    @media screen and (min-width: 629px) { // 3 column
+        width: calc(100% + 9px);
+    }
+    @media screen and (min-width: 850px) { // 4 column
+        width: calc(100% + 12px);
+    }
+    @media screen and (min-width: 990px) { // 5 column
+        width: calc(100% + 15px);
+    }
+}
 .countryTile {
     --slideTransition: transform 0.2s ease-in-out;
     //max-width: 260px;
@@ -134,12 +145,9 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     @media screen and (min-width: 629px) {
         --slideTransition: transform 0.3s ease-in-out 0.3s;
         margin-right: 12px;
-        &:nth-of-type(3n) {
-            margin-right: 0;
-        }
-        width: calc(32vw - 13px);
+        width: calc(32% - 3px); // 3 column
         height: 0;
-        padding-bottom: calc(32vw - 13px);
+        padding-bottom: calc(32% - 3px);
         div.tileName {
             text-align: center;
         }
@@ -151,7 +159,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             padding: 10px;
             flex-direction: column;
             justify-content: space-between;
-            height: calc(32vw - #{13 + $title_height}px);  
+            height: calc(32% - #{3 + $title_height}px);  
             overflow-y: hidden;
             transform: translateX(0);
             p {
@@ -160,7 +168,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             }  
         }
         .svgWrapper {
-            height: calc(32vw - 13px);
+            height: calc(32% - 3px);
         }
         &:not(.noHover) {
             &:hover, &.selected {
@@ -174,39 +182,24 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         }
     }
     @media screen and (min-width: 850px) {
-        width: calc(24vw - 9px);
+        width: calc(24% - 3px); // 4 column
         margin-right: 9px;
-        &:nth-of-type(3n) {
-            margin-right: 9px;
-        }
-        &:nth-of-type(4n) {
-            margin-right: 0;
-        }
         height: 0;
-        padding-bottom: calc(24vw - 9px);
+        padding-bottom: calc(24% - 3px);
         .countryInfo {
-            height: calc(24vw - #{9 + $title_height}px);    
+            height: calc(24% - #{3 + $title_height}px);    
         }
         .svgWrapper {
-            height: calc(24vw - 9px);
+            height: calc(24% - 3px);
         }
     }
     @media screen and (min-width: 990px) {
-        width: 19%;
+        width: calc(19% - 3px); // 5 column
         margin-right: 12px;
-        &:nth-of-type(3n) {
-            margin-right: 12px;
-        }
-        &:nth-of-type(4n) {
-            margin-right: 12px;
-        }
-        &:nth-of-type(5n) {
-            margin-right: 0;
-        }
         height: 0;
         padding-bottom: 19%;
         .countryInfo {
-            height: #{188 - $title_height}px;
+            height: calc(24% - #{3 + $title_height}px); 
         }
         .svgWrapper {
             height: #{188}px;

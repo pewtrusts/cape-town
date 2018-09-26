@@ -4,7 +4,7 @@ import PS from 'pubsub-setter';
 
 import main from '@Project/css/main.scss';
 import $d from '@Helpers/dom-helpers.js';
-//import tileStyles from '@Project/components/tile/styles.scss';
+import tileStyles from '@Project/components/tile/styles.scss';
 import CountryTile from '@Project/components/tile/tile.js';
 
 export default class TileView {
@@ -26,6 +26,7 @@ export default class TileView {
         cont.classList.add(main.flex);
         //cont.classList.add(main.sb);
         cont.classList.add(main.wrap);
+        cont.classList.add(tileStyles.tilesContainer);
         
         ////tiles
         this.tiles.forEach(tile => {
