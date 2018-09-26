@@ -1,7 +1,7 @@
 @import '@Project/css/_variables.scss';
 
 $cta: $map_medium_blue;
-$ilo: $map_dark_blue;
+$c188: $map_dark_blue;
 $psma: $map_light_blue;
 $multiple: $map_gold;
 $deselected: $medium_gray;
@@ -20,9 +20,9 @@ $deselected: $medium_gray;
             border-left: 10px solid $cta;
         }
     }
-    &.ilo {
+    &.c188 {
         > div:first-child {
-            border-left: 10px solid $ilo;
+            border-left: 10px solid $c188;
         }
     }
     &.psma {
@@ -30,7 +30,7 @@ $deselected: $medium_gray;
             border-left: 10px solid $psma;
         }
     }
-    &.cta-ilo {
+    &.c188-cta {
         > div:first-child {
             border-left: 10px solid $multiple;
         }
@@ -40,12 +40,12 @@ $deselected: $medium_gray;
             border-left: 10px solid $multiple;
         }
     }
-    &.ilo-psma {
+    &.c188-psma {
         > div:first-child {
             border-left: 10px solid $multiple;
         }
     }
-    &.cta-ilo-psma {
+    &.c188-cta-psma {
         > div:first-child {
             border-left: 10px solid $multiple;
         }
@@ -56,9 +56,9 @@ $deselected: $medium_gray;
                 border-left: 10px solid $deselected;
             }
         }
-        &.cta-ilo {
+        &.c188-cta {
             > div:first-child {
-                border-left: 10px solid $ilo;
+                border-left: 10px solid $c188;
             }
         }
         &.cta-psma {
@@ -67,18 +67,18 @@ $deselected: $medium_gray;
             }
         }
     }
-    .deselect-ilo & {
-        &.ilo {
+    .deselect-c188 & {
+        &.c188 {
             > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
-        &.cta-ilo {
+        &.c188-cta {
             > div:first-child {
                 border-left: 10px solid $cta;
             }
         }
-        &.ilo-psma {
+        &.c188-psma {
             > div:first-child {
                 border-left: 10px solid $psma;
             }
@@ -95,19 +95,19 @@ $deselected: $medium_gray;
                 border-left: 10px solid $cta;
             }
         }
-        &.ilo-psma {
+        &.c188-psma {
             > div:first-child {
-                border-left: 10px solid $ilo;
+                border-left: 10px solid $c188;
             }
         }
     }
-    .deselect-cta.deselect-ilo & {
-        &.cta-ilo {
+    .deselect-cta.deselect-c188 & {
+        &.c188-cta {
             > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
-        &.cta-ilo-psma {
+        &.c188-cta-psma {
             > div:first-child {
                 border-left: 10px solid $psma;
             }
@@ -119,25 +119,25 @@ $deselected: $medium_gray;
                 border-left: 10px solid $deselected;
             }
         }
-        &.cta-ilo-psma {
+        &.c188-cta-psma {
             > div:first-child {
-                border-left: 10px solid $ilo;
+                border-left: 10px solid $c188;
             }
         }
     }
-    .deselect-ilo.deselect-psma & {
-        &.ilo-psma {
+    .deselect-c188.deselect-psma & {
+        &.c188-psma {
             > div:first-child {
                 border-left: 10px solid $deselected;
             }
         }
-        &.cta-ilo-psma {
+        &.c188-cta-psma {
             > div:first-child {
                 border-left: 10px solid $cta;
             }
         }
     }
-    .deselect-cta.deselect-ilo.deselect-psma & {
+    .deselect-cta.deselect-c188.deselect-psma & {
         > div:first-child {
             border-left: 10px solid $deselected;
         }
@@ -160,12 +160,12 @@ $deselected: $medium_gray;
                 background-color: $cta;
             }
         }
-        &.ilo {
+        &.c188 {
             path {
-                fill: $ilo;
+                fill: $c188;
             }
             > div:first-child, div.country-info {
-                background-color: $ilo;
+                background-color: $c188;
             }
         }
         &.psma {
@@ -176,7 +176,7 @@ $deselected: $medium_gray;
                 background-color: $psma;
             }
         }
-        &.cta-ilo {
+        &.c188-cta {
             path {
                 fill: $multiple;
             }
@@ -192,7 +192,7 @@ $deselected: $medium_gray;
                 background-color: $multiple;
             }
         }
-        &.ilo-psma {
+        &.c188-psma {
             path {
                 fill: $multiple;
             }
@@ -200,7 +200,7 @@ $deselected: $medium_gray;
                 background-color: $multiple;
             }
         }
-        &.cta-ilo-psma {
+        &.c188-cta-psma {
             path {
                 fill: $multiple;
             }
@@ -217,12 +217,12 @@ $deselected: $medium_gray;
                     background-color: $deselected;
                 }
             }
-            &.cta-ilo {
+            &.c188-cta {
                 path {
-                    fill: $ilo;
+                    fill: $c188;
                 }
                 > div:first-child, div.country-info {
-                    background-color: $ilo;
+                    background-color: $c188;
                 }
             }
             &.cta-psma {
@@ -234,8 +234,8 @@ $deselected: $medium_gray;
                 }
             }
         }
-        .deselect-ilo & {
-            &.ilo {
+        .deselect-c188 & {
+            &.c188 {
                 path {
                     fill: $deselected;
                 }
@@ -243,7 +243,7 @@ $deselected: $medium_gray;
                     background-color: $deselected;
                 }
             }
-            &.cta-ilo {
+            &.c188-cta {
                 path {
                     fill: $cta;
                 }
@@ -251,7 +251,7 @@ $deselected: $medium_gray;
                     background-color: $cta;
                 }
             }
-            &.ilo-psma {
+            &.c188-psma {
                 path {
                     fill: $psma;
                 }
@@ -277,17 +277,17 @@ $deselected: $medium_gray;
                     background-color: $cta;
                 }
             }
-            &.ilo-psma {
+            &.c188-psma {
                 path {
-                    fill: $ilo;
+                    fill: $c188;
                 }
                 > div:first-child, div.country-info {
-                    background-color: $ilo;
+                    background-color: $c188;
                 }
             }
         }
-        .deselect-cta.deselect-ilo & {
-            &.cta-ilo {
+        .deselect-cta.deselect-c188 & {
+            &.c188-cta {
                 path {
                     fill: $deselected;
                 }
@@ -295,7 +295,7 @@ $deselected: $medium_gray;
                     background-color: $deselected;
                 }
             }
-            &.cta-ilo-psma {
+            &.c188-cta-psma {
                 path {
                     fill: $psma;
                 }
@@ -313,17 +313,17 @@ $deselected: $medium_gray;
                     background-color: $deselected;
                 }
             }
-            &.cta-ilo-psma {
+            &.c188-cta-psma {
                 path {
-                    fill: $ilo;
+                    fill: $c188;
                 }
                 > div:first-child, div.country-info {
-                    background-color: $ilo;
+                    background-color: $c188;
                 }
             }
         }
-        .deselect-ilo.deselect-psma & {
-            &.ilo-psma {
+        .deselect-c188.deselect-psma & {
+            &.c188-psma {
                 path {
                     fill: $deselected;
                 }
@@ -331,7 +331,7 @@ $deselected: $medium_gray;
                     background-color: $deselected;
                 }
             }
-            &.cta-ilo-psma {
+            &.c188-cta-psma {
                 path {
                     fill: $cta;
                 }
@@ -340,7 +340,7 @@ $deselected: $medium_gray;
                 }
             }
         }
-        .deselect-cta.deselect-ilo.deselect-psma & {
+        .deselect-cta.deselect-c188.deselect-psma & {
             path {
                 fill: $deselected;
             }

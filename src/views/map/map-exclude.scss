@@ -1,7 +1,7 @@
 @import '../../css/variables.scss';
 
 $cta: $map_medium_blue;
-$ilo: $map_dark_blue;
+$c188: $map_dark_blue;
 $psma: $map_light_blue;
 $multiple: $map_gold;
 $deselected: $medium_gray;
@@ -28,15 +28,15 @@ $deselected: $medium_gray;
             fill: $cta;
             will-change:fill;
         }
-        &.ilo {
-            fill: $ilo;
+        &.c188 {
+            fill: $c188;
             will-change:fill;
         }
         &.psma {
             fill: $psma;
             will-change:fill;
         }
-        &.cta-ilo {
+        &.c188-cta {
             fill: $multiple;
             will-change:fill;
         }
@@ -44,11 +44,11 @@ $deselected: $medium_gray;
             fill: $multiple;
             will-change:fill;
         }
-        &.ilo-psma {
+        &.c188-psma {
             fill: $multiple;
             will-change:fill;
         }
-        &.cta-ilo-psma {
+        &.c188-cta-psma {
             fill: $multiple;
             will-change:fill;
         }
@@ -57,21 +57,21 @@ $deselected: $medium_gray;
         .cta {
             fill: $deselected;
         }
-        .cta-ilo {
-            fill: $ilo;
+        .c188-cta {
+            fill: $c188;
         }
         .cta-psma {
             fill: $psma;
         }
     }
-    .deselect-ilo & {
-        .ilo {
+    .deselect-c188 & {
+        .c188 {
             fill: $deselected;
         }
-        .cta-ilo {
+        .c188-cta {
             fill: $cta;
         }
-        .ilo-psma {
+        .c188-psma {
             fill: $psma;
         }
     }
@@ -82,15 +82,15 @@ $deselected: $medium_gray;
         .cta-psma {
             fill: $cta;
         }
-        .ilo-psma {
-            fill: $ilo;
+        .c188-psma {
+            fill: $c188;
         }
     }
-    .deselect-cta.deselect-ilo & {
-        .cta-ilo {
+    .deselect-cta.deselect-c188 & {
+        .c188-cta {
             fill: $deselected;
         }
-        .cta-ilo-psma {
+        .c188-cta-psma {
             fill: $psma;
         }
     }
@@ -98,19 +98,19 @@ $deselected: $medium_gray;
         .cta-psma {
             fill: $deselected;
         }
-        .cta-ilo-psma {
-            fill: $ilo;
+        .c188-cta-psma {
+            fill: $c188;
         }
     }
-    .deselect-ilo.deselect-psma & {
-        .ilo-psma {
+    .deselect-c188.deselect-psma & {
+        .c188-psma {
             fill: $deselected;
         }
-        .cta-ilo-psma {
+        .c188-cta-psma {
             fill: $cta;
         }
     }
-    .deselect-cta.deselect-ilo.deselect-psma & {
+    .deselect-cta.deselect-c188.deselect-psma & {
         path.highcharts-point:not(.None) {
             fill: $deselected;
         }
@@ -135,7 +135,7 @@ $deselected: $medium_gray;
     fill: $map_medium_blue;
 }
 .highcharts-color-3 {
-    fill: $ilo;
+    fill: $c188;
 }
 .highcharts-color-4 {
     fill: $multiple;
@@ -146,6 +146,6 @@ $deselected: $medium_gray;
 .highcharts-color-6 {
     fill: $map_gold;
 }
-.cta-ilo-psma {
+.c188-cta-psma {
     fill: $map_gold;
 }*/

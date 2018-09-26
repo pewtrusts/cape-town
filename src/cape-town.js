@@ -97,7 +97,7 @@ class CapeTown extends PCTApp {
         });
     }
     init(){
-        super.init();
+        super.init(); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
         getRuntimeData().then(() => {
             views.forEach(view => {
                 view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc

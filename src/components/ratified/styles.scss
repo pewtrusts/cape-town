@@ -1,7 +1,7 @@
 @import '../../css/variables.scss';
 
 $cta: $map_medium_blue;
-$ilo: $map_dark_blue;
+$c188: $map_dark_blue;
 $psma: $map_light_blue;
 $multiple: $map_gold;
 $deselected: $medium_gray;
@@ -50,15 +50,15 @@ $deselected: $medium_gray;
       color: $cta;
     }
   }
-  &.ilo {
-    border-color: $ilo;
+  &.c188 {
+    border-color: $c188;
     > div {
       &:first-child {
-        border-right-color: $ilo;
+        border-right-color: $c188;
       }
     }
     .numberRatified, .treatyStatus {
-      color: $ilo;
+      color: $c188;
     }
   }
   &.psma {

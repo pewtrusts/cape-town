@@ -47,13 +47,13 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         -webkit-overflow-scrolling: touch;
         z-index: 3;
         p {
-            line-height: 100%;
-            margin-bottom: 0.5em;
+            line-height: 120%;
+            margin-bottom: 0.2em;
             margin-right: 0.5em;
             font-size: 0.8em;
             letter-spacing: 0;
             &:last-child {
-                margin-bottom: 1em;
+                margin-bottom: 0;
             }
             flex-shrink: 0;
         }
@@ -149,7 +149,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
             flex-direction: column;
             justify-content: space-between;
             height: calc(32vw - #{13 + $title_height}px);  
-            overflow-y: auto;
+            overflow-y: hidden;
             transform: translateX(0);
             p {
                 letter-spacing: 0.5px;
