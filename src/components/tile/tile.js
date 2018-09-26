@@ -20,15 +20,27 @@ export default class CountryTile {
         tile.style.order = index;
         
         var countryInfoText;
+        console.log(this.parent);
+        var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
+        var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1; 
         if ( this.country.value !== 'None' ){
-            countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
-                var match = this.country.values.find(d => d.treaty_id === cur.key);
-                var info = match && cur.key ===  'cta' ? 'Ratified on ' + match.ratified_date + ' with ' + match.note + '.':
-                     match && cur.key === 'psma' && this.parent.model.EUCountries.indexOf(match.iso_a3) !== -1 ? 'Ratified by the EU on ' +  match.ratified_date + ( match.note !== '' ? '; in respect of overseas territories on ' + match.note : '' ) + '.' :
-                     match ? 'Ratified on ' + match.ratified_date + '.': 
-                     'Not ratified.';
-                return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
-            },'');
+            if ( this.country.key == 'EU'){
+                countryInfoText = `<p><b>${EUDatum.treaty_id.toUpperCase()}:</b> Ratified on ${EUDatum.ratified_date}`;
+            } else {
+                countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
+                    let match = this.country.values.find(d => d.treaty_id === cur.key);
+                    let info =  match && cur.key ===  'cta' ? 
+                                    'Ratified on ' + match.ratified_date + ' with ' + match.note + '.' :
+    /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
+                                    'Ratified by the EU on ' +  EUDatum.ratified_date + '; in respect of overseas territories on ' + match.ratified_date + '.' :
+    /*is EU only */             isEUMember && cur.key === 'psma' ?
+                                    'Ratified by the EU on ' +  EUDatum.ratified_date + '.' : 
+                                match ?
+                                    'Ratified on ' + match.ratified_date + '.' : 
+                                    'Not ratified.';
+                    return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
+                },'');
+            }
         } else {
             tile.classList.add(s.noHover);
             countryInfoText = '<p class="' + s.noAgreements +'">No agreements  ratified</p>';
