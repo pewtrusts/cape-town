@@ -1,50 +1,62 @@
 @import '../../css/variables.scss';
-.buttonGroupContainer {
-    position: relative;
-    .buttonGroup {
-        width:32.5%;
-        display: flex;
-        flex-direction: column;
-        &:last-child button {
-    
-            &::after {
-                content: '';
-                width: 20px;
-                height: 20px;
-                background-color: $map_gold;
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 285px; 
-                @media screen and (min-width: 629px) {
-                    top: 60px;
-                }
-            }
-            &::before {
-                content: '= party to more than one agreement';
-                position: absolute;
-                left: 0;
-                color: #000;
-                padding-left: 25px;
-                top: 285px; 
-                font-weight: normal;
-                @media screen and (min-width: 629px) {
-                    top: 60px;
-                }
-            }
 
-        } 
-        @media screen and (max-width: 628px){
-            width: 100%;
-            flex-direction: row;
-            margin-bottom: 1em;
-            flex-wrap:wrap;
-            > div {
-                margin-top: 24px;
+.selectionView {
+    legend, label {
+        margin-bottom: 12px;
+        display: block;
+    }
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border:none;
+    }
+    .buttonGroupContainer {
+        position: relative;
+        .buttonGroup {
+            width:32.5%;
+            display: flex;
+            flex-direction: column;
+            &:last-child button {
+        
+                &::after {
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    background-color: $map_gold;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 285px; 
+                    @media screen and (min-width: 629px) {
+                        top: 60px;
+                    }
+                }
+                &::before {
+                    content: '= party to more than one agreement';
+                    position: absolute;
+                    left: 0;
+                    color: #000;
+                    padding-left: 25px;
+                    top: 285px; 
+                    font-weight: normal;
+                    @media screen and (min-width: 629px) {
+                        top: 60px;
+                    }
+                }
+
+            } 
+            @media screen and (max-width: 628px){
+                width: 100%;
+                flex-direction: row;
+                margin-bottom: 1em;
+                flex-wrap:wrap;
+                > div {
+                    margin-top: 24px;
+                }
             }
         }
-    }
-    @media screen and (max-width: 628px) {
-    margin-bottom: 50px;
+        @media screen and (max-width: 628px) {
+        margin-bottom: 50px;
+        }
     }
 }

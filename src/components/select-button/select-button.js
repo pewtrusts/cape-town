@@ -10,6 +10,7 @@ export default class SelectButton extends Button {
 			return btn;
 		}
 		btn.classList.add(s.selectButton, main.pctBtn, s[this.model.key]); // TO DO : some of main.css should be up the tree in UI
+        btn.setAttribute('aria-pressed', true);
 		return btn;
 	}
     init(treaties){
@@ -31,5 +32,8 @@ export default class SelectButton extends Button {
         },[]).sort();
         S.setState('selected', selected);
         this.classList.toggle(s.deselected);
+        var currentAria = this.getAttribute('aria-pressed');
+        this.setAttribute('aria-pressed', !currentAria); // to do: do this via getters/setters?
+        this.setAttribute('aria-label',`Toggle ${this.innerHTML} filter on/off`);
     }
 }

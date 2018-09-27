@@ -27,10 +27,10 @@ export default class Selection extends Element {
         if ( this.prerendered ) {
             return div; // if prerendered
         }
-        
+        div.classList.add(s.selectionView);
         // if NOT prerendered:
 
-        
+        var fieldset = $d.c('fieldset');
         
         // button container
         var btnContainer = $d.c('div.' + main.flex + '.' + main.sb + '.' + main.wrap + '.' + s.buttonGroupContainer);
@@ -45,8 +45,10 @@ export default class Selection extends Element {
 
             btnContainer.appendChild(btnGroup);
         });
-
-        div.appendChild(btnContainer);
+        fieldset.insertAdjacentHTML('afterbegin', '<legend id="treaty-filter">Filter by treaties:</legend>');
+        fieldset.appendChild(btnContainer);
+        div.appendChild(fieldset);
+        div.insertAdjacentHTML('beforeend', '<label id="party-filter">Filter by parties:</label>');
 
         //searchbar
         div.appendChild(this.searchBar.el); 

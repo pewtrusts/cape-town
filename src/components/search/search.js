@@ -66,15 +66,19 @@ export default class SearchBar extends Element {
 				multiple: true,
 				clearable: false,
 				defaultSelected: false,
-				placeholder: 'Select countries',
+				placeholder: '',
 				renderOption: function(option){
 					console.log(option);
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
 				}
 			});
 		}
-		$d.q(`button.${s.clearSearch}`).addEventListener('click', () => {
+		var clrBtn = $d.q(`button.${s.clearSearch}`);
+		clrBtn.setAttribute('aria-label', "Clear the 'Filter by parties' filter");
+		clrBtn.addEventListener('click', () => {
 			this.Selectr.Selectr.clear();
 		});
+		$d.q('.selectr-input').setAttribute('aria-labelledby','party-filter');
+		$d.q('.selectr-options').setAttribute('aria-labelledby','party-filter');
 	}
 }

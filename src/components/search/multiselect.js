@@ -35,6 +35,7 @@ export default class Multiselect extends Mobius1Selectr {
         ]);
         
         function selectrOnChange(Selectr){
+            this.checkForTagOverflow();
             this.addTagEvents();
             
             console.log('selectr change', Selectr.selectedValues.slice(1));
@@ -52,6 +53,9 @@ export default class Multiselect extends Mobius1Selectr {
                 });
             });
         });
+    }
+    checkForTagOverflow(){
+        console.log('checking overflo')
     }
     addTagEvents(){
         var cont = document.querySelector('.selectr-options-container');
