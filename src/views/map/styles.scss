@@ -27,6 +27,9 @@
             transform: translate(3px, 0);
         }
     }
+    :global(.highcharts-credits) {
+        visibility: hidden;
+    }
     @media screen and (max-width: 628px) {
         display: none;
     }
