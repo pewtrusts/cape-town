@@ -10,7 +10,12 @@ import CountryTile from '@Project/components/tile/tile.js';
 export default class TileView {
     constructor(model){
         this.model = model;
-        this.tiles = model.joinData.map((country, index) => new CountryTile(country, index, this));
+        this.tiles = model.joinData.filter(country => country.values.length !== 0) // values length === 0 means it's an U
+                                                                                   // pushed into the joinData array that shouldn't
+                                                                                   // have a tile of its own. onlu PSMA by virtue of
+                                                                                   // being an EU member
+            .map((country, index) => new CountryTile(country, index, this));
+        
         this.el = this.prerender();
         
     }

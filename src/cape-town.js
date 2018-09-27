@@ -38,7 +38,6 @@ function getRuntimeData(){
             complete: function(response){
                 var countries = response.data;
                 /* complete model based on fetched data */
-console.log(countries);
                 model.countries = countries;
                 model.countriesNested = d3.nest().key(d => d.iso_a3).entries(countries);
                 model.treatiesNested =  d3.nest().key(d => d.treaty_id).entries(countries);
