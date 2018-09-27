@@ -70,13 +70,15 @@ export default class TileView {
     searchCountries(msg,data){
         
         var newMatch = null;
+        var iso = data.length === 0 ? null : data[data.length - 1];
         if ( data.length !== 0 ){ // newMatch should be undefined only if data is not zero and there's still no match
                                   // this means there is no match because the requested country is not yet in the tiles  
-            newMatch = this.tiles.find(t => data[data.length - 1] === t.country.key);
+            newMatch = this.tiles.find(t => iso === t.country.key);
         }
         
         if ( newMatch === undefined ){
-            let newCountry = new CountryTile({key: data[data.length - 1], values: [], value: "None"}, this.tiles.length, this, true); 
+            let datum = this.model.EUCountries.indexOf(iso) === -1 ? {key: iso, values: [], value: "None"} : {key: iso, values: [], value: "psma"};
+            let newCountry = new CountryTile(datum, this.tiles.length, this, true); 
             this.tiles.push(newCountry);
             this.el.appendChild(newCountry.el);
         }
