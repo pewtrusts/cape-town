@@ -2,7 +2,7 @@
 $dimensions: 195;
 $margin: 2;
 $title_height: 30;
-$slide_transition: transform 0.3s ease-in-out 0.3s;
+$slide_transition: transform 0.2s ease-in-out 0.3s;
 .tilesContainer {
     width: 100%;                           // 1 column
     @media screen and (min-width: 629px) { // 3 column
@@ -16,7 +16,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
     }
 }
 .countryTile {
-    --slideTransition: transform 0.2s ease-in-out;
+    --slideTransition: transform 0.15s ease-in-out;
     //max-width: 260px;
     width: 100%;
     height: 30px;
@@ -144,7 +144,7 @@ $slide_transition: transform 0.3s ease-in-out 0.3s;
         text-align: center;
     }
     @media screen and (min-width: 629px) {
-        --slideTransition: transform 0.3s ease-in-out 0.3s;
+        --slideTransition: transform 0.2s ease-in-out 0.3s;
         margin-right: 12px;
         width: calc(32vw - 13px); // 3 column
         height: 0;
