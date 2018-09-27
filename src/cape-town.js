@@ -20,7 +20,7 @@ import PCTApp from '@App';
 const model = {
     treaties,
     EUCountries,
-    countryCodes,
+    countryCodes
 };
 
 
@@ -38,10 +38,11 @@ function getRuntimeData(){
             complete: function(response){
                 var countries = response.data;
                 /* complete model based on fetched data */
-
+console.log(countries);
                 model.countries = countries;
                 model.countriesNested = d3.nest().key(d => d.iso_a3).entries(countries);
                 model.treatiesNested =  d3.nest().key(d => d.treaty_id).entries(countries);
+                model.countriesArray = model.countriesNested.map(c => c.key);
                 model.joinData = d3.nest().key(d => d.iso_a3).entries(countries).map(d => {
                     var ratified = [];
                     d.values.sort((a,b) => a.treaty_id < b.treaty_id ? -1 : a.treaty_id > b.treaty_id ? 1 : a.treaty_id >= b.treaty_id ? 0 : NaN).forEach(v => { // sort fn from d3.ascending()
@@ -49,10 +50,19 @@ function getRuntimeData(){
                             ratified.push(v.treaty_id);
                         }
                     });
-                                        // add className property to each country that corresponds to which treaties it is party to, or "none"
+                    // **** below applies only to countries that are in the csv ***
+                    if ( model.EUCountries.indexOf(d.key) !== -1 && ratified.indexOf('psma') === -1 ) { // ie is an EU country and not independently party to psma
+                        console.log('pushing psma', d);
+                        ratified.push('psma');
+                    }
+                    // add className property to each country that corresponds to which treaties it is party to, or "none"
                     d.value = ratified.length === 0 ? 'None' : ratified.join('-');
                     return d;
-                });
+                }).concat(
+                    model.EUCountries.filter(eur => model.countriesArray.indexOf(eur) === -1).map(c => { 
+                        return {key: c, values: [], value: 'psma'};
+                    })
+                );
                 console.log(model);
                 /* push views now that model is complete */
                 views.push(
