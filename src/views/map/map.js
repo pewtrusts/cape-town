@@ -62,7 +62,8 @@ export default class MapView extends Element {
             if ( data.length !== 0 ) { // ie search is active, not an empty array
                 this.Highmap.container.parentNode.classList.add(s.searchActive);
                 this.Highmap.series[0].data.forEach(country => {
-                    if ( data.indexOf(country.iso_a3) !== -1 ){ // ie country code is in the search array
+                    if ( data.indexOf(country.iso_a3) !== -1 || ( this.model.EUCountries.indexOf(country.iso_a3) !== -1 && data.indexOf('EU') !== -1 )){ 
+                                                            // ie country code is in the search array or part of EU and EU is in the search array
                         country.graphic.element.classList.add(s.matchesSearch);
                     } else {
                         country.graphic.element.classList.remove(s.matchesSearch);
@@ -82,7 +83,6 @@ export default class MapView extends Element {
             return {
                 iso_a3: f.id,
                 name: this.model.countryCodes[f.id],
-                value: 2,
                 className: className,
                 classArray: className.split('-')
             };
