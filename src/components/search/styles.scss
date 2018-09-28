@@ -96,9 +96,12 @@
         }
 
     }
-.searchContainer.revealOverflowTags {
+.searchDiv.revealOverflowTags {
     :global(ul.selectr-tags){ 
         flex-wrap: wrap;
+    }
+    :global(.selectr-selected){ 
+        overflow-x:visible;
     }
 }
 .clearSearch {
