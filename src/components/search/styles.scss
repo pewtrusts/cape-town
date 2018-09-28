@@ -38,45 +38,38 @@
     }
     :global(ul.selectr-tags){ 
         display: flex;
-        overflow: visible;
-        background-color: $light_gray;
+        overflow: hidden;
+        background-color: rgba($light_gray, 0.85);
+        width: calc(100% - 110px);
+        left: -5px;
+        top: 6px;
+        position: relative;
+        flex-wrap: wrap;
         &.revealOverflowTags & {
-            flex-wrap: wrap;
+            overflow-x: visible;
         }
     }
     :global(.selectr-tag){
         background: none;
         color:#000;
         font-size: 12px;
-        padding: 2px 8px 2px 23px;
+        padding: 2px 2px 2px 18px;
+        margin-right: 0;
+        margin-bottom: 5px;
         flex-shrink: 0;
+        line-height: 110%;
     }
     :global(.selectr-tag-remove) {
         left: 0;
         top: 11px;
-        width: 100% ;
+        width: 100%;
+        background: url('@Project/assets/x-out.svg') no-repeat 5px 2px;
     }
     :global(.selectr-tag-remove::before), :global(.selectr-tag-remove::after) {
         transform: none;
         background: none;
-        top: 3px;
-    }
-    :global(.selectr-tag-remove::before) {
-        width: 4px;
-        height: auto;
-        content: 'x';
-        color: $dark_gray;
-        font-size: 7px;
-        left:14px;
-        font-weight: bold;
-        transform: translate(-38%, 0.5px)
-    }
-    :global(.selectr-tag-remove::after) {
-        content: '';
-        border: 1px solid $dark_gray;
-        width: 11px;
-        height: 11px;
-        border-radius: 6px;
+        content:'';
+        border: none;
     }
     :global(.selectr-option){
         //padding-top: 0;
@@ -90,9 +83,12 @@
         bottom: 1px;
         right: 26px;
         z-index: 1;
-        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
         :global(.tag-overflow) & {
-            visibility: visible;
+            opacity: 1;
+            pointer-events: all;
         }
 
     }
