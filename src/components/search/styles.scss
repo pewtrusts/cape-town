@@ -14,7 +14,7 @@
         color: #000;
     }
     :global(.selectr-container){
-        margin-right: 4px;
+        margin-right: 0px;
         //max-width: calc(100% - 52px);
         &:global(.open) {
              box-shadow: 1px 2px 2px rgba(0,0,0,0.5);   
@@ -39,15 +39,12 @@
     :global(ul.selectr-tags){ 
         display: flex;
         overflow: hidden;
-        background-color: rgba($light_gray, 0.85);
-        width: calc(100% - 110px);
+        background-color: $light_gray;
+        width: calc(100% - 65px);
         left: -5px;
-        top: 6px;
+        top: 4px;
         position: relative;
         flex-wrap: wrap;
-        &.revealOverflowTags & {
-            overflow-x: visible;
-        }
     }
     :global(.selectr-tag){
         background: none;
@@ -57,7 +54,7 @@
         margin-right: 0;
         margin-bottom: 5px;
         flex-shrink: 0;
-        line-height: 110%;
+        line-height: 125%;
     }
     :global(.selectr-tag-remove) {
         left: 0;
@@ -78,14 +75,25 @@
     }
 }
  .showAllSelected {
+        width: 82px;
+        height: 33px;
         position: absolute;
         font-size: 12px;
-        bottom: 1px;
+        bottom: 0;
         right: 26px;
         z-index: 1;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.2s ease-in-out;
+        .oversetCount {
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+        }
+        &.isPressed {
+            .oversetCount {
+                opacity: 0;
+            }
+        }
         :global(.tag-overflow) & {
             opacity: 1;
             pointer-events: all;
@@ -95,9 +103,13 @@
 .searchDiv.revealOverflowTags {
     :global(ul.selectr-tags){ 
         flex-wrap: wrap;
+        box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
     }
     :global(.selectr-selected){ 
         overflow-x:visible;
+    }
+    .searchContainer {
+        box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
     }
 }
 .clearSearch {

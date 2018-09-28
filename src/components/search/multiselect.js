@@ -31,6 +31,9 @@ export default class Multiselect extends Mobius1Selectr {
             ['clickCountries', (msg,data) => {
                 this.setValues.call(this,msg,data);
                 this.addTagEvents();
+            }],
+            ['oversetCount', (msg,data) => {
+                this.showOversetCount.call(this,msg,data);
             }]
         ]);
         
@@ -55,8 +58,27 @@ export default class Multiselect extends Mobius1Selectr {
         });
     }
     checkForTagOverflow(){
-        if (  this.Selectr.tags.reduce((acc,cur) => acc + cur.offsetWidth, 0) > this.Selectr.container.children[0].offsetWidth - 115 ){
-            console.log('overflow', this);
+        var threshold = this.Selectr.container.children[0].children[0].offsetWidth;
+        var width = 0;
+        var tags = this.Selectr.tags;
+        for ( let i = 0; i < tags.length; i++ ){
+            width += tags[i].offsetWidth;
+            if ( width > threshold ) {
+                S.setState('oversetCount', tags.length - i)
+                console.log(this);
+                //this.Selectr.container.parentNode.classList.add('tag-overflow');
+                //document.querySelector('#overset-count').innerHTML = '+ ' + (tags.length - i) ;
+                break;
+            }
+            if ( width <= threshold && i === tags.length - 1 ){
+                S.setState('oversetCount', 0)
+                //this.Selectr.container.parentNode.classList.remove('tag-overflow');
+                //document.querySelector('#overset-count').innerHTML = '0';
+            }
+        }
+    }
+    showOversetCount(msg,data){
+        if (data > 0) {
             this.Selectr.container.parentNode.classList.add('tag-overflow');
         } else {
             this.Selectr.container.parentNode.classList.remove('tag-overflow');

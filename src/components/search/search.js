@@ -6,7 +6,69 @@ import Element from  '@UI/element/element.js';
 import { Dropdown } from '@UI/inputs/inputs.js';
 import Multiselect from './multiselect.js';
 import { Button } from '@UI/buttons/buttons.js';
+import { stateModule as S } from 'stateful-dead';
+import PS from 'pubsub-setter';
 
+class ShowAllButton extends Button {
+	prerender(){
+		var btn = super.prerender();
+		if ( this.prerendered ) {
+			return btn;
+		}
+		btn.innerHTML = `<span class="${s.oversetCount}"> + 1</span> <span id="overset-instruct"><strong>Show all</strong></span>`;
+		return btn;
+	}
+	init(){
+		PS.setSubs([
+			['oversetCount', (msg,data) => {
+                this.oversetCount = data;
+            }]
+		]);
+		this.oversetCount = 0;
+		this.isPressed = false;
+		this.el.addEventListener('click', () => {
+			this.isPressed = !this.isPressed;
+		});
+	}
+	get isPressed(){
+		return this._isPressed;
+	}
+	set isPressed(value){
+		if ( typeof value !== 'boolean' ){
+			throw 'isPressed value must be true or false';
+		}
+		this._isPressed = value;
+		if ( value ) {
+			this.stateIsPressed();
+		} else {
+			this.stateIsNotPressed();
+		}
+	}
+	get oversetCount(){
+		return this._oversetCount;
+	}
+	set oversetCount(value){
+		if (!Number.isInteger(value)){
+			throw 'oversetCount must be an integer';
+		}
+		if ( value === 0 ) {
+			this.isPressed = false;
+		}
+		this._oversetCount = value;
+		this.el.children[0].innerText = '+ ' + value;
+		
+	}
+	stateIsPressed(){
+		this.el.classList.add(s.isPressed);
+		this.el.children[1].innerText = 'Close';
+		S.setState('oversetOpen', true);
+	}
+	stateIsNotPressed(){
+		this.el.classList.remove(s.isPressed);
+		this.el.children[1].innerText = 'Show all';
+		S.setState('oversetOpen', false);
+	}
+}
 
 export default class SearchBar extends Element {
 
@@ -32,10 +94,10 @@ export default class SearchBar extends Element {
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
 			//new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
-			new Button(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
+			new ShowAllButton(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
-
+console.log(this.children);
 		//container
 		var div = super.prerender();
 		if ( this.prerendered ) {
@@ -49,13 +111,6 @@ export default class SearchBar extends Element {
 		
 			// multiselect
 			searchCont.appendChild(this.children[0].el);
-			this.children[1].el.innerHTML = '+ XX more <b>Show all</b>';
-			this.children[1].parent = this;
-			this.children[1].init = () => {
-				this.el.addEventListener('click', () => {
-					this.el.classList.toggle(s.revealOverflowTags);
-				});
-			};
 			searchCont.appendChild(this.children[1].el);
 			
 		div.appendChild(searchCont);
@@ -66,9 +121,26 @@ export default class SearchBar extends Element {
 
 		return div;
 	}
+	toggleShowMore(msg,data){
+		if ( data ) {
+			this.el.classList.add(s.revealOverflowTags);
+		} else {
+			this.el.classList.remove(s.revealOverflowTags);
+		}
+	}
 	init(){
+		PS.setSubs([
+			['oversetOpen', (msg,data) => {
+				this.toggleShowMore.call(this,msg,data);
+			}],
+			['oversetCount', (msg,data) => {
+				if ( data === 0 ) {
+					this.toggleShowMore.call(this,msg,false);
+				}
+			}]
+		]);
 		this.children.forEach(each => {
-			each.init.call(each);
+			each.init();
 		});
 		if ( this.prerendered || process.env.NODE_ENV === 'development' ){
 			this.Selectr = new Multiselect(this.children[0].el, {
