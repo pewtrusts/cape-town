@@ -86,7 +86,15 @@ export default class CountryTile {
         this.isVisible = true;
         
         this.el.addEventListener('click', function(){
+            var alreadySelected = Array.from($d.qa('.' + s.selected)); // makes copy of already selected 
+                                                                       // so that the one being toggled now
+                                                                       // isn't double toggle  
             this.classList.toggle(s.selected);
+            if ( window.innerWidth < 629 ){
+                alreadySelected.forEach(each => {
+                    each.classList.remove(s.selected);
+                });
+            }
         });
     }
     getPosition(position){ 

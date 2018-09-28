@@ -72,11 +72,41 @@ $slide_transition: transform 0.2s ease-in-out 0.3s;
     }
     &:not(.noHover) {
         &.selected {
+            @media screen and (max-width: 628px){
+                z-index:200;
+                overflow:visible;
+                box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+            }
             .tileName {
-                transform: translateX(-100%);
+                //transform: translateX(-100%);
             }
             .countryInfo {
                 transform: translateX(0);
+                @media screen and (max-width: 629px) {
+                    width: calc(100% - 10px);
+                    transform: translateX(10px);
+                    flex-direction: column;
+                    overflow-x:visible;
+                    height: auto;
+                    top: 30px;
+                    position: relative;
+                    min-height: 68px;
+                    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+                    p {
+                        line-height: 130%;
+                    }
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 10px;
+                        position: absolute;
+                        left: -10px;
+                        top: 0;
+                        bottom: 0;
+                        background-color: rgba($light_gray, 0.9);
+                    }
+                }
+
             }
         }
     }
