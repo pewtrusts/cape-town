@@ -70,6 +70,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
                           },*/ // not in use but might be later
                         {
                             test: /\.svg$/,
+                            exclude: /x-out\.svg/,
                             use: [{
                                     loader: 'svg-inline-loader',
                                     options: {
@@ -80,6 +81,13 @@ module.exports = env => { // module.exports is function now to pass in env varia
                                     loader: 'svgo-loader'
                                 }
                             ]
+                        },
+                        {
+                            test: /x-out\.svg/,
+                            use: {
+                                loader: 'svg-url-loader',
+                                options: {}
+                            }
                         },
                         {
                             test: /\.md$/,
