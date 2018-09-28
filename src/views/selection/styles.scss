@@ -1,6 +1,7 @@
 @import '../../css/variables.scss';
 
 .selectionView {
+    position: relative;
     legend, label {
         margin-bottom: 12px;
         display: block;

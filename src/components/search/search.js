@@ -32,6 +32,7 @@ export default class SearchBar extends Element {
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
 			//new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
+			new Button(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
 
@@ -43,23 +44,31 @@ export default class SearchBar extends Element {
 		
 		//if not prerndered:
 
-		//search and submit container
+		//search container
 		var searchCont = $d.c(`div.${s.searchContainer}.${main.flex}.${main.sb}.${main.grow}`);
 		
 			// multiselect
 			searchCont.appendChild(this.children[0].el);
+			this.children[1].el.innerHTML = '+ XX more <b>Show all</b>';
+			this.children[1].parent = this;
+			this.children[1].init = () => {
+				this.el.addEventListener('click', () => {
+					this.el.classList.toggle(s.revealOverflowTags);
+				});
+			};
+			searchCont.appendChild(this.children[1].el);
 			
 		div.appendChild(searchCont);
 
 		//clear button
-		div.appendChild(this.children[1].el);
+		div.appendChild(this.children[2].el);
 
 
 		return div;
 	}
 	init(){
 		this.children.forEach(each => {
-			each.init();
+			each.init.call(each);
 		});
 		if ( this.prerendered || process.env.NODE_ENV === 'development' ){
 			this.Selectr = new Multiselect(this.children[0].el, {

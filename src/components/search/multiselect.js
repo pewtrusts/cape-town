@@ -55,7 +55,10 @@ export default class Multiselect extends Mobius1Selectr {
         });
     }
     checkForTagOverflow(){
-        console.log('checking overflo')
+        if (  this.Selectr.tags.reduce((acc,cur) => acc + cur.offsetWidth, 0) > this.Selectr.container.children[0].offsetWidth - 115 ){
+            console.log('overflow', this);
+            this.Selectr.container.parentNode.classList.add('tag-overflow');
+        }
     }
     addTagEvents(){
         var cont = document.querySelector('.selectr-options-container');

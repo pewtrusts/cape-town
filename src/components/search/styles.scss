@@ -1,9 +1,9 @@
 @import '@Project/css/_variables.scss';
 .searchDiv {
-    margin: 0 0 24px;;
+    margin: 0 0 24px;
 }
 .searchContainer {
-    //margin-right: 12px;
+    position: relative;
     max-width: 81%;
     margin-right: 9px;;
     input {
@@ -26,30 +26,7 @@
         background-color: $light_gray;
         height: 33px;
         overflow-x: hidden;
-        &::before {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            width: 0;
-            height: 0;
-            content: '';
-            transform: rotate(0) translate3d(0,-50%,0);
-            border-width: 4px 4px 0;
-            border-style: solid;
-            border-color: $dark_gray transparent transparent;
-            z-index: 13;
-        }
-        &::after {
-            position: absolute;
-            width: 60px;
-            height: 30px;
-            background: linear-gradient(90deg, transparent, $light_gray 75%, $light_gray);
-            display: block;
-            right: 0;
-            top: 0;
-            content:'';
-            z-index: 12;
-        }
+        
     }
     :global(.selectr-input) {
         box-sizing: border-box;
@@ -62,6 +39,10 @@
     :global(ul.selectr-tags){ 
         display: flex;
         overflow: visible;
+        background-color: $light_gray;
+        &.revealOverflowTags & {
+            flex-wrap: wrap;
+        }
     }
     :global(.selectr-tag){
         background: none;
@@ -103,10 +84,26 @@
         margin-bottom: 0;
     }
 }
+ .showAllSelected {
+        position: absolute;
+        font-size: 12px;
+        bottom: 1px;
+        right: 26px;
+        z-index: 1;
+        visibility: hidden;
+        :global(.tag-overflow) & {
+            visibility: visible;
+        }
+
+    }
+.searchContainer.revealOverflowTags {
+    :global(ul.selectr-tags){ 
+        flex-wrap: wrap;
+    }
+}
 .clearSearch {
     width: 19%;
 }
-
 // multiselect
 .hideOption {
     color:$medium_gray;

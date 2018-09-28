@@ -1,5 +1,5 @@
 import main from '@Project/css/main.scss';
-import Button from '@Project/components/select-button/select-button.js';
+import SelectButton from '@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
 import Element from '@UI/element/element.js';
@@ -13,13 +13,13 @@ export default class Selection extends Element {
         /* any child elements that need initialization such as eventListeners
             need to instantiated as properties of `this` so that their methods
             can be accessed */
-        this.buttons = this.model.treaties.map(treaty => new Button(treaty));
+        this.buttons = this.model.treaties.map(treaty => new SelectButton(treaty));
         this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}`, treaty, this));
         this.searchBar = new SearchBar(this.model);
         this.children = [
             ...this.ratified,    
             ...this.buttons,
-            this.searchBar
+            this.searchBar,
         ];    
         
         //container
@@ -59,7 +59,7 @@ export default class Selection extends Element {
         
         
         this.children.forEach(each => {
-            if (each instanceof Button) {
+            if (this.buttons.indexOf(each) !== -1) {
                 each.init(this.model.treaties);
             } else {
                 each.init();
