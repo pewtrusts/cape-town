@@ -67,6 +67,6 @@ export default class Selection extends Element {
                                          // mobius selectr is initialized;
             }
         });
-        console.log(this);
+        
     }
 }

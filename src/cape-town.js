@@ -1,6 +1,7 @@
 //utils
 import * as d3 from 'd3-collection';
 import Papa from 'papaparse';
+//import Router from '@Router';
 import PS from 'pubsub-setter';
 
 //data
@@ -28,7 +29,8 @@ const model = {
 const views = [];
 
 function getRuntimeData(){
-    console.log(countries);
+    //views.length = 0;
+    
     return new Promise((resolve, reject) => {
         Papa.parse(countries, {
             download: true,
@@ -37,6 +39,7 @@ function getRuntimeData(){
             fastMode: true,
             skipEmptyLines: true,
             complete: function(response){
+                views.length = 0;
                 var countries = response.data;
                 /* complete model based on fetched data */
                 model.countries = countries;
@@ -52,7 +55,7 @@ function getRuntimeData(){
                     });
                     // **** below applies only to countries that are in the csv ***
                     if ( model.EUCountries.indexOf(d.key) !== -1 && ratified.indexOf('psma') === -1 ) { // ie is an EU country and not independently party to psma
-                        console.log('pushing psma', d);
+                        
                         ratified.push('psma');
                     }
                     // add className property to each country that corresponds to which treaties it is party to, or "none"
@@ -63,7 +66,6 @@ function getRuntimeData(){
                         return {key: c, values: [], value: 'psma'};
                     })
                 );
-                console.log(model);
                 /* push views now that model is complete */
                 views.push(
                     new TextView('div#pct-text'),
@@ -71,7 +73,7 @@ function getRuntimeData(){
                     new SelectionView('div#selection-view', model),
                     new TileView(model)
                 );
-                console.log(model);
+                
                 resolve(true);
             },
             error: function(error){
@@ -92,12 +94,14 @@ class CapeTown extends PCTApp {
         });
     }
     init(){
+        
         var subsriptionsForRouter = ['deselected','searchCountries'];
-        super.init(subsriptionsForRouter, PS, this.routerSetHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
         getRuntimeData().then(() => {
             views.forEach(view => {
-                view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
+               view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
             });
+            //console.log(this, views);
+            super.init(subsriptionsForRouter, PS, this.routerSetHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
         });                                // STEP ONE:  index.js calls this init()
         
     }
@@ -121,12 +125,12 @@ class CapeTown extends PCTApp {
                 }
             }
             deselected.sort();
-            console.log(deselected);
+            
             // deselected string
             if ( deselected.length > 0 ){
                 hashStrings.push('d=' + deselected.join('+'));
             }
-            console.log(hashStrings);
+            
             this.hashString = hashStrings.length > 0 ? '#' + hashStrings.join('?') : ' ';
 
         }

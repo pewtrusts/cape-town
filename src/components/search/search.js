@@ -97,7 +97,7 @@ export default class SearchBar extends Element {
 			new ShowAllButton(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
 			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 		];
-console.log(this.children);
+
 		//container
 		var div = super.prerender();
 		if ( this.prerendered ) {
@@ -150,7 +150,7 @@ console.log(this.children);
 				defaultSelected: false,
 				placeholder: '',
 				renderOption: function(option){
-					console.log(option);
+					
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';
 				}
 			});

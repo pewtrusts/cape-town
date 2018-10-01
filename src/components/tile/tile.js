@@ -20,7 +20,7 @@ export default class CountryTile {
         tile.style.order = index;
         
         var countryInfoText;
-        console.log(this.parent);
+        
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1; 
         if (isEUMember){

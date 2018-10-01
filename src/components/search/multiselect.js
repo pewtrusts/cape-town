@@ -41,11 +41,13 @@ export default class Multiselect extends Mobius1Selectr {
             this.checkForTagOverflow();
             this.addTagEvents();
             
-            console.log('selectr change', Selectr.selectedValues.slice(1));
+            
             S.setState('searchCountries', Selectr.selectedValues.slice(1));
         }
         this.Selectr.on('selectr.init', () => {
-            this.Selectr.config.resolveFn(true);
+            //setTimeout(() => {
+                this.Selectr.config.resolveFn(true);
+           // },5000);
         });
         this.Selectr.on('selectr.change', () => {
             selectrOnChange.call(this, this.Selectr);
@@ -67,7 +69,7 @@ export default class Multiselect extends Mobius1Selectr {
             width += tags[i].offsetWidth;
             if ( width > threshold ) {
                 S.setState('oversetCount', tags.length - i)
-                console.log(this);
+                
                 //this.Selectr.container.parentNode.classList.add('tag-overflow');
                 //document.querySelector('#overset-count').innerHTML = '+ ' + (tags.length - i) ;
                 break;
@@ -88,7 +90,7 @@ export default class Multiselect extends Mobius1Selectr {
     }
     addTagEvents(){
         var cont = document.querySelector('.selectr-options-container');
-        console.log(document.querySelectorAll('button.selectr-tag-remove'));
+        
         /* the third-party Selectr is allowing a click on a tag to bubble up to the search bar itself,
         which then opens or closes the dropdown. until / unless that code is brought in local, there is
         no access to the event. the tags themselves in the DOM have no attribute refering to the country

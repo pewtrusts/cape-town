@@ -94,7 +94,7 @@ export default class MapView extends Element {
         // over this.model
         var returnFormatter = (function(model){
             function Formatter(){
-                console.log(this.point);
+                
                 var agreementsString = this.point.className === 'None' ? 'None' : this.point.classArray.map(c => {
                     var parenthetical = c === 'psma' && model.joinData.find(d => d.key === this.point.iso_a3).values.length === 0 ? ' (EU)' :
                         c === 'psma' && model.EUCountries.indexOf(this.point.iso_a3) !== -1 ? '<br />(EU and in respect of overseas territories)' : ''
@@ -117,7 +117,7 @@ export default class MapView extends Element {
                 events: {
                     load: () => {
                         this.resolve(true);
-                        console.log(this);
+                        
                     }
                 }
             },
@@ -147,7 +147,7 @@ export default class MapView extends Element {
                 name: 'International agreements',
                 events: {
                     click: (e) => {
-                        console.log(e); // using timestamp make each event unique so that clicking the same country twice results in a new setState
+                         // using timestamp make each event unique so that clicking the same country twice results in a new setState
                         S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
                     }
                 }
