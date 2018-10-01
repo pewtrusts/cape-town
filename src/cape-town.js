@@ -1,6 +1,7 @@
 //utils
 import * as d3 from 'd3-collection';
 import Papa from 'papaparse';
+import PS from 'pubsub-setter';
 
 //data
 import treaties from '@Project/data/treaties.json';
@@ -91,7 +92,8 @@ class CapeTown extends PCTApp {
         });
     }
     init(){
-        super.init(); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
+        var subsriptionsForRouter = ['deselected','searchCountries'];
+        super.init(subsriptionsForRouter, PS, this.routerSetHashFn); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
         getRuntimeData().then(() => {
             views.forEach(view => {
                 view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
@@ -99,6 +101,36 @@ class CapeTown extends PCTApp {
         });                                // STEP ONE:  index.js calls this init()
         
     }
+    routerSetHashFn(){
+            var deselected = [],
+            hashStrings = [],
+            abbreviations = {
+                deselected: 'ds',
+                selected: 's',
+                searchCountries: 'sc'
+            };
+            for ( var key in this.stateObj) {
+                if (this.stateObj.hasOwnProperty(key)){
+                    if ( key.indexOf('deselected') !== -1 ){
+                        if ( this.stateObj[key] ){
+                            deselected.push(key.split('.')[1]);
+                        }
+                    } else if ( this.stateObj[key].length > 0 ){
+                        hashStrings.push(abbreviations[key] + '=' + this.stateObj[key].join('+'));
+                    }
+                }
+            }
+            deselected.sort();
+            console.log(deselected);
+            // deselected string
+            if ( deselected.length > 0 ){
+                hashStrings.push('d=' + deselected.join('+'));
+            }
+            console.log(hashStrings);
+            this.hashString = hashStrings.length > 0 ? '#' + hashStrings.join('?') : ' ';
+
+        }
+
 }
 
 
