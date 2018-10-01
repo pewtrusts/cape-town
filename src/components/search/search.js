@@ -128,7 +128,7 @@ console.log(this.children);
 			this.el.classList.remove(s.revealOverflowTags);
 		}
 	}
-	init(){
+	init(resolveFn){ // the parent's (selection.js) resolve function
 		PS.setSubs([
 			['oversetOpen', (msg,data) => {
 				this.toggleShowMore.call(this,msg,data);
@@ -140,10 +140,11 @@ console.log(this.children);
 			}]
 		]);
 		this.children.forEach(each => {
-			each.init();
+			each.init(resolveFn); // passing reference to resolveFn to all children althogh only multiselect will resolve it
 		});
 		if ( this.prerendered || process.env.NODE_ENV === 'development' ){
 			this.Selectr = new Multiselect(this.children[0].el, {
+				resolveFn,
 				multiple: true,
 				clearable: false,
 				defaultSelected: false,

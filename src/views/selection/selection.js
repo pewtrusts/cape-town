@@ -62,8 +62,11 @@ export default class Selection extends Element {
             if (this.buttons.indexOf(each) !== -1) {
                 each.init(this.model.treaties);
             } else {
-                each.init();
+                each.init(this.resolve); // passing in reference to Selections resolve so that 
+                                         // the children can handle it; ie resolve true after 
+                                         // mobius selectr is initialized;
             }
         });
+        console.log(this);
     }
 }

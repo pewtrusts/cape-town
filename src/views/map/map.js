@@ -114,6 +114,12 @@ export default class MapView extends Element {
         this.Highmap = new Highcharts.Map(this.el.id, {
             chart: {
                 map: this.geoJSON,
+                events: {
+                    load: () => {
+                        this.resolve(true);
+                        console.log(this);
+                    }
+                }
             },
             title: {
                 text: ''

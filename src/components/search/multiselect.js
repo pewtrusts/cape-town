@@ -44,7 +44,9 @@ export default class Multiselect extends Mobius1Selectr {
             console.log('selectr change', Selectr.selectedValues.slice(1));
             S.setState('searchCountries', Selectr.selectedValues.slice(1));
         }
-        
+        this.Selectr.on('selectr.init', () => {
+            this.Selectr.config.resolveFn(true);
+        });
         this.Selectr.on('selectr.change', () => {
             selectrOnChange.call(this, this.Selectr);
         });

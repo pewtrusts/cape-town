@@ -17,6 +17,10 @@ export default class TileView {
             .map((country, index) => new CountryTile(country, index, this));
         
         this.el = this.prerender();
+        this.isReady = new Promise((resolve, reject) => {
+            this.resolve = resolve;
+            this.reject = reject;
+        });
         
     }
     prerender(){
@@ -55,9 +59,7 @@ export default class TileView {
         this.tiles.forEach(each => {
             each.init();
         });
-        /*this.el.addEventListener('click', () => {
-            this.update.call(this);
-        });*/
+        this.resolve(true);
     }
     update(msg,data){
         if ( msg === 'selected') {
