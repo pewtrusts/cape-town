@@ -148,7 +148,7 @@ export default class SearchBar extends Element {
 				multiple: true,
 				clearable: false,
 				defaultSelected: false,
-				placeholder: '',
+				placeholder: 'Filter by parties',
 				renderOption: function(option){
 					
 					return '<span class="isParty-' + option.pctModel.isParty + '">' + option.textContent + '</span>';

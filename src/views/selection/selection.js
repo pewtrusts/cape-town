@@ -45,10 +45,10 @@ export default class Selection extends Element {
 
             btnContainer.appendChild(btnGroup);
         });
-        fieldset.insertAdjacentHTML('afterbegin', '<legend id="treaty-filter">Filter by treaties:</legend>');
+        fieldset.insertAdjacentHTML('afterbegin', '<legend id="treaty-filter">Filter by treaties</legend>');
         fieldset.appendChild(btnContainer);
         div.appendChild(fieldset);
-        div.insertAdjacentHTML('beforeend', '<label id="party-filter">Filter by parties:</label>');
+      //  div.insertAdjacentHTML('beforeend', '<label id="party-filter">Filter by parties:</label>');
 
         //searchbar
         div.appendChild(this.searchBar.el); 

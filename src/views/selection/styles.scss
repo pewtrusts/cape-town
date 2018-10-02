@@ -6,6 +6,11 @@
         margin-bottom: 12px;
         display: block;
     }
+    legend {
+        font-size: 1.2em;
+        font-weight: bold;
+        text-align:center;
+    }
     fieldset {
         margin: 0;
         padding: 0;
@@ -21,27 +26,29 @@
         
                 &::after {
                     content: '';
-                    width: 20px;
-                    height: 20px;
+                    width: 14px;
+                    height: 14px;
                     background-color: $map_gold;
                     display: block;
                     position: absolute;
                     left: 0;
-                    top: 285px; 
+                    top: 240px; 
                     @media screen and (min-width: 629px) {
                         top: 60px;
                     }
                 }
                 &::before {
-                    content: '= party to more than one agreement';
+                    content: 'party to more than one agreement';
                     position: absolute;
                     left: 0;
                     color: #000;
-                    padding-left: 25px;
-                    top: 285px; 
+                    padding-left: 18px;
+                    top: 238px; 
                     font-weight: normal;
+                    pointer-events: none;
+                    font-size:0.9em;
                     @media screen and (min-width: 629px) {
-                        top: 60px;
+                        top: 59px;
                     }
                 }
 
@@ -57,7 +64,7 @@
             }
         }
         @media screen and (max-width: 628px) {
-        margin-bottom: 50px;
+        margin-bottom: 35px;
         }
     }
 }

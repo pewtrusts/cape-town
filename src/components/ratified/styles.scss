@@ -24,9 +24,7 @@ $deselected: $medium_gray;
     &.invert {
       color: #fff;
       background-color: $dark_gray;
-      > span:first-child {
-        font-weight: normal;
-      }
+     
       .treatyStatus {
         color: #fff;
       }
@@ -35,7 +33,9 @@ $deselected: $medium_gray;
         border-right: 1px solid $deselected;
     }
     > span {
-        font-weight: bold;
+        &:first-child {
+          font-weight: bold;
+        }
         text-align:center;
     }
   }
