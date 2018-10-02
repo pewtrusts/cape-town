@@ -85,6 +85,7 @@ function getRuntimeData(){
 
 class CapeTown extends PCTApp {
     prerender(){
+        this.wasPrerendered = false;
         getRuntimeData().then(() => {
             var app = document.querySelector('#pew-app');
             views.forEach(view => {
@@ -94,11 +95,10 @@ class CapeTown extends PCTApp {
         });
     }
     init(){
-        
         var subsriptionsForRouter = ['deselected','searchCountries'];
         getRuntimeData().then(() => {
             views.forEach(view => {
-               view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
+               view.init(this);                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
             });
             //console.log(this, views);
             super.init(subsriptionsForRouter, PS, this.routerSetHashFn, this.routerDecodeHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.

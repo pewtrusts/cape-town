@@ -17,7 +17,7 @@ export default class Selection extends Element {
         this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}`, treaty, this));
         this.searchBar = new SearchBar(this.model);
         this.children = [
-            ...this.ratified,    
+            ...this.ratified,     
             ...this.buttons,
             this.searchBar,
         ];    
@@ -27,8 +27,8 @@ export default class Selection extends Element {
         if ( this.prerendered ) {
             return div; // if prerendered
         }
-        div.classList.add(s.selectionView);
         // if NOT prerendered:
+        div.classList.add(s.selectionView);
 
         var fieldset = $d.c('fieldset');
         
@@ -55,14 +55,14 @@ export default class Selection extends Element {
         
         return div;
     }
-    init(){
+    init(app){
         
-        
+        console.log(app);
         this.children.forEach(each => {
             if (this.buttons.indexOf(each) !== -1) {
                 each.init(this.model.treaties);
             } else {
-                each.init(this.resolve); // passing in reference to Selections resolve so that 
+                each.init(this.resolve, app); // passing in reference to Selections resolve so that 
                                          // the children can handle it; ie resolve true after 
                                          // mobius selectr is initialized;
             }

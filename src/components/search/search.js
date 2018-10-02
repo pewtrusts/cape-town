@@ -128,7 +128,8 @@ export default class SearchBar extends Element {
 			this.el.classList.remove(s.revealOverflowTags);
 		}
 	}
-	init(resolveFn){ // the parent's (selection.js) resolve function
+	init(resolveFn, app){ // the parent's (selection.js) resolve function
+	console.log(app)
 		PS.setSubs([
 			['oversetOpen', (msg,data) => {
 				this.toggleShowMore.call(this,msg,data);
@@ -140,9 +141,11 @@ export default class SearchBar extends Element {
 			}]
 		]);
 		this.children.forEach(each => {
-			each.init(resolveFn); // passing reference to resolveFn to all children althogh only multiselect will resolve it
+			each.init(); // passing reference to resolveFn to all children althogh only multiselect will resolve it
 		});
-		if ( this.prerendered || process.env.NODE_ENV === 'development' ){
+		console.log(process.env.NODE_ENV, app.wasPrerendered );
+		if ( process.env.NODE_ENV === 'development' || app.wasPrerendered ){
+			console.log('calling new multiselect');
 			this.Selectr = new Multiselect(this.children[0].el, {
 				resolveFn,
 				multiple: true,
