@@ -7,7 +7,7 @@
     > div {
         overflow: visible;
     }
-    &.searchActive {
+    &.searchActive g {
         path:global(.None).matchesSearch {
             fill: $medium_gray !important;
             stroke: #fff
@@ -15,6 +15,7 @@
         path:not(.matchesSearch):not(:global(.None)):not(:hover) {
             fill: $light_gray !important;
         }
+
     }
     path:not(:global(.None)) {
         cursor: pointer;
