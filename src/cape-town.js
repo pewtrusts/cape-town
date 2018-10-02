@@ -138,22 +138,26 @@ class CapeTown extends PCTApp {
 
     }
     routerDecodeHashFn(){
-        console.log(window.location.hash.slice(1).split('?'));
-        window.location.hash.slice(1).split('?').forEach(category => {
-            var arr = category.split('=');
-            var treaties = model.treaties.map(t => t.key);
-            if (arr[0] === 'd'){
-                arr[1].split('+').forEach(treaty => {
-                    S.setState('deselected.' + treaty, true);
-                    let index = treaties.indexOf(treaty);
-                    treaties.splice(index,1);
-                });
-                S.setState('selected',treaties);
-            } else {
-                console.log(this);
-                S.setState(this.abbreviations[arr[0]], arr[1].split('+'));
-            }
-        });
+        if ( window.location.hash && window.location.hash.slice(1).split('?').length > 0 ){
+            window.location.hash.slice(1).split('?').forEach(category => {
+                var arr = category.split('=');
+                console.log(arr);
+                if (arr.length > 1){
+                    var treaties = model.treaties.map(t => t.key);
+                    if (arr[0] === 'd'){
+                        arr[1].split('+').forEach(treaty => {
+                            S.setState('deselected.' + treaty, true);
+                            let index = treaties.indexOf(treaty);
+                            treaties.splice(index,1);
+                        });
+                        S.setState('selected',treaties);
+                    } else {
+                        console.log(this);
+                        S.setState(this.abbreviations[arr[0]], arr[1].split('+'));
+                    }
+                }
+            });
+        }
 
     }
 

@@ -2,6 +2,7 @@ import s from './styles.scss';
 import main from '@Project/css/main.scss';
 import { Button } from '@UI/buttons/buttons.js';
 import { stateModule as S } from 'stateful-dead';
+import PS from 'pubsub-setter';
 
 export default class SelectButton extends Button {
 	prerender(){
@@ -14,11 +15,26 @@ export default class SelectButton extends Button {
 		return btn;
 	}
     init(treaties){
-        
+        PS.setSubs([
+            ['deselected.' + this.el.value, (msg,data) => {
+                this.updateAppearance.call(this,msg,data);
+            }]
+        ]);
         super.init()
         this.el.addEventListener('click', e => {
             this.clickEventHandler.call(e.target, treaties);
         });
+        this.el.setAttribute('aria-label',`Toggle ${this.innerHTML} filter on/off`);
+    }
+    updateAppearance(msg, data){
+        if ( data ){ // ie is deselected
+            this.el.classList.add(s.deselected);
+        } else {
+            this.el.classList.remove(s.deselected);
+        }
+        this.el.setAttribute('aria-pressed', data); // to do: do this via getters/setters?
+        
+        
     }
     clickEventHandler(treaties){
         var currentState = S.getState('deselected.' + this.value);
@@ -31,9 +47,6 @@ export default class SelectButton extends Button {
             return acc;
         },[]).sort();
         S.setState('selected', selected);
-        this.classList.toggle(s.deselected);
-        var currentAria = this.getAttribute('aria-pressed');
-        this.setAttribute('aria-pressed', !currentAria); // to do: do this via getters/setters?
-        this.setAttribute('aria-label',`Toggle ${this.innerHTML} filter on/off`);
+        
     }
 }
