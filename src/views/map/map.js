@@ -65,9 +65,9 @@ export default class MapView extends Element {
                     var el = country.graphic.element;
                     if ( data.indexOf(country.iso_a3) !== -1 || ( this.model.EUCountries.indexOf(country.iso_a3) !== -1 && data.indexOf('EU') !== -1 )){ 
                                                             // ie country code is in the search array or part of EU and EU is in the search array
-                        el.className.baseVal += el.className.baseVal + ' ' + s.matchesSearch; // SVGElement.prototype.classList i not fully supported
+                        el.className.baseVal += ' ' + s.matchesSearch; // SVGElement.prototype.classList i not fully supported
                     } else {
-                        el.className.baseVal += el.className.baseVal.replace(s.matchesSearch, '');
+                        el.className.baseVal.replace(' ' + s.matchesSearch, '');
                     }
                 });
             } else {
@@ -103,7 +103,7 @@ export default class MapView extends Element {
                 }).join('<br />');
                 setTimeout(() => {
                     let el = document.querySelector('.highcharts-tooltip');
-                    el.className.baseVal = el.className.baseVal += ' ' + this.point.className; // SVGElement.prototype.classList not fully supported
+                    el.className.baseVal += ' ' + this.point.className; // SVGElement.prototype.classList not fully supported
                 });
                 return `
                     <b>${this.point.name}</b><br />
