@@ -29,6 +29,7 @@ export default class Multiselect extends Mobius1Selectr {
         
         PS.setSubs([
             ['clickCountries', (msg,data) => {
+                console.log(data);
                 this.setValues.call(this,msg,data);
                 this.addTagEvents();
             }],

@@ -154,6 +154,11 @@ class CapeTown extends PCTApp {
                     } else {
                         console.log(this);
                         S.setState(this.abbreviations[arr[0]], arr[1].split('+'));
+                        if ( arr[0] === 'c' ){
+                            arr[1].split('+').forEach(c => {
+                                S.setState('clickCountries', c);
+                            });
+                        }
                     }
                 }
             });
