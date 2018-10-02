@@ -5,32 +5,25 @@
     height: 50px;
     transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
     color: #fff;
+    font-weight: bold;
+    :global(.has-hover) &:hover {
+        outline: 1px dotted #000;
+        opacity: 0.85;
+    }
     &:focus {
         outline: 1px dotted #000    ;
     }
     &.psma {
         background-color: $map_light_blue;
         border-color: $map_light_blue;
-        :global(.has-hover) &:hover {
-            outline: 1px dotted #000;
-            font-weight: bold;
-        }
     }
     &.cta {
         background-color: $map_medium_blue;
         border-color: $map_medium_blue;
-        :global(.has-hover) &:hover {
-            outline: 1px dotted #000;
-            font-weight: bold;
-        }
     }   
     &.c188 {
         background-color: $map_dark_blue;
         border-color: $map_dark_blue;
-        :global(.has-hover) &:hover {
-            outline: 1px dotted #000;
-            font-weight: bold;
-        }
     }
     &.deselected {
         border-color: $medium_gray;
