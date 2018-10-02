@@ -1,7 +1,7 @@
 //utils
 import * as d3 from 'd3-collection';
 import Papa from 'papaparse';
-//import Router from '@Router';
+import { stateModule as S } from 'stateful-dead';
 import PS from 'pubsub-setter';
 
 //data
@@ -101,39 +101,61 @@ class CapeTown extends PCTApp {
                view.init();                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
             });
             //console.log(this, views);
-            super.init(subsriptionsForRouter, PS, this.routerSetHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
+            super.init(subsriptionsForRouter, PS, this.routerSetHashFn, this.routerDecodeHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
+            this.router.abbreviations = {
+                deselected: 'd',
+                searchCountries: 'c',
+                d: 'deselected',
+                c: 'searchCountries'
+            };
         });                                // STEP ONE:  index.js calls this init()
+
         
     }
     routerSetHashFn(){
-            var deselected = [],
-            hashStrings = [],
-            abbreviations = {
-                deselected: 'ds',
-                selected: 's',
-                searchCountries: 'sc'
-            };
-            for ( var key in this.stateObj) {
-                if (this.stateObj.hasOwnProperty(key)){
-                    if ( key.indexOf('deselected') !== -1 ){
-                        if ( this.stateObj[key] ){
-                            deselected.push(key.split('.')[1]);
-                        }
-                    } else if ( this.stateObj[key].length > 0 ){
-                        hashStrings.push(abbreviations[key] + '=' + this.stateObj[key].join('+'));
+        var deselected = [],
+        hashStrings = [];
+        
+        for ( var key in this.stateObj) {
+            if (this.stateObj.hasOwnProperty(key)){
+                if ( key.indexOf('deselected') !== -1 ){
+                    if ( this.stateObj[key] ){
+                        deselected.push(key.split('.')[1]);
                     }
+                } else if ( this.stateObj[key].length > 0 ){
+                    hashStrings.push(this.abbreviations[key] + '=' + this.stateObj[key].join('+'));
                 }
             }
-            deselected.sort();
-            
-            // deselected string
-            if ( deselected.length > 0 ){
-                hashStrings.push('d=' + deselected.join('+'));
-            }
-            
-            this.hashString = hashStrings.length > 0 ? '#' + hashStrings.join('?') : ' ';
-
         }
+        deselected.sort();
+        
+        // deselected string
+        if ( deselected.length > 0 ){
+            hashStrings.push('d=' + deselected.join('+'));
+        }
+        
+        this.hashString = hashStrings.length > 0 ? '#' + hashStrings.join('?') : ' ';
+
+    }
+    routerDecodeHashFn(){
+        console.log(window.location.hash.slice(1).split('?'));
+        window.location.hash.slice(1).split('?').forEach(category => {
+            var arr = category.split('=');
+            var treaties = model.treaties.map(t => t.key);
+            if (arr[0] === 'd'){
+                arr[1].split('+').forEach(treaty => {
+                    S.setState('deselected.' + treaty, true);
+                    let index = treaties.indexOf(treaty);
+                    treaties.splice(index,1);
+                });
+                S.setState('selected',treaties);
+            } else {
+                console.log(this);
+                S.setState(this.abbreviations[arr[0]], arr[1].split('+'));
+            }
+        });
+
+    }
 
 }
 
