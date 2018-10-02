@@ -42,7 +42,7 @@ export default class Multiselect extends Mobius1Selectr {
             this.checkForTagOverflow();
             this.addTagEvents();
             
-            
+            console.log(Selectr.selectedValues);
             S.setState('searchCountries', Selectr.selectedValues.slice(1));
         }
         this.Selectr.on('selectr.init', () => {
@@ -54,7 +54,7 @@ export default class Multiselect extends Mobius1Selectr {
         
         this.Selectr.on('selectr.open', function(){
             setTimeout(() => { // timeout gives API timeto create the <li>s that this needs to search through
-                this.tree.querySelectorAll('span.isParty-false').forEach(span => {
+                Array.from(this.tree.querySelectorAll('span.isParty-false')).forEach(span => {
                     span.parentNode.classList.add('hideOption'); // hides the Selectr options that should have been hidden; ie are not party to an agreement
                 });
             });
@@ -94,7 +94,7 @@ export default class Multiselect extends Mobius1Selectr {
         which then opens or closes the dropdown. until / unless that code is brought in local, there is
         no access to the event. the tags themselves in the DOM have no attribute refering to the country
         so the only way to work around is to allow the third-part code to do its thing and then undo it */
-        document.querySelectorAll('button.selectr-tag-remove').forEach(button => {
+        Array.from(document.querySelectorAll('button.selectr-tag-remove')).forEach(button => {
             button.addEventListener('click', () => {
                 if ( !this.Selectr.opened ){
                     cont.style.display = 'none';

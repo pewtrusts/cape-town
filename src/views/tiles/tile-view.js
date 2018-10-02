@@ -39,7 +39,7 @@ export default class TileView {
         
         ////tiles
         this.tiles.forEach(tile => {
-            cont.append(tile.el);
+            cont.appendChild(tile.el);
         });
 
 

@@ -48,7 +48,7 @@ class ShowAllButton extends Button {
 		return this._oversetCount;
 	}
 	set oversetCount(value){
-		if (!Number.isInteger(value)){
+		if ( value % 1 !== 0 ){
 			throw 'oversetCount must be an integer';
 		}
 		if ( value === 0 ) {
