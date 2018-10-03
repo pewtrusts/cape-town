@@ -11,6 +11,7 @@ import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
 import worldTopo from '@Project/data/worldtopo.json';
 
+import { GTMPush } from '@Utils';
 
 //const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
 
@@ -76,7 +77,8 @@ export default class MapView extends Element {
         }
                                                                    
     }
-    initializeMap(){ 
+    initializeMap(){
+        this.mapState = {}; 
 
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
             var match = this.model.joinData.find(d => d.key === f.id);
@@ -149,8 +151,13 @@ export default class MapView extends Element {
                 name: 'International agreements',
                 events: {
                     click: (e) => {
+                        window.lastCountrySelectMethod = 'map';
                          // using timestamp make each event unique so that clicking the same country twice results in a new setState
+                        var isOn = ( !document.querySelector('#pct-map').classList.contains(s.searchActive) || ( document.querySelector('#pct-map').classList.contains(s.searchActive) && !e.target.classList.contains(s.matchesSearch) ));
+                        GTMPush('EIFP|Map|' + e.point.iso_a3 + '|' + ( isOn ? 'on' : 'off' ));
                         S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
+                        
+
                     }
                 }
                 

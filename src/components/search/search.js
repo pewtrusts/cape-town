@@ -161,7 +161,9 @@ export default class SearchBar extends Element {
 		var clrBtn = $d.q(`button.${s.clearSearch}`);
 		clrBtn.setAttribute('aria-label', "Clear the 'Filter by parties' filter");
 		clrBtn.addEventListener('click', () => {
+			window.lastCountrySelectMethod = 'clear';
 			this.Selectr.Selectr.clear();
+			
 		});
 		$d.q('.selectr-input').setAttribute('aria-labelledby','party-filter');
 		$d.q('.selectr-options').setAttribute('aria-labelledby','party-filter');

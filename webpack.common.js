@@ -118,6 +118,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
                         "@UI": path.join(__dirname, '../../UI/'),
                         "@Project": path.join(__dirname, 'src'),
                         "@Helpers": path.join(__dirname, '../../helpers/'),
+                        "@Utils": path.join(__dirname, '../../UTILS/'),
                     }
                 }
             }

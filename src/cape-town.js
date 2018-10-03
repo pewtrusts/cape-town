@@ -155,6 +155,8 @@ class CapeTown extends PCTApp {
                         console.log(this);
                         S.setState(this.abbreviations[arr[0]], arr[1].split('+'));
                         if ( arr[0] === 'c' ){
+                            window.lastCountrySelectMethod = 'savedState'; // keeps from firing GTMPush for country selection events when they
+                                                                           // happen from loading a saved state
                             arr[1].split('+').forEach(c => {
                                 S.setState('clickCountries', c);
                             });

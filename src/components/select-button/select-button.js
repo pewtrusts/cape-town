@@ -3,6 +3,7 @@ import main from '@Project/css/main.scss';
 import { Button } from '@UI/buttons/buttons.js';
 import { stateModule as S } from 'stateful-dead';
 import PS from 'pubsub-setter';
+import { GTMPush } from '@Utils';
 
 export default class SelectButton extends Button {
 	prerender(){
@@ -22,6 +23,7 @@ export default class SelectButton extends Button {
         ]);
         super.init()
         this.el.addEventListener('click', e => {
+            console.log(this);
             this.clickEventHandler.call(e.target, treaties);
         });
         this.el.setAttribute('aria-label',`Toggle ${this.innerHTML} filter on/off`);
@@ -39,6 +41,9 @@ export default class SelectButton extends Button {
     clickEventHandler(treaties){
         var currentState = S.getState('deselected.' + this.value);
         S.setState('deselected.' + this.value, !currentState );
+        var label = 'EIFP|Treaty|' + this.value + '|' + ( currentState ? 'on' : 'off' );
+        GTMPush(label);
+        
         var selected = treaties.reduce((acc,cur) => { // pass in all treaties to get order so that order is not hard coded but infered from data
             if ( !S.getState('deselected.' + cur.key) ) {
                 acc.push(cur.key);
@@ -47,6 +52,5 @@ export default class SelectButton extends Button {
             return acc;
         },[]).sort();
         S.setState('selected', selected);
-        
     }
 }
