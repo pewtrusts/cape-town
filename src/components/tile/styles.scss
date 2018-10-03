@@ -4,7 +4,13 @@ $margin: 2;
 $title_height: 30;
 $slide_transition: transform 0.2s ease-in-out 0.3s;
 .tilesContainer {
-    width: 100%;                           // 1 column
+    width: 100%; 
+    &:not(.searchActive) {
+        .countryTile.EUOnly {
+            display: none;
+        }
+    }
+                              // 1 column
     @media screen and (min-width: 629px) { // 3 column
         width: calc(100% + 9px);
     }

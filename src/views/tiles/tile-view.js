@@ -106,20 +106,19 @@ export default class TileView {
                 return acc;
             }, true);
         });
-        var visibleTiles = this.tiles.filter(tile => tile.isVisible);
         
         setTimeout(() => { // separate FLIP steps out to do one at a times
-            visibleTiles.forEach((each) => {
+            this.tiles.forEach((each) => {
                 each.getPosition('first'); //Flip
             });
-            visibleTiles.forEach((each,i) => {
+            this.tiles.forEach((each,i) => {
                 each.changePosition(msg,data,i); //Last
             });
-            visibleTiles.forEach((each) => {
+            this.tiles.forEach((each) => {
                 each.getPosition('last');
                 each.invertPosition();
             });
-            visibleTiles.forEach((each,i,array) => {
+            this.tiles.forEach((each,i,array) => {
                 each.animatePosition(i,array.length);
             });
 
