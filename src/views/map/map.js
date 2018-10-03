@@ -1,4 +1,4 @@
-/* global Highcharts */
+/* global Highcharts, process */
 
 //import * as d3 from 'd3-collection';
 import PS from 'pubsub-setter';
@@ -26,7 +26,7 @@ export default class MapView extends Element {
         map.classList.add(s.mapContainer);
         return map;
     }
-    init(){
+    init(app){
         PS.setSubs([
             ['deselected', (msg,data) => {
                 this.updateMap.call(this,msg,data);
@@ -36,7 +36,7 @@ export default class MapView extends Element {
             }]
         ]);
         
-        this.convertToGeoJSON(); // the chain leading to initialization of the map starts here. by the time init() is called
+        this.convertToGeoJSON(app); // the chain leading to initialization of the map starts here. by the time init() is called
                                  // the map container exists as this.el
     }
    /* getTopoJSON(){
@@ -48,9 +48,11 @@ export default class MapView extends Element {
                 this.convertToGeoJSON(topo); // chain continues
             });
     }*/
-    convertToGeoJSON(){
+    convertToGeoJSON(app){
         this.geoJSON = topojson.feature(worldTopo, worldTopo.objects.world);
-        this.initializeMap(); // chain continues
+        if ( process.env.NODE_ENV === 'development' || app.wasPrerendered ){
+            this.initializeMap(); // chain continues
+        }
     }
     updateMap(msg,data) {
         if ( msg.split('.')[0] === 'deselected' ){
