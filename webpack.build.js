@@ -7,6 +7,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const pretty = require('pretty');
+
+const publicPath = '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
 
 module.exports = env => {
     return merge(common(), {
@@ -73,8 +76,17 @@ module.exports = env => {
                     inject: {IS_PRERENDERING: true},
                     headless: false,
                     //sloMo: 10000,
-                    renderAfterTime: 10000
-                })
+                    renderAfterTime: 5000
+                }),
+                postProcess: function(renderedRoute){
+                    renderedRoute.html = renderedRoute.html.replace('href="css/styles.css"','href="' + publicPath + 'css/styles.css"');
+                    renderedRoute.html = renderedRoute.html.replace('src="js/index.js"','src="' + publicPath + 'js/index.js"');
+                    //renderedRoute.html = renderedRoute.html.replace(/<head>[\s\S]*?<\/head>/, '');
+                    //renderedRoute.html = renderedRoute.html.replace(/^[\s\S]*<!-- EMBED CODE STARTS HERE -->/, '<!-- EMBED CODE STARTS HERE -->');
+                    renderedRoute.html = renderedRoute.html.replace(/<head>[\s\S].*<\/head>/,'').replace(/<\/?html>|<\/?body>/g,'');
+                    renderedRoute.html = pretty(renderedRoute.html);
+                    return renderedRoute;
+                }
             }),
             new webpack.EnvironmentPlugin({
                 'NODE_ENV': env
