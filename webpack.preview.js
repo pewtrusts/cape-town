@@ -68,6 +68,12 @@ module.exports = env => {
                 staticDir: path.join(__dirname, '../../preview/' + __dirname.match(/[^/]+$/)[0]),
                 // Required - Routes to render.
                 routes: ['/'],
+                renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
+                    inject: {IS_PRERENDERING: true},
+                    headless: false,
+                    //sloMo: 10000,
+                    renderAfterTime: 5000
+                })
             }),
             new webpack.EnvironmentPlugin({
                 'NODE_ENV': env
