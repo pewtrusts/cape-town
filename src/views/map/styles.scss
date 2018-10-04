@@ -7,7 +7,7 @@
     > div {
         overflow: visible;
     }
-    &.searchActive {
+    &.searchActive g:not(:global(.highcharts-map-navigation)):not(:global(.highcharts-tooltip)) {
         path:global(.None).matchesSearch {
             fill: $medium_gray !important;
             stroke: #fff
@@ -15,6 +15,7 @@
         path:not(.matchesSearch):not(:global(.None)):not(:hover) {
             fill: $light_gray !important;
         }
+
     }
     path:not(:global(.None)) {
         cursor: pointer;
@@ -25,6 +26,9 @@
     :global(.highcharts-map-navigation) {
         text {
             transform: translate(3px, 0);
+        }
+        path {
+            fill: #fff !important;
         }
     }
     :global(.highcharts-credits) {

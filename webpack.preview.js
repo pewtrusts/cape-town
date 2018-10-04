@@ -1,11 +1,11 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = env => {
     return merge(common(), {
@@ -43,11 +43,6 @@ module.exports = env => {
                 ]
             }]
         },
-        /*optimization: {
-           splitChunks: {
-              chunks: 'all'
-            }
-        },*/
         plugins: [
             new HtmlWebpackPlugin({
                 title: 'title title title',

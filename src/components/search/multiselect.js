@@ -2,6 +2,7 @@ import { Mobius1Selectr } from '@UI/inputs/inputs.js';
 import PS from 'pubsub-setter';
 import './styles-exclude.scss';
 import { stateModule as S } from 'stateful-dead';
+import { GTMPush } from '@Utils';
 //import $d from '@Helpers/dom-helpers.js';
 //import main from '@Project/css/main.scss';
 
@@ -15,7 +16,7 @@ export default class Multiselect extends Mobius1Selectr {
 
    init(){
         super.init(); //calls init() method from class Mobius1Selector which initiates the multiselect on this.el
-
+       // this.lastSelected = null;
         Array.from(this.el.options).forEach(option => {  // this will hide the options in the original select element
                                                          // that are not party to at least one agreement, but the Selectr
                                                          // transforms the original and shows them again. init() method
@@ -39,16 +40,42 @@ export default class Multiselect extends Mobius1Selectr {
         ]);
         
         function selectrOnChange(Selectr){
+            console.log(window.lastCountrySelectMethod);
+            if ( window.lastCountrySelectMethod !== 'map' && window.lastCountrySelectMethod !== 'clear' && window.lastCountrySelectMethod !== 'savedState' ) {
+                 let country;
+                 let onOff;
+                 let presentState = S.getState('searchCountries') || [];
+                 let slicedValues = Selectr.selectedValues.slice(1);
+                 console.log(presentState, slicedValues);
+                 if ( presentState.length < slicedValues.length ){ // ie selecing new country; new list longer than old list
+                    country = slicedValues[slicedValues.length - 1];
+                    onOff = 'on';
+                 } else {
+                    onOff = 'off';
+                    for ( let i = 0; i < presentState.length; i++ ){
+                        if ( slicedValues.indexOf(presentState[i]) === -1 ){ // ie the presentState item is not in the newState array
+                            country = presentState[i];
+                            break;
+                        }
+                    }
+                 }
+                 console.log(country, onOff);
+                 GTMPush('EIFP|Search|' + country + '|' + onOff);
+            }
+            if ( window.lastCountrySelectMethod === 'clear' ){
+                GTMPush('EIFP|Search|Clear');
+            }
             this.checkForTagOverflow();
             this.addTagEvents();
             
-            
+          
             S.setState('searchCountries', Selectr.selectedValues.slice(1));
+            setTimeout(() => {
+                window.lastCountrySelectMethod = 'search';
+            },250);
         }
         this.Selectr.on('selectr.init', () => {
-            //setTimeout(() => {
                 this.Selectr.config.resolveFn(true);
-           // },5000);
         });
         this.Selectr.on('selectr.change', () => {
             selectrOnChange.call(this, this.Selectr);
@@ -56,7 +83,7 @@ export default class Multiselect extends Mobius1Selectr {
         
         this.Selectr.on('selectr.open', function(){
             setTimeout(() => { // timeout gives API timeto create the <li>s that this needs to search through
-                this.tree.querySelectorAll('span.isParty-false').forEach(span => {
+                Array.from(this.tree.querySelectorAll('span.isParty-false')).forEach(span => {
                     span.parentNode.classList.add('hideOption'); // hides the Selectr options that should have been hidden; ie are not party to an agreement
                 });
             });
@@ -96,7 +123,7 @@ export default class Multiselect extends Mobius1Selectr {
         which then opens or closes the dropdown. until / unless that code is brought in local, there is
         no access to the event. the tags themselves in the DOM have no attribute refering to the country
         so the only way to work around is to allow the third-part code to do its thing and then undo it */
-        document.querySelectorAll('button.selectr-tag-remove').forEach(button => {
+        Array.from(document.querySelectorAll('button.selectr-tag-remove')).forEach(button => {
             button.addEventListener('click', () => {
                 if ( !this.Selectr.opened ){
                     cont.style.display = 'none';
@@ -113,7 +140,7 @@ export default class Multiselect extends Mobius1Selectr {
         });
     }
     setValues(msg,data){
-        
-        this.Selectr.setValue(data);
+        this.Selectr.setValue(data); 
+
     }
 }         

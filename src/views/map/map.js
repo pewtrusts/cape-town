@@ -1,4 +1,4 @@
-/* global Highcharts */
+/* global Highcharts, process */
 
 //import * as d3 from 'd3-collection';
 import PS from 'pubsub-setter';
@@ -11,6 +11,7 @@ import Element from '@UI/element/element.js';
 import * as topojson from 'topojson-client';
 import worldTopo from '@Project/data/worldtopo.json';
 
+import { GTMPush } from '@Utils';
 
 //const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
 
@@ -25,7 +26,7 @@ export default class MapView extends Element {
         map.classList.add(s.mapContainer);
         return map;
     }
-    init(){
+    init(app){
         PS.setSubs([
             ['deselected', (msg,data) => {
                 this.updateMap.call(this,msg,data);
@@ -35,7 +36,7 @@ export default class MapView extends Element {
             }]
         ]);
         
-        this.convertToGeoJSON(); // the chain leading to initialization of the map starts here. by the time init() is called
+        this.convertToGeoJSON(app); // the chain leading to initialization of the map starts here. by the time init() is called
                                  // the map container exists as this.el
     }
    /* getTopoJSON(){
@@ -47,9 +48,11 @@ export default class MapView extends Element {
                 this.convertToGeoJSON(topo); // chain continues
             });
     }*/
-    convertToGeoJSON(){
+    convertToGeoJSON(app){
         this.geoJSON = topojson.feature(worldTopo, worldTopo.objects.world);
-        this.initializeMap(); // chain continues
+        if ( process.env.NODE_ENV === 'development' || app.wasPrerendered ){
+            this.initializeMap(); // chain continues
+        }
     }
     updateMap(msg,data) {
         if ( msg.split('.')[0] === 'deselected' ){
@@ -62,11 +65,12 @@ export default class MapView extends Element {
             if ( data.length !== 0 ) { // ie search is active, not an empty array
                 this.Highmap.container.parentNode.classList.add(s.searchActive);
                 this.Highmap.series[0].data.forEach(country => {
+                    var el = country.graphic.element;
                     if ( data.indexOf(country.iso_a3) !== -1 || ( this.model.EUCountries.indexOf(country.iso_a3) !== -1 && data.indexOf('EU') !== -1 )){ 
                                                             // ie country code is in the search array or part of EU and EU is in the search array
-                        country.graphic.element.classList.add(s.matchesSearch);
+                        el.classList.add(s.matchesSearch); // SVGElement.prototype.classList i not fully supported
                     } else {
-                        country.graphic.element.classList.remove(s.matchesSearch);
+                        el.classList.remove(s.matchesSearch);
                     }
                 });
             } else {
@@ -75,7 +79,8 @@ export default class MapView extends Element {
         }
                                                                    
     }
-    initializeMap(){ 
+    initializeMap(){
+        this.mapState = {}; 
 
         var allCountriesData = this.geoJSON.features.filter(f => f.hasOwnProperty('id')).map(f => { // filter for only feature
             var match = this.model.joinData.find(d => d.key === f.id);
@@ -101,7 +106,8 @@ export default class MapView extends Element {
                     return model.treaties.find(t => t.key === c).name + parenthetical   ;
                 }).join('<br />');
                 setTimeout(() => {
-                    document.querySelector('.highcharts-tooltip').classList.add(this.point.className);
+                    let el = document.querySelector('.highcharts-tooltip');
+                    el.classList.add(this.point.className); 
                 });
                 return `
                     <b>${this.point.name}</b><br />
@@ -147,8 +153,13 @@ export default class MapView extends Element {
                 name: 'International agreements',
                 events: {
                     click: (e) => {
+                        window.lastCountrySelectMethod = 'map';
                          // using timestamp make each event unique so that clicking the same country twice results in a new setState
+                        var isOn = ( !document.querySelector('#pct-map').classList.contains(s.searchActive) || ( document.querySelector('#pct-map').classList.contains(s.searchActive) && !e.target.classList.contains(s.matchesSearch) ));
+                        GTMPush('EIFP|Map|' + e.point.iso_a3 + '|' + ( isOn ? 'on' : 'off' ));
                         S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
+                        
+
                     }
                 }
                 

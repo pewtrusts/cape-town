@@ -25,6 +25,9 @@ export default class CountryTile {
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1; 
         if (isEUMember){
             tile.classList.add('EU');
+            if ( this.country.values.length === 0 ) {
+                tile.classList.add(s.EUOnly);
+            }
         }
         if ( this.country.value !== 'None' ){
             if ( this.country.key == 'EU'){
@@ -121,8 +124,11 @@ export default class CountryTile {
         
         var delay = document.documentElement.clientWidth > 628 ? 200 : 100; // time in ms it should take for transitions to have begun
         var duration = document.documentElement.clientWidth > 628 ? 500 : 250; // time in ms it should take to complete all transitions
+        setTimeout(() => {
+            this.el.style.transform = 'none';
+        }, delay);
         this.el.style.zIndex = length - index;
-            this.moveTiles = this.el.animate([{
+        this.moveTiles = this.el.animate([{
               transformOrigin: 'top left',
               transform: ( this.deltaY === 0 && this.deltaX === 0 ) ?
                 `translate(${this.deltaX}px, ${this.deltaY}px)` :
@@ -136,8 +142,6 @@ export default class CountryTile {
               delay: ( delay / length ) * index
                 });
         this.moveTiles.onfinish = () => {
-            this.el.style.transform = 'none';
-           // this.el.classList.remove(s.animating);
             if ( index === length - 1){ // ie is the last tile
                 
                 this.parent.tiles.forEach(each => {
