@@ -76,11 +76,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
                                     options: {
                                         removeSVGTagAttrs: false
                                     }
-                                },
-                                {
-                                    loader: 'svgo-loader'
-                                }
-                            ]
+                                }]
                         },
                         {
                             test: /x-out\.svg/,

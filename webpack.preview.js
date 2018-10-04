@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const pretty = require('pretty');
 
 module.exports = env => {
     return merge(common(), {
@@ -72,8 +73,13 @@ module.exports = env => {
                     inject: {IS_PRERENDERING: true},
                     headless: false,
                     //sloMo: 10000,
-                    renderAfterTime: 5000
-                })
+                    renderAfterTime: 5000,
+                }),
+                postProcess: function(renderedRoute){
+                    renderedRoute.html = renderedRoute.html.replace(/<script.*?src="svgs-not-needed.*"><\/script>/,'');
+                    renderedRoute.html = pretty(renderedRoute.html);
+                    return renderedRoute;
+                }
             }),
             new webpack.EnvironmentPlugin({
                 'NODE_ENV': env
