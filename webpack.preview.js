@@ -71,9 +71,9 @@ module.exports = env => {
                 routes: ['/'],
                 renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
                     inject: {IS_PRERENDERING: true},
-                    headless: false,
+                    //headless: false,
                     //sloMo: 10000,
-                    renderAfterTime: 5000,
+                    //renderAfterTime: 5000,
                 }),
                 postProcess: function(renderedRoute){
                     renderedRoute.html = renderedRoute.html.replace(/<script.*?src="svgs-not-needed.*"><\/script>/,'');
