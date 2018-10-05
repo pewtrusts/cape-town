@@ -60,6 +60,9 @@ module.exports = env => {
                     },
                 }),
             ],
+            splitChunks: {
+                chunks: 'all'
+            }
         },
         plugins: [
             new HtmlWebpackPlugin({

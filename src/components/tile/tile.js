@@ -60,9 +60,11 @@ export default class CountryTile {
                 ${countryInfoText}
             </div>
         `;
-        this.getImage().then(v => {
-            tile.querySelector(`.${s.svgWrapper}`).insertAdjacentHTML('afterbegin',v);
-        });
+        //if ( !this.isPushed ){
+            this.getImage().then(v => {
+                tile.querySelector(`.${s.svgWrapper}`).insertAdjacentHTML('afterbegin',v);
+            });
+       // }
 		return tile;
 	}
     set isVisible(bool){
@@ -81,9 +83,15 @@ export default class CountryTile {
     }
     getImage(){
         var key = this.isPushed && this.country.value === 'None' ? 'globe' : this.isPushed ? 'EU' : this.country.key; // EU country tiles can be pushed but value will equal psma, not None
-        return import(/* webpackChunkName: "svgs-not-needed/[request]"*/ '@Project/assets/countries/' + key + '.svg').then(({default: svg}) => {
-            return svg;
-        }).catch(error => 'Error:' + error);
+        if ( window.__PRERENDER_INJECTED.IS_INJECTED ){
+            return import(/* webpackChunkName: "svgs-prerendered/[request]"*/ '@Project/assets/countries-prerender/' + key + '.svg').then(({default: svg}) => {
+                return svg;
+            }).catch(error => 'Error:' + error);
+        } else {
+            return import(/* webpackMode: "eager" */ '@Project/assets/countries-dynamic/' + key + '.svg').then(({default: svg}) => {
+                return svg;
+            }).catch(error => 'Error:' + error);
+        }
     }
     init(){
         this.isVisible = true;
