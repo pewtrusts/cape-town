@@ -1,5 +1,4 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const DynamicImport = require('babel-plugin-syntax-dynamic-import');
@@ -98,8 +97,6 @@ module.exports = env => { // module.exports is function now to pass in env varia
                     ]
                 },
                 plugins: [
-                    new CleanWebpackPlugin(['dist']),
-                    
                     new MiniCssExtractPlugin({
                         // Options similar to the same options in webpackOptions.output
                         // both options are optional

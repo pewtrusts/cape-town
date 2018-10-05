@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const common = require('./webpack.nondev.js');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -11,40 +11,22 @@ const pretty = require('pretty');
 module.exports = env => {
     return merge(common(), {
         devtool: 'inline-source-map', // may be too slow an option; set to another if so
-        mode: 'production',
-        module: {
-            rules: [{
-                    test: /\.scss$/,
-                    exclude: /exclude/,
-                    use: [{
-                        loader: MiniCssExtractPlugin.loader,
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            localIdentName: '[local]--[hash:base64:5]', // hash to avoid collisions
-                            sourceMap: true,
-                            minimize: true,
-                            importLoaders: 1
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                ]
-            }]
-        },
         plugins: [
+            new CopyWebpackPlugin([{
+                from: '-/**/*.*',
+                context: 'src'
+            }, {
+                from: 'assets/**/*.*',
+                exclude: 'assets/Pew/css/',
+                context: 'src',
+                ignore: ['assets/countries/*.*']
+            }, {
+                from: 'assets/Pew/css/*.*',
+                context: 'src',
+                transform(content, path) {
+                    return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/' + __dirname.match(/[^/]+$/)[0] + '/$1');
+                }
+            }]),
             new HtmlWebpackPlugin({
                 title: 'title title title',
                 template: './src/interactive-100.html',
@@ -70,13 +52,10 @@ module.exports = env => {
                 // Required - Routes to render.
                 routes: ['/'],
                 renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
-                    inject: {IS_PRERENDERING: true},
-                    //headless: false,
-                    //sloMo: 10000,
-                    //renderAfterTime: 5000,
+                    injectProperty: 'IS_PRERENDERING',
+                    inject: true,
                 }),
                 postProcess: function(renderedRoute){
-                    renderedRoute.html = renderedRoute.html.replace(/<script.*?src="svgs-not-needed.*"><\/script>/,'');
                     renderedRoute.html = pretty(renderedRoute.html);
                     return renderedRoute;
                 }
