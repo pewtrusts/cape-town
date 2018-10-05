@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = env => {
     return merge(common(), {
@@ -43,10 +44,8 @@ module.exports = env => {
             }]
         },
         plugins: [
+            new CleanWebpackPlugin(['dist']),
             
-            new webpack.EnvironmentPlugin({
-                'NODE_ENV': env
-            })
         ]
       });
   };

@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
@@ -44,7 +43,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
             }]
         },
         plugins: [
-            new CleanWebpackPlugin(['dist']),
+            
             new HtmlWebpackPlugin({
                 title: 'title title title',
                 template: './src/interactive-100.html',

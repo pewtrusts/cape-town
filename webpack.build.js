@@ -9,17 +9,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const pretty = require('pretty');
 
-const publicPath = '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
+const publicPath = '/~/media/data-visualizations/interactives/2018/EIFP/' // <<== set this for each project
 
 module.exports = env => {
-    return merge(common(), {
+    return merge(common(env), {
         devtool: 'source-map',
         optimization: {
             minimizer: [
                 new UglifyJSPlugin({
                     uglifyOptions: {
                         compress: {
-                            drop_console: true
+                            drop_console: false
                         },
                         output: {
                             comments: false
@@ -28,6 +28,7 @@ module.exports = env => {
                 }),
             ],
             splitChunks: {
+                automaticNameDelimiter: '-',
                 chunks: 'all'
             }
         },
@@ -50,22 +51,25 @@ module.exports = env => {
                     renderAfterTime: 1000
                 }),
                 postProcess: function(renderedRoute){
-                    renderedRoute.html = renderedRoute.html.replace('href="css/styles.css"','href="' + publicPath + 'css/styles.css"');
-                    renderedRoute.html = renderedRoute.html.replace('src="js/index.js"','src="' + publicPath + 'js/index.js"');
+                    renderedRoute.html = renderedRoute.html.replace(/class="emitted-css" href="(.*?)"/,'class="emitted-css" href="' + publicPath + '$1' + '"');
+                    renderedRoute.html = renderedRoute.html.replace(/class="emitted-bundle" src="(.*?)"/,'class="emitted-bundle" src="' + publicPath + '$1' + '"');
+                    //renderedRoute.html = renderedRoute.html.replace('src="js/index.js"','src="' + publicPath + 'js/index.js"');
                     renderedRoute.html = renderedRoute.html.replace(/<head>[\s\S].*<\/head>/,'').replace(/<\/?html>|<\/?body>/g,'');
                     renderedRoute.html = pretty(renderedRoute.html);
                     return renderedRoute;
                 }
             }),
+            new webpack.DefinePlugin({
+                'PUBLICPATH': '"' + publicPath + '"', // from https://webpack.js.org/plugins/define-plugin/: Note that because the plugin does a direct text replacement, the value given to it must include actual quotes inside of the string itself. Typically, this is done either with alternate quotes, such as '"production"', or by using JSON.stringify('production').
+            }),
             new webpack.EnvironmentPlugin({
                 'NODE_ENV': env
             })
-
         ],
         output: {
             filename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
-            //publicPath: '/~/media/data-visualizations/interactives/2018/test/' // <<== set this for each project
+           // publicPath
         }
     });
 };
