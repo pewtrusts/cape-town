@@ -83,7 +83,7 @@ export default class CountryTile {
     }
     getImage(){
         var key = this.isPushed && this.country.value === 'None' ? 'globe' : this.isPushed ? 'EU' : this.country.key; // EU country tiles can be pushed but value will equal psma, not None
-        if ( window.__PRERENDER_INJECTED.IS_INJECTED ){
+        if ( !this.isPushed ){
             return import(/* webpackChunkName: "svgs-prerendered/[request]"*/ '@Project/assets/countries-prerender/' + key + '.svg').then(({default: svg}) => {
                 return svg;
             }).catch(error => 'Error:' + error);
