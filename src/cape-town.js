@@ -1,3 +1,4 @@
+/* global PUBLICPATH process*/
 //utils
 import * as d3 from 'd3-collection';
 import Papa from 'papaparse';
@@ -29,10 +30,17 @@ const model = {
 const views = [];
 
 function getRuntimeData(){
-    //views.length = 0;
-    
+    var publicPath = '';
+    console.log(process.env.NODE_ENV);
+    console.log('is prerendering: ' + window.IS_PRERENDERING );
+
+    if ( process.env.NODE_ENV === 'production' && !window.IS_PRERENDERING ){
+        
+        publicPath = PUBLICPATH;
+        console.log(publicPath + countries);
+    }
     return new Promise((resolve, reject) => {
-        Papa.parse(countries, {
+        Papa.parse(publicPath + countries, {
             download: true,
             dynamicTyping: true,
             header: true,
