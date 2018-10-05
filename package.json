@@ -44,7 +44,6 @@
     "svg-inline-loader": "^0.8.0",
     "svg-url-loader": "^2.3.2",
     "svgo": "^1.0.5",
-    "svgo-loader": "^2.2.0",
     "topojson-client": "^3.0.0",
     "web-animations-js": "^2.3.1",
     "webpack": "^4.20.2",
