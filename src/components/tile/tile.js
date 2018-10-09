@@ -23,6 +23,11 @@ export default class CountryTile {
         
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1; 
+
+        var isOverseasTerritory = this.parent.model.overseas.hasOwnProperty(this.country.key);
+        if ( isOverseasTerritory ){
+            console.log('overseas!', this); // TODO: logic to handle overseas countries would go here.
+        }
         if (isEUMember){
             tile.classList.add('EU');
             if ( this.country.values.length === 0 ) {
