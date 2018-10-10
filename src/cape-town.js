@@ -56,6 +56,7 @@ function getRuntimeData(){
                 model.countriesNested = d3.nest().key(d => d.iso_a3).entries(countries);
                 model.treatiesNested =  d3.nest().key(d => d.treaty_id).entries(countries);
                 model.countriesArray = model.countriesNested.map(c => c.key);
+
                 model.joinData = d3.nest().key(d => d.iso_a3).entries(countries).map(d => {
                     var ratified = [];
                     d.values.sort((a,b) => a.treaty_id < b.treaty_id ? -1 : a.treaty_id > b.treaty_id ? 1 : a.treaty_id >= b.treaty_id ? 0 : NaN).forEach(v => { // sort fn from d3.ascending()
@@ -71,11 +72,40 @@ function getRuntimeData(){
                     // add className property to each country that corresponds to which treaties it is party to, or "none"
                     d.value = ratified.length === 0 ? 'None' : ratified.join('-');
                     return d;
-                }).concat(
+                }).concat(// add on EU countries not already included from the CSV, ie, countries that have not independently
+                          // ratified a treaty
                     model.EUCountries.filter(eur => model.countriesArray.indexOf(eur) === -1).map(c => { 
                         return {key: c, values: [], value: 'psma'};
                     })
                 );
+
+                // creat array of overseas territories to be included
+                var overseasTerritories = [];
+                for ( var key in model.overseas ){
+                    if (model.overseas.hasOwnProperty(key)){
+                        overseasTerritories.push(key);
+                    }
+                }
+               // console.log(overseasTerritories, model.joinData);
+               model.joinData = model.joinData.concat(
+                   overseasTerritories.map(ot => {
+                        console.log(ot, model.overseas[ot]);
+                        var mainlandDatum = model.joinData.find(c => c.key === model.overseas[ot]);
+                        return Object.create(mainlandDatum, {
+                            key: {
+                                value: ot
+                            },
+                            isOverseasTerritory: {
+                                value: true
+                            },
+                            mainland: {
+                                value: mainlandDatum.key
+                            }
+                        });
+                    }) // creates objects that prototypically inherit from the mainland's object
+                        // key is ownProperty; others are property up the inheritance chain.
+               );
+               console.log(model.joinData);
                 /* push views now that model is complete */
                 views.push(
                     new TextView('div#pct-text'),

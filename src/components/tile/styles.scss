@@ -6,7 +6,7 @@ $slide_transition: transform 0.2s ease-in-out 0.3s;
 .tilesContainer {
     width: 100%; 
     &:not(.searchActive) {
-        .countryTile.EUOnly {
+        .countryTile.EUOnly, .countryTile.otOnly {
             display: none;
         }
     }

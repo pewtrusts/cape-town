@@ -1,13 +1,22 @@
-<svg width="187px" height="123px" viewBox="0 0 187 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+<svg width="174px" height="100px" viewBox="0 0 174 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <path d="M83,42 L166,42 L166,84 L83,42 Z M83,42 L83,84 L0,84 L83,42 Z M83,42 L0,42 L0,0 L83,42 Z M83,42 L83,0 L166,0 L83,42 Z" id="path-1"></path>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="GBR-flag" transform="translate(6.000000, 9.000000)" fill-rule="nonzero">
-            <rect id="Rectangle-path" fill="#00247D" x="0" y="0" width="175" height="105"></rect>
-            <path d="M0,0 L175,105 M175,0 L0,105" id="Shape" stroke="#FFFFFF" stroke-width="21" fill="#000000"></path>
-            <path d="M87.5,0 L87.5,105 M0,52.5 L175,52.5" id="Shape" stroke="#FFFFFF" stroke-width="35" fill="#000000"></path>
-            <path d="M87.5,0 L87.5,105 M0,52.5 L175,52.5" id="Shape" stroke="#CF142B" stroke-width="21" fill="#000000"></path>
+        <g id="Flag_of_the_United_Kingdom" transform="translate(4.000000, 8.000000)">
+            <polygon id="Shape" fill="#00247D" fill-rule="nonzero" points="0 0 0 84 166 84 166 0"></polygon>
+            <path d="M0,0 L166,84 M166,0 L0,84" id="Shape" stroke="#FFFFFF" stroke-width="16.625" fill="#000000" fill-rule="nonzero"></path>
+            <g id="Clipped">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Shape"></g>
+                <path d="M0,0 L166,84 M166,0 L0,84" id="Shape" stroke="#CF142B" stroke-width="11.0833333" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+            <path d="M83,0 L83,84 M0,42 L166,42" id="Shape" stroke="#FFFFFF" stroke-width="27.7083333" fill="#000000" fill-rule="nonzero"></path>
+            <path d="M83,0 L83,84 M0,42 L166,42" id="Shape" stroke="#CF142B" stroke-width="16.625" fill="#000000" fill-rule="nonzero"></path>
         </g>
     </g>
 </svg>

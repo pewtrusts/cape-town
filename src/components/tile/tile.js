@@ -22,11 +22,19 @@ export default class CountryTile {
         var countryInfoText;
         
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
-        var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1; 
+        var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1;
 
-        var isOverseasTerritory = this.parent.model.overseas.hasOwnProperty(this.country.key);
-        if ( isOverseasTerritory ){
+        /* if country is an overseas territory, find the datum of the mainland country. if none will be undefined */
+       // this.mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.parent.model.overseas[this.country.key]);
+       // this.country.isOverseasTerritory = this.parent.model.overseas.hasOwnProperty(this.country.key);
+console.log(this);
+        if ( this.country.isOverseasTerritory ){
             console.log('overseas!', this); // TODO: logic to handle overseas countries would go here.
+            tile.classList.add('ot');
+            if ( this.country.values.length === 0 ){
+                tile.classList.add(s.otOnly);
+            }
+
         }
         if (isEUMember){
             tile.classList.add('EU');
@@ -34,20 +42,25 @@ export default class CountryTile {
                 tile.classList.add(s.EUOnly);
             }
         }
-        if ( this.country.value !== 'None' ){
-            if ( this.country.key == 'EU'){
+        if ( this.country.value !== 'None' ) {
+            if ( this.country.key === 'EU'){ // is the EU
                 countryInfoText = `<p><b>${EUDatum.treaty_id.toUpperCase()}:</b> Ratified on ${EUDatum.ratified_date}`;
             } else {
                 countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
                     let match = this.country.values.find(d => d.treaty_id === cur.key);
-                    let info =  match && cur.key ===  'cta' ? 
+                    let info =  
+                                /** CTA **/
+                                match && cur.key ===  'cta' ? 
                                     'Ratified on ' + match.ratified_date + ' with ' + match.note + '.' :
+                                /** PSMA for EU countries **/
     /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '; in respect of overseas territories on ' + match.ratified_date + '.' :
-    /*is EU only */             isEUMember && cur.key === 'psma' ?
+    /*is EU only (ie no match)*/isEUMember && cur.key === 'psma' ?
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '.' : 
+                                /** PSMA for non-EU or C188 **/
                                 match ?
                                     'Ratified on ' + match.ratified_date + '.' : 
+                                /** Not ratified **/
                                     'Not ratified.';
                     return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
                 },'');
@@ -58,7 +71,7 @@ export default class CountryTile {
         }
         tile.innerHTML = `
             <div title="${this.parent.model.countryCodes[this.country.key]}" class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
-                ${ this.country.value === 'None' ? countryInfoText : ''}
+                ${ this.country.value === 'None' && !this.country.isOverseasTerritory ? countryInfoText : ''}
             <div class="${s.svgWrapper}">
             </div>
             <div class="${s.countryInfo} country-info">
@@ -87,7 +100,7 @@ export default class CountryTile {
         return this._isVisible;
     }
     getImage(){
-        var key = this.isPushed && this.country.value === 'None' ? 'globe' : this.isPushed ? 'EU' : this.country.key; // EU country tiles can be pushed but value will equal psma, not None
+        var key = this.country.isOverseasTerritory ? this.country.mainland + '-flag' : this.isPushed && this.country.value === 'None' ? 'globe' : this.isPushed ? 'EU' : this.country.key; // EU country tiles can be pushed but value will equal psma, not None
         if ( !this.isPushed ){
             return import(/* webpackChunkName: "svgs-prerendered/[request]"*/ '@Project/assets/countries-prerender/' + key + '.svg').then(({default: svg}) => {
                 return svg;

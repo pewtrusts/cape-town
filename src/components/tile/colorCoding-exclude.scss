@@ -8,8 +8,19 @@ $deselected: $medium_gray;
 
 // .EU should behave like .psma for multiple coloring only, but not for psma coloring    
 #pct-tiles-cont > div {
+
     background-color: $light_gray;
     color: #000;
+    g.white path {
+        fill:#fff !important;
+        stroke: none !important;
+    }
+    svg#svgUSA g.white path {
+        stroke: none !important;
+       }
+    path.white, path.stroke-white {
+        stroke: #fff !important;
+    }
     &.None {
         > div:first-child {
             border-left: 10px solid $deselected;
@@ -144,8 +155,13 @@ $deselected: $medium_gray;
     }
     @media screen and (min-width: 629px) {
         &.None {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($deselected, 15%);
+                    stroke:  lighten($deselected, 15%);
+                }
                 fill: $deselected;
+                stroke:  $deselected;
             }
             > div:first-child, div.country-info {
                 background-color: $deselected;
@@ -153,56 +169,91 @@ $deselected: $medium_gray;
         }
 
         &.cta {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($cta, 15%);
+                    stroke:  lighten($cta, 15%);
+                }
                 fill: $cta;
+                stroke:  $cta;
             }
             > div:first-child, div.country-info {
                 background-color: $cta;
             }
         }
         &.c188 {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($c188, 15%);
+                    stroke:  lighten($c188, 15%);
+                }
                 fill: $c188;
+                stroke:  $c188;
             }
             > div:first-child, div.country-info {
                 background-color: $c188;
             }
         }
         &.psma {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($psma, 15%);
+                    stroke:  lighten($psma, 15%);
+                }
                 fill: $psma;
+                stroke:  $psma;
             }
             > div:first-child, div.country-info {
                 background-color: $psma;
             }
         }
         &.c188-cta {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($multiple, 15%);
+                    stroke:  lighten($multiple, 15%);
+                }
                 fill: $multiple;
+                stroke:  $multiple;
             }
             > div:first-child, div.country-info {
                 background-color: $multiple;
             }
         }
         &.cta-psma, &.cta.EU {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($multiple, 15%);
+                    stroke:  lighten($multiple, 15%);
+                }
                 fill: $multiple;
+                stroke:  $multiple;
             }
             > div:first-child, div.country-info {
                 background-color: $multiple;
             }
         }
         &.c188-psma, &.c188.EU {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($multiple, 15%);
+                    stroke:  lighten($multiple, 15%);
+                }
                 fill: $multiple;
+                stroke:  $multiple;
             }
             > div:first-child, div.country-info {
                 background-color: $multiple;
             }
         }
         &.c188-cta-psma, &.c188-cta.EU {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($multiple, 15%);
+                    stroke:  lighten($multiple, 15%);
+                }
                 fill: $multiple;
+                stroke:  $multiple;
             }
             > div:first-child, div.country-info {
                 background-color: $multiple;
@@ -210,24 +261,39 @@ $deselected: $medium_gray;
         }
         .deselect-cta & {
             &.cta {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($deselected, 15%);
+                        stroke:  lighten($deselected, 15%);
+                    }
                     fill: $deselected;
+                    stroke:  $deselected;
                 }
                 > div:first-child, div.country-info {
                     background-color: $deselected;
                 }
             }
             &.c188-cta {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($c188, 15%);
+                        stroke:  lighten($c188, 15%);
+                    }
                     fill: $c188;
+                    stroke:  $c188;
                 }
                 > div:first-child, div.country-info {
                     background-color: $c188;
                 }
             }
             &.cta-psma {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($psma, 15%);
+                        stroke:  lighten($psma, 15%);
+                    }
                     fill: $psma;
+                    stroke:  $psma;
                 }
                 > div:first-child, div.country-info {
                     background-color: $psma;
@@ -236,24 +302,39 @@ $deselected: $medium_gray;
         }
         .deselect-c188 & {
             &.c188 {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($deselected, 15%);
+                        stroke:  lighten($deselected, 15%);
+                    }
                     fill: $deselected;
+                    stroke:  $deselected;
                 }
                 > div:first-child, div.country-info {
                     background-color: $deselected;
                 }
             }
             &.c188-cta {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($cta, 15%);
+                        stroke:  lighten($cta, 15%);
+                    }
                     fill: $cta;
+                    stroke:  $cta;
                 }
                 > div:first-child, div.country-info {
                     background-color: $cta;
                 }
             }
             &.c188-psma {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($psma, 15%);
+                        stroke:  lighten($psma, 15%);
+                    }
                     fill: $psma;
+                    stroke:  $psma;
                 }
                 > div:first-child, div.country-info {
                     background-color: $psma;
@@ -262,24 +343,39 @@ $deselected: $medium_gray;
         }
         .deselect-psma & {
             &.psma {
-               path {
+               path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($deselected, 15%);
+                    stroke:  lighten($deselected, 15%);
+                }
                 fill: $deselected;
+                stroke:  $deselected;
                }
                > div:first-child, div.country-info {
                    background-color: $deselected;
                }
             }
             &.cta-psma, &.cta.EU {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($cta, 15%);
+                        stroke:  lighten($cta, 15%);
+                    }
                     fill: $cta;
+                    stroke:  $cta;
                 }
                 > div:first-child, div.country-info {
                     background-color: $cta;
                 }
             }
             &.c188-psma, &.c188.EU {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($c188, 15%);
+                        stroke:  lighten($c188, 15%);
+                    }
                     fill: $c188;
+                    stroke:  $c188;
                 }
                 > div:first-child, div.country-info {
                     background-color: $c188;
@@ -288,16 +384,26 @@ $deselected: $medium_gray;
         }
         .deselect-cta.deselect-c188 & {
             &.c188-cta {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($deselected, 15%);
+                        stroke:  lighten($deselected, 15%);
+                    }
                     fill: $deselected;
+                    stroke:  $deselected;
                 }
                 > div:first-child, div.country-info {
                     background-color: $deselected;
                 }
             }
             &.c188-cta-psma {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($psma, 15%);
+                        stroke:  lighten($psma, 15%);
+                    }
                     fill: $psma;
+                    stroke:  $psma;
                 }
                 > div:first-child, div.country-info {
                     background-color: $psma;
@@ -306,16 +412,26 @@ $deselected: $medium_gray;
         }
         .deselect-cta.deselect-psma & {
             &.cta-psma, &.cta.EU {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($deselected, 15%);
+                        stroke: lighten($deselected, 15%);
+                    }
                     fill: $deselected;
+                    stroke: $deselected;
                 }
                 > div:first-child, div.country-info {
                     background-color: $deselected;
                 }
             }
             &.c188-cta-psma, &.c188-cta.EU {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($c188, 15%);
+                        stroke: lighten($c188, 15%);
+                    }
                     fill: $c188;
+                    stroke: $c188;
                 }
                 > div:first-child, div.country-info {
                     background-color: $c188;
@@ -324,16 +440,26 @@ $deselected: $medium_gray;
         }
         .deselect-c188.deselect-psma & {
             &.c188-psma, &.c188.EU {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($deselected, 15%);
+                        stroke: lighten($deselected, 15%);
+                    }
                     fill: $deselected;
+                    stroke: $deselected;
                 }
                 > div:first-child, div.country-info {
                     background-color: $deselected;
                 }
             }
             &.c188-cta-psma, &.c188-cta.EU {
-                path {
+                path:not(.white):not(.def) {
+                    &.lighter {
+                        fill: lighten($cta, 15%);
+                        stroke: lighten($cta, 15%);
+                    }
                     fill: $cta;
+                    stroke: $cta;
                 }
                 > div:first-child, div.country-info {
                     background-color: $cta;
@@ -341,8 +467,13 @@ $deselected: $medium_gray;
             }
         }
         .deselect-cta.deselect-c188.deselect-psma & {
-            path {
+            path:not(.white):not(.def) {
+                &.lighter {
+                    fill: lighten($deselected, 15%);
+                    stroke: lighten($deselected, 15%);
+                }
                 fill: $deselected;
+                stroke: $deselected;
             }
             > div:first-child, div.country-info {
                 background-color: $deselected;

@@ -1,315 +1,105 @@
-<svg width="175px" height="89px" viewBox="0 0 175 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="88px" viewBox="0 0 175 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
     <desc>Created with Sketch.</desc>
     <defs>
-        <polygon id="path-1" points="0 0 87.5 0 87.5 43.9137134 0 43.9137134"></polygon>
-        <path d="M0,0 L43.75,21.9568567 L0,21.9568567 L0,0 Z M43.75,0 L87.5,0 L43.75,21.9568567 L43.75,0 Z M43.75,21.9568567 L87.5,21.9568567 L87.5,43.9137134 L43.75,21.9568567 Z M43.75,21.9568567 L43.75,43.9137134 L0,43.9137134 L43.75,21.9568567 Z" id="path-3"></path>
-        <polygon id="path-5" points="0 0 87.5 0 87.5 43.9137134 0 43.9137134"></polygon>
-        <polygon id="path-7" points="0 0 87.5 0 87.5 43.9137134 0 43.9137134"></polygon>
+        <path d="M43.75,21.875 L43.75,43.75 L0,43.75 M43.75,21.875 L87.5,21.875 L87.5,43.75 M43.75,0 L87.5,0 L43.75,21.875 M0,0 L43.75,21.875 L0,21.875 L0,0" id="path-1"></path>
     </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="NZL-flag" transform="translate(0.000000, -2.000000)">
-            <rect id="Rectangle-path" fill="#00247D" fill-rule="nonzero" x="0" y="2.48844376" width="175" height="87.8274268"></rect>
-            <g id="Flag_of_the_United_Kingdom" transform="translate(0.000000, 2.488444)">
-                <g id="Saint_Andrews_Cross-Clipped">
-                    <mask id="mask-2" fill="white">
-                        <use xlink:href="#path-1"></use>
-                    </mask>
-                    <g id="Shape"></g>
-                    <path d="M0,0 L87.5,43.9137134 M0,43.9137134 L87.5,0" id="Saint_Andrews_Cross" stroke="#FFFFFF" stroke-width="8.75" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
-                </g>
-                <g id="Saint_Patricks_Cross-Clipped">
-                    <mask id="mask-4" fill="white">
-                        <use xlink:href="#path-3"></use>
-                    </mask>
-                    <g id="Shape"></g>
-                    <path d="M0,0 L87.5,43.9137134 M0,43.9137134 L87.5,0" id="Saint_Patricks_Cross" stroke="#CC142B" stroke-width="5.83333333" fill="#000000" fill-rule="nonzero" mask="url(#mask-4)"></path>
-                </g>
-                <g id="Saint_Georges_Cross">
-                    <g id="Clipped">
-                        <mask id="mask-6" fill="white">
-                            <use xlink:href="#path-5"></use>
-                        </mask>
-                        <g id="Shape"></g>
-                        <path d="M43.75,0 L43.75,43.9137134 M0,21.9568567 L87.5,21.9568567" id="Shape" stroke="#FFFFFF" stroke-width="14.5833333" fill="#000000" fill-rule="nonzero" mask="url(#mask-6)"></path>
-                    </g>
-                    <g id="Clipped">
-                        <mask id="mask-8" fill="white">
-                            <use xlink:href="#path-7"></use>
-                        </mask>
-                        <g id="Shape"></g>
-                        <path d="M43.75,0 L43.75,43.9137134 M0,21.9568567 L87.5,21.9568567" id="Shape" stroke="#CC142B" stroke-width="8.75" fill="#000000" fill-rule="nonzero" mask="url(#mask-8)"></path>
-                    </g>
-                </g>
-            </g>
-            <g id="Southern_Cross" transform="translate(85.604167, 0.000000)" fill-rule="nonzero">
-                <g id="Gamma_Crucis" transform="translate(25.666667, 0.000000)">
-                    <g id="Pentagram-link" transform="translate(0.116667, 0.117103)" fill="#FFFFFF">
-                        <g id="Pentagram">
-                            <g id="Arm" transform="translate(13.241667, 11.131893)">
-                                <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                            </g>
-                            <g id="Arm-link" transform="translate(16.552083, 16.614022) scale(-1, 1) translate(-16.552083, -16.614022) translate(6.620833, 6.645609)">
-                                <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(24.033868, 22.070198) rotate(72.000000) translate(-24.033868, -22.070198) translate(14.102618, 12.101785)">
-                                <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(17.737082, 15.749848) rotate(-72.000000) translate(-17.737082, -15.749848) translate(7.805832, 5.781435)">
-                                <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(15.691132, 22.070198) scale(-1, 1) rotate(72.000000) translate(-15.691132, -22.070198) translate(5.759882, 12.101785)">
-                                <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                    <g id="Pentagram-link" transform="translate(6.854167, 6.879815)" fill="#CC142B">
-                        <g id="Pentagram">
-                            <g id="Arm" transform="translate(8.750000, 7.355876)">
-                                <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                            </g>
-                            <g id="Arm-link" transform="translate(10.937500, 10.978428) scale(-1, 1) translate(-10.937500, -10.978428) translate(4.375000, 4.391371)">
-                                <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(15.881411, 14.583831) rotate(72.000000) translate(-15.881411, -14.583831) translate(9.318911, 7.996774)">
-                                <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(11.720539, 10.407389) rotate(-72.000000) translate(-11.720539, -10.407389) translate(5.158039, 3.820332)">
-                                <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(10.368589, 14.583831) scale(-1, 1) rotate(72.000000) translate(-10.368589, -14.583831) translate(3.806089, 7.996774)">
-                                <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-                <g id="Group" transform="translate(42.974173, 37.996297) rotate(82.000000) translate(-42.974173, -37.996297) translate(20.515839, -2.331130)">
-                    <g id="Delta_Crucis" transform="translate(2.479167, 0.000000)">
-                        <g id="Pentagram-link" transform="translate(19.979167, 20.053929) rotate(-82.000000) translate(-19.979167, -20.053929) translate(2.304167, 2.312789)" fill="#FFFFFF">
-                            <g id="Pentagram">
-                                <g id="Arm" transform="translate(11.783333, 9.905913)">
-                                    <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
-                                    <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
-                                </g>
-                                <g id="Arm-link" transform="translate(14.729167, 14.784284) scale(-1, 1) translate(-14.729167, -14.784284) translate(5.891667, 5.913713)">
-                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
-                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
-                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(21.386967, 19.639559) rotate(72.000000) translate(-21.386967, -19.639559) translate(12.549467, 10.768989)">
-                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
-                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
-                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(15.783659, 14.015283) rotate(-72.000000) translate(-15.783659, -14.015283) translate(6.946159, 5.144713)">
-                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
-                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
-                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(13.963033, 19.639559) scale(-1, 1) rotate(72.000000) translate(-13.963033, -19.639559) translate(5.125533, 10.768989)">
-                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
-                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
-                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                        <g id="Pentagram-link" transform="translate(19.979167, 20.053929) rotate(-82.000000) translate(-19.979167, -20.053929) translate(9.041667, 9.075501)" fill="#CC142B">
-                            <g id="Pentagram">
-                                <g id="Arm" transform="translate(7.291667, 6.129897)">
-                                    <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
-                                    <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
-                                </g>
-                                <g id="Arm-link" transform="translate(9.114583, 9.148690) scale(-1, 1) translate(-9.114583, -9.148690) translate(3.645833, 3.659476)">
-                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
-                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
-                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(13.234509, 12.153192) rotate(72.000000) translate(-13.234509, -12.153192) translate(7.765759, 6.663978)">
-                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
-                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
-                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(9.767115, 8.672824) rotate(-72.000000) translate(-9.767115, -8.672824) translate(4.298365, 3.183610)">
-                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
-                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
-                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(8.640491, 12.153192) scale(-1, 1) rotate(72.000000) translate(-8.640491, -12.153192) translate(3.171741, 6.663978)">
-                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
-                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
-                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                    <g id="Beta_Crucis" transform="translate(0.000000, 35.570108)">
-                        <g id="Pentagram-link" transform="translate(22.458333, 22.542373) rotate(-82.000000) translate(-22.458333, -22.542373) translate(2.595833, 2.605547)" fill="#FFFFFF">
-                            <g id="Pentagram">
-                                <g id="Arm" transform="translate(13.241667, 11.131893)">
-                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                </g>
-                                <g id="Arm-link" transform="translate(16.552083, 16.614022) scale(-1, 1) translate(-16.552083, -16.614022) translate(6.620833, 6.645609)">
-                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(24.033868, 22.070198) rotate(72.000000) translate(-24.033868, -22.070198) translate(14.102618, 12.101785)">
-                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(17.737082, 15.749848) rotate(-72.000000) translate(-17.737082, -15.749848) translate(7.805832, 5.781435)">
-                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(15.691132, 22.070198) scale(-1, 1) rotate(72.000000) translate(-15.691132, -22.070198) translate(5.759882, 12.101785)">
-                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
-                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
-                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                        <g id="Pentagram-link" transform="translate(22.458333, 22.542373) rotate(-82.000000) translate(-22.458333, -22.542373) translate(9.333333, 9.368259)" fill="#CC142B">
-                            <g id="Pentagram">
-                                <g id="Arm" transform="translate(8.750000, 7.355876)">
-                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                </g>
-                                <g id="Arm-link" transform="translate(10.937500, 10.978428) scale(-1, 1) translate(-10.937500, -10.978428) translate(4.375000, 4.391371)">
-                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(15.881411, 14.583831) rotate(72.000000) translate(-15.881411, -14.583831) translate(9.318911, 7.996774)">
-                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(11.720539, 10.407389) rotate(-72.000000) translate(-11.720539, -10.407389) translate(5.158039, 3.820332)">
-                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                    </g>
-                                </g>
-                                <g id="Arm-link" transform="translate(10.368589, 14.583831) scale(-1, 1) rotate(72.000000) translate(-10.368589, -14.583831) translate(3.806089, 7.996774)">
-                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
-                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
-                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-                <g id="Alpha_Crucis" transform="translate(23.479167, 50.500770)">
-                    <g id="Pentagram-link" transform="translate(0.116667, 0.117103)" fill="#FFFFFF">
-                        <g id="Pentagram">
-                            <g id="Arm" transform="translate(14.700000, 12.357872)">
-                                <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
-                                <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
-                            </g>
-                            <g id="Arm-link" transform="translate(18.375000, 18.443760) scale(-1, 1) translate(-18.375000, -18.443760) translate(7.350000, 7.377504)">
-                                <g id="Arm" transform="translate(0.000000, 4.980368)">
-                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
-                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(26.680770, 24.500836) rotate(72.000000) translate(-26.680770, -24.500836) translate(15.655770, 13.434580)">
-                                <g id="Arm" transform="translate(0.000000, 4.980368)">
-                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
-                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(19.690505, 17.484413) rotate(-72.000000) translate(-19.690505, -17.484413) translate(8.665505, 6.418157)">
-                                <g id="Arm" transform="translate(0.000000, 4.980368)">
-                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
-                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(17.419230, 24.500836) scale(-1, 1) rotate(72.000000) translate(-17.419230, -24.500836) translate(6.394230, 13.434580)">
-                                <g id="Arm" transform="translate(0.000000, 4.980368)">
-                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
-                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                    <g id="Pentagram-link" transform="translate(6.854167, 6.879815)" fill="#CC142B">
-                        <g id="Pentagram">
-                            <g id="Arm" transform="translate(10.208333, 8.581856)">
-                                <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
-                                <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
-                            </g>
-                            <g id="Arm-link" transform="translate(12.760417, 12.808166) scale(-1, 1) translate(-12.760417, -12.808166) translate(5.104167, 5.123267)">
-                                <g id="Arm" transform="translate(0.000000, 3.458589)">
-                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
-                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(18.528313, 17.014469) rotate(72.000000) translate(-18.528313, -17.014469) translate(10.872063, 9.329570)">
-                                <g id="Arm" transform="translate(0.000000, 3.458589)">
-                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
-                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(13.673962, 12.141953) rotate(-72.000000) translate(-13.673962, -12.141953) translate(6.017712, 4.457054)">
-                                <g id="Arm" transform="translate(0.000000, 3.458589)">
-                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
-                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
-                                </g>
-                            </g>
-                            <g id="Arm-link" transform="translate(12.096687, 17.014469) scale(-1, 1) rotate(72.000000) translate(-12.096687, -17.014469) translate(4.440437, 9.329570)">
-                                <g id="Arm" transform="translate(0.000000, 3.458589)">
-                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
-                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
+    <g id="new-zealand-flag-seeklogo.com" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Fill-1" fill="#282E60" points="0 87.49125 175 87.49125 175 0 0 0"></polygon>
+        <path d="M0,43.75 L87.5,0 M0,0 L87.5,43.75" id="Fill-3" fill="#0A0B09"></path>
+        <path d="M0,43.75 L87.5,0 M0,0 L87.5,43.75" id="Stroke-4" stroke="#FFFFFE" stroke-width="8.75"></path>
+        <g id="Group-9">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Clip-7"></g>
+            <path d="M0,43.75 L87.5,0 M0,0 L87.5,43.75" id="Fill-6" fill="#0A0B09" mask="url(#mask-2)"></path>
+            <path d="M0,43.75 L87.5,0 M0,0 L87.5,43.75" id="Stroke-8" stroke="#BA252F" stroke-width="5.83333333" mask="url(#mask-2)"></path>
         </g>
+        <path d="M0,21.875 L87.5,21.875 M43.75,0 L43.75,43.75" id="Fill-10" fill="#0A0B09"></path>
+        <path d="M0,21.875 L87.5,21.875 M43.75,0 L43.75,43.75" id="Stroke-11" stroke="#FFFFFE" stroke-width="14.5833333"></path>
+        <path d="M0,21.875 L87.5,21.875 M43.75,0 L43.75,43.75" id="Fill-13" fill="#0A0B09"></path>
+        <path d="M0,21.875 L87.5,21.875 M43.75,0 L43.75,43.75" id="Stroke-14" stroke="#BA252F" stroke-width="8.75"></path>
+        <polyline id="Fill-16" fill="#FFFFFE" points="131.25 15.6046042 131.25 18.5212708 137.083333 15.6046042 131.25 15.6046042"></polyline>
+        <polyline id="Fill-17" fill="#FFFFFE" points="132.364021 19.0334375 130.649604 16.6737083 137.083333 15.6046042 132.364021 19.0334375"></polyline>
+        <polyline id="Fill-18" fill="#FFFFFE" points="131.25 15.6046042 131.25 18.5212708 125.416667 15.6046042 131.25 15.6046042"></polyline>
+        <polyline id="Fill-19" fill="#FFFFFE" points="130.135833 19.0334375 131.85025 16.6737083 125.416667 15.6046042 130.135833 19.0334375"></polyline>
+        <polyline id="Fill-20" fill="#FFFFFE" points="133.0525 16.9143333 130.278604 17.8155833 134.855146 22.462125 133.0525 16.9143333"></polyline>
+        <polyline id="Fill-21" fill="#FFFFFE" points="130.135833 19.0334375 131.85025 16.6737083 134.855146 22.462125 130.135833 19.0334375"></polyline>
+        <polyline id="Fill-22" fill="#FFFFFE" points="129.447354 16.9143333 132.22125 17.8155833 131.249854 11.3663958 129.447354 16.9143333"></polyline>
+        <polyline id="Fill-23" fill="#FFFFFE" points="133.0525 16.9143333 130.278604 17.8155833 131.249854 11.3663958 133.0525 16.9143333"></polyline>
+        <polyline id="Fill-24" fill="#FFFFFE" points="129.447354 16.9143333 132.22125 17.8155833 127.644708 22.462125 129.447354 16.9143333"></polyline>
+        <polyline id="Fill-25" fill="#FFFFFE" points="132.364021 19.0334375 130.649604 16.6737083 127.644708 22.462125 132.364021 19.0334375"></polyline>
+        <polyline id="Fill-26" fill="#BA252F" points="131.25 16.0784167 131.25 18.2659167 135.625 16.0784167 131.25 16.0784167"></polyline>
+        <polyline id="Fill-27" fill="#BA252F" points="132.085479 18.6500417 130.799667 16.8802083 135.625 16.0784167 132.085479 18.6500417"></polyline>
+        <polyline id="Fill-28" fill="#BA252F" points="131.25 16.0784167 131.25 18.2659167 126.875 16.0784167 131.25 16.0784167"></polyline>
+        <polyline id="Fill-29" fill="#BA252F" points="130.414375 18.6500417 131.700188 16.8802083 126.875 16.0784167 130.414375 18.6500417"></polyline>
+        <polyline id="Fill-30" fill="#BA252F" points="132.602021 17.06075 130.521417 17.7366875 133.953896 21.2216667 132.602021 17.06075"></polyline>
+        <polyline id="Fill-31" fill="#BA252F" points="130.414521 18.6500417 131.700187 16.8802083 133.953896 21.2216667 130.414521 18.6500417"></polyline>
+        <polyline id="Fill-32" fill="#BA252F" points="129.897979 17.06075 131.978438 17.7366875 131.249854 12.8998333 129.897979 17.06075"></polyline>
+        <polyline id="Fill-33" fill="#BA252F" points="132.601875 17.06075 130.521417 17.7366875 131.249854 12.8998333 132.601875 17.06075"></polyline>
+        <polyline id="Fill-34" fill="#BA252F" points="129.897979 17.06075 131.978438 17.7366875 128.545958 21.2216667 129.897979 17.06075"></polyline>
+        <polyline id="Fill-35" fill="#BA252F" points="132.085479 18.6500417 130.799667 16.8802083 128.545958 21.2216667 132.085479 18.6500417"></polyline>
+        <polyline id="Fill-36" fill="#FFFFFE" points="148.579375 30.9060208 148.579375 33.4581042 153.683542 30.9060208 148.579375 30.9060208"></polyline>
+        <polyline id="Fill-37" fill="#FFFFFE" points="149.555 33.90625 148.054375 31.8415417 153.683542 30.9060208 149.555 33.90625"></polyline>
+        <polyline id="Fill-38" fill="#FFFFFE" points="148.579375 30.9060208 148.579375 33.4581042 143.4755 30.9060208 148.579375 30.9060208"></polyline>
+        <polyline id="Fill-39" fill="#FFFFFE" points="147.605208 33.90625 149.104375 31.8415417 143.4755 30.9060208 147.605208 33.90625"></polyline>
+        <polyline id="Fill-40" fill="#FFFFFE" points="150.157292 32.0519792 147.729167 32.8406458 151.73375 36.9063333 150.157292 32.0519792"></polyline>
+        <polyline id="Fill-41" fill="#FFFFFE" points="147.605208 33.90625 149.104375 31.8415417 151.73375 36.9063333 147.605208 33.90625"></polyline>
+        <polyline id="Fill-42" fill="#FFFFFE" points="147.002917 32.0519792 149.429583 32.8406458 148.579375 27.197625 147.002917 32.0519792"></polyline>
+        <polyline id="Fill-43" fill="#FFFFFE" points="150.157292 32.0519792 147.729167 32.8406458 148.579375 27.197625 150.157292 32.0519792"></polyline>
+        <polyline id="Fill-44" fill="#FFFFFE" points="147.002917 32.0519792 149.429583 32.8406458 145.425 36.9063333 147.002917 32.0519792"></polyline>
+        <polyline id="Fill-45" fill="#FFFFFE" points="149.555 33.90625 148.054375 31.8415417 145.425 36.9063333 149.555 33.90625"></polyline>
+        <polyline id="Fill-46" fill="#BA252F" points="148.579375 31.3798333 148.579375 33.20275 152.225208 31.3798333 148.579375 31.3798333"></polyline>
+        <polyline id="Fill-47" fill="#BA252F" points="149.276458 33.5228542 148.204583 32.0480417 152.225208 31.3798333 149.276458 33.5228542"></polyline>
+        <polyline id="Fill-48" fill="#BA252F" points="148.579375 31.3798333 148.579375 33.20275 144.933833 31.3798333 148.579375 31.3798333"></polyline>
+        <polyline id="Fill-49" fill="#BA252F" points="147.88375 33.5228542 148.954167 32.0480417 144.933833 31.3798333 147.88375 33.5228542"></polyline>
+        <polyline id="Fill-50" fill="#BA252F" points="149.706667 32.1983958 147.972708 32.76175 150.8325 35.6657292 149.706667 32.1983958"></polyline>
+        <polyline id="Fill-51" fill="#BA252F" points="147.88375 33.5228542 148.954167 32.0480417 150.8325 35.6657292 147.88375 33.5228542"></polyline>
+        <polyline id="Fill-52" fill="#BA252F" points="147.453542 32.1983958 149.186042 32.76175 148.579375 28.7310625 147.453542 32.1983958"></polyline>
+        <polyline id="Fill-53" fill="#BA252F" points="149.706667 32.1983958 147.972708 32.76175 148.579375 28.7310625 149.706667 32.1983958"></polyline>
+        <polyline id="Fill-54" fill="#BA252F" points="147.453542 32.1983958 149.186042 32.76175 146.32625 35.6657292 147.453542 32.1983958"></polyline>
+        <polyline id="Fill-55" fill="#BA252F" points="149.276458 33.5228542 148.204583 32.0480417 146.32625 35.6657292 149.276458 33.5228542"></polyline>
+        <polyline id="Fill-56" fill="#FFFFFE" points="111.031958 35.9460208 111.031958 38.8626875 116.865292 35.9460208 111.031958 35.9460208"></polyline>
+        <polyline id="Fill-57" fill="#FFFFFE" points="112.145979 39.3748542 110.431708 37.015125 116.865292 35.9460208 112.145979 39.3748542"></polyline>
+        <polyline id="Fill-58" fill="#FFFFFE" points="111.031958 35.9460208 111.031958 38.8626875 105.198625 35.9460208 111.031958 35.9460208"></polyline>
+        <polyline id="Fill-59" fill="#FFFFFE" points="109.917937 39.3748542 111.632354 37.015125 105.198625 35.9460208 109.917937 39.3748542"></polyline>
+        <polyline id="Fill-60" fill="#FFFFFE" points="112.834604 37.25575 110.060708 38.157 114.63725 42.8035417 112.834604 37.25575"></polyline>
+        <polyline id="Fill-61" fill="#FFFFFE" points="109.917938 39.3748542 111.632354 37.015125 114.63725 42.8035417 109.917938 39.3748542"></polyline>
+        <polyline id="Fill-62" fill="#FFFFFE" points="109.229313 37.25575 112.003208 38.157 111.031813 31.7079583 109.229313 37.25575"></polyline>
+        <polyline id="Fill-63" fill="#FFFFFE" points="112.834604 37.25575 110.060563 38.157 111.031813 31.7079583 112.834604 37.25575"></polyline>
+        <polyline id="Fill-64" fill="#FFFFFE" points="109.229312 37.25575 112.003208 38.157 107.426812 42.8035417 109.229312 37.25575"></polyline>
+        <polyline id="Fill-65" fill="#FFFFFE" points="112.145979 39.3748542 110.431562 37.015125 107.426812 42.8035417 112.145979 39.3748542"></polyline>
+        <polyline id="Fill-66" fill="#BA252F" points="111.031958 36.4198333 111.031958 38.6073333 115.406958 36.4198333 111.031958 36.4198333"></polyline>
+        <polyline id="Fill-67" fill="#BA252F" points="111.867583 38.9914583 110.581625 37.2217708 115.406958 36.4198333 111.867583 38.9914583"></polyline>
+        <polyline id="Fill-68" fill="#BA252F" points="111.031958 36.4198333 111.031958 38.6073333 106.656958 36.4198333 111.031958 36.4198333"></polyline>
+        <polyline id="Fill-69" fill="#BA252F" points="110.196479 38.9914583 111.482146 37.2217708 106.656958 36.4198333 110.196479 38.9914583"></polyline>
+        <polyline id="Fill-70" fill="#BA252F" points="112.383979 37.4021667 110.303521 38.0781042 113.735854 41.5630833 112.383979 37.4021667"></polyline>
+        <polyline id="Fill-71" fill="#BA252F" points="110.196479 38.9914583 111.482146 37.2217708 113.735854 41.5630833 110.196479 38.9914583"></polyline>
+        <polyline id="Fill-72" fill="#BA252F" points="109.680083 37.4021667 111.760396 38.0781042 111.031813 33.24125 109.680083 37.4021667"></polyline>
+        <polyline id="Fill-73" fill="#BA252F" points="112.383979 37.4021667 110.303375 38.0781042 111.031813 33.24125 112.383979 37.4021667"></polyline>
+        <polyline id="Fill-74" fill="#BA252F" points="109.680083 37.4021667 111.760396 38.0781042 108.327917 41.5630833 109.680083 37.4021667"></polyline>
+        <polyline id="Fill-75" fill="#BA252F" points="111.867583 38.9914583 110.581625 37.2217708 108.327917 41.5630833 111.867583 38.9914583"></polyline>
+        <polyline id="Fill-76" fill="#FFFFFE" points="131.25 67.867625 131.25 71.148875 137.8125 67.867625 131.25 67.867625"></polyline>
+        <polyline id="Fill-77" fill="#FFFFFE" points="132.503292 71.7250625 130.5745 69.0704583 137.8125 67.867625 132.503292 71.7250625"></polyline>
+        <polyline id="Fill-78" fill="#FFFFFE" points="131.25 67.867625 131.25 71.148875 124.6875 67.867625 131.25 67.867625"></polyline>
+        <polyline id="Fill-79" fill="#FFFFFE" points="129.996563 71.7250625 131.925354 69.0704583 124.6875 67.867625 129.996563 71.7250625"></polyline>
+        <polyline id="Fill-80" fill="#FFFFFE" points="133.277812 69.3409792 130.157271 70.3551042 135.305917 75.5823542 133.277812 69.3409792"></polyline>
+        <polyline id="Fill-81" fill="#FFFFFE" points="129.996563 71.7250625 131.925354 69.0704583 135.305917 75.5823542 129.996563 71.7250625"></polyline>
+        <polyline id="Fill-82" fill="#FFFFFE" points="129.222042 69.3409792 132.342583 70.3551042 131.249854 63.0998958 129.222042 69.3409792"></polyline>
+        <polyline id="Fill-83" fill="#FFFFFE" points="133.277813 69.3409792 130.157125 70.3551042 131.249854 63.0998958 133.277813 69.3409792"></polyline>
+        <polyline id="Fill-84" fill="#FFFFFE" points="129.222042 69.3409792 132.342583 70.3551042 127.194083 75.5823542 129.222042 69.3409792"></polyline>
+        <polyline id="Fill-85" fill="#FFFFFE" points="132.503292 71.7250625 130.5745 69.0704583 127.194083 75.5823542 132.503292 71.7250625"></polyline>
+        <polyline id="Fill-86" fill="#BA252F" points="131.25 68.3415833 131.25 70.8936667 136.354167 68.3415833 131.25 68.3415833"></polyline>
+        <polyline id="Fill-87" fill="#BA252F" points="132.22475 71.3416667 130.724562 69.2769583 136.354167 68.3415833 132.22475 71.3416667"></polyline>
+        <polyline id="Fill-88" fill="#BA252F" points="131.25 68.3415833 131.25 70.8936667 126.145833 68.3415833 131.25 68.3415833"></polyline>
+        <polyline id="Fill-89" fill="#BA252F" points="130.275104 71.3416667 131.775292 69.2769583 126.145833 68.3415833 130.275104 71.3416667"></polyline>
+        <polyline id="Fill-90" fill="#BA252F" points="132.827188 69.4873958 130.400083 70.2762083 134.404521 74.34175 132.827188 69.4873958"></polyline>
+        <polyline id="Fill-91" fill="#BA252F" points="130.275104 71.3416667 131.775292 69.2769583 134.404521 74.34175 130.275104 71.3416667"></polyline>
+        <polyline id="Fill-92" fill="#BA252F" points="129.672667 69.4873958 132.099771 70.2762083 131.249854 64.6331875 129.672667 69.4873958"></polyline>
+        <polyline id="Fill-93" fill="#BA252F" points="132.827042 69.4873958 130.400083 70.2762083 131.249854 64.6331875 132.827042 69.4873958"></polyline>
+        <polyline id="Fill-94" fill="#BA252F" points="129.672667 69.4873958 132.099771 70.2762083 128.095333 74.34175 129.672667 69.4873958"></polyline>
+        <polyline id="Fill-95" fill="#BA252F" points="132.22475 71.3416667 130.724563 69.2769583 128.095333 74.34175 132.22475 71.3416667"></polyline>
     </g>
 </svg>
