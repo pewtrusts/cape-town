@@ -10,6 +10,7 @@ import treaties from '@Project/data/treaties.json';
 import countries from '@Project/data/countries.csv'; 
 import countryCodes from '@Project/data/country-codes.json';
 import EUCountries from '@Project/data/eu-countries.json';
+import overseas from '@Project/data/overseas-territories.json';
 
 //views
 import MapView from './views/map/map.js';
@@ -23,7 +24,8 @@ import PCTApp from '@App';
 const model = {
     treaties,
     EUCountries,
-    countryCodes
+    countryCodes,
+    overseas
 };
 
 

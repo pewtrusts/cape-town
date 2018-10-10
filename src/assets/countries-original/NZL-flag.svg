@@ -1,0 +1,315 @@
+<svg width="175px" height="89px" viewBox="0 0 175 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 87.5 0 87.5 43.9137134 0 43.9137134"></polygon>
+        <path d="M0,0 L43.75,21.9568567 L0,21.9568567 L0,0 Z M43.75,0 L87.5,0 L43.75,21.9568567 L43.75,0 Z M43.75,21.9568567 L87.5,21.9568567 L87.5,43.9137134 L43.75,21.9568567 Z M43.75,21.9568567 L43.75,43.9137134 L0,43.9137134 L43.75,21.9568567 Z" id="path-3"></path>
+        <polygon id="path-5" points="0 0 87.5 0 87.5 43.9137134 0 43.9137134"></polygon>
+        <polygon id="path-7" points="0 0 87.5 0 87.5 43.9137134 0 43.9137134"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="NZL-flag" transform="translate(0.000000, -2.000000)">
+            <rect id="Rectangle-path" fill="#00247D" fill-rule="nonzero" x="0" y="2.48844376" width="175" height="87.8274268"></rect>
+            <g id="Flag_of_the_United_Kingdom" transform="translate(0.000000, 2.488444)">
+                <g id="Saint_Andrews_Cross-Clipped">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Shape"></g>
+                    <path d="M0,0 L87.5,43.9137134 M0,43.9137134 L87.5,0" id="Saint_Andrews_Cross" stroke="#FFFFFF" stroke-width="8.75" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                </g>
+                <g id="Saint_Patricks_Cross-Clipped">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Shape"></g>
+                    <path d="M0,0 L87.5,43.9137134 M0,43.9137134 L87.5,0" id="Saint_Patricks_Cross" stroke="#CC142B" stroke-width="5.83333333" fill="#000000" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                </g>
+                <g id="Saint_Georges_Cross">
+                    <g id="Clipped">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="Shape"></g>
+                        <path d="M43.75,0 L43.75,43.9137134 M0,21.9568567 L87.5,21.9568567" id="Shape" stroke="#FFFFFF" stroke-width="14.5833333" fill="#000000" fill-rule="nonzero" mask="url(#mask-6)"></path>
+                    </g>
+                    <g id="Clipped">
+                        <mask id="mask-8" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                        <g id="Shape"></g>
+                        <path d="M43.75,0 L43.75,43.9137134 M0,21.9568567 L87.5,21.9568567" id="Shape" stroke="#CC142B" stroke-width="8.75" fill="#000000" fill-rule="nonzero" mask="url(#mask-8)"></path>
+                    </g>
+                </g>
+            </g>
+            <g id="Southern_Cross" transform="translate(85.604167, 0.000000)" fill-rule="nonzero">
+                <g id="Gamma_Crucis" transform="translate(25.666667, 0.000000)">
+                    <g id="Pentagram-link" transform="translate(0.116667, 0.117103)" fill="#FFFFFF">
+                        <g id="Pentagram">
+                            <g id="Arm" transform="translate(13.241667, 11.131893)">
+                                <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                            </g>
+                            <g id="Arm-link" transform="translate(16.552083, 16.614022) scale(-1, 1) translate(-16.552083, -16.614022) translate(6.620833, 6.645609)">
+                                <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(24.033868, 22.070198) rotate(72.000000) translate(-24.033868, -22.070198) translate(14.102618, 12.101785)">
+                                <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(17.737082, 15.749848) rotate(-72.000000) translate(-17.737082, -15.749848) translate(7.805832, 5.781435)">
+                                <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(15.691132, 22.070198) scale(-1, 1) rotate(72.000000) translate(-15.691132, -22.070198) translate(5.759882, 12.101785)">
+                                <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Pentagram-link" transform="translate(6.854167, 6.879815)" fill="#CC142B">
+                        <g id="Pentagram">
+                            <g id="Arm" transform="translate(8.750000, 7.355876)">
+                                <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                            </g>
+                            <g id="Arm-link" transform="translate(10.937500, 10.978428) scale(-1, 1) translate(-10.937500, -10.978428) translate(4.375000, 4.391371)">
+                                <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(15.881411, 14.583831) rotate(72.000000) translate(-15.881411, -14.583831) translate(9.318911, 7.996774)">
+                                <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(11.720539, 10.407389) rotate(-72.000000) translate(-11.720539, -10.407389) translate(5.158039, 3.820332)">
+                                <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(10.368589, 14.583831) scale(-1, 1) rotate(72.000000) translate(-10.368589, -14.583831) translate(3.806089, 7.996774)">
+                                <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(42.974173, 37.996297) rotate(82.000000) translate(-42.974173, -37.996297) translate(20.515839, -2.331130)">
+                    <g id="Delta_Crucis" transform="translate(2.479167, 0.000000)">
+                        <g id="Pentagram-link" transform="translate(19.979167, 20.053929) rotate(-82.000000) translate(-19.979167, -20.053929) translate(2.304167, 2.312789)" fill="#FFFFFF">
+                            <g id="Pentagram">
+                                <g id="Arm" transform="translate(11.783333, 9.905913)">
+                                    <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
+                                    <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
+                                </g>
+                                <g id="Arm-link" transform="translate(14.729167, 14.784284) scale(-1, 1) translate(-14.729167, -14.784284) translate(5.891667, 5.913713)">
+                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
+                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
+                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(21.386967, 19.639559) rotate(72.000000) translate(-21.386967, -19.639559) translate(12.549467, 10.768989)">
+                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
+                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
+                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(15.783659, 14.015283) rotate(-72.000000) translate(-15.783659, -14.015283) translate(6.946159, 5.144713)">
+                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
+                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
+                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(13.963033, 19.639559) scale(-1, 1) rotate(72.000000) translate(-13.963033, -19.639559) translate(5.125533, 10.768989)">
+                                    <g id="Arm" transform="translate(0.000000, 3.992200)">
+                                        <polygon id="Shape" points="5.89166667 5.91371341 5.89166667 8.87057011 11.7833333 5.91371341"></polygon>
+                                        <polygon id="Shape" transform="translate(9.400104, 7.651710) rotate(-36.000000) translate(-9.400104, -7.651710) " points="6.45427077 7.65171017 6.45427077 4.69485347 12.3459374 7.65171017"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Pentagram-link" transform="translate(19.979167, 20.053929) rotate(-82.000000) translate(-19.979167, -20.053929) translate(9.041667, 9.075501)" fill="#CC142B">
+                            <g id="Pentagram">
+                                <g id="Arm" transform="translate(7.291667, 6.129897)">
+                                    <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
+                                    <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
+                                </g>
+                                <g id="Arm-link" transform="translate(9.114583, 9.148690) scale(-1, 1) translate(-9.114583, -9.148690) translate(3.645833, 3.659476)">
+                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
+                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
+                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(13.234509, 12.153192) rotate(72.000000) translate(-13.234509, -12.153192) translate(7.765759, 6.663978)">
+                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
+                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
+                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(9.767115, 8.672824) rotate(-72.000000) translate(-9.767115, -8.672824) translate(4.298365, 3.183610)">
+                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
+                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
+                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(8.640491, 12.153192) scale(-1, 1) rotate(72.000000) translate(-8.640491, -12.153192) translate(3.171741, 6.663978)">
+                                    <g id="Arm" transform="translate(0.000000, 2.470421)">
+                                        <polygon id="Shape" points="3.64583333 3.65947612 3.64583333 5.48921418 7.29166667 3.65947612"></polygon>
+                                        <polygon id="Shape" transform="translate(5.816896, 4.734969) rotate(-36.000000) translate(-5.816896, -4.734969) " points="3.99397944 4.73496916 3.99397944 2.9052311 7.63981277 4.73496916"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Beta_Crucis" transform="translate(0.000000, 35.570108)">
+                        <g id="Pentagram-link" transform="translate(22.458333, 22.542373) rotate(-82.000000) translate(-22.458333, -22.542373) translate(2.595833, 2.605547)" fill="#FFFFFF">
+                            <g id="Pentagram">
+                                <g id="Arm" transform="translate(13.241667, 11.131893)">
+                                    <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                    <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                </g>
+                                <g id="Arm-link" transform="translate(16.552083, 16.614022) scale(-1, 1) translate(-16.552083, -16.614022) translate(6.620833, 6.645609)">
+                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(24.033868, 22.070198) rotate(72.000000) translate(-24.033868, -22.070198) translate(14.102618, 12.101785)">
+                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(17.737082, 15.749848) rotate(-72.000000) translate(-17.737082, -15.749848) translate(7.805832, 5.781435)">
+                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(15.691132, 22.070198) scale(-1, 1) rotate(72.000000) translate(-15.691132, -22.070198) translate(5.759882, 12.101785)">
+                                    <g id="Arm" transform="translate(0.000000, 4.486284)">
+                                        <polygon id="Shape" points="6.62083333 6.64560863 6.62083333 9.96841294 13.2416667 6.64560863"></polygon>
+                                        <polygon id="Shape" transform="translate(10.563483, 8.598704) rotate(-36.000000) translate(-10.563483, -8.598704) " points="7.25306666 8.598704 7.25306666 5.27589969 13.8739 8.598704"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Pentagram-link" transform="translate(22.458333, 22.542373) rotate(-82.000000) translate(-22.458333, -22.542373) translate(9.333333, 9.368259)" fill="#CC142B">
+                            <g id="Pentagram">
+                                <g id="Arm" transform="translate(8.750000, 7.355876)">
+                                    <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                    <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                </g>
+                                <g id="Arm-link" transform="translate(10.937500, 10.978428) scale(-1, 1) translate(-10.937500, -10.978428) translate(4.375000, 4.391371)">
+                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(15.881411, 14.583831) rotate(72.000000) translate(-15.881411, -14.583831) translate(9.318911, 7.996774)">
+                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(11.720539, 10.407389) rotate(-72.000000) translate(-11.720539, -10.407389) translate(5.158039, 3.820332)">
+                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                    </g>
+                                </g>
+                                <g id="Arm-link" transform="translate(10.368589, 14.583831) scale(-1, 1) rotate(72.000000) translate(-10.368589, -14.583831) translate(3.806089, 7.996774)">
+                                    <g id="Arm" transform="translate(0.000000, 2.964505)">
+                                        <polygon id="Shape" points="4.375 4.39137134 4.375 6.58705701 8.75 4.39137134"></polygon>
+                                        <polygon id="Shape" transform="translate(6.980275, 5.681963) rotate(-36.000000) translate(-6.980275, -5.681963) " points="4.79277532 5.681963 4.79277532 3.48627733 9.16777532 5.681963"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Alpha_Crucis" transform="translate(23.479167, 50.500770)">
+                    <g id="Pentagram-link" transform="translate(0.116667, 0.117103)" fill="#FFFFFF">
+                        <g id="Pentagram">
+                            <g id="Arm" transform="translate(14.700000, 12.357872)">
+                                <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
+                                <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
+                            </g>
+                            <g id="Arm-link" transform="translate(18.375000, 18.443760) scale(-1, 1) translate(-18.375000, -18.443760) translate(7.350000, 7.377504)">
+                                <g id="Arm" transform="translate(0.000000, 4.980368)">
+                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
+                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(26.680770, 24.500836) rotate(72.000000) translate(-26.680770, -24.500836) translate(15.655770, 13.434580)">
+                                <g id="Arm" transform="translate(0.000000, 4.980368)">
+                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
+                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(19.690505, 17.484413) rotate(-72.000000) translate(-19.690505, -17.484413) translate(8.665505, 6.418157)">
+                                <g id="Arm" transform="translate(0.000000, 4.980368)">
+                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
+                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(17.419230, 24.500836) scale(-1, 1) rotate(72.000000) translate(-17.419230, -24.500836) translate(6.394230, 13.434580)">
+                                <g id="Arm" transform="translate(0.000000, 4.980368)">
+                                    <polygon id="Shape" points="7.35 7.37750385 7.35 11.0662558 14.7 7.37750385"></polygon>
+                                    <polygon id="Shape" transform="translate(11.726863, 9.545698) rotate(-36.000000) translate(-11.726863, -9.545698) " points="8.05186255 9.54569783 8.05186255 5.85694591 15.4018625 9.54569783"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Pentagram-link" transform="translate(6.854167, 6.879815)" fill="#CC142B">
+                        <g id="Pentagram">
+                            <g id="Arm" transform="translate(10.208333, 8.581856)">
+                                <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
+                                <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
+                            </g>
+                            <g id="Arm-link" transform="translate(12.760417, 12.808166) scale(-1, 1) translate(-12.760417, -12.808166) translate(5.104167, 5.123267)">
+                                <g id="Arm" transform="translate(0.000000, 3.458589)">
+                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
+                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(18.528313, 17.014469) rotate(72.000000) translate(-18.528313, -17.014469) translate(10.872063, 9.329570)">
+                                <g id="Arm" transform="translate(0.000000, 3.458589)">
+                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
+                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(13.673962, 12.141953) rotate(-72.000000) translate(-13.673962, -12.141953) translate(6.017712, 4.457054)">
+                                <g id="Arm" transform="translate(0.000000, 3.458589)">
+                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
+                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
+                                </g>
+                            </g>
+                            <g id="Arm-link" transform="translate(12.096687, 17.014469) scale(-1, 1) rotate(72.000000) translate(-12.096687, -17.014469) translate(4.440437, 9.329570)">
+                                <g id="Arm" transform="translate(0.000000, 3.458589)">
+                                    <polygon id="Shape" points="5.10416667 5.12326656 5.10416667 7.68489985 10.2083333 5.12326656"></polygon>
+                                    <polygon id="Shape" transform="translate(8.143655, 6.628957) rotate(-36.000000) translate(-8.143655, -6.628957) " points="5.59157121 6.62895683 5.59157121 4.06732355 10.6957379 6.62895683"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
