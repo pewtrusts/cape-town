@@ -24,7 +24,7 @@ export default class CountryTile {
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1;
 
-        var byMainland;
+        var byMainland = '';
 
         /* if country is an overseas territory, find the datum of the mainland country. if none will be undefined */
        // this.mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.parent.model.overseas[this.country.key]);
@@ -58,7 +58,7 @@ console.log(this);
                                 /** PSMA for EU countries **/
     /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '; in respect of overseas territories on ' + match.ratified_date + '.' :
-                                this.country.isOverseasTerritory && cur.key === 'psma' ?
+                                match && this.country.isOverseasTerritory && cur.key === 'psma' ?
                                     'Ratified' + byMainland + ' in respect of overseas territories on ' + match.ratified_date + '.' :
     /*is EU only (ie no match)*/isEUMember && cur.key === 'psma' ?
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '.' : 
