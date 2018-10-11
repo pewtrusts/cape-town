@@ -31,16 +31,16 @@
                     background-color: $map_gold;
                     display: block;
                     position: absolute;
-                    left: 0;
+                    left: 10px;
                     top: 240px; 
                     @media screen and (min-width: 629px) {
-                        top: 60px;
+                        top: -88px;
                     }
                 }
                 &::before {
                     content: 'party to more than one agreement';
                     position: absolute;
-                    left: 0;
+                    left: 10px;
                     color: #000;
                     padding-left: 18px;
                     top: 238px; 
@@ -48,7 +48,7 @@
                     pointer-events: none;
                     font-size:0.9em;
                     @media screen and (min-width: 629px) {
-                        top: 59px;
+                        top: -90px;
                     }
                 }
 
