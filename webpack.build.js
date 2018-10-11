@@ -15,18 +15,18 @@ module.exports = env => {
     return merge(common(env), {
         devtool: 'source-map',
         optimization: {
-           /* minimizer: [
+            minimizer: [
                 new UglifyJSPlugin({
                     uglifyOptions: {
                         compress: {
-                            drop_console: false
+                            drop_console: true
                         },
                         output: {
                             comments: false
                         }
                     },
                 }),
-            ],*/
+            ],
             splitChunks: {
                 automaticNameDelimiter: '-',
                 chunks: 'all'

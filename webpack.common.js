@@ -53,7 +53,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
                             test: /\.csv$/,
                             loader: 'file-loader',
                             options: {
-                                name: 'data/[name].[ext]', // no hashing bc content editors might upload csv without going through build process
+                                name: 'data/[name].[ext]?v=[hash:6]', 
                             }
                         },
                         /* {
