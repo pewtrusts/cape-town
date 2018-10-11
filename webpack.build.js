@@ -15,7 +15,7 @@ module.exports = env => {
     return merge(common(env), {
         devtool: 'source-map',
         optimization: {
-            minimizer: [
+           /* minimizer: [
                 new UglifyJSPlugin({
                     uglifyOptions: {
                         compress: {
@@ -26,7 +26,7 @@ module.exports = env => {
                         }
                     },
                 }),
-            ],
+            ],*/
             splitChunks: {
                 automaticNameDelimiter: '-',
                 chunks: 'all'
@@ -67,7 +67,7 @@ module.exports = env => {
             })
         ],
         output: {
-            filename: '[name].js',
+            filename: '[name].js?v=[hash:6]',
             path: path.resolve(__dirname, 'dist'),
            // publicPath
         }

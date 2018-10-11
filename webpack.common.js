@@ -100,7 +100,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
                     new MiniCssExtractPlugin({
                         // Options similar to the same options in webpackOptions.output
                         // both options are optional
-                        filename: "css/styles.css",
+                        filename: "css/styles.css?v=[hash:6]",
                         chunkFilename: "[id].css",
                     })
                 ],
