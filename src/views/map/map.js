@@ -92,6 +92,7 @@ export default class MapView extends Element {
                 classArray: className.split('-')
             };
         });
+        console.log(allCountriesData.filter(d => d.name === undefined));
         
 
         // the tooltip formatter below needs access to this.model but also needs to call a function
@@ -99,18 +100,22 @@ export default class MapView extends Element {
         // over this.model
         var returnFormatter = (function(model){
             function Formatter(){
-                
-                var agreementsString = this.point.className === 'None' ? 'None' : this.point.classArray.map(c => {
+               /* if ( model.countryCodes[this.point.iso_a3] === undefined ){
+                    return null;
+                }*/
+                var agreementsString = !model.countryCodes[this.point.iso_a3] ? '' : this.point.className === 'None' ? 'None' : this.point.classArray.map(c => {
                     var parenthetical = c === 'psma' && model.joinData.find(d => d.key === this.point.iso_a3).values.length === 0 ? ' (EU)' :
                         c === 'psma' && model.EUCountries.indexOf(this.point.iso_a3) !== -1 ? '<br />(EU and in respect of overseas territories)' : ''
-                    return model.treaties.find(t => t.key === c).name + parenthetical   ;
+                    return model.treaties.find(t => t.key === c).name + parenthetical;
                 }).join('<br />');
                 setTimeout(() => {
                     let el = document.querySelector('.highcharts-tooltip');
                     el.classList.add(this.point.className); 
                 });
+                console.log(this);
+                var mainland = model.overseas[this.point.iso_a3];
                 return `
-                    <b>${this.point.name}</b><br />
+                    <b>${ mainland ? model.countryCodes[this.point.iso_a3] + ' (' + model.countryCodes[mainland] + ')' : model.countryCodes[this.point.iso_a3] ? model.countryCodes[this.point.iso_a3] : this.point.name }</b><br />
                     ${agreementsString}
                 `;
             }
