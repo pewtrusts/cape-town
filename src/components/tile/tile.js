@@ -24,6 +24,8 @@ export default class CountryTile {
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1;
 
+        var byMainland;
+
         /* if country is an overseas territory, find the datum of the mainland country. if none will be undefined */
        // this.mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.parent.model.overseas[this.country.key]);
        // this.country.isOverseasTerritory = this.parent.model.overseas.hasOwnProperty(this.country.key);
@@ -34,6 +36,7 @@ console.log(this);
             if ( this.country.values.length === 0 ){
                 tile.classList.add(s.otOnly);
             }
+            byMainland = ' by ' + this.parent.model.countryCodes[this.country.mainland];
 
         }
         if (isEUMember){
@@ -51,15 +54,17 @@ console.log(this);
                     let info =  
                                 /** CTA **/
                                 match && cur.key ===  'cta' ? 
-                                    'Ratified on ' + match.ratified_date + ' with ' + match.note + '.' :
+                                    'Ratified' + byMainland + ' on ' + match.ratified_date + ' with ' + match.note + '.' :
                                 /** PSMA for EU countries **/
     /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '; in respect of overseas territories on ' + match.ratified_date + '.' :
+                                this.country.isOverseasTerritory && cur.key === 'psma' ?
+                                    'Ratified' + byMainland + ' in respect of overseas territories on ' + match.ratified_date + '.' :
     /*is EU only (ie no match)*/isEUMember && cur.key === 'psma' ?
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '.' : 
                                 /** PSMA for non-EU or C188 **/
                                 match ?
-                                    'Ratified on ' + match.ratified_date + '.' : 
+                                    'Ratified' + byMainland + ' on ' + match.ratified_date + '.' : 
                                 /** Not ratified **/
                                     'Not ratified.';
                     return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
@@ -75,6 +80,7 @@ console.log(this);
             <div class="${s.svgWrapper}">
             </div>
             <div class="${s.countryInfo} country-info">
+                ${this.country.isOverseasTerritory ? '<p><b>Territory of ' + this.parent.model.countryCodes[this.country.mainland] + '</b></p>' : '' }
                 ${countryInfoText}
             </div>
         `;
