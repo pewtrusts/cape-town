@@ -1,22 +1,28 @@
-<svg width="174px" height="100px" viewBox="0 0 174 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M83,42 L166,42 L166,84 L83,42 Z M83,42 L83,84 L0,84 L83,42 Z M83,42 L0,42 L0,0 L83,42 Z M83,42 L83,0 L166,0 L83,42 Z" id="path-1"></path>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Flag_of_the_United_Kingdom" transform="translate(4.000000, 8.000000)">
-            <polygon id="Shape" fill="#00247D" fill-rule="nonzero" points="0 0 0 84 166 84 166 0"></polygon>
-            <path d="M0,0 L166,84 M166,0 L0,84" id="Shape" stroke="#FFFFFF" stroke-width="16.625" fill="#000000" fill-rule="nonzero"></path>
-            <g id="Clipped">
-                <mask id="mask-2" fill="white">
-                    <use xlink:href="#path-1"></use>
-                </mask>
-                <g id="Shape"></g>
-                <path d="M0,0 L166,84 M166,0 L0,84" id="Shape" stroke="#CF142B" stroke-width="11.0833333" fill="#000000" fill-rule="nonzero" mask="url(#mask-2)"></path>
-            </g>
-            <path d="M83,0 L83,84 M0,42 L166,42" id="Shape" stroke="#FFFFFF" stroke-width="27.7083333" fill="#000000" fill-rule="nonzero"></path>
-            <path d="M83,0 L83,84 M0,42 L166,42" id="Shape" stroke="#CF142B" stroke-width="16.625" fill="#000000" fill-rule="nonzero"></path>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="174.991px" height="88.55px" viewBox="0 0 174.991 88.55" enable-background="new 0 0 174.991 88.55" xml:space="preserve">
+<g id="Shape_2_">
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="174.991" height="88.55"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_2_)">
+		<polygon id="Shape" fill="#00247D" points="0,0 0,88.55 174.991,88.55 174.991,0 		"/>
+		<path id="Shape_1_" stroke="#FFFFFF" stroke-width="17.5255" d="M0,0l174.991,88.55 M174.991,0L0,88.55"/>
+		<line stroke="#FFFFFF" stroke-width="29.2091" x1="87.496" y1="0" x2="87.496" y2="88.55"/>
+		<line stroke="#CF142B" stroke-width="6" x1="279.738" y1="-56" x2="104.747" y2="32.55"/>
+		<line stroke="#CF142B" stroke-width="6" x1="108.915" y1="51.678" x2="283.907" y2="140.229"/>
+		<line stroke="#CF142B" stroke-width="6" x1="-109.06" y1="-52.371" x2="65.932" y2="36.18"/>
+		<line stroke="#CF142B" stroke-width="6" x1="71.85" y1="55.274" x2="-103.141" y2="143.824"/>
+		<line stroke="#FFFFFF" stroke-width="29.2091" x1="0" y1="44.275" x2="174.991" y2="44.275"/>
+		<line stroke="#CF142B" stroke-width="17.5255" x1="87.496" y1="0" x2="87.496" y2="88.55"/>
+		<line stroke="#CF142B" stroke-width="17.5255" x1="0" y1="44.275" x2="174.991" y2="44.275"/>
+	</g>
+</g>
 </svg>
