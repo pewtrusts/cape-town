@@ -1,3 +1,4 @@
+@import '@Project/css/_variables.scss';
 .textBlock {
 	h2 {
 		text-align: center;
@@ -10,14 +11,14 @@
         z-index: 2;
         pointer-events: none;
         &.expanded {
-            opacity: 0.9;
+            opacity: 1;
+            pointer-events: all;
             @media screen and (max-width: 628px) {
-                opacity: 1;
-                pointer-events: all;
+            //    opacity: 1;
                 height: 80vw;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
-                box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+                box-shadow: $box_shadow;
              }
         }
     }

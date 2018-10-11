@@ -17,7 +17,7 @@
         margin-right: 0px;
         //max-width: calc(100% - 52px);
         &:global(.open) {
-             box-shadow: 1px 2px 2px rgba(0,0,0,0.5);   
+             box-shadow: $box_shadow;
         }
     }
     :global(.selectr-selected) {
@@ -35,7 +35,7 @@
     :global(.selectr-options-container) {
         background-color: $light_gray;
         border:none;
-        box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+        box-shadow: $box_shadow;
     }
     :global(ul.selectr-tags){ 
         display: flex;
@@ -104,14 +104,14 @@
 .searchDiv.revealOverflowTags {
     :global(ul.selectr-tags){ 
         flex-wrap: wrap;
-        box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: $box_shadow;
     }
     :global(.selectr-selected){ 
         overflow-x:visible;
         overflow-y: visible;
     }
     .searchContainer {
-        box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: $box_shadow;
     }
 }
 .clearSearch {
