@@ -58,7 +58,7 @@ console.log(this);
                                 /** PSMA for EU countries **/
     /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '; in respect of overseas territories on ' + match.ratified_date + '.' :
-                                match && this.country.isOverseasTerritory && cur.key === 'psma' ?
+                                match && this.country.isOverseasTerritory && cur.key === 'psma' && this.parent.model.EUCountries.indexOf(this.country.mainland) !== -1 ?
                                     'Ratified' + byMainland + ' in respect of overseas territories on ' + match.ratified_date + '.' :
     /*is EU only (ie no match)*/isEUMember && cur.key === 'psma' ?
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '.' : 
