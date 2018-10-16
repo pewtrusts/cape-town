@@ -91,6 +91,7 @@ export default class TileView {
             let newCountry = new CountryTile(datum, this.tiles.length, this, true); 
             this.tiles.push(newCountry);
             this.el.appendChild(newCountry.el);
+            newCountry.init();
         }
         if ( data.length === 0 ){ // ie search array from multiselect is cleared
             this.tiles.forEach((t,i) => {
