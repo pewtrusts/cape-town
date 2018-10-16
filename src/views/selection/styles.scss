@@ -31,6 +31,7 @@
                     background-color: $map_gold;
                     display: block;
                     position: absolute;
+                    pointer-events: none;
                     left: 10px;
                     top: 240px; 
                     @media screen and (min-width: 629px) {
