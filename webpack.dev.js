@@ -62,7 +62,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
             })
         ],
         output: {
-            filename: '[name].js',
+            filename: '[name].js?v=[hash:6]',
             path: path.resolve(__dirname, 'dist')
         },
     });
