@@ -4,22 +4,18 @@
 		text-align: center;
 	}
     :global(.expand-text) {
-        position: absolute;
+       // position: absolute;
+        height: 0;
         background-color: #fff;
         opacity: 0;
         transition: opacity 0.3s linear;
         z-index: 2;
         pointer-events: none;
         &.expanded {
-            opacity: 1;
+            height: auto;
+            opacity: 0.9;
             pointer-events: all;
-            @media screen and (max-width: 628px) {
-            //    opacity: 1;
-                height: 80vw;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                box-shadow: $box_shadow;
-             }
+           
         }
     }
     :global(.read-more) {
