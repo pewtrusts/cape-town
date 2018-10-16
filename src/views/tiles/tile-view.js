@@ -115,22 +115,27 @@ export default class TileView {
                 return acc;
             }, true);
         });
-        
+        var isNarrow = document.documentElement.clientWidth < 629;
+        var delay = !isNarrow ? 200 : 0;
         setTimeout(() => { // separate FLIP steps out to do one at a times
-            this.tiles.forEach((each) => {
-                each.getPosition('first'); //Flip
-            });
+            if (!isNarrow){
+                this.tiles.forEach((each) => {
+                    each.getPosition('first'); //Flip
+                });
+            }
             this.tiles.forEach((each,i) => {
                 each.changePosition(msg,data,i); //Last
             });
-            this.tiles.forEach((each) => {
-                each.getPosition('last');
-                each.invertPosition();
-            });
-            this.tiles.forEach((each,i,array) => {
-                each.animatePosition(i,array.length);
-            });
+            if (!isNarrow){
+                this.tiles.forEach((each) => {
+                    each.getPosition('last');
+                    each.invertPosition();
+                });
+                this.tiles.forEach((each,i,array) => {
+                    each.animatePosition(i,array.length);
+                });
+            }
 
-        },250);
+        },delay);
     }
 }
