@@ -78,7 +78,7 @@ function getRuntimeData(){
                         return {key: c, values: [], value: 'psma'};
                     })
                 );
-
+                console.log(model.joinData);
                 // creat array of overseas territories to be included
                 var overseasTerritories = [];
                 for ( var key in model.overseas ){
@@ -104,7 +104,7 @@ function getRuntimeData(){
                         });
                     }) // creates objects that prototypically inherit from the mainland's object
                         // key is ownProperty; others are property up the inheritance chain.
-               );
+               ).sort((a,b) => model.countryCodes[a.key] < model.countryCodes[b.key] ? -1 : 1);
                console.log(model.joinData);
                 /* push views now that model is complete */
                 views.push(

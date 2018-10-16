@@ -90,6 +90,11 @@ export default class SearchBar extends Element {
 				}
 			}
 		}
+		partyArray.sort((a,b) => {
+			console.log(a,b);
+			return this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1;
+		});
+		nonpartyArray.sort((a,b) => this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1);
 		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
