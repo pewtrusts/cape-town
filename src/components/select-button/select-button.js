@@ -13,6 +13,7 @@ export default class SelectButton extends Button {
 		}
 		btn.classList.add(s.selectButton, main.pctBtn, s[this.model.key]); // TO DO : some of main.css should be up the tree in UI
         btn.setAttribute('aria-pressed', true);
+        btn.setAttribute('aria-controls', 'pct-tiles-cont');
 		return btn;
 	}
     init(treaties){
@@ -26,7 +27,7 @@ export default class SelectButton extends Button {
             console.log(this);
             this.clickEventHandler.call(e.target, treaties);
         });
-        this.el.setAttribute('aria-label',`Toggle ${this.innerHTML} filter on/off`);
+        this.el.setAttribute('aria-label',`Toggle ${this.el.innerHTML} filter on/off`);
     }
     updateAppearance(msg, data){
         if ( data ){ // ie is deselected

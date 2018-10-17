@@ -17,6 +17,7 @@ export default class CountryTile {
         }
 		var tile = $d.c(`li#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
         tile.setAttribute('data-originalIndex', index);
+        tile.setAttribute('tabindex',0);
         tile.style.order = index;
         
         var countryInfoText;
@@ -91,14 +92,34 @@ console.log(this);
        // }
 		return tile;
 	}
+    set isClicked(bool){
+        if ( typeof bool !== 'boolean' ) {
+            throw 'isVisible property must be true or false';
+        }
+        var details = this.el.querySelector('.' + s.countryInfo);
+
+        if ( bool ){
+            this.el.classList.add(s.selected);
+            details.setAttribute('aria-expanded', true);
+        } else {
+            this.el.classList.remove(s.selected);
+            details.setAttribute('aria-expanded', false);
+        }
+        this._isClicked = bool;
+    }
+    get isClicked(){
+        return this._isClicked;
+    }
     set isVisible(bool){
         if ( typeof bool !== 'boolean' ) {
             throw 'isVisible property must be true or false';
         }
         if ( bool ) {
             this.el.classList.add(s.showOnSearch);
+            this.el.setAttribute('aria-hidden', false);
         } else {
             this.el.classList.remove(s.showOnSearch);
+            this.el.setAttribute('aria-hidden', true);
         }
         this._isVisible = bool;
     }
@@ -119,16 +140,27 @@ console.log(this);
     }
     init(){
         this.isVisible = true;
-        
-        this.el.addEventListener('click', function(){
-            var alreadySelected = Array.from($d.qa('.' + s.selected)); // makes copy of already selected 
+        this.isClicked = false;
+        this.el.addEventListener('click', () => {
+            //var alreadySelected = Array.from($d.qa('.' + s.selected)); // makes copy of already selected 
                                                                        // so that the one being toggled now
-                                                                       // isn't double toggle  
-            this.classList.toggle(s.selected);
+
             if ( window.innerWidth < 629 ){
-                alreadySelected.forEach(each => {
-                    each.classList.remove(s.selected);
+                console.log(this.parent);
+                this.parent.tiles.filter(d => d !== this).forEach(each => {
+                    each.isClicked = false;
                 });
+            }
+            this.isClicked = !this.isClicked;
+        });
+        this.el.addEventListener('mouseenter', () => {
+            if ( !this.isClicked ){
+                this.el.querySelector('.' + s.countryInfo).setAttribute('aria-expanded', true);
+            }
+        });
+        this.el.addEventListener('mouseleave', () => {
+            if ( !this.isClicked ){
+                this.el.querySelector('.' + s.countryInfo).setAttribute('aria-expanded', false);
             }
         });
     }
@@ -141,7 +173,9 @@ console.log(this);
         }
         if ( this.shouldGoToEnd ) {
             this.el.style.order = this.parent.endOrder++;
+            this.el.setAttribute('aria-hidden', true);
         } else {
+            this.el.setAttribute('aria-hidden', false);
             let original = this.el.getAttribute('data-originalIndex');
             this.el.style.order = original; // using getAttribute bs IE10 doesn't support dataset
         }
