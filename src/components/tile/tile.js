@@ -15,7 +15,7 @@ export default class CountryTile {
         if ( existing ) {
             return existing;
         }
-		var tile = $d.c(`div#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
+		var tile = $d.c(`li#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
         tile.setAttribute('data-originalIndex', index);
         tile.style.order = index;
         
@@ -47,7 +47,7 @@ console.log(this);
         }
         if ( this.country.value !== 'None' ) {
             if ( this.country.key === 'EU'){ // is the EU
-                countryInfoText = `<p><b>${EUDatum.treaty_id.toUpperCase()}:</b> Ratified on ${EUDatum.ratified_date}`;
+                countryInfoText = `<p><strong>${EUDatum.treaty_id.toUpperCase()}:</strong> Ratified on ${EUDatum.ratified_date}`;
             } else {
                 countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
                     let match = this.country.values.find(d => d.treaty_id === cur.key);
@@ -67,20 +67,20 @@ console.log(this);
                                     'Ratified' + byMainland + ' on ' + match.ratified_date + '.' : 
                                 /** Not ratified **/
                                     'Not ratified.';
-                    return acc + `<p><b>${cur.key.toUpperCase()}:</b> ${info}</p>`;
+                    return acc + `<p><strong>${cur.key.toUpperCase()}:</strong> ${info}</p>`;
                 },'');
             }
         } else {
             tile.classList.add(s.noHover);
-            countryInfoText = '<p class="' + s.noAgreements +'">No agreements  ratified</p>';
+            countryInfoText = '<p class="' + s.noAgreements +'">No agreements ratified</p>';
         }
         tile.innerHTML = `
-            <div title="${this.parent.model.countryCodes[this.country.key]}" class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</div>
+            <h2 title="${this.parent.model.countryCodes[this.country.key]}" class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</h2>
                 ${ this.country.value === 'None' && !this.country.isOverseasTerritory ? countryInfoText : ''}
-            <div class="${s.svgWrapper}">
+            <div aria-hidden="true" class="${s.svgWrapper}">
             </div>
             <div class="${s.countryInfo} country-info">
-                ${this.country.isOverseasTerritory ? '<p><b>Territory of ' + this.parent.model.countryCodes[this.country.mainland] + '</b></p>' : '' }
+                ${this.country.isOverseasTerritory ? '<p><strong>Territory of ' + this.parent.model.countryCodes[this.country.mainland] + '</strong></p>' : '' }
                 ${countryInfoText}
             </div>
         `;

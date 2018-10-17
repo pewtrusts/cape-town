@@ -34,7 +34,7 @@ export default class TileView {
         }
 
         //container
-        var cont = $d.c('div');
+        var cont = $d.c('ul');
         cont.setAttribute('id', 'pct-tiles-cont');
         cont.classList.add(main.flex);
         //cont.classList.add(main.sb);

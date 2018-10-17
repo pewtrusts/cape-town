@@ -7,7 +7,7 @@ $multiple: $map_gold;
 $deselected: $medium_gray;
 
 // .EU should behave like .psma for multiple coloring only, but not for psma coloring    
-#pct-tiles-cont > div {
+#pct-tiles-cont > li {
 
     background-color: $light_gray;
     color: #000;
@@ -22,134 +22,134 @@ $deselected: $medium_gray;
         stroke: #fff !important;
     }
     &.None {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $deselected;
         }
     }
     &.cta {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $cta;
         }
     }
     &.c188 {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $c188;
         }
     }
     &.psma {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $psma;
         }
     }
     &.c188-cta {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $multiple;
         }
     }
     &.cta-psma, &.cta.EU {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $multiple;
         }
     }
     &.c188-psma, &.c188.EU {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $multiple;
         }
     }
     &.c188-cta-psma, &.c188-cta.EU {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $multiple;
         }
     }
     .deselect-cta & {
         &.cta {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $deselected;
             }
         }
         &.c188-cta {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $c188;
             }
         }
         &.cta-psma {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $psma;
             }
         }
     }
     .deselect-c188 & {
         &.c188 {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $deselected;
             }
         }
         &.c188-cta {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $cta;
             }
         }
         &.c188-psma {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $psma;
             }
         }
     }
     .deselect-psma & {
         &.psma {
-           > div:first-child {
+           > h2 {
                border-left: 10px solid $deselected;
            }
         }
         &.cta-psma, &.cta.EU {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $cta;
             }
         }
         &.c188-psma, &.c188.EU {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $c188;
             }
         }
     }
     .deselect-cta.deselect-c188 & {
         &.c188-cta {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $deselected;
             }
         }
         &.c188-cta-psma {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $psma;
             }
         }
     }
     .deselect-cta.deselect-psma & {
         &.cta-psma, &.cta.EU {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $deselected;
             }
         }
         &.c188-cta-psma, &.c188-cta.EU {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $c188;
             }
         }
     }
     .deselect-c188.deselect-psma & {
         &.c188-psma, &.c188.EU {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $deselected;
             }
         }
         &.c188-cta-psma, &.c188-cta.EU {
-            > div:first-child {
+            > h2 {
                 border-left: 10px solid $cta;
             }
         }
     }
     .deselect-cta.deselect-c188.deselect-psma & {
-        > div:first-child {
+        > h2 {
             border-left: 10px solid $deselected;
         }
     }
@@ -163,7 +163,7 @@ $deselected: $medium_gray;
                 fill: $deselected;
                 stroke:  $deselected;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $deselected;
             }
         }
@@ -177,7 +177,7 @@ $deselected: $medium_gray;
                 fill: $cta;
                 stroke:  $cta;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $cta;
             }
         }
@@ -190,7 +190,7 @@ $deselected: $medium_gray;
                 fill: $c188;
                 stroke:  $c188;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $c188;
             }
         }
@@ -203,7 +203,7 @@ $deselected: $medium_gray;
                 fill: $psma;
                 stroke:  $psma;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $psma;
             }
         }
@@ -216,7 +216,7 @@ $deselected: $medium_gray;
                 fill: $multiple;
                 stroke:  $multiple;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $multiple;
             }
         }
@@ -229,7 +229,7 @@ $deselected: $medium_gray;
                 fill: $multiple;
                 stroke:  $multiple;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $multiple;
             }
         }
@@ -242,7 +242,7 @@ $deselected: $medium_gray;
                 fill: $multiple;
                 stroke:  $multiple;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $multiple;
             }
         }
@@ -255,7 +255,7 @@ $deselected: $medium_gray;
                 fill: $multiple;
                 stroke:  $multiple;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $multiple;
             }
         }
@@ -269,7 +269,7 @@ $deselected: $medium_gray;
                     fill: $deselected;
                     stroke:  $deselected;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $deselected;
                 }
             }
@@ -282,7 +282,7 @@ $deselected: $medium_gray;
                     fill: $c188;
                     stroke:  $c188;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $c188;
                 }
             }
@@ -295,7 +295,7 @@ $deselected: $medium_gray;
                     fill: $psma;
                     stroke:  $psma;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $psma;
                 }
             }
@@ -310,7 +310,7 @@ $deselected: $medium_gray;
                     fill: $deselected;
                     stroke:  $deselected;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $deselected;
                 }
             }
@@ -323,7 +323,7 @@ $deselected: $medium_gray;
                     fill: $cta;
                     stroke:  $cta;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $cta;
                 }
             }
@@ -336,7 +336,7 @@ $deselected: $medium_gray;
                     fill: $psma;
                     stroke:  $psma;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $psma;
                 }
             }
@@ -351,7 +351,7 @@ $deselected: $medium_gray;
                 fill: $deselected;
                 stroke:  $deselected;
                }
-               > div:first-child, div.country-info {
+               > h2, div.country-info {
                    background-color: $deselected;
                }
             }
@@ -364,7 +364,7 @@ $deselected: $medium_gray;
                     fill: $cta;
                     stroke:  $cta;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $cta;
                 }
             }
@@ -377,7 +377,7 @@ $deselected: $medium_gray;
                     fill: $c188;
                     stroke:  $c188;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $c188;
                 }
             }
@@ -392,7 +392,7 @@ $deselected: $medium_gray;
                     fill: $deselected;
                     stroke:  $deselected;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $deselected;
                 }
             }
@@ -405,7 +405,7 @@ $deselected: $medium_gray;
                     fill: $psma;
                     stroke:  $psma;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $psma;
                 }
             }
@@ -420,7 +420,7 @@ $deselected: $medium_gray;
                     fill: $deselected;
                     stroke: $deselected;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $deselected;
                 }
             }
@@ -433,7 +433,7 @@ $deselected: $medium_gray;
                     fill: $c188;
                     stroke: $c188;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $c188;
                 }
             }
@@ -448,7 +448,7 @@ $deselected: $medium_gray;
                     fill: $deselected;
                     stroke: $deselected;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $deselected;
                 }
             }
@@ -461,7 +461,7 @@ $deselected: $medium_gray;
                     fill: $cta;
                     stroke: $cta;
                 }
-                > div:first-child, div.country-info {
+                > h2, div.country-info {
                     background-color: $cta;
                 }
             }
@@ -475,7 +475,7 @@ $deselected: $medium_gray;
                 fill: $deselected;
                 stroke: $deselected;
             }
-            > div:first-child, div.country-info {
+            > h2, div.country-info {
                 background-color: $deselected;
             }
         }
