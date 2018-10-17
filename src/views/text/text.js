@@ -20,9 +20,11 @@ export default class TextView extends Element {
     set isOpen(value){
         if ( value ){
             this.el.querySelector('.expand-text').classList.add(s.expanded);
+            this.el.querySelector('.expand-text').setAttribute('aria-expanded', true);
             this.el.querySelector('a.read-more').innerHTML = 'Read less &rarr;';
         } else {
             this.el.querySelector('.expand-text').classList.remove(s.expanded);
+            this.el.querySelector('.expand-text').setAttribute('aria-expanded', false);
             this.el.querySelector('a.read-more').innerHTML = 'Read more &rarr;';
         }
         this._isOpen = value;
