@@ -7,5 +7,5 @@ The U.N. Food and Agriculture Organization’s [Port State Measures Agreement (P
 
 All three U.N. agencies have recognized the benefits of the aforementioned instruments in tackling illegal, unreported, and unregulated fishing and associated social issues. 
 
-The map below shows which nations have ratified each treaty. Select countries from the list below to learn more.
+The map below shows which [U.N. Member States](http://www.un.org/en/member-states/) have ratified each treaty. Enter a specific country to learn more.
 </div>
