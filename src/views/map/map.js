@@ -64,11 +64,23 @@ export default class MapView extends Element {
             
             if ( data.length !== 0 ) { // ie search is active, not an empty array
                 this.Highmap.container.parentNode.classList.add(s.searchActive);
+                let overseasTerritories = [];
+                data.forEach(d => {
+                    for ( let key in this.model.overseas ){
+                        if ( this.model.overseas.hasOwnProperty(key) ){
+                            if ( this.model.overseas[key].mainland === d && this.model.overseas[key].inheritTreaties.length !== 0 ){
+                                overseasTerritories.push(key);
+                            }
+                        }
+                    }
+                });
+                let adjustedData = data.concat(overseasTerritories);
                 this.Highmap.series[0].data.forEach(country => {
                     var el = country.graphic.element;
-                    if ( data.indexOf(country.iso_a3) !== -1 || ( this.model.EUCountries.indexOf(country.iso_a3) !== -1 && data.indexOf('EU') !== -1 )){ 
+                    if ( adjustedData.indexOf(country.iso_a3) !== -1 || ( this.model.EUCountries.indexOf(country.iso_a3) !== -1 && data.indexOf('EU') !== -1 )){ 
                                                             // ie country code is in the search array or part of EU and EU is in the search array
                         el.classList.add(s.matchesSearch); // SVGElement.prototype.classList i not fully supported
+                        
                     } else {
                         el.classList.remove(s.matchesSearch);
                     }
@@ -159,13 +171,18 @@ export default class MapView extends Element {
                 name: 'International agreements',
                 events: {
                     click: (e) => {
+                        console.log(e);
                         window.lastCountrySelectMethod = 'map';
                          // using timestamp make each event unique so that clicking the same country twice results in a new setState
-                        var isOn = ( !document.querySelector('#pct-map').classList.contains(s.searchActive) || ( document.querySelector('#pct-map').classList.contains(s.searchActive) && !e.target.classList.contains(s.matchesSearch) ));
-                        GTMPush('EIFP|Map|' + e.point.iso_a3 + '|' + ( isOn ? 'on' : 'off' ));
-                        S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
-                        
-
+                        if ( ( this.model.countryCodes[e.point.iso_a3] && !this.model.overseas.hasOwnProperty(e.point.iso_a3) ) || ( this.model.overseas.hasOwnProperty(e.point.iso_a3) && e.point.className !== 'None'  )){
+                            let isOn = ( !document.querySelector('#pct-map').classList.contains(s.searchActive) || ( document.querySelector('#pct-map').classList.contains(s.searchActive) && !e.target.classList.contains(s.matchesSearch) ));
+                          //  let countryCode = this.model.overseas.hasOwnProperty(e.point.iso_a3) ? this.model.overseas[e.point.iso_a3].mainland : e.point.iso_a3
+                            GTMPush('EIFP|Map|' + e.point.iso_a3 + '|' + ( isOn ? 'on' : 'off' ));
+                            S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
+                            if ( this.model.overseas.hasOwnProperty(e.point.iso_a3) ){
+                                S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], this.model.overseas[e.point.iso_a3].mainland);
+                            }
+                        }
                     }
                 }
                 

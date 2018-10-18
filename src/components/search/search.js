@@ -82,7 +82,7 @@ export default class SearchBar extends Element {
 		var nonpartyArray = []; // array of couhntries that are not part
 		for ( var key in this.model.countryCodes) {
 			let isParty = ( this.model.countriesNested.find(d => d.key === key) !== undefined ); // true iif country in list of all countries is aso in list of party countries
-			if ( this.model.countryCodes.hasOwnProperty(key) ){
+			if ( this.model.countryCodes.hasOwnProperty(key) && !this.model.overseas.hasOwnProperty(key) ){ // is in country codes list but not an OT
 				if ( isParty) {
 					partyArray.push({value: key, name: this.model.countryCodes[key], isParty});  
 				} else {
