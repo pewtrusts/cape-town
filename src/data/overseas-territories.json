@@ -1,37 +1,146 @@
-{
-    "FRO": "DNK",
-    "GRL": "DNK",
-    "GUF": "FRA",
-    "PYF": "FRA",
-    "ATF": "FRA",
-    "GLP": "FRA",
-    "MTQ": "FRA",
-    "MYT": "FRA",
-    "NCL": "FRA",
-    "REU": "FRA",
-    "BLM": "FRA",
-    "MAF": "FRA",
-    "SPM": "FRA",
-    "WLF": "FRA",
-    "AIA": "GBR",
-    "BMU": "GBR",
-    "CYM": "GBR",
-    "FLK": "GBR", 
-    "GIB": "GBR",
-    "MSR": "GBR",
-    "PCN": "GBR",
-    "SHN": "GBR",
-    "SGS": "GBR",
-    "TCA": "GBR",
-    "VGB": "GBR",
-    "ABW": "NLD",
-    "ANT": "NLD",
-    "BVT": "NOR",
-    "SJM": "NOR",
-    "TKL": "NZL",
-    "ASM": "USA",
-    "GUM": "USA",
-    "MNP": "USA",
-    "PRI": "USA",
-    "VIR": "USA"
+{   
+    "NFK": {
+        "mainland": "AUS",
+        "inheritTreaties":[]
+    },
+    "FRO": {
+        "mainland": "DNK",
+        "inheritTreaties":["psma"]
+    },
+    "GRL": {
+        "mainland": "DNK",
+        "inheritTreaties":["psma"]
+    },
+    "GUF": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "PYF": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "ATF": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "GLP": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "MTQ": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "MYT": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "NCL": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "REU": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "BLM": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "MAF": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "SPM": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "WLF": {
+        "mainland": "FRA",
+        "inheritTreaties":["psma"]
+    },
+    "AIA": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "BMU": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "CYM": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "FLK": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    }, 
+    "GIB": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "MSR": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "PCN": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "SHN": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "SGS": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "TCA": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "VGB": {
+        "mainland": "GBR",
+        "inheritTreaties":[]
+    },
+    "ABW": {
+        "mainland": "NLD",
+        "inheritTreaties":[]
+    },
+    "ANT": {
+        "mainland": "NLD",
+        "inheritTreaties":[]
+    },
+    "BVT": {
+        "mainland": "NOR",
+        "inheritTreaties":[]
+    },
+    "SJM": {
+        "mainland": "NOR",
+        "inheritTreaties":[]
+    },
+    "TKL": {
+        "mainland": "NZL",
+        "inheritTreaties":[]
+    },
+    "ASM": {
+        "mainland": "USA",
+        "inheritTreaties":[]
+    },
+    "GUM": {
+        "mainland": "USA",
+        "inheritTreaties":[]
+    },
+    "MNP": {
+        "mainland": "USA",
+        "inheritTreaties":[]
+    },
+    "PRI": {
+        "mainland": "USA",
+        "inheritTreaties":[]
+    },
+    "VIR": {
+        "mainland": "USA",
+        "inheritTreaties":[]
+    }
 }

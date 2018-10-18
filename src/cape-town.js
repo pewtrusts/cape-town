@@ -86,11 +86,11 @@ function getRuntimeData(){
                         overseasTerritories.push(key);
                     }
                 }
-               // console.log(overseasTerritories, model.joinData);
+                console.log(overseasTerritories, model.joinData);
                model.joinData = model.joinData.concat(
                    overseasTerritories.map(ot => {
                         console.log(ot, model.overseas[ot]);
-                        var mainlandDatum = model.joinData.find(c => c.key === model.overseas[ot]);
+                        var mainlandDatum = model.joinData.find(c => c.key === model.overseas[ot].mainland);
                         return Object.create(mainlandDatum, {
                             key: {
                                 value: ot
@@ -100,6 +100,12 @@ function getRuntimeData(){
                             },
                             mainland: {
                                 value: mainlandDatum.key
+                            },
+                            values: {
+                                value: model.overseas[ot].inheritTreaties.slice() // copy
+                            },
+                            value: {
+                                value: model.overseas[ot].inheritTreaties.sort().join('-')
                             }
                         });
                     }) // creates objects that prototypically inherit from the mainland's object

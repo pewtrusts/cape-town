@@ -100,10 +100,11 @@ export default class MapView extends Element {
         // over this.model
         var returnFormatter = (function(model){
             function Formatter(){
+                console.log(this.point);
                /* if ( model.countryCodes[this.point.iso_a3] === undefined ){
                     return null;
                 }*/
-                var agreementsString = !model.countryCodes[this.point.iso_a3] ? '' : this.point.className === 'None' ? 'None' : this.point.classArray.map(c => {
+                var agreementsString = !model.countryCodes[this.point.iso_a3] || ( model.overseas.hasOwnProperty(this.point.iso_a3) && this.point.className === 'None' ) ? '' : this.point.className === 'None' ? 'None' : this.point.classArray.map(c => {
                     var parenthetical = c === 'psma' && model.joinData.find(d => d.key === this.point.iso_a3).values.length === 0 ? ' (EU)' :
                         c === 'psma' && model.EUCountries.indexOf(this.point.iso_a3) !== -1 ? '<br />(EU and in respect of overseas territories)' : ''
                     return model.treaties.find(t => t.key === c).name + parenthetical;
@@ -113,9 +114,9 @@ export default class MapView extends Element {
                     el.classList.add(this.point.className); 
                 });
                 console.log(this);
-                var mainland = model.overseas[this.point.iso_a3];
+                var mainlandObj = model.overseas[this.point.iso_a3];
                 return `
-                    <b>${ mainland ? model.countryCodes[this.point.iso_a3] + ' (' + model.countryCodes[mainland] + ')' : model.countryCodes[this.point.iso_a3] ? model.countryCodes[this.point.iso_a3] : this.point.name }</b><br />
+                    <b>${ mainlandObj ? model.countryCodes[this.point.iso_a3] + ' (' + model.countryCodes[mainlandObj.mainland] + ')' : model.countryCodes[this.point.iso_a3] ? model.countryCodes[this.point.iso_a3] : this.point.name }</b><br />
                     ${agreementsString}
                 `;
             }
