@@ -127,7 +127,7 @@ console.log(this);
         return this._isVisible;
     }
     getImage(){
-        var key = this.country.isOverseasTerritory ? this.country.mainland + '-flag' : this.isPushed && this.country.value === 'None' ? 'globe' : this.isPushed ? 'EU' : this.country.key; // EU country tiles can be pushed but value will equal psma, not None
+        var key = this.isPushed && this.country.value === 'None' ? 'globe' : this.isPushed ? 'EU' : this.country.key; // EU country tiles can be pushed but value will equal psma, not None
         if ( !this.isPushed ){
             return import(/* webpackChunkName: "svgs-prerendered/[request]"*/ '@Project/assets/countries-prerender/' + key + '.svg').then(({default: svg}) => {
                 return svg;
