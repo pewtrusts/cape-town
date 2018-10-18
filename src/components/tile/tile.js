@@ -76,7 +76,7 @@ console.log(this);
             countryInfoText = '<p class="' + s.noAgreements +'">No agreements ratified</p>';
         }
         tile.innerHTML = `
-            <h2 title="${this.parent.model.countryCodes[this.country.key]}" class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</h2>
+            <p title="${this.parent.model.countryCodes[this.country.key]}" class="${s.tileName}">${this.parent.model.countryCodes[this.country.key]}</p>
                 ${ this.country.value === 'None' && !this.country.isOverseasTerritory ? countryInfoText : ''}
             <div aria-hidden="true" class="${s.svgWrapper}">
             </div>
@@ -141,10 +141,7 @@ console.log(this);
     init(){
         this.isVisible = true;
         this.isClicked = false;
-        this.el.addEventListener('click', () => {
-            //var alreadySelected = Array.from($d.qa('.' + s.selected)); // makes copy of already selected 
-                                                                       // so that the one being toggled now
-
+        function clickHandler(){
             if ( window.innerWidth < 629 ){
                 console.log(this.parent);
                 this.parent.tiles.filter(d => d !== this).forEach(each => {
@@ -152,6 +149,17 @@ console.log(this);
                 });
             }
             this.isClicked = !this.isClicked;
+        }
+        this.el.addEventListener('click', () => {
+            //var alreadySelected = Array.from($d.qa('.' + s.selected)); // makes copy of already selected 
+                                                                       // so that the one being toggled now
+               clickHandler.call(this);
+            });
+        this.el.addEventListener('keyup', (e) => {
+            console.log(e);
+            if (e.keyCode === 13){ // enter key
+                clickHandler.call(this);
+            }
         });
         this.el.addEventListener('mouseenter', () => {
             if ( !this.isClicked ){
