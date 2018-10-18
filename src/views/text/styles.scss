@@ -11,7 +11,9 @@
         transition: opacity 0.3s linear;
         z-index: 2;
         pointer-events: none;
+        visibility:hidden;
         &.expanded {
+            visibility: visible;
             height: auto;
             opacity: 0.9;
             pointer-events: all;
