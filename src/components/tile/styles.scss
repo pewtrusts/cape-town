@@ -83,7 +83,7 @@ $slide_transition: transform 0.2s ease-in-out 0.3s;
             flex-shrink: 0;
         }
     }
-    &:not(.noHover) {
+    & {
         &.selected {
             @media screen and (max-width: 628px){
                 z-index:200;
@@ -110,8 +110,15 @@ $slide_transition: transform 0.2s ease-in-out 0.3s;
             }
         }
     }
-    &.noHover:not(.showOnSearch) {
-        display: none;
+    &.noHover {
+        @media screen and (max-width: 629px) {
+            > p.noAgreements {
+                display:none;
+            }
+        }
+        &:not(.showOnSearch) {
+            display: none;
+        }
     }
     &::after {
         content: '';
@@ -176,7 +183,7 @@ $slide_transition: transform 0.2s ease-in-out 0.3s;
         color: $dark_gray;
         width: 100%;
         text-align: center;
-        bottom: 23px;
+        bottom: 18px;
     }
     @media screen and (min-width: 629px) {
         --slideTransition: transform 0.2s ease-in-out 0.3s;
