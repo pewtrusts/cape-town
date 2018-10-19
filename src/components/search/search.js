@@ -143,6 +143,11 @@ export default class SearchBar extends Element {
 				if ( data === 0 ) {
 					this.toggleShowMore.call(this,msg,false);
 				}
+			}],
+			['selectrTagFocus', (msg,data) => {
+				if ( !this.children[1].isPressed && data ){
+					this.children[1].isPressed = true;
+				}
 			}]
 		]);
 		this.children.forEach(each => {
