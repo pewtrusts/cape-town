@@ -66,12 +66,17 @@
         flex-shrink: 0;
         line-height: 125%;
         top:1px;
+        
+        
     }
     :global(.selectr-tag-remove) {
         left: 0;
         top: 11px;
         width: 100%;
         background: url('@Project/assets/x-out.svg') no-repeat 5px 2px;
+        &:focus {
+            border:1px dotted #000;
+        }
     }
     :global(.selectr-tag-remove::before), :global(.selectr-tag-remove::after) {
         transform: none;
@@ -98,6 +103,9 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.2s ease-in-out;
+        &:focus span {
+            font-weight: bold;
+        }
         .oversetCount {
             opacity: 1;
             transition: opacity 0.2s ease-in-out;
@@ -128,6 +136,9 @@
 }
 .clearSearch {
     width: 19%;
+    &:focus {
+        font-weight: bold;
+    }
 }
 // multiselect
 .hideOption {
