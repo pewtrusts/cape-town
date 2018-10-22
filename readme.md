@@ -5,9 +5,9 @@
 
 A data viz showing which countries have signed on to which of three international treaties to combat illegal fishing. Users select a countries by clicking on a map, by selecting from a dropdown, or by text search.  Users filter which treaties filtered in or out by toggling buttons. Matching countries are color-coded in the map and revealed as tiles in the results sections. Clicking or hovering over a country's tile reveals its details for each treaty.
 
-![screen shot of map and tiles](./screenshot.png)
+![screen shot of map and tiles](images/screenshot.png)
 
-![screen shot of tile details](./screenshot-1.png)
+![screen shot of tile details](images/screenshot-1.png)
 
 ## How to build and publish
 
