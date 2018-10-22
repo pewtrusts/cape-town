@@ -40,7 +40,6 @@ export default class Multiselect extends Mobius1Selectr {
         ]);
         
         function selectrOnChange(Selectr){
-            console.log(window.lastCountrySelectMethod);
             if ( window.lastCountrySelectMethod !== 'map' && window.lastCountrySelectMethod !== 'clear' && window.lastCountrySelectMethod !== 'savedState' ) {
                  let country;
                  let onOff;
@@ -73,6 +72,8 @@ export default class Multiselect extends Mobius1Selectr {
             setTimeout(() => {
                 window.lastCountrySelectMethod = 'search';
             },250);
+            // clear the input field after update
+            this.Selectr.input.value = ''; 
         }
         this.Selectr.on('selectr.init', () => {
                 this.Selectr.config.resolveFn(true);
