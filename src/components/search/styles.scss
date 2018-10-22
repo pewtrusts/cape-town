@@ -42,6 +42,9 @@
         border:none;
         box-shadow: $box_shadow;
     }
+    :global(.selectr-options){
+        max-height: 210px;
+    }
     :global(ul.selectr-tags){ 
         display: flex;
         overflow: hidden;
