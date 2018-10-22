@@ -140,7 +140,7 @@ export default class Multiselect extends Mobius1Selectr {
                     });
                 }
             });
-            button.addEventListener('focus', () => {
+            button.addEventListener('focus', (e) => {
                 e.stopImmediatePropagation();
                 S.setState('selectrTagFocus', true);
             });
