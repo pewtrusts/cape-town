@@ -66,9 +66,13 @@ export default class Multiselect extends Mobius1Selectr {
             if ( window.lastCountrySelectMethod === 'clear' ){
                 GTMPush('EIFP|Search|Clear');
             }
-            setTimeout(() => {
+            if ( window.lastCountrySelectMethod ===  'clear'){
                 this.checkForTagOverflow();
-            }, delay);
+            } else {
+               setTimeout(() => {
+                    this.checkForTagOverflow();
+               }, delay);
+            }
             this.addTagEvents();
             
           
@@ -77,7 +81,7 @@ export default class Multiselect extends Mobius1Selectr {
                 window.lastCountrySelectMethod = 'search';
             },250);
             // clear the input field after update
-            this.Selectr.input.value = ''; 
+         //   this.Selectr.input.value = ''; 
         }
         this.Selectr.on('selectr.init', () => {
                 this.Selectr.config.resolveFn(true);
