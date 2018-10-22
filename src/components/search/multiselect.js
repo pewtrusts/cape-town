@@ -36,9 +36,6 @@ export default class Multiselect extends Mobius1Selectr {
             }],
             ['oversetCount', (msg,data) => {
                 this.showOversetCount.call(this,msg,data);
-            }],
-            ['resize', () => {
-                this.checkForTagOverflow.call(this);
             }]
         ]);
         
