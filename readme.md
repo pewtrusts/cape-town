@@ -5,9 +5,9 @@
 
 A data viz showing which countries have signed on to which of three international treaties to combat illegal fishing. Users select a countries by clicking on a map, by selecting from a dropdown, or by text search.  Users filter which treaties filtered in or out by toggling buttons. Matching countries are color-coded in the map and revealed as tiles in the results sections. Clicking or hovering over a country's tile reveals its details for each treaty.
 
-![screen shot of map and tiles](screenshot.png)
+![screen shot of map and tiles](./screenshot.png)
 
-![screen shot of tile details](screenshot-1.png)
+![screen shot of tile details](./screenshot-1.png)
 
 ## How to build and publish
 
@@ -23,6 +23,7 @@ A data viz showing which countries have signed on to which of three internationa
 ## How to update the data
 
 The data are in four files:
+
 * `countries.csv`: the main data for countries that are not overseas territories of another. Fields: iso_a3, treaty_id, ratified_date, note. The note column for now consists only of the number of vessels, relevant to the Capetown Agreement.
 
 * `country-codes.json`: dictionary with country codes as the keys and country names and the values
