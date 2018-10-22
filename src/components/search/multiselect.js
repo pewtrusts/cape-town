@@ -81,7 +81,7 @@ export default class Multiselect extends Mobius1Selectr {
                 window.lastCountrySelectMethod = 'search';
             },250);
             // clear the input field after update
-         //   this.Selectr.input.value = ''; 
+            this.Selectr.input.value = ''; 
         }
         this.Selectr.on('selectr.init', () => {
                 this.Selectr.config.resolveFn(true);
