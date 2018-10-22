@@ -24,9 +24,13 @@ A data viz showing which countries have signed on to which of three internationa
 
 The data are in four files:
 * `countries.csv`: the main data for countries that are not overseas territories of another. Fields: iso_a3, treaty_id, ratified_date, note. The note column for now consists only of the number of vessels, relevant to the Capetown Agreement.
+
 * `country-codes.json`: dictionary with country codes as the keys and country names and the values
+
 * `eu-countries.json`: an array of EU member state country codes
-* `overseas-territories.json`: multidimensional JSON object keyed my country codes of overseas territories. Each territory's value is an object specifying the territory's mainland country and an array of the treaties to which the territory is party as a result of action taken by the mainland country. Currently the Port States Measures Agreement i the only relevant value.
+
+* `overseas-territories.json`: multidimensional JSON object keyed my country codes of overseas territories. Each territory's value is an object specifying the territory's mainland country and an array of the treaties to which the territory is party as a result of action taken by the mainland country. Currently the Port States Measures Agreement is the only relevant value.
+
 * `treaties.json`:  An array of objects representing each treaty, its code, its name, and its status
 
 **Only `countries.csv` can be updated without rebuilding the files.** That is, you can update the file and directly replace the existing file on Sitecore. The app fetches the data from that file at runtime.
