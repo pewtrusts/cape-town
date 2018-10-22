@@ -40,6 +40,8 @@ export default class Multiselect extends Mobius1Selectr {
         ]);
         
         function selectrOnChange(Selectr){
+            var delay = window.lastCountrySelectMethod === 'savedState' ? 250 : 0;
+            console.log(window.lastCountrySelectMethod);
             if ( window.lastCountrySelectMethod !== 'map' && window.lastCountrySelectMethod !== 'clear' && window.lastCountrySelectMethod !== 'savedState' ) {
                  let country;
                  let onOff;
@@ -64,7 +66,9 @@ export default class Multiselect extends Mobius1Selectr {
             if ( window.lastCountrySelectMethod === 'clear' ){
                 GTMPush('EIFP|Search|Clear');
             }
-            this.checkForTagOverflow();
+            setTimeout(() => {
+                this.checkForTagOverflow();
+            }, delay);
             this.addTagEvents();
             
           
