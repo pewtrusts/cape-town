@@ -24,6 +24,9 @@
              box-shadow: $box_shadow;
         }
     }
+    :global(.selectr-options) {
+        max-height: 210px;
+    }
     :global(.selectr-selected) {
         border: none;
         border-radius: 0;

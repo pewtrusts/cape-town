@@ -4,6 +4,7 @@ import * as d3 from 'd3-collection';
 import Papa from 'papaparse';
 import { stateModule as S } from 'stateful-dead';
 import PS from 'pubsub-setter';
+import { publishWindowResize } from '@Utils';
 
 //data
 import treaties from '@Project/data/treaties.json';
@@ -28,6 +29,7 @@ const model = {
     overseas
 };
 
+publishWindowResize(S);
 
 const views = [];
 
