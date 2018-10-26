@@ -174,14 +174,11 @@ export default class MapView extends Element {
                         console.log(e);
                         window.lastCountrySelectMethod = 'map';
                          // using timestamp make each event unique so that clicking the same country twice results in a new setState
-                        if ( ( this.model.countryCodes[e.point.iso_a3] && !this.model.overseas.hasOwnProperty(e.point.iso_a3) ) || ( this.model.overseas.hasOwnProperty(e.point.iso_a3) && e.point.className !== 'None'  )){
+                        if ( this.model.countryCodes[e.point.iso_a3] ){
                             let isOn = ( !document.querySelector('#pct-map').classList.contains(s.searchActive) || ( document.querySelector('#pct-map').classList.contains(s.searchActive) && !e.target.classList.contains(s.matchesSearch) ));
                           //  let countryCode = this.model.overseas.hasOwnProperty(e.point.iso_a3) ? this.model.overseas[e.point.iso_a3].mainland : e.point.iso_a3
                             GTMPush('EIFP|Map|' + e.point.iso_a3 + '|' + ( isOn ? 'on' : 'off' ));
                             S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
-                            if ( this.model.overseas.hasOwnProperty(e.point.iso_a3) ){
-                                S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], this.model.overseas[e.point.iso_a3].mainland);
-                            }
                         }
                     }
                 }
