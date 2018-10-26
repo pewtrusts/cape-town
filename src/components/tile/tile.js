@@ -25,50 +25,52 @@ export default class CountryTile {
         var EUDatum = this.parent.model.countriesNested.find(c => c.key === 'EU').values[0];
         var isEUMember = this.parent.model.EUCountries.indexOf(this.country.key) !== -1;
 
-        var byMainland = '';
 
         /* if country is an overseas territory, find the datum of the mainland country. if none will be undefined */
        // this.mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.parent.model.overseas[this.country.key]);
        // this.country.isOverseasTerritory = this.parent.model.overseas.hasOwnProperty(this.country.key);
 console.log(this);
-        if ( this.country.isOverseasTerritory ){
-            console.log('overseas!', this); // TODO: logic to handle overseas countries would go here.
-            tile.classList.add('ot');
-            if ( this.country.values.length === 0 ){
-                tile.classList.add(s.otOnly);
-            }
-            byMainland = ' by ' + this.parent.model.countryCodes[this.country.mainland];
-
-        }
         if (isEUMember){
             tile.classList.add('EU');
             if ( this.country.values.length === 0 ) {
                 tile.classList.add(s.EUOnly);
             }
         }
+        if ( this.country.isOverseasTerritory ){
+            tile.classList.add(s.otOnly);
+        }
         if ( this.country.value !== 'None' ) {
             if ( this.country.key === 'EU'){ // is the EU
                 countryInfoText = `<p><strong>${EUDatum.treaty_id.toUpperCase()}:</strong> Ratified on ${EUDatum.ratified_date}`;
-            } else {
+            } else if (!this.country.isOverseasTerritory){
                 countryInfoText = this.parent.model.treaties.reduce((acc,cur) => {
                     let match = this.country.values.find(d => d.treaty_id === cur.key);
                     let info =  
                                 /** CTA **/
                                 match && cur.key ===  'cta' ? 
-                                    'Ratified' + byMainland + ' on ' + match.ratified_date + ' with ' + match.note + '.' :
+                                    'Ratified on ' + match.ratified_date + ' with ' + match.note + '.' :
                                 /** PSMA for EU countries **/
     /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '; in respect of overseas territories on ' + match.ratified_date + '.' :
-                                match && this.country.isOverseasTerritory && cur.key === 'psma' && this.parent.model.EUCountries.indexOf(this.country.mainland) !== -1 ?
-                                    'Ratified' + byMainland + ' in respect of overseas territories on ' + match.ratified_date + '.' :
     /*is EU only (ie no match)*/isEUMember && cur.key === 'psma' ?
                                     'Ratified by the EU on ' +  EUDatum.ratified_date + '.' : 
                                 /** PSMA for non-EU or C188 **/
                                 match ?
-                                    'Ratified' + byMainland + ' on ' + match.ratified_date + '.' : 
+                                    'Ratified on ' + match.ratified_date + '.' : 
                                 /** Not ratified **/
                                     'Not ratified.';
                     return acc + `<p><strong>${cur.key.toUpperCase()}:</strong> ${info}</p>`;
+                },'');
+            } else { // country is overseasTerritory
+                // here you should cycle through the ownProperty values of the OT to create the infoText
+                let mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.country.mainland);
+                console.log(mainlandDatum);
+                countryInfoText = this.country.values.reduce((acc, cur) => {
+                    let match = mainlandDatum.values.find(d => d.treaty_id === cur);
+                    console.log(cur, match);
+                    if ( match ){
+                        return acc + `<p><strong>${cur.toUpperCase()}:</strong> Ratified by ${this.parent.model.countryCodes[this.country.mainland]} in respect of overseas territories on ${match.ratified_date}</p>`
+                    }
                 },'');
             }
         } else {
