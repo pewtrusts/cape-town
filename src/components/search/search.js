@@ -151,7 +151,7 @@ export default class SearchBar extends Element {
 				}
 			}],
 			['selectrTagFocus', (msg,data) => {
-				if ( !this.children[1].isPressed && data ){
+				if ( !this.children[1].isPressed && data  && this.children[1].oversetCount > 0 ){
 					this.children[1].isPressed = true;
 				}
 			}]
