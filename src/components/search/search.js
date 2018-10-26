@@ -80,7 +80,13 @@ export default class SearchBar extends Element {
 	prerender(){
 		var partyArray = []; // array of countries that are part to at least one agreemet
 		var nonpartyArray = []; // array of couhntries that are not part
-		for ( var key in this.model.countryCodes) {
+		var qualifyingOverseas = [];
+		for ( let key in this.model.overseas ){
+			if (this.model.overseas.hasOwnProperty(key) && this.model.overseas[key].inheritTreaties.length > 0){
+				qualifyingOverseas.push({value: this.model.overseas[key].mainland, name: this.model.countryCodes[key], isParty: true});
+			}
+		}
+		for ( let key in this.model.countryCodes) {
 			let isParty = ( this.model.countriesNested.find(d => d.key === key) !== undefined ); // true iif country in list of all countries is aso in list of party countries
 			if ( this.model.countryCodes.hasOwnProperty(key) && !this.model.overseas.hasOwnProperty(key) ){ // is in country codes list but not an OT
 				if ( isParty) {
@@ -95,7 +101,7 @@ export default class SearchBar extends Element {
 			return this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1;
 		});
 		nonpartyArray.sort((a,b) => this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1);
-		var countryCodesArray = partyArray.concat(nonpartyArray); // concat the arrays so that  party countries show first	
+		var countryCodesArray = partyArray.concat(qualifyingOverseas).concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
 			//new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
