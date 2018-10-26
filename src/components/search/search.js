@@ -83,7 +83,7 @@ export default class SearchBar extends Element {
 		var qualifyingOverseas = [];
 		for ( let key in this.model.overseas ){
 			if (this.model.overseas.hasOwnProperty(key) && this.model.overseas[key].inheritTreaties.length > 0){
-				qualifyingOverseas.push({value: this.model.overseas[key].mainland, name: this.model.countryCodes[key], isParty: true});
+				qualifyingOverseas.push({value: key, name: this.model.countryCodes[key], isParty: true});
 			}
 		}
 		for ( let key in this.model.countryCodes) {
