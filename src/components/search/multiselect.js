@@ -43,84 +43,54 @@ export default class Multiselect extends Mobius1Selectr {
         ]);
         
         function selectrOnChange(Selectr){
-            if (Selectr.notice.innerHTML === ''){
-                // workaround. while typing in the Selectr's search input, Selectr will
-                // make the first option matching the string active. if you keep typing
-                // to the point that there are no matches, the "no matches" notice comes up,
-                // but the last matching option will remain active. hitting enter will setValue 
-                // to that option.
-                console.log(Selectr.notice.innerHTML);
-                var delay = window.lastCountrySelectMethod === 'savedState' ? 250 : 0;
-                console.log(window.lastCountrySelectMethod);
-                if ( window.lastCountrySelectMethod !== 'map' && window.lastCountrySelectMethod !== 'clear' && window.lastCountrySelectMethod !== 'savedState' ) {
-                     let country;
-                     let onOff;
-                     let presentState = S.getState('searchCountries') || [];
-                     let slicedValues = Selectr.selectedValues.slice(1);
-                     console.log(presentState, slicedValues);
-                     if ( presentState.length < slicedValues.length ){ // ie selecing new country; new list longer than old list
-                        country = slicedValues[slicedValues.length - 1];
-                        onOff = 'on';
-                     } else {
-                        onOff = 'off';
-                        for ( let i = 0; i < presentState.length; i++ ){
-                            if ( slicedValues.indexOf(presentState[i]) === -1 ){ // ie the presentState item is not in the newState array
-                                country = presentState[i];
-                                break;
-                            }
+            var delay = window.lastCountrySelectMethod === 'savedState' ? 250 : 0;
+            console.log(window.lastCountrySelectMethod);
+            if ( window.lastCountrySelectMethod !== 'map' && window.lastCountrySelectMethod !== 'clear' && window.lastCountrySelectMethod !== 'savedState' ) {
+                 let country;
+                 let onOff;
+                 let presentState = S.getState('searchCountries') || [];
+                 let slicedValues = Selectr.selectedValues.slice(1);
+                 console.log(presentState, slicedValues);
+                 if ( presentState.length < slicedValues.length ){ // ie selecing new country; new list longer than old list
+                    country = slicedValues[slicedValues.length - 1];
+                    onOff = 'on';
+                 } else {
+                    onOff = 'off';
+                    for ( let i = 0; i < presentState.length; i++ ){
+                        if ( slicedValues.indexOf(presentState[i]) === -1 ){ // ie the presentState item is not in the newState array
+                            country = presentState[i];
+                            break;
                         }
-                     }
-                     console.log(country, onOff);
-                     GTMPush('EIFP|Search|' + country + '|' + onOff);
-                }
-                if ( window.lastCountrySelectMethod === 'clear' ){
-                    GTMPush('EIFP|Search|Clear');
-                }
-                if ( window.lastCountrySelectMethod ===  'clear'){
-                    this.checkForTagOverflow();
-                } else {
-                   setTimeout(() => {
-                        this.checkForTagOverflow();
-                   }, delay);
-                }
-                this.addTagEvents();
-                
-              
-                S.setState('searchCountries', Selectr.selectedValues.slice(1));
-                setTimeout(() => {
-                    window.lastCountrySelectMethod = 'search';
-                },250);
-                // clear the input field after update
-                this.Selectr.input.value = ''; 
-            } else { // ie the "no matches" notice was present. need to undo the last setValue 
-                Selectr.undoFlag = true; // set undo flag to prevent setting the state to the new selection
-
-                if ( Selectr.selectedValues.length - 1 < S.getState('searchCountries').length){ // if the accidentally triggered value is already and should still be 
-                                                                                                // one of the selected values. in this case Selectr has removed it from its
-                                                                                                // array of selected values, so the missing value has to be redone
-                    let valuesToUndo = S.getState('searchCountries').reduce((acc,cur) => { 
-                        if (Selectr.selectedValues.indexOf(cur) === -1 ){
-                            acc.push(cur);
-                        }
-                        return acc;
-                    },[]);
-                    Selectr.setValue(valuesToUndo);
-                } else { // if the triggered value is not part of the current selection, only need to redo its setValue
-                    Selectr.setValue(Selectr.selectedValues[Selectr.selectedValues.length - 1]);
-                }
-                Selectr.undoFlag = false;
+                    }
+                 }
+                 console.log(country, onOff);
+                 GTMPush('EIFP|Search|' + country + '|' + onOff);
             }
+            if ( window.lastCountrySelectMethod === 'clear' ){
+                GTMPush('EIFP|Search|Clear');
+            }
+            if ( window.lastCountrySelectMethod ===  'clear'){
+                this.checkForTagOverflow();
+            } else {
+               setTimeout(() => {
+                    this.checkForTagOverflow();
+               }, delay);
+            }
+            this.addTagEvents();
+            
+          
+            S.setState('searchCountries', Selectr.selectedValues.slice(1));
+            setTimeout(() => {
+                window.lastCountrySelectMethod = 'search';
+            },250);
+            // clear the input field after update
+            this.Selectr.input.value = ''; 
         }
-        
-
         this.Selectr.on('selectr.init', () => {
-                console.log(this.Selectr);
                 this.Selectr.config.resolveFn(true);
         });
         this.Selectr.on('selectr.change', () => {
-            if (!this.Selectr.undoFlag) {
-                selectrOnChange.call(this, this.Selectr);
-            }
+            selectrOnChange.call(this, this.Selectr);
         });
         
         this.Selectr.on('selectr.open', function(){
