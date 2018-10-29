@@ -50,7 +50,17 @@ function getRuntimeData(){
             header: true,
             fastMode: true,
             skipEmptyLines: true,
-            complete: function(response){
+            beforeFirstChunk(chunk){
+                var dataHash = chunk.hashCode(); // hashCode is helper function from utils
+                var el = document.querySelector('#pew-app');
+                if ( window.IS_PRERENDERING ){
+                    el.setAttribute('data-data-hash', dataHash);
+                } else {
+                    console.log('Data is a match: ' + ( dataHash.toString() === el.getAttribute('data-data-hash') ));
+                }
+            },
+            complete: function(response, file){
+                console.log(response, file);
                 views.length = 0;
                 var countries = response.data;
                 /* complete model based on fetched data */
