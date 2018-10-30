@@ -136,6 +136,7 @@ console.log(this);
             return import(/* webpackChunkName: "svgs-prerendered/[request]"*/ '@Project/assets/countries-prerender/' + key + '.svg').then(({default: svg}) => {
                 return svg;
             }).catch(error => 'Error:' + error);
+        ///. ***    // TO DO. here on error, need to default to countries/dynamic/globe.svg
         } else {
             return import(/* webpackMode: "eager" */ '@Project/assets/countries-dynamic/' + key + '.svg').then(({default: svg}) => {
                 return svg;

@@ -25,7 +25,7 @@ export default class TileView {
                 return CreateComponent(CountryTile, 'defer', {data: country, parent: this});
             });
 
-        
+        this.rerender = ( options.rerenderOnDataMismatch && this.model.isMismatched );
         this.el = this.prerender();
         this.isReady = new Promise((resolve, reject) => {
             this.resolve = resolve;
@@ -35,12 +35,20 @@ export default class TileView {
     }
     prerender(){
         var existing = $d.q('#pct-tiles-cont');
+        var cont;
+
         if ( existing && !this.rerender ) {
             return existing;
         }
+        if ( existing && this.rerender ){
+            console.log('rerender ', this);
+            existing.innerHTML = ''; 
+            cont = existing;
+        } else {
+            cont = $d.c('ul');
+        }
 
         //container
-        var cont = $d.c('ul');
         cont.setAttribute('id', 'pct-tiles-cont');
         cont.setAttribute('aria-live', 'polite');
         cont.setAttribute('aria-relevant', 'additions removals');
@@ -96,7 +104,9 @@ export default class TileView {
             console.log(overseasMatch);
             let datum = overseasMatch ? overseasMatch : this.model.EUCountries.indexOf(iso) === -1 ? {key: iso, values: [], value: "None"} : {key: iso, values: [], value: "psma"};
             console.log(datum);
-            let newCountry = new CountryTile(datum, this.tiles.length, this, true); 
+            //let newCountry = new CountryTile(datum, this.tiles.length, this, true); 
+            datum.index = this.tiles.length;
+            let newCountry = CreateComponent(CountryTile, 'defer', {data: datum, parent: this, isPushed: true});
             this.tiles.push(newCountry);
             this.el.appendChild(newCountry.el);
             newCountry.init();

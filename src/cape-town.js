@@ -80,10 +80,9 @@ function getRuntimeData(){
                 if ( window.IS_PRERENDERING ){
                     el.setAttribute('data-data-hash', dataHash);
                 } else if ( dataHash.toString() !== el.getAttribute('data-data-hash') ){
-                    console.log('Data mismatch!');
+                    console.log('Data mismatch!', dataHash.toString(), el.getAttribute('data-data-hash') );
                     model.isMismatched = true;
                 } else {
-                    model.isMismatched = true; // *** for testing purposes *** DELETE ***
                     console.log('Data match');
                 }
             },
