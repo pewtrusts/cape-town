@@ -2,12 +2,13 @@
 import s from './styles.scss';
 import $d from '@Helpers/dom-helpers.js';
 import main from '@Project/css/main.scss';
-import Element from  '@UI/element/element.js';
+import Element from  '@UI/element/';
 import { Dropdown } from '@UI/inputs/inputs.js';
 import Multiselect from './multiselect.js';
 import { Button } from '@UI/buttons/buttons.js';
 import { stateModule as S } from 'stateful-dead';
 import PS from 'pubsub-setter';
+import { CreateComponent } from '@Project/cape-town.js'; 
 
 class ShowAllButton extends Button {
 	prerender(){
@@ -72,9 +73,10 @@ class ShowAllButton extends Button {
 
 export default class SearchBar extends Element {
 
-	constructor(model){ // full app model from selection.js
+	constructor(_selector, options){ // full app model from selection.js
 		// calls the class Element's constructor which includes making this.el the result of this.prerender()
-		super(`div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}`, model);
+		var selector = _selector === 'defer' ? `div#pct-search.${s.searchDiv}.${main.flex}.${main.sb}` : _selector;
+		super(selector, options);
 	}
 	
 	prerender(){
@@ -104,14 +106,15 @@ export default class SearchBar extends Element {
 		var countryCodesArray = partyArray.concat(qualifyingOverseas).concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
-			//new SubmitButton(`button.${s.submitSearch}.${main.pctBtn}`),
-			new ShowAllButton(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
-			new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
+			//new ShowAllButton(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
+			CreateComponent(ShowAllButton, `button.${s.showAllSelected}.${main.pctBtn}`, {data:{key:'pct-show-all-btn',name:'Show all'}, parent: this}),
+			//new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
+			CreateComponent(Button, `button.${s.clearSearch}.${main.pctBtn}`, {data: {key:'pct-clear-btn',name:'Clear'}, parent: this}),
 		];
 
 		//container
 		var div = super.prerender();
-		if ( this.prerendered ) {
+		if ( this.prerendered && !this.rerender) {
 			return div; // if prerendered wil already have this stuff below
 		}
 		

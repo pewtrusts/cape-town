@@ -2,9 +2,10 @@ import main from '@Project/css/main.scss';
 import SelectButton from '@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
-import Element from '@UI/element/element.js';
+import Element from '@UI/element';
 import s from './styles.scss';
-import Ratified from '@Project/components/ratified/'
+import Ratified from '@Project/components/ratified/';
+import { CreateComponent } from '@Project/cape-town.js'; 
 
 export default class Selection extends Element {
     //no constructor is specified so the super's constructr does its thing (Element)
@@ -13,9 +14,15 @@ export default class Selection extends Element {
         /* any child elements that need initialization such as eventListeners
             need to instantiated as properties of `this` so that their methods
             can be accessed */
-        this.buttons = this.model.treaties.map(treaty => new SelectButton(treaty));
-        this.ratified = this.model.treaties.map(treaty => new Ratified(`div.ratifyComponent-${treaty.key}`, treaty, this));
-        this.searchBar = new SearchBar(this.model);
+
+        // WIP: change constructor to calls to CReatComponent call. walk up the chain to make sure conforms to new Element class
+        // ?: may not need rerender logic in subcompnents, children, because Selectr would have already triggered rerender.
+
+        this.buttons = this.model.treaties.map(treaty => CreateComponent(SelectButton, 'defer', {data: treaty, parent: this}));
+        //this.buttons = this.model.treaties.map(treaty => new SelectButton(treaty));
+        this.ratified = this.model.treaties.map(treaty => CreateComponent(Ratified, `div.ratifyComponent-${treaty.key}`, {data: treaty, parent: this}));
+        //this.searchBar = new SearchBar(this.model);
+        this.searchBar = CreateComponent(SearchBar, 'defer', {parent: this}),
         this.children = [
             ...this.ratified,     
             ...this.buttons,
@@ -24,10 +31,10 @@ export default class Selection extends Element {
         
         //container
         var div = super.prerender();
-        if ( this.prerendered ) {
-            return div; // if prerendered
+        if ( this.prerendered && !this.rerender) {
+            return div; // if prerendered and no need to render (no data mismatch)
         }
-        // if NOT prerendered:
+        // if NOT prerendered or if there is a need to rerender:
         div.classList.add(s.selectionView);
 
         var fieldset = $d.c('fieldset');

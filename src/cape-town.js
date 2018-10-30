@@ -32,6 +32,24 @@ const model = {
 publishWindowResize(S);
 
 const views = [];
+export function CreateComponent(component, selector, _options){
+    var options = Object.create({
+        children: [],
+        data: null,
+        model,
+        parent: null,
+        rerenderOnDataMismatch: false
+    });
+    if ( _options !== null && typeof _options === 'object' ){
+        for ( let key in _options ){
+            if ( _options.hasOwnProperty(key) ){
+                options[key] = _options[key];
+            }
+        }
+    }
+    console.log(selector, options);
+    return new component(selector, options);
+}
 
 function getRuntimeData(){
     var publicPath = '';
@@ -50,13 +68,23 @@ function getRuntimeData(){
             header: true,
             fastMode: true,
             skipEmptyLines: true,
-            beforeFirstChunk(chunk){
+            beforeFirstChunk(chunk){ // on prerender, do simple hash of CSV contents and append as attribute of the app container
+                                     // at runtime, do same hash of csv contents and compare to original. if hashes match, app will
+                                     // continue normally. if mismatched, app will rerender all components based on the new data.
+                                     // this allows for `hot` updating of the main data file without rebuilding the dist/ folder.
+                                     // `model.isMismatch` will be set to `true` and the prerendering functions will check that value
+                                     // and respond accordingly
+
                 var dataHash = chunk.hashCode(); // hashCode is helper function from utils
                 var el = document.querySelector('#pew-app');
                 if ( window.IS_PRERENDERING ){
                     el.setAttribute('data-data-hash', dataHash);
+                } else if ( dataHash.toString() !== el.getAttribute('data-data-hash') ){
+                    console.log('Data mismatch!');
+                    model.isMismatched = true;
                 } else {
-                    console.log('Data is a match: ' + ( dataHash.toString() === el.getAttribute('data-data-hash') ));
+                    model.isMismatched = true; // *** for testing purposes *** DELETE ***
+                    console.log('Data match');
                 }
             },
             complete: function(response, file){
@@ -125,13 +153,19 @@ function getRuntimeData(){
                ).sort((a,b) => model.countryCodes[a.key] < model.countryCodes[b.key] ? -1 : 1);
                console.log(model.joinData);
                 /* push views now that model is complete */
-                views.push(
-                    new TextView('div#pct-text'),
-                    new MapView('div#pct-map',model),
-                    new SelectionView('div#selection-view', model),
-                    new TileView(model)
-                );
                 
+                views.push(
+                    CreateComponent(TextView, 'div#pct-text'),
+                  //  new TextView('div#pct-text'),
+                    CreateComponent(MapView, 'div#pct-map'), // no need for rerenderOnDataMismatch b/c map is
+                                                             // already only initialized at runtime
+                    //new MapView('div#pct-map',model),
+                    CreateComponent(SelectionView, 'div#selection-view', {rerenderOnDataMismatch: true}),
+                    //new SelectionView('div#selection-view', model),
+                    //new TileView(model)
+                    CreateComponent(TileView, 'defer', {rerenderOnDataMismatch: true})
+                );
+                console.log('Model ', model);
                 resolve(true);
             },
             error: function(error){

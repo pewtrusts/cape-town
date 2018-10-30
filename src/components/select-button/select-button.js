@@ -6,12 +6,13 @@ import PS from 'pubsub-setter';
 import { GTMPush } from '@Utils';
 
 export default class SelectButton extends Button {
+    // no constructor the super constructor takes over
 	prerender(){
 		var btn = super.prerender();
-		if ( this.prerendered ) {
+		if ( this.prerendered && !this.rerender ) {
 			return btn;
 		}
-		btn.classList.add(s.selectButton, main.pctBtn, s[this.model.key]); // TO DO : some of main.css should be up the tree in UI
+		btn.classList.add(s.selectButton, main.pctBtn, s[this.data.key]);
         btn.setAttribute('aria-pressed', true);
         btn.setAttribute('aria-controls', 'pct-tiles-cont');
 		return btn;

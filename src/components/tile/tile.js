@@ -4,11 +4,13 @@ import './colorCoding-exclude.scss';
 //import testsvg from 'svgo-loader!@Project/assets/ALB.svg';
 
 export default class CountryTile {
-    constructor(country, index, parent, isPushed = false){
-        this.parent = parent;
-        this.country = country;
-        this.isPushed = isPushed;
-        this.el = this.prerender(index);
+    //constructor(country, index, parent, isPushed = false){
+    constructor(selector, options){
+        console.log(options);
+        this.parent = options.parent;
+        this.country = options.data;
+        this.isPushed = options.isPushed || false;
+        this.el = this.prerender(options.data.index);
     }
     prerender(index){
         var existing = $d.q('#' + this.country.key + '-tile');

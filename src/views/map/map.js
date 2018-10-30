@@ -7,7 +7,7 @@ import s from './styles.scss';
 import './map-exclude.scss'; // '-exclude' is excluded from modularized css renaming
                                              // so that the imported class match the ones on the external
                                              // resource being overridden
-import Element from '@UI/element/element.js';
+import Element from '@UI/element';
 import * as topojson from 'topojson-client';
 import worldTopo from '@Project/data/worldtopo.json';
 

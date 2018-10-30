@@ -6,11 +6,12 @@ import main from '@Project/css/main.scss';
 import $d from '@Helpers/dom-helpers.js';
 import tileStyles from '@Project/components/tile/styles.scss';
 import CountryTile from '@Project/components/tile/tile.js';
+import { CreateComponent } from '@Project/cape-town.js'; 
 
 export default class TileView {
-    constructor(model){
-        this.model = model;
-        this.tiles = model.joinData.filter(country => country.values.length !== 0 && !country.isOverseasTerritory ) 
+    constructor(selector, options){
+        this.model = options.model;
+        this.tiles = options.model.joinData.filter(country => country.values.length !== 0 && !country.isOverseasTerritory ) 
                                                                                    // values length === 0 means it's an EU country
                                                                                    // pushed into the joinData array that shouldn't
                                                                                    // have a tile of its own. onlu PSMA by virtue of
@@ -18,7 +19,12 @@ export default class TileView {
 
                                                                                    // isOverseasTerritory countries should not be include
                                                                                    // in initial rendering
-            .map((country, index) => new CountryTile(country, index, this));
+            .map((country, index) => {
+                country.index = index;
+                console.log(country);
+                return CreateComponent(CountryTile, 'defer', {data: country, parent: this});
+            });
+
         
         this.el = this.prerender();
         this.isReady = new Promise((resolve, reject) => {
@@ -29,7 +35,7 @@ export default class TileView {
     }
     prerender(){
         var existing = $d.q('#pct-tiles-cont');
-        if ( existing ) {
+        if ( existing && !this.rerender ) {
             return existing;
         }
 
