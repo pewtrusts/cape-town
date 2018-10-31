@@ -47,19 +47,19 @@ export function CreateComponent(component, selector, _options){
             }
         }
     }
-    console.log(selector, options);
+    
     return new component(selector, options);
 }
 
 function getRuntimeData(){
     var publicPath = '';
-    console.log(process.env.NODE_ENV);
-    console.log('is prerendering: ' + window.IS_PRERENDERING );
+    
+    
 
     if ( process.env.NODE_ENV === 'production' && !window.IS_PRERENDERING ){
         
         publicPath = PUBLICPATH;
-        console.log(publicPath + countries);
+        
     }
     return new Promise((resolve, reject) => {
         Papa.parse(publicPath + countries, {
@@ -80,14 +80,12 @@ function getRuntimeData(){
                 if ( window.IS_PRERENDERING ){
                     el.setAttribute('data-data-hash', dataHash);
                 } else if ( dataHash.toString() !== el.getAttribute('data-data-hash') ){
-                    console.log('Data mismatch!', dataHash.toString(), el.getAttribute('data-data-hash') );
+                    el.setAttribute('data-data-mismatch',true);
                     model.isMismatched = true;
-                } else {
-                    console.log('Data match');
                 }
             },
-            complete: function(response, file){
-                console.log(response, file);
+            complete: function(response){
+                
                 views.length = 0;
                 var countries = response.data;
                 /* complete model based on fetched data */
@@ -117,7 +115,7 @@ function getRuntimeData(){
                         return {key: c, values: [], value: 'psma'};
                     })
                 );
-                console.log(model.joinData);
+                
                 // creat array of overseas territories to be included
                 var overseasTerritories = [];
                 for ( var key in model.overseas ){
@@ -125,10 +123,10 @@ function getRuntimeData(){
                         overseasTerritories.push(key);
                     }
                 }
-                console.log(overseasTerritories, model.joinData);
+                
                model.joinData = model.joinData.concat(
                    overseasTerritories.map(ot => {
-                        console.log(ot, model.overseas[ot]);
+                        
                         var mainlandDatum = model.joinData.find(c => c.key === model.overseas[ot].mainland);
                         return Object.create(mainlandDatum, {
                             key: {
@@ -150,7 +148,7 @@ function getRuntimeData(){
                     }) // creates objects that prototypically inherit from the mainland's object
                         // key is ownProperty; others are property up the inheritance chain.
                ).sort((a,b) => model.countryCodes[a.key] < model.countryCodes[b.key] ? -1 : 1);
-               console.log(model.joinData);
+               
                 /* push views now that model is complete */
                 
                 views.push(
@@ -164,7 +162,7 @@ function getRuntimeData(){
                     //new TileView(model)
                     CreateComponent(TileView, 'defer', {rerenderOnDataMismatch: true})
                 );
-                console.log('Model ', model);
+                
                 resolve(true);
             },
             error: function(error){
@@ -191,7 +189,7 @@ class CapeTown extends PCTApp {
             views.forEach(view => {
                view.init(this);                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
             });
-            //console.log(this, views);
+            //
             super.init(subsriptionsForRouter, PS, this.routerSetHashFn, this.routerDecodeHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
             this.router.abbreviations = {
                 deselected: 'd',
@@ -232,7 +230,7 @@ class CapeTown extends PCTApp {
         if ( window.location.hash && window.location.hash.slice(1).split('?').length > 0 ){
             window.location.hash.slice(1).split('?').forEach(category => {
                 var arr = category.split('=');
-                console.log(arr);
+                
                 if (arr.length > 1){
                     var treaties = model.treaties.map(t => t.key);
                     if (arr[0] === 'd'){
@@ -243,7 +241,7 @@ class CapeTown extends PCTApp {
                         });
                         S.setState('selected',treaties);
                     } else {
-                        console.log(this);
+                        
                         S.setState(this.abbreviations[arr[0]], arr[1].split('+'));
                         if ( arr[0] === 'c' ){
                             window.lastCountrySelectMethod = 'savedState'; // keeps from firing GTMPush for country selection events when they

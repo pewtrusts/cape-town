@@ -104,7 +104,6 @@ export default class MapView extends Element {
                 classArray: className.split('-')
             };
         });
-        console.log(allCountriesData.filter(d => d.name === undefined));
         
 
         // the tooltip formatter below needs access to this.model but also needs to call a function
@@ -112,7 +111,7 @@ export default class MapView extends Element {
         // over this.model
         var returnFormatter = (function(model){
             function Formatter(){
-                console.log(this.point);
+                
                /* if ( model.countryCodes[this.point.iso_a3] === undefined ){
                     return null;
                 }*/
@@ -125,7 +124,7 @@ export default class MapView extends Element {
                     let el = document.querySelector('.highcharts-tooltip');
                     el.classList.add(this.point.className); 
                 });
-                console.log(this);
+                
                 var mainlandObj = model.overseas[this.point.iso_a3];
                 return `
                     <b>${ mainlandObj ? model.countryCodes[this.point.iso_a3] + ' (' + model.countryCodes[mainlandObj.mainland] + ')' : model.countryCodes[this.point.iso_a3] ? model.countryCodes[this.point.iso_a3] : this.point.name }</b><br />
@@ -171,7 +170,7 @@ export default class MapView extends Element {
                 name: 'International agreements',
                 events: {
                     click: (e) => {
-                        console.log(e);
+                        
                         window.lastCountrySelectMethod = 'map';
                          // using timestamp make each event unique so that clicking the same country twice results in a new setState
                         if ( this.model.countryCodes[e.point.iso_a3] ){

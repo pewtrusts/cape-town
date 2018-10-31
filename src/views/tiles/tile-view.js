@@ -21,7 +21,7 @@ export default class TileView {
                                                                                    // in initial rendering
             .map((country, index) => {
                 country.index = index;
-                console.log(country);
+                
                 return CreateComponent(CountryTile, 'defer', {data: country, parent: this});
             });
 
@@ -41,7 +41,7 @@ export default class TileView {
             return existing;
         }
         if ( existing && this.rerender ){
-            console.log('rerender ', this);
+            
             existing.innerHTML = ''; 
             cont = existing;
         } else {
@@ -93,7 +93,7 @@ export default class TileView {
         
         var newMatch = null;
         var iso = data.length === 0 ? null : data[data.length - 1];
-        console.log(iso);
+        
         if ( data.length !== 0 ){ // newMatch should be undefined only if data is not zero and there's still no match
                                   // this means there is no match because the requested country is not yet in the tiles  
             newMatch = this.tiles.find(t => iso === t.country.key);
@@ -101,9 +101,9 @@ export default class TileView {
         
         if ( newMatch === undefined ){
             let overseasMatch = this.model.joinData.find(c => c.key === iso);
-            console.log(overseasMatch);
+            
             let datum = overseasMatch ? overseasMatch : this.model.EUCountries.indexOf(iso) === -1 ? {key: iso, values: [], value: "None"} : {key: iso, values: [], value: "psma"};
-            console.log(datum);
+            
             //let newCountry = new CountryTile(datum, this.tiles.length, this, true); 
             datum.index = this.tiles.length;
             let newCountry = CreateComponent(CountryTile, 'defer', {data: datum, parent: this, isPushed: true});

@@ -64,7 +64,7 @@ export default class Selection extends Element {
     }
     init(app){
         
-        console.log(app);
+        
         this.children.forEach(each => {
             if (this.buttons.indexOf(each) !== -1) {
                 each.init(this.model.treaties);

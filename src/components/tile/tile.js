@@ -6,7 +6,7 @@ import './colorCoding-exclude.scss';
 export default class CountryTile {
     //constructor(country, index, parent, isPushed = false){
     constructor(selector, options){
-        console.log(options);
+        
         this.parent = options.parent;
         this.country = options.data;
         this.isPushed = options.isPushed || false;
@@ -31,7 +31,7 @@ export default class CountryTile {
         /* if country is an overseas territory, find the datum of the mainland country. if none will be undefined */
        // this.mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.parent.model.overseas[this.country.key]);
        // this.country.isOverseasTerritory = this.parent.model.overseas.hasOwnProperty(this.country.key);
-console.log(this);
+
         if (isEUMember){
             tile.classList.add('EU');
             if ( this.country.values.length === 0 ) {
@@ -66,10 +66,10 @@ console.log(this);
             } else { // country is overseasTerritory
                 // here you should cycle through the ownProperty values of the OT to create the infoText
                 let mainlandDatum = this.parent.model.countriesNested.find(c => c.key === this.country.mainland);
-                console.log(mainlandDatum);
+                
                 countryInfoText = this.country.values.reduce((acc, cur) => {
                     let match = mainlandDatum.values.find(d => d.treaty_id === cur);
-                    console.log(cur, match);
+                    
                     if ( match ){
                         return acc + `<p><strong>${cur.toUpperCase()}:</strong> Ratified by ${this.parent.model.countryCodes[this.country.mainland]} in respect of overseas territories on ${match.ratified_date}</p>`
                     }
@@ -135,7 +135,11 @@ console.log(this);
         if ( !this.isPushed ){
             return import(/* webpackChunkName: "svgs-prerendered/[request]"*/ '@Project/assets/countries-prerender/' + key + '.svg').then(({default: svg}) => {
                 return svg;
-            }).catch(error => 'Error:' + error);
+            }).catch(() => {
+                return import('@Project/assets/countries-dynamic/globe.svg').then(({default: svg}) => {
+                    return svg;
+                }).catch(error => 'Error: Country image not found. Tried loading globe but: ' + error);
+            });
         ///. ***    // TO DO. here on error, need to default to countries/dynamic/globe.svg
         } else {
             return import(/* webpackMode: "eager" */ '@Project/assets/countries-dynamic/' + key + '.svg').then(({default: svg}) => {
@@ -148,7 +152,7 @@ console.log(this);
         this.isClicked = false;
         function clickHandler(){
             if ( window.innerWidth < 629 ){
-                console.log(this.parent);
+                
                 this.parent.tiles.filter(d => d !== this).forEach(each => {
                     each.isClicked = false;
                 });
@@ -161,7 +165,7 @@ console.log(this);
                clickHandler.call(this);
             });
         this.el.addEventListener('keyup', (e) => {
-            console.log(e);
+            
             if (e.keyCode === 13){ // enter key
                 clickHandler.call(this);
             }

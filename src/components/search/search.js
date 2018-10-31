@@ -99,7 +99,7 @@ export default class SearchBar extends Element {
 			}
 		}
 		partyArray.sort((a,b) => {
-			console.log(a,b);
+			
 			return this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1;
 		});
 		nonpartyArray.sort((a,b) => this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1);
@@ -143,7 +143,6 @@ export default class SearchBar extends Element {
 		}
 	}
 	init(resolveFn, app){ // the parent's (selection.js) resolve function
-	console.log(app)
 		PS.setSubs([
 			['oversetOpen', (msg,data) => {
 				this.toggleShowMore.call(this,msg,data);
@@ -162,9 +161,9 @@ export default class SearchBar extends Element {
 		this.children.forEach(each => {
 			each.init(); // passing reference to resolveFn to all children althogh only multiselect will resolve it
 		});
-		console.log(process.env.NODE_ENV, app.wasPrerendered );
+		
 		if ( process.env.NODE_ENV === 'development' || app.wasPrerendered ){
-			console.log('calling new multiselect');
+			
 			this.Selectr = new Multiselect(this.children[0].el, {
 				resolveFn,
 				multiple: true,

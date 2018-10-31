@@ -25,7 +25,7 @@ export default class SelectButton extends Button {
         ]);
         super.init()
         this.el.addEventListener('click', e => {
-            console.log(this);
+            
             this.clickEventHandler.call(e.target, treaties);
         });
         this.el.setAttribute('aria-label',`Toggle ${this.el.innerHTML} filter on/off`);

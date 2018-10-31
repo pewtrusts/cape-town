@@ -7,7 +7,7 @@ export default class RatifiedView extends Element {
 		if ( this.prerendered && this.rerender) {
 			return div;
 		}
-        console.log(this);
+        
         div.classList.add(s.ratifiedView, s[this.data.key]);
         div.innerHTML = `
                         <div>

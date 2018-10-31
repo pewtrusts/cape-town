@@ -30,7 +30,7 @@ export default class Multiselect extends Mobius1Selectr {
         
         PS.setSubs([
             ['clickCountries', (msg,data) => {
-                console.log(data);
+                
                 this.setValues.call(this,msg,data);
                 this.addTagEvents();
             }],
@@ -44,13 +44,13 @@ export default class Multiselect extends Mobius1Selectr {
         
         function selectrOnChange(Selectr){
             var delay = window.lastCountrySelectMethod === 'savedState' ? 250 : 0;
-            console.log(window.lastCountrySelectMethod);
+            
             if ( window.lastCountrySelectMethod !== 'map' && window.lastCountrySelectMethod !== 'clear' && window.lastCountrySelectMethod !== 'savedState' ) {
                  let country;
                  let onOff;
                  let presentState = S.getState('searchCountries') || [];
                  let slicedValues = Selectr.selectedValues.slice(1);
-                 console.log(presentState, slicedValues);
+                 
                  if ( presentState.length < slicedValues.length ){ // ie selecing new country; new list longer than old list
                     country = slicedValues[slicedValues.length - 1];
                     onOff = 'on';
@@ -63,7 +63,7 @@ export default class Multiselect extends Mobius1Selectr {
                         }
                     }
                  }
-                 console.log(country, onOff);
+                 
                  GTMPush('EIFP|Search|' + country + '|' + onOff);
             }
             if ( window.lastCountrySelectMethod === 'clear' ){
