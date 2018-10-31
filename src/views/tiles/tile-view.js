@@ -11,6 +11,7 @@ import { CreateComponent } from '@Project/cape-town.js';
 export default class TileView {
     constructor(selector, options){
         this.model = options.model;
+        console.log(this.model);
         this.tiles = options.model.joinData.filter(country => country.values.length !== 0 && !country.isOverseasTerritory ) 
                                                                                    // values length === 0 means it's an EU country
                                                                                    // pushed into the joinData array that shouldn't
@@ -22,7 +23,7 @@ export default class TileView {
             .map((country, index) => {
                 country.index = index;
                 
-                return CreateComponent(CountryTile, 'defer', {data: country, parent: this});
+                return CreateComponent(CountryTile, 'defer', {data: country, parent: this, rerenderOnDataMismatch: true});
             });
 
         this.rerender = ( options.rerenderOnDataMismatch && this.model.isMismatched );
@@ -34,10 +35,12 @@ export default class TileView {
         
     }
     prerender(){
+        console.log(this);
         var existing = $d.q('#pct-tiles-cont');
         var cont;
 
         if ( existing && !this.rerender ) {
+            
             return existing;
         }
         if ( existing && this.rerender ){
@@ -47,7 +50,6 @@ export default class TileView {
         } else {
             cont = $d.c('ul');
         }
-
         //container
         cont.setAttribute('id', 'pct-tiles-cont');
         cont.setAttribute('aria-live', 'polite');
@@ -65,6 +67,9 @@ export default class TileView {
 
 
         return cont;
+            
+        
+
     }
     init(){
         PS.setSubs([

@@ -10,14 +10,26 @@ export default class CountryTile {
         this.parent = options.parent;
         this.country = options.data;
         this.isPushed = options.isPushed || false;
+        this.model = options.model;
+        this.rerender = ( options.rerenderOnDataMismatch && this.model.isMismatched );
         this.el = this.prerender(options.data.index);
+        console.log(options, this);
     }
     prerender(index){
         var existing = $d.q('#' + this.country.key + '-tile');
-        if ( existing ) {
+        var tile;
+        if ( existing && !this.rerender ) {
+            console.log('returning existing');
             return existing;
         }
-		var tile = $d.c(`li#${this.country.key}-tile.${s.countryTile}.${this.country.value}`);
+        if ( existing && this.rerender ){
+            console.log('existing and rerender is true');
+            existing.innerHTML = '';
+            tile = existing;
+        } else {
+            tile = $d.c(`li#${this.country.key}-tile.${s.countryTile}`);
+        }
+        tile.classList.add(this.country.value);
         tile.setAttribute('data-originalIndex', index);
         tile.setAttribute('tabindex',0);
         tile.style.order = index;
@@ -94,8 +106,8 @@ export default class CountryTile {
                 tile.querySelector(`.${s.svgWrapper}`).insertAdjacentHTML('afterbegin',v);
             });
        // }
-		return tile;
-	}
+        return tile;
+    }
     set isClicked(bool){
         if ( typeof bool !== 'boolean' ) {
             throw 'isVisible property must be true or false';
