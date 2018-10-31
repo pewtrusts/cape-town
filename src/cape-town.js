@@ -79,8 +79,9 @@ function getRuntimeData(){
                 var el = document.querySelector('#pew-app');
                 if ( window.IS_PRERENDERING ){
                     el.setAttribute('data-data-hash', dataHash);
-                } else if ( dataHash.toString() !== el.getAttribute('data-data-hash') ){
+                } else if ( process.env.NODE_ENV !== 'development' && dataHash.toString() !== el.getAttribute('data-data-hash') ){
                     el.setAttribute('data-data-mismatch',true);
+                    console.log('data mismatch');
                     model.isMismatched = true;
                 }
             },
