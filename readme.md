@@ -1,7 +1,10 @@
 [codebase]: [https://bitbucket.org/pctdigital/cape-town/src/master/]
 [preview]: [https://pctdigital.bitbucket.io/preview/cape-town/]
+[live]: [https://www.pewtrusts.org/en/research-and-analysis/data-visualizations/2018/three-treaties-to-end-illegal-fishing]
 
 # The Ending Illegal Fishing Program's "Three Treaties" data visualization
+
+[Live version][live]
 
 A data viz showing which countries have signed on to which of three international treaties to combat illegal fishing. Users select a countries by clicking on a map, by selecting from a dropdown, or by text search.  Users filter which treaties filtered in or out by toggling buttons. Matching countries are color-coded in the map and revealed as tiles in the results sections. Clicking or hovering over a country's tile reveals its details for each treaty.
 
@@ -34,7 +37,11 @@ The data are in four files:
 
 * `treaties.json`:  An array of objects representing each treaty, its code, its name, and its status
 
-**Only `countries.csv` can be updated without rebuilding the files.** That is, you can update the file and directly replace the existing file on Sitecore. The app fetches the data from that file at runtime.
+**Only `countries.csv` can be updated without rebuilding the files.** That is, you can update the file and directly replace the existing file on Sitecore. The app fetches the data from that file at runtime and compares a simple hash of the runtime data contents with a hash taken during the build process. If the hashes do not match, the views that depend on the data are rerendered.
+
+This process will work but will result in the live files not matching the master repository. Rebuilding the `dist/` folder when there's new data would avoid that.
+
+If a change to the data adds a country not present in the original, the SVG image of that country will not be available. The globe image will be used instead, until the SVG is added to the code and the source code rebuilt into `dist/`.
 
 The other data files must be updated as source files only. The build process injects the data in those files into the main script for the app. Change the source file and repeat the How to Build and Publish instructions.
 
