@@ -41,9 +41,7 @@ export default class TextView extends Element {
         this.el.querySelector('a.read-more').addEventListener('click', () => {
             this.isOpen = !this.isOpen;
         });
-       // setTimeout(() => {
-            this.resolve(true);
-       // },5000);
+        this.resolve(true);
         
     }
 }

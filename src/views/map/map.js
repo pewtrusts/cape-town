@@ -13,7 +13,6 @@ import worldTopo from '@Project/data/worldtopo.json';
 
 import { GTMPush } from '@Utils';
 
-//const dataPath = 'data/worldtopo.json'; // path to dat file relative to index.html
 
 export default class MapView extends Element {
 
@@ -39,15 +38,6 @@ export default class MapView extends Element {
         this.convertToGeoJSON(app); // the chain leading to initialization of the map starts here. by the time init() is called
                                  // the map container exists as this.el
     }
-   /* getTopoJSON(){
-        fetch(dataPath)
-            .then(function(response){
-                return response.json();
-            })
-            .then(topo => {
-                this.convertToGeoJSON(topo); // chain continues
-            });
-    }*/
     convertToGeoJSON(app){
         this.geoJSON = topojson.feature(worldTopo, worldTopo.objects.world);
         if ( process.env.NODE_ENV === 'development' || app.wasPrerendered ){
@@ -112,9 +102,6 @@ export default class MapView extends Element {
         var returnFormatter = (function(model){
             function Formatter(){
                 
-               /* if ( model.countryCodes[this.point.iso_a3] === undefined ){
-                    return null;
-                }*/
                 var agreementsString = !model.countryCodes[this.point.iso_a3] || ( model.overseas.hasOwnProperty(this.point.iso_a3) && this.point.className === 'None' ) ? '' : this.point.className === 'None' ? 'None' : this.point.classArray.map(c => {
                     var parenthetical = c === 'psma' && model.joinData.find(d => d.key === this.point.iso_a3).values.length === 0 ? ' (EU)' :
                         c === 'psma' && model.EUCountries.indexOf(this.point.iso_a3) !== -1 ? '<br />(EU and in respect of overseas territories)' : ''
@@ -175,7 +162,6 @@ export default class MapView extends Element {
                          // using timestamp make each event unique so that clicking the same country twice results in a new setState
                         if ( this.model.countryCodes[e.point.iso_a3] ){
                             let isOn = ( !document.querySelector('#pct-map').classList.contains(s.searchActive) || ( document.querySelector('#pct-map').classList.contains(s.searchActive) && !e.target.classList.contains(s.matchesSearch) ));
-                          //  let countryCode = this.model.overseas.hasOwnProperty(e.point.iso_a3) ? this.model.overseas[e.point.iso_a3].mainland : e.point.iso_a3
                             GTMPush('EIFP|Map|' + e.point.iso_a3 + '|' + ( isOn ? 'on' : 'off' ));
                             S.setState('clickCountries.' + e.timeStamp.toString().split('.')[0], e.point.iso_a3);
                         }

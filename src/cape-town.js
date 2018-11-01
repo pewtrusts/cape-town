@@ -154,13 +154,9 @@ function getRuntimeData(){
                 
                 views.push(
                     CreateComponent(TextView, 'div#pct-text'),
-                  //  new TextView('div#pct-text'),
                     CreateComponent(MapView, 'div#pct-map'), // no need for rerenderOnDataMismatch b/c map is
                                                              // already only initialized at runtime
-                    //new MapView('div#pct-map',model),
                     CreateComponent(SelectionView, 'div#selection-view', {rerenderOnDataMismatch: true}),
-                    //new SelectionView('div#selection-view', model),
-                    //new TileView(model)
                     CreateComponent(TileView, 'defer', {rerenderOnDataMismatch: true})
                 );
                 

@@ -109,15 +109,10 @@ export default class Multiselect extends Mobius1Selectr {
             width += tags[i].offsetWidth;
             if ( width > threshold ) {
                 S.setState('oversetCount', tags.length - i)
-                
-                //this.Selectr.container.parentNode.classList.add('tag-overflow');
-                //document.querySelector('#overset-count').innerHTML = '+ ' + (tags.length - i) ;
                 break;
             }
             if ( width <= threshold && i === tags.length - 1 ){
                 S.setState('oversetCount', 0)
-                //this.Selectr.container.parentNode.classList.remove('tag-overflow');
-                //document.querySelector('#overset-count').innerHTML = '0';
             }
         }
     }

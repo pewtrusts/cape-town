@@ -55,7 +55,6 @@ export default class TileView {
         cont.setAttribute('aria-live', 'polite');
         cont.setAttribute('aria-relevant', 'additions removals');
         cont.classList.add(main.flex);
-        //cont.classList.add(main.sb);
         cont.classList.add(main.wrap);
         cont.classList.add(tileStyles.tilesContainer);
         

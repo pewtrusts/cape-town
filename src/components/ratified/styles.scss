@@ -78,16 +78,13 @@ $deselected: $medium_gray;
     margin: 0;
     margin-top: 0 !important;
     height: 30px;
-    //border-color: transparent !important;
     > div {
-      //border-color: transparent !important;
      
       height: 28px;
       font-size: 0.8em;
       flex-direction: row;
       padding: 0 10px;
 
-      //justify-content: space-around;
       > span {
         width: 40%;
         &:first-child {

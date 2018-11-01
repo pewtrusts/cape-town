@@ -106,9 +106,7 @@ export default class SearchBar extends Element {
 		var countryCodesArray = partyArray.concat(qualifyingOverseas).concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
 			new Dropdown(`select.${main.grow}`, countryCodesArray),
-			//new ShowAllButton(`button.${s.showAllSelected}.${main.pctBtn}`, {key:'pct-show-all-btn',name:'Show all'}),
 			CreateComponent(ShowAllButton, `button.${s.showAllSelected}.${main.pctBtn}`, {data:{key:'pct-show-all-btn',name:'Show all'}, parent: this}),
-			//new Button(`button.${s.clearSearch}.${main.pctBtn}`,{key:'pct-clear-btn',name:'Clear'}),
 			CreateComponent(Button, `button.${s.clearSearch}.${main.pctBtn}`, {data: {key:'pct-clear-btn',name:'Clear'}, parent: this}),
 		];
 

@@ -15,13 +15,8 @@ export default class Selection extends Element {
             need to instantiated as properties of `this` so that their methods
             can be accessed */
 
-        // WIP: change constructor to calls to CReatComponent call. walk up the chain to make sure conforms to new Element class
-        // ?: may not need rerender logic in subcompnents, children, because Selectr would have already triggered rerender.
-
         this.buttons = this.model.treaties.map(treaty => CreateComponent(SelectButton, 'defer', {data: treaty, parent: this}));
-        //this.buttons = this.model.treaties.map(treaty => new SelectButton(treaty));
         this.ratified = this.model.treaties.map(treaty => CreateComponent(Ratified, `div.ratifyComponent-${treaty.key}`, {data: treaty, parent: this}));
-        //this.searchBar = new SearchBar(this.model);
         this.searchBar = CreateComponent(SearchBar, 'defer', {parent: this}),
         this.children = [
             ...this.ratified,     
