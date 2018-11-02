@@ -24,6 +24,8 @@ export default class CountryTile {
         }
         if ( existing && this.rerender ){
             console.log('existing and rerender is true');
+            this.svg = existing.querySelector('.' + s.svgWrapper + ' svg');
+            console.log('existing svg', this.svg);
             existing.innerHTML = '';
             tile = existing;
         } else {
@@ -101,11 +103,15 @@ export default class CountryTile {
                 ${countryInfoText}
             </div>
         `;
-        //if ( !this.isPushed ){
-            this.getImage().then(v => {
+        if ( !this.rerender || ( this.rerender && !this.svg ) ){
+            this.getImage().then(v => { // if tile needs to rerender and doesn't have a prerendered svg, means it's been added by hot data change
+                                        // the getImage function wil throw an error and catch will supply the globe image
                 tile.querySelector(`.${s.svgWrapper}`).insertAdjacentHTML('afterbegin',v);
             });
-       // }
+        } else { // ie tile needs to rerender but existed at  build time and therefore has a prerendered svg
+            console.log('using prerendered svg');
+            tile.querySelector(`.${s.svgWrapper}`).insertAdjacentHTML('afterbegin',this.svg.outerHTML);
+        }
         return tile;
     }
     set isClicked(bool){
