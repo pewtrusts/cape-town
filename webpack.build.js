@@ -13,7 +13,7 @@ const publicPath = '/~/media/data-visualizations/interactives/2018/EIFP/' // <<=
 
 module.exports = env => {
     return merge(common(env), {
-        devtool: 'source-map',
+        devtool: false,
         optimization: {
             minimizer: [
                 new UglifyJSPlugin({
@@ -65,6 +65,9 @@ module.exports = env => {
             }),
             new webpack.EnvironmentPlugin({
                 'NODE_ENV': env
+            }),
+            new webpack.SourceMapDevToolPlugin({
+              filename: '[name]js.map',
             })
         ],
         output: {
