@@ -63,7 +63,7 @@ export default class CountryTile {
                     let match = this.country.values.find(d => d.treaty_id === cur.key);
                     let info =  
                                 /** CTA **/
-                                match && cur.key ===  'cta' ? 
+                                match && cur.key ===  'cta' && match.note !== null ? 
                                     'Ratified on ' + match.ratified_date + ' with ' + match.note + '.' :
                                 /** PSMA for EU countries **/
     /*is EU but also on own */  match && isEUMember && cur.key === 'psma' ? 
