@@ -28,7 +28,7 @@ const model = {
     countryCodes,
     overseas
 };
-
+console.log(typeof PS);
 publishWindowResize(S);
 
 const views = [];
@@ -187,13 +187,20 @@ class CapeTown extends PCTApp {
         });
     }
     init(){
-        var subsriptionsForRouter = ['deselected','searchCountries'];
+        this.needsRouter = true;
+        var routerOptions = {
+            subscriptions: ['deselected','searchCountries'],
+            encode: this.routerSetHashFn,
+            decode: this.routerDecodeHashFn,
+            views,  // router needs view passed in because it can init only after views' promises have resolved
+            PS      // router needs pubsub-setter passed in                             
+        };
         getRuntimeData().then(() => {
             views.forEach(view => {
                view.init(this);                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
             });
             //
-            super.init(subsriptionsForRouter, PS, this.routerSetHashFn, this.routerDecodeHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
+            super.init(routerOptions); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
             this.router.abbreviations = {
                 deselected: 'd',
                 searchCountries: 'c',
