@@ -1,5 +1,5 @@
 /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "StringHelpers" }]*/
-import { StringHelpers } from '@Helpers/string-helpers.js';
+import '@Helpers/string-helpers.js'; // string helpers is an IIFE, invoke when imported but never referenced again
 import CapeTown from './cape-town.js';
 import './arrayFrom.js';
 
