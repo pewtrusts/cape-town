@@ -1,4 +1,4 @@
-import main from '@Project/css/main.scss';
+import main from '@Project/css/main.scss'; 
 import SelectButton from '@Project/components/select-button/select-button.js';
 import $d from '@Helpers/dom-helpers.js';
 import SearchBar from '@Project/components/search/search.js';
