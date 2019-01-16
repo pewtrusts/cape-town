@@ -4,10 +4,12 @@ import './arrayFrom.js'; // IIFE
 
 import CapeTown from './cape-town.js';
 
+const containerSelector = '#pew-app';
 const App = new CapeTown();
+
 App.wasPrerendered = true;
-const appContainer = document.querySelector('#pew-app');
-if ( !appContainer.classList.contains('rendered') ){
+App.container = document.querySelector(containerSelector);
+if ( !App.container.classList.contains('rendered') ){
 	App.prerender();
 }
 App.init();
