@@ -1,0 +1,6 @@
+[submodule "submodules/PCTApp-js"]
+	path = submodules/PCTApp-js
+	url = git@github.com:pewtrusts/PCTApp-js.git
+[submodule "submodules/ROUTER"]
+	path = submodules/ROUTER
+	url = git@github.com:pewtrusts/ROUTER.git
