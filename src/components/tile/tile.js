@@ -1,4 +1,4 @@
-import $d from '@Helpers/dom-helpers.js';
+import { DOMHelpers as $d } from '@Utils';
 import s from './styles.scss';
 import './colorCoding-exclude.scss';
 //import testsvg from 'svgo-loader!@Project/assets/ALB.svg';

@@ -52,6 +52,8 @@ module.exports = env => {
                     renderAfterTime: 1000
                 }),
                 postProcess: function(renderedRoute){
+                    /* we have to edit the path this way because the script needs to be called during prerendering from its actual location first
+                     this location only exists on server */
                     renderedRoute.html = renderedRoute.html.replace(/class="emitted-css" href="(.*?)"/,'class="emitted-css" href="' + publicPath + '$1' + '"');
                     renderedRoute.html = renderedRoute.html.replace(/class="emitted-bundle" src="(.*?)"/g,'class="emitted-bundle" src="' + publicPath + '$1' + '"');
                     //renderedRoute.html = renderedRoute.html.replace('src="js/index.js"','src="' + publicPath + 'js/index.js"');

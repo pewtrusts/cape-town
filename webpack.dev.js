@@ -7,7 +7,7 @@ const path = require('path');
 
 module.exports = env => { // module.exports is function now to pass in env variable from cli defined in package.json
     return merge(common(), {
-        devtool: 'eval-source-map',
+        devtool: 'cheap-module-eval-source-map',
         devServer: {
             contentBase: './dist',
             hot: true

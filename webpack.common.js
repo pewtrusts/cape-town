@@ -11,7 +11,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
             module: {
                 rules: [{
                         test: /\.js$/,
-                        exclude: [/node_modules/, /\.min\./, /vendor/],
+                        exclude: [/node_modules/],
                         use: [{
                                 loader: 'babel-loader',
                                 options: {
@@ -106,12 +106,12 @@ module.exports = env => { // module.exports is function now to pass in env varia
                 ],
                 resolve: {
                     alias: {
-                        "@App": path.join(__dirname, '../../PCTApp/'),
-                        "@Router": path.join(__dirname, '../../router/'),
-                        "@UI": path.join(__dirname, '../../UI/'),
+                        "@App": path.join(__dirname, 'submodules/PCTApp-js/'),
+                        "@Router": path.join(__dirname, 'submodules/ROUTER/'),
+                        "@UI": path.join(__dirname, 'submodules/UI-js/'),
                         "@Project": path.join(__dirname, 'src'),
-                        "@Helpers": path.join(__dirname, '../../helpers/'),
-                        "@Utils": path.join(__dirname, '../../UTILS/'),
+                        //"@Helpers": path.join(__dirname, '../../helpers/'),
+                        "@Utils": path.join(__dirname, 'submodules/UTILS/'),
                     }
                 }
             }

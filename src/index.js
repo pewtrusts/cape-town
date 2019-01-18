@@ -1,17 +1,15 @@
 /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "StringHelpers" }]*/
-import { StringHelpers } from '@Helpers/string-helpers.js';
+import { StringHelpers } from '@Utils'; // string helpers is an IIFE
+import './arrayFrom.js'; // IIFE
+
 import CapeTown from './cape-town.js';
-import './arrayFrom.js';
 
+const containerSelector = '#pew-app';
 const App = new CapeTown();
-App.wasPrerendered = true;
-const appContainer = document.querySelector('#pew-app');
-const prerenderScript = document.querySelector('#prerender-script');
-if ( !appContainer.classList.contains('rendered') ){
 
+App.wasPrerendered = true;
+App.container = document.querySelector(containerSelector);
+if ( !App.container.classList.contains('rendered') ){
 	App.prerender();
-}
-if ( prerenderScript !== null ){ // html for build process includes spript#prerender-script that should be removed on build
-	prerenderScript.parentNode.removeChild(prerenderScript);
 }
 App.init();

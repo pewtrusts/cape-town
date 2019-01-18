@@ -28,11 +28,21 @@ const model = {
     countryCodes,
     overseas
 };
-
+console.log(typeof PS);
 publishWindowResize(S);
 
 const views = [];
-export function CreateComponent(component, selector, _options){
+
+/*
+CreateComponent take the passed-in _options and assigns its properties to the default options object. That object is then passed
+in to the class constructor for the component.
+
+All components receive the app's main model via options.model
+
+rerenderOnDataMismatch specifies whether the component should be rerendered if the current data has changed since the build. The build
+process appends a hash of the data to the app's container. See `beforeFirstChunk` property of Papa.parse options below.
+*/
+export function CreateComponent(component, selector, _options){ // TODO:  this should be a method of PCTApp or of the component library
     var options = Object.create({
         children: [],
         data: null,
@@ -53,20 +63,17 @@ export function CreateComponent(component, selector, _options){
 
 function getRuntimeData(){
     var publicPath = '';
-    
-    
-
-    if ( process.env.NODE_ENV === 'production' && !window.IS_PRERENDERING ){
-        
+    if ( process.env.NODE_ENV === 'production' && !window.IS_PRERENDERING ){ // production build needs to know the public path of assets
+                                                                             // for dev and preview, assets are a child of root; for build they
+                                                                             // are in some distant path on sitecore
         publicPath = PUBLICPATH;
-        
     }
     return new Promise((resolve, reject) => {
         Papa.parse(publicPath + countries, {
             download: true,
             dynamicTyping: true,
             header: true,
-            fastMode: true,
+            fastMode: true, // no string escapes
             skipEmptyLines: true,
             beforeFirstChunk(chunk){ // on prerender, do simple hash of CSV contents and append as attribute of the app container
                                      // at runtime, do same hash of csv contents and compare to original. if hashes match, app will
@@ -82,7 +89,7 @@ function getRuntimeData(){
                 } else if ( process.env.NODE_ENV !== 'development' && dataHash.toString() !== el.getAttribute('data-data-hash') ){
                     el.setAttribute('data-data-mismatch',true);
                     console.log('data mismatch');
-                    model.isMismatched = true;
+                    model.isMismatched = true; // set so that components can access this value 
                 }
             },
             complete: function(response){
@@ -173,21 +180,27 @@ class CapeTown extends PCTApp {
     prerender(){
         this.wasPrerendered = false;
         getRuntimeData().then(() => {
-            var app = document.querySelector('#pew-app');
             views.forEach(view => {
-                app.appendChild(view.el);
+                this.container.appendChild(view.el);
             });
-            app.classList.add('rendered');
+            this.container.classList.add('rendered');
         });
     }
     init(){
-        var subsriptionsForRouter = ['deselected','searchCountries'];
+        this.needsRouter = true;
+        var routerOptions = {
+            subscriptions: ['deselected','searchCountries'],
+            encode: this.routerSetHashFn,
+            decode: this.routerDecodeHashFn,
+            views,  // router needs view passed in because it can init only after views' promises have resolved
+            PS      // router needs pubsub-setter passed in                             
+        };
         getRuntimeData().then(() => {
             views.forEach(view => {
                view.init(this);                     // the views are all constructors (new keyword), so they are objects with methods, properties etc
             });
             //
-            super.init(subsriptionsForRouter, PS, this.routerSetHashFn, this.routerDecodeHashFn, views); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
+            super.init(routerOptions); // super init include fn that addss has-hover class to body when mouse is use, removes it when touch is used.
             this.router.abbreviations = {
                 deselected: 'd',
                 searchCountries: 'c',

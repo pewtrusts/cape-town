@@ -1,6 +1,6 @@
 /* global process */
 import s from './styles.scss';
-import $d from '@Helpers/dom-helpers.js';
+import { DOMHelpers as $d } from '@Utils';
 import main from '@Project/css/main.scss';
 import Element from  '@UI/element/';
 import { Dropdown } from '@UI/inputs/inputs.js';
@@ -105,7 +105,7 @@ export default class SearchBar extends Element {
 		nonpartyArray.sort((a,b) => this.model.countryCodes[a.value] < this.model.countryCodes[b.value] ? -1 : 1);
 		var countryCodesArray = partyArray.concat(qualifyingOverseas).concat(nonpartyArray); // concat the arrays so that  party countries show first	
 		this.children = [
-			new Dropdown(`select.${main.grow}`, countryCodesArray),
+			new Dropdown(`select.${main.grow}`, {data:countryCodesArray}),
 			CreateComponent(ShowAllButton, `button.${s.showAllSelected}.${main.pctBtn}`, {data:{key:'pct-show-all-btn',name:'Show all'}, parent: this}),
 			CreateComponent(Button, `button.${s.clearSearch}.${main.pctBtn}`, {data: {key:'pct-clear-btn',name:'Clear'}, parent: this}),
 		];
