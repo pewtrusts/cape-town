@@ -4,3 +4,9 @@
 [submodule "submodules/ROUTER"]
 	path = submodules/ROUTER
 	url = git@github.com:pewtrusts/ROUTER.git
+[submodule "submodules/UI-js"]
+	path = submodules/UI-js
+	url = git@github.com:pewtrusts/UI-js.git
+[submodule "submodules/UTILS"]
+	path = submodules/UTILS
+	url = git@github.com:pewtrusts/UTILS.git

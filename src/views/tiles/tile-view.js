@@ -3,7 +3,7 @@ import PS from 'pubsub-setter';
 //import * as d3 from 'd3-collection';
 
 import main from '@Project/css/main.scss';
-import $d from '@Helpers/dom-helpers.js';
+import { DOMHelpers as $d } from '@UTILS';
 import tileStyles from '@Project/components/tile/styles.scss';
 import CountryTile from '@Project/components/tile/tile.js';
 import { CreateComponent } from '@Project/cape-town.js'; 

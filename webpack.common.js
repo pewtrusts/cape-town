@@ -108,10 +108,10 @@ module.exports = env => { // module.exports is function now to pass in env varia
                     alias: {
                         "@App": path.join(__dirname, 'submodules/PCTApp-js/'),
                         "@Router": path.join(__dirname, 'submodules/ROUTER/'),
-                        "@UI": path.join(__dirname, '../../UI/'),
+                        "@UI": path.join(__dirname, 'submodules/UI-js/'),
                         "@Project": path.join(__dirname, 'src'),
-                        "@Helpers": path.join(__dirname, '../../helpers/'),
-                        "@Utils": path.join(__dirname, '../../UTILS/'),
+                        //"@Helpers": path.join(__dirname, '../../helpers/'),
+                        "@Utils": path.join(__dirname, 'submodules/UTILS/'),
                     }
                 }
             }

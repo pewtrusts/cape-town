@@ -1,6 +1,6 @@
 /* global process */
 import s from './styles.scss';
-import $d from '@Helpers/dom-helpers.js';
+import { DOMHelpers as $d } from '@UTILS';
 import main from '@Project/css/main.scss';
 import Element from  '@UI/element/';
 import { Dropdown } from '@UI/inputs/inputs.js';
