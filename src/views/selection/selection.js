@@ -1,6 +1,6 @@
 import main from '@Project/css/main.scss'; 
 import SelectButton from '@Project/components/select-button/select-button.js';
-import { DOMHelpers as $d } from '@UTILS';
+import { DOMHelpers as $d } from '@Utils';
 import SearchBar from '@Project/components/search/search.js';
 import Element from '@UI/element';
 import s from './styles.scss';

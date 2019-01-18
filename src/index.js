@@ -1,5 +1,5 @@
-/* entry point. any polyfills or native prototype extensions should be imported here */
-import { StringHelpers } from '@UTILS'; // string helpers is an IIFE
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "StringHelpers" }]*/
+import { StringHelpers } from '@Utils'; // string helpers is an IIFE
 import './arrayFrom.js'; // IIFE
 
 import CapeTown from './cape-town.js';
