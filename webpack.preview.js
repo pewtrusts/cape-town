@@ -24,7 +24,7 @@ module.exports = env => {
                 from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content, path) {
-                    return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/$1');
+                    return content.toString().replace(/url\("\/([^/])/g, 'url("/docs/$1');
                 }
             }]),
             new HtmlWebpackPlugin({
@@ -43,12 +43,12 @@ module.exports = env => {
                 from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content, path) {
-                    return content.toString().replace(/url\("\/([^/])/g, 'url("/preview/$1');
+                    return content.toString().replace(/url\("\/([^/])/g, 'url("/docs/$1');
                 }
             }]),
             new PrerenderSPAPlugin({
                 // Required - The path to the webpack-outputted app to prerender.
-                staticDir: path.join(__dirname, '/preview/'),
+                staticDir: path.join(__dirname, '/docs/'),
                 // Required - Routes to render.
                 routes: ['/'],
                 renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
@@ -67,7 +67,7 @@ module.exports = env => {
         ],
         output: {
             filename: '[name].js',
-            path: path.join(__dirname, '/preview/'),
+            path: path.join(__dirname, '/docs/'),
         }
       });
   };
