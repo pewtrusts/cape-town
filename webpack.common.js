@@ -107,7 +107,7 @@ module.exports = env => { // module.exports is function now to pass in env varia
                 resolve: {
                     alias: {
                         "@App": path.join(__dirname, 'submodules/PCTApp-js/'),
-                        "@Router": path.join(__dirname, 'submodules/ROUTER/'),
+                        "@Router": path.join(__dirname, 'submodules/ROUTR/'),
                         "@UI": path.join(__dirname, 'submodules/UI-js/'),
                         "@Project": path.join(__dirname, 'src'),
                         //"@Helpers": path.join(__dirname, '../../helpers/'),
