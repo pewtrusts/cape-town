@@ -2,10 +2,6 @@
 	path = submodules/PCTApp-js
 	url = git@github.com:pewtrusts/PCTApp-js.git
 	branch = v1
-[submodule "submodules/ROUTER"]
-	path = submodules/ROUTER
-	url = git@github.com:pewtrusts/ROUTER.
-	branch = v1
 [submodule "submodules/UI-js"]
 	path = submodules/UI-js
 	url = git@github.com:pewtrusts/UI-js.git
