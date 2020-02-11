@@ -20,6 +20,7 @@ DEU,cta,7/5/2016,39 vessels
 DJI,psma,11/27/2017,
 DMA,psma,5/6/2016,
 DNK,cta,8/6/2015,101 vessels
+DNK,c188,2/3/2020,
 DNK,psma,11/28/2017,
 ECU,psma,2/5/2019,
 ESP,cta,2/7/2019,393 vessels
@@ -60,6 +61,7 @@ MUS,psma,8/31/2015,
 NAM,psma,7/18/2017,
 NAM,c188,9/20/2018,
 NLD,cta,5/7/2014,153 vessels
+NLD,c188,12/19/2019,
 NOR,psma,7/20/2011,
 NOR,cta,11/26/2013,242 vessels
 NOR,c188,1/8/2016,
@@ -69,6 +71,8 @@ PAN,psma,11/21/2016,
 PER,psma,9/27/2017,
 PHL,psma,5/26/2018,
 PLW,psma,11/30/2015,
+POL,c188,12/17/2019,
+PRT,c188,11/26/2019,
 SDN,psma,5/12/2016,
 SEN,psma,3/23/2017,
 SEN,c188,9/21/2018,
