@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const pretty = require('pretty');
+const repoName = 'cape-town';
 
 module.exports = env => {
     return merge(common(), {
@@ -24,7 +25,8 @@ module.exports = env => {
                 from: 'assets/Pew/css/*.*',
                 context: 'src',
                 transform(content, path) {
-                    return content.toString().replace(/url\("\/([^/])/g, 'url("/docs/$1');
+                    //return content.toString().replace(/url\("\/([^/])/g, 'url("/docs/$1');
+                    return content.toString().replace(/url\("\/([^/])/g, 'url("/' + repoName + '/$1').replace(/\/pew\//g, '/Pew/');
                 }
             }]),
             new HtmlWebpackPlugin({
