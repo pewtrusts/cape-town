@@ -204,16 +204,21 @@ export default class CountryTile {
     }
     changePosition(msg,data,index){ // this.country.value is '-' joined string of the agreements the country is party to
         if ( index === 0 ) {
+            this.parent.nonMatching = [];
             this.parent.endOrder = 200;
         }
         if ( this.shouldGoToEnd ) {
-            this.el.style.order = this.parent.endOrder++;
+            //this.el.style.order = this.parent.endOrder++;
+            this.parent.nonMatching.push(this);
             this.el.setAttribute('aria-hidden', true);
         } else {
             this.el.setAttribute('aria-hidden', false);
             let original = this.el.getAttribute('data-originalIndex');
             this.el.style.order = original; // using getAttribute bs IE10 doesn't support dataset
         }
+    }
+    sendToEnd(){
+        this.el.style.order = this.parent.endOrder++;
     }
     invertPosition(){
         this.deltaX = this.first.left - this.last.left;

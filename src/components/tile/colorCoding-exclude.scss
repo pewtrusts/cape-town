@@ -466,7 +466,7 @@ $deselected: $medium_gray;
                 }
             }
         }
-        .deselect-cta.deselect-c188.deselect-psma & {
+        .deselect-cta.deselect-c188.deselect-psma &, .deselect-cta.deselect-c188.deselect-psma &.EU {
             path:not(.white):not(.def) {
                 &.lighter {
                     fill: lighten($deselected, 15%);
@@ -477,6 +477,7 @@ $deselected: $medium_gray;
             }
             > p:first-child, div.country-info {
                 background-color: $deselected;
+                border-left-color: $deselected;
             }
         }
     }

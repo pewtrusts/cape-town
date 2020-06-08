@@ -148,6 +148,14 @@ export default class TileView {
             this.tiles.forEach((each,i) => {
                 each.changePosition(msg,data,i); //Last
             });
+            this.nonMatching.sort((a,b) => {
+                var _a = this.model.countryCodes[a.country.key];
+                var _b = this.model.countryCodes[b.country.key];
+                var sorted = [_a,_b].sort();
+                return sorted.indexOf(_a) - sorted.indexOf(_b);
+            }).forEach((each => {
+                each.sendToEnd();
+            }));
             if (!isNarrow){
                 this.tiles.forEach((each) => {
                     each.getPosition('last');
