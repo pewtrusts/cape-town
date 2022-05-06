@@ -1,5 +1,5 @@
-[codebase]: [https://bitbucket.org/pctdigital/cape-town/src/master/]
-[preview]: [https://pctdigital.bitbucket.io/preview/cape-town/]
+[codebase]: [https://github.com/pewtrusts/cape-town]
+[preview]: [https://pewtrusts.github.io/cape-town/]
 [live]: [https://www.pewtrusts.org/en/research-and-analysis/data-visualizations/2018/three-treaties-to-end-illegal-fishing]
 
 # The Ending Illegal Fishing Program's "Three Treaties" data visualization
@@ -16,7 +16,7 @@ A data viz showing which countries have signed on to which of three internationa
 
 1. You need to have [node and npm installed](https://blog.teamtreehouse.com/install-node-js-npm-mac) on your machine
 1. You need to have [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your machine.
-1. `git clone` the [Bitbucket repository][codebase] onto your machine
+1. `git clone` the [repository][codebase] onto your machine
 1. `cd` into the local directory and run `npm install` to install the project's development dependencies
 1. run `npm run build` to package the build files into the `dist/` folder
 1. `cd` into the the `dist/` folder and put its contents into a zip file: `zip EIFP.zip -r ./`
