@@ -1,6 +1,6 @@
-[codebase]: [https://github.com/pewtrusts/cape-town]
-[preview]: [https://pewtrusts.github.io/cape-town/]
-[live]: [https://www.pewtrusts.org/en/research-and-analysis/data-visualizations/2018/three-treaties-to-end-illegal-fishing]
+[codebase]: https://github.com/pewtrusts/cape-town
+[preview]: https://pewtrusts.github.io/cape-town/
+[live]: https://www.pewtrusts.org/en/research-and-analysis/data-visualizations/2018/three-treaties-to-end-illegal-fishing
 
 # The Ending Illegal Fishing Program's "Three Treaties" data visualization
 
@@ -44,6 +44,18 @@ This process will work but will result in the live files not matching the master
 If a change to the data adds a country not present in the original, the SVG image of that country will not be available. The globe image will be used instead, until the SVG is added to the code and the source code rebuilt into `dist/`.
 
 The other data files must be updated as source files only. The build process injects the data in those files into the main script for the app. Change the source file and repeat the How to Build and Publish instructions.
+
+### Adding country SVGs
+
+To add a country SVG, search for the country at [https://freevectormaps.com](https://freevectormaps.com) and select the single color version for download. In an SVG editor like Illustrator, scale the SVG down so that it is 115px high. If at 115px high the SVG is more than 171px wide, scale it down further so that it is 171px wide. Save the file to the `src/assets/country-original` folder with the filename [isoa3].svg where `isoa3` is the three-letter country code.
+
+The file at this point is much larger than it needs to be, with much more precision in the paths than will be worth displaying at this size. The next step is to simpplify the file using SVGO.
+
+1. Install [sgvo](https://www.npmjs.com/package/svgo)
+2. On the command line, `cd` to 'src/assets/countries-original/` and then run `svgo -p 1 --enable=removeXMLNS  [name].svg -o ../countries-prerender/`
+3. svgo will recast the paths with a precision of "1," remove cruft, and save the file to the `countries-prerender` folder
+
+
 
 ## How to edit
 
