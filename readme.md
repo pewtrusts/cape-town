@@ -23,6 +23,8 @@ A data viz showing which countries have signed on to which of three internationa
 1. upload the zip file to Sitecore's Media Library. 
 1. copy the content from index.html and paste it into the Third Party Embed for the page content
 
+Node version 8.17 is recommended. If node-sass throws an error when building, try `npm rebuild node-sass` to fix
+
 ## How to update the data
 
 The data are in four files:
