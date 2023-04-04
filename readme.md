@@ -25,6 +25,11 @@ A data viz showing which countries have signed on to which of three internationa
 
 Node version 8.17 is recommended. If node-sass throws an error when building, try `npm rebuild node-sass` to fix
 
+## Build for preview
+
+1. run `npm run preview` locally to build /docs folder
+2. push up on `master` branch
+
 ## How to update the data
 
 The data are in four files:

@@ -111,11 +111,11 @@ function getRuntimeData(){
                     });
                     // **** below applies only to countries that are in the csv ***
                     /* June 3, 2020: commenting this out to prevent countries that have not directly ratified PSMA from showing
-                        when it is selected. Leaving as comment in case future needs bring it back -JO 
+                        when it is selected. Leaving as comment in case future needs bring it back -JO */
                     if ( model.EUCountries.indexOf(d.key) !== -1 && ratified.indexOf('psma') === -1 ) { // ie is an EU country and not independently party to psma
                         
-                        //ratified.push('psma');
-                    } */
+                        ratified.push('psma');
+                    } 
                     // add className property to each country that corresponds to which treaties it is party to, or "none"
                     d.value = ratified.length === 0 ? 'None' : ratified.join('-');
                     return d;
