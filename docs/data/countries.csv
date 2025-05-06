@@ -14,6 +14,7 @@ BLZ,cta,3/29/1994,48 vessels
 BRB,psma,2/2/2016,
 CAN,psma,6/20/2019,
 CHL,psma,8/28/2012,
+CHN,psma,4/16/2025,
 CIV,psma,10/23/2019, 
 COG,cta,5/28/2015,23 vessels
 COG,c188,5/14/2014,
@@ -31,6 +32,7 @@ DNK,psma,11/28/2017,
 ECU,psma,2/5/2019,
 ERI,psma,11/4/2022,
 ESP,cta,2/7/2019,393 vessels
+ESP,c188,2/28/2023,
 EST,c188,5/3/2016,
 EU,psma,7/7/2011,
 FIN,cta,2/19/2020,
@@ -54,6 +56,7 @@ JPN,psma,5/17/2017,
 JPN,cta,3/29/1994,554 vessels
 KEN,psma,8/23/2017,
 KEN,cta,3/17/2022,18 vessels
+KEN,c188,2/4/2022,
 KHM,psma,12/6/2019,
 KNA,psma,12/9/2015,
 KNA,cta,12/1/2017,0 vessels
@@ -75,14 +78,17 @@ MRT,psma,1/23/2017,
 MUS,psma,8/31/2015,
 NAM,psma,7/18/2017,
 NAM,c188,9/20/2018,
+NAM,cta,12/5/2024,"2,935 vessels"
 NGA,psma,10/6/2022,
 NIC,psma,8/14/2020,
+NIC,cta,10/19/2023,33 vessels
 NLD,cta,5/7/2014,153 vessels
 NLD,c188,12/19/2019,
 NOR,psma,7/20/2011,
 NOR,cta,11/26/2013,242 vessels
 NOR,c188,1/8/2016,
 NZL,psma,2/21/2014,
+NZL,cta,5/30/2023,35 vessels
 OMN,psma,8/1/2013,
 PAN,psma,11/21/2016,
 PER,psma,9/27/2017,
@@ -94,6 +100,7 @@ POL,c188,12/17/2019,
 PRT,c188,11/26/2019,
 PRT,cta,3/29/1994,159 vessels
 RUS,psma,12/8/2020,
+SAU,psma,2/5/2025,
 SDN,psma,5/12/2016,
 SEN,psma,3/23/2017,
 SEN,c188,9/21/2018,
@@ -109,6 +116,7 @@ TLS,psma,3/29/2023,
 TON,psma,5/6/2016,
 TTO,psma,10/24/2019,
 TUR,psma,3/30/2018,
+UKR,psma,3/12/2025,
 URY,psma,2/28/2013,
 USA,psma,2/26/2016,
 VCT,psma,6/23/2016,
